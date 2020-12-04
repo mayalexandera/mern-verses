@@ -6,7 +6,9 @@ const mongoose = require("mongoose");
 //enables cookies, allowing Express to handle them.
 const cookieSession = require("cookie-session");
 
+// Express passes along cookies to manage authentication
 const passport = require("passport");
+
 const keys = require("./config/keys");
 require("./models/User");
 require("./services/passport");
@@ -15,13 +17,20 @@ mongoose.connect(keys.mongoURI);
 
 const app = express();
 
+/* 
+this function tells passport to make use of cookies, takes one argument which is function 'cookieSession.'
+
+cookieSession() takes in a configuration object which expects two properties:
+  maxAge: maximum amount of time a cookie can be stored in the browser before it is automatically  expired. *** PASSED IN as a NUMBER in MILLISECONDS
+  keys: a key used to encrypt/assigned our cookie. (store in secret file)
+*/
+
 app.use(
   cookieSession({
     maxAge: 30 * 24 * 60 * 60 * 1000,
     keys: [keys.cookieKey],
   })
 );
-
 
 // telling passport to implement cookies for authentication
 app.use(passport.initialize());

@@ -1,5 +1,6 @@
 const passport = require("passport");
 
+// object contains all route handlers.
 module.exports = (app) => {
   app.get(
     "/auth/google",
