@@ -31,7 +31,7 @@ passport.use(
       clientID: keys.googleClientID,
       clientSecret: keys.googleClientSecret,
       callbackURL:
-        "https://boiling-beyond-29110.herokuapp.com/auth/google/callback",
+        "/auth/google/callback",
       proxy: true,
     },
     (accessToken, refreshToken, profile, done) => {
