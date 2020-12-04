@@ -1,5 +1,4 @@
-const passport = require('passport')
-
+const passport = require("passport");
 
 module.exports = (app) => {
   app.get(
@@ -10,6 +9,7 @@ module.exports = (app) => {
   );
 
   app.get("/auth/google/callback", passport.authenticate("google"));
-}
+};
+
 
 
