@@ -2,40 +2,15 @@ import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 
-import Payments from "../Payments/Payments";
 import "./Header.css";
 
 class Header extends Component {
-  renderContent() {
-    switch (this.props.auth) {
-      case null:
-        return;
-      case false:
-        return (
-          <li className='nav-button'>
-            <a href='/auth/google'>Login with Google</a>
-          </li>
-        );
-      default:
-        return [
-          <li>
-            <Payments />
-          </li>,
-          <li className='nav-button'>
-            <a href='/api/logout'>Logout</a>
-          </li>,
-        ];
-    }
-  }
   render() {
     return (
       <nav>
         <div className='nav-wrapper'>
           <ul className='left-menu'>
-            <NavLink
-              className='nav-logo'
-              to={this.props.user ? "/surveys" : "/"}
-            >
+            <NavLink className='nav-logo' to='/'>
               Verses
             </NavLink>
           </ul>
@@ -47,7 +22,6 @@ class Header extends Component {
             <NavLink className='nav-button' to='/'>
               Cart
             </NavLink>
-            {this.renderContent()}
           </ul>
         </div>
         <ul className='center-menu'>
@@ -61,7 +35,6 @@ class Header extends Component {
             Plans
           </NavLink>
         </ul>
-        {/* <div className='nav-spacer' /> */}
       </nav>
     );
   }

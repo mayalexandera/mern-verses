@@ -7,10 +7,10 @@ function Dashboard() {
     <nav>
       <div className='dashboard-wrapper'>
         <ul>
-          <NavLink to='/surveys'>Profile</NavLink>
+          <NavLink to='/member/profile'>Profile</NavLink>
           <NavLink to='/surveys'>Orders</NavLink>
           <NavLink to='/surveys'>Favorites</NavLink>
-          <NavLink to='/surveys'>Settings</NavLink>
+          <NavLink to='/member/profile/settings'>Account Settings</NavLink>
         </ul>
       </div>
     </nav>

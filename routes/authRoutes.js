@@ -22,7 +22,7 @@ module.exports = (app) => {
 
     //this is express arrow function - express provides arguments req & res
     (req, res) => {
-      res.redirect("/surveys");
+      res.redirect("/");
     }
   );
   
