@@ -4,11 +4,12 @@ import { connect } from 'react-redux'
 import * as actions from '../actions'
 
 import Header from "./Header/Header";
+import Landing from "./Landing/Landing";
+import Dashboard from "./Dashboard/Dashboard";
 import "./App.css";
 
-const Landing = () => <div>Landing</div>;
 const SurveyNew = () => <div>SurveyNew</div>;
-const Dashboard = () => <div>Dashboard</div>;
+// const Dashboard = () => <div>Dashboard</div>;
 
 class App extends Component {
 

@@ -1,0 +1,11 @@
+.dashboard-wrapper {
+  border: 1px solid red;
+}
+
+.dashboard-wrapper > ul {
+  border: 1px solid red;
+  width: 66%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
