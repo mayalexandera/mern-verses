@@ -1,0 +1,40 @@
+.nav-wrapper {
+  width: 100%;
+  /* background-color: #fff; */
+  position: fixed;
+  z-index: 1;
+  font-size: 90%;
+  display: flex;
+  justify-content: space-between;
+  height: 9vh;
+  border: 1px solid red;
+  padding: 0 10px;
+}
+
+.left-menu,
+.right-menu {
+  margin: auto 0;
+  display: inline-flex;
+  border: 1px solid red;
+}
+
+.left-menu { float: left }
+.right-menu { float: right }
+
+.left-menu > .nav-button {
+  padding-right: 10px;
+}
+
+.right-menu > .nav-button {
+  padding-left: 10px;
+}
+
+.nav-button {
+  font-weight: 400;
+  color: black;
+  text-transform: uppercase;
+}
+
+.nav-spacer {
+  height: 9vh;
+}

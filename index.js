@@ -13,19 +13,19 @@ const keys = require("./config/keys");
 require("./models/User");
 require("./services/passport");
 
+// connects mongoose to mongoDB
 mongoose.connect(keys.mongoURI);
 
 const app = express();
-
+ 
 /* 
-this function tells passport to make use of cookies, takes one argument which is function 'cookieSession.'
-
-cookieSession() takes in a configuration object which expects two properties:
-  maxAge: maximum amount of time a cookie can be stored in the browser before it is automatically  expired. *** PASSED IN as a NUMBER in MILLISECONDS
-  keys: a key used to encrypt/assigned our cookie. (store in secret file)
+this app.use() function tells passport to make use of cookies, takes one argument which is function 'cookieSession()'
 */
-
 app.use(
+  /* cookieSession() takes in a configuration object which expects two properties:
+      maxAge: maximum amount of time a cookie can be stored in the browser before it is automatically  expired. *** PASSED IN as a NUMBER in MILLISECONDS
+      keys: a key used to encrypt/assigned our cookie. (store in secret file)
+*/
   cookieSession({
     maxAge: 30 * 24 * 60 * 60 * 1000,
     keys: [keys.cookieKey],
