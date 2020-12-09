@@ -12,17 +12,23 @@
 }
 
 .left-menu,
-.right-menu {
+.right-menu,
+.nav-wrapper > .nav-button {
   margin: auto 0;
   display: inline-flex;
   border: 1px solid red;
 }
 
-.left-menu { float: left }
+.left-menu { float: none }
 .right-menu { float: right }
 
 .left-menu > .nav-button {
   padding-right: 10px;
+}
+
+.left-menu > .nav-button:last-child,
+.right-menu > .nav-button:first-child {
+  padding: 0px;
 }
 
 .right-menu > .nav-button {

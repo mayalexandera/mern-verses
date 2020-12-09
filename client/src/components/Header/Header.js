@@ -39,14 +39,20 @@ class Header extends Component {
               Plans
             </NavLink>
           </ul>
+          <NavLink className='nav-button' to='/'>
+            Verses
+          </NavLink>
           <ul className='right-menu'>
             <NavLink className='nav-button' to='/'>
               Favorites
             </NavLink>
+            <NavLink className='nav-button' to='/'>
+              Cart
+            </NavLink>
             {this.renderContent()}
           </ul>
         </div>
-        <div className='nav-spacer'/>
+        <div className='nav-spacer' />
       </nav>
     );
   }
