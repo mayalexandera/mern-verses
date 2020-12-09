@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
-import { connect } from 'react-redux'
+import { connect } from "react-redux";
 
+import Payments from "../Payments/Payments";
 import "./Header.css";
 
 class Header extends Component {
-
   renderContent() {
     switch (this.props.auth) {
       case null:
@@ -17,11 +17,14 @@ class Header extends Component {
           </li>
         );
       default:
-        return (
+        return [
+          <li>
+            <Payments />
+          </li>,
           <li className='nav-button'>
             <a href='/api/logout'>Logout</a>
-          </li>
-        );
+          </li>,
+        ];
     }
   }
   render() {
@@ -29,19 +32,14 @@ class Header extends Component {
       <nav>
         <div className='nav-wrapper'>
           <ul className='left-menu'>
-            <NavLink className='nav-button' to='/'>
-              Clothing
-            </NavLink>
-            <NavLink className='nav-button' to='/'>
-              Accessories
-            </NavLink>
-            <NavLink className='nav-button' to='/'>
-              Plans
+            <NavLink
+              className='nav-logo'
+              to={this.props.user ? "/surveys" : "/"}
+            >
+              Verses
             </NavLink>
           </ul>
-          <NavLink className='nav-button' to='/'>
-            Verses
-          </NavLink>
+
           <ul className='right-menu'>
             <NavLink className='nav-button' to='/'>
               Favorites
@@ -52,7 +50,18 @@ class Header extends Component {
             {this.renderContent()}
           </ul>
         </div>
-        <div className='nav-spacer' />
+        <ul className='center-menu'>
+          <NavLink className='nav-button' to='/'>
+            Clothing
+          </NavLink>
+          <NavLink className='nav-button' to='/'>
+            Accessories
+          </NavLink>
+          <NavLink className='nav-button' to='/'>
+            Plans
+          </NavLink>
+        </ul>
+        {/* <div className='nav-spacer' /> */}
       </nav>
     );
   }
