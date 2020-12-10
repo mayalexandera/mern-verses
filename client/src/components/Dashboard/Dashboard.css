@@ -1,6 +1,6 @@
 .dashboard-wrapper {
-  /* border: 1px solid red; */
-  margin-top: 5vh;
+  border: 1px solid red;
+  /* margin-top: 5vh; */
   text-transform: uppercase;
   font-weight: 400;
   font-size: 80%;

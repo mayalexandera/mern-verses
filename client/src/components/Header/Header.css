@@ -6,7 +6,8 @@
   z-index: 1;
   display: flex;
   justify-content: space-between;
-  height: 12vh;
+  height: 7vh;
+  min-height: 60px;
   /* border: 1px solid red; */
   padding: 0 10px;
 }
@@ -15,7 +16,7 @@
   /* border: 1px solid red; */
   /* display: flex; */
   justify-content: center;
-  /* height: 12vh; */
+  /* height: 7vh; */
   /* z-index: 2; */
 }
 
@@ -57,6 +58,7 @@
 }
 
 .nav-spacer {
-  height: 12vh;
+  height: 7vh;
+  min-height: 60px;
   border: 1px solid red;
 }
