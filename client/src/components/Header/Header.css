@@ -1,24 +1,26 @@
-.nav-wrapper {
+.nav-wrapper,
+.center-menu {
   width: 100%;
   /* background-color: #fff; */
   position: fixed;
   z-index: 1;
   display: flex;
   justify-content: space-between;
-  height: 9vh;
-  border: 1px solid red;
+  height: 12vh;
+  /* border: 1px solid red; */
   padding: 0 10px;
 }
 
 .center-menu {
-  border: 1px solid red;
-  display: flex;
+  /* border: 1px solid red; */
+  /* display: flex; */
   justify-content: center;
-  height: 9vh;
+  /* height: 12vh; */
+  /* z-index: 2; */
 }
 
-.left-menu, .right-menu {
-  list-style: none;
+.nav-button {
+  font-size: 80%;
 }
 
 .left-menu,
@@ -48,8 +50,13 @@
   color: black;
   text-transform: uppercase;
 }
-/* 
+
+.nav-logo {
+  font-weight: 900;
+  font-size: 200%;
+}
+
 .nav-spacer {
-  height: 9vh;
+  height: 12vh;
   border: 1px solid red;
-} */
+}

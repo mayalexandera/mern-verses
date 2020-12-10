@@ -8,9 +8,9 @@ function Dashboard() {
       <div className='dashboard-wrapper'>
         <ul>
           <NavLink to='/member/profile'>Profile</NavLink>
-          <NavLink to='/surveys'>Orders</NavLink>
-          <NavLink to='/surveys'>Favorites</NavLink>
-          <NavLink to='/member/profile/settings'>Account Settings</NavLink>
+          <NavLink to='/member/orders'>Orders</NavLink>
+          <NavLink to='/member/favorites'>Favorites</NavLink>
+          <NavLink to='/member/settings'>Account Settings</NavLink>
         </ul>
       </div>
     </nav>

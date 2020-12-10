@@ -35,22 +35,17 @@ class Header extends Component {
             Plans
           </NavLink>
         </ul>
+        <div className='nav-spacer'/>
       </nav>
     );
   }
 }
 
-//destructured
 function mapStateToProps({ auth }) {
-  // return { auth: auth };
-
   //since the keys and values are the same can be further reduced
+
+  //   return { auth: state.auth }
   return { auth };
 }
-
-//not destructured
-// function mapStateToProps(state) {
-//   return { auth: state.auth }
-// }
 
 export default connect(mapStateToProps)(Header);

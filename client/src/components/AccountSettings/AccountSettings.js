@@ -3,7 +3,7 @@ import Payments from "../Payments/Payments";
 
 function AccountSettings() {
   return (
-    <div>
+    <div style={{textAlign: 'center'}}>
       <h2>Account Settings</h2>
       <Payments/>
     </div>

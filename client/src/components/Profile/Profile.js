@@ -1,13 +1,13 @@
-import React from 'react'
-
-import Dashboard from '../Dashboard/Dashboard'
+import React from "react";
 
 function Profile() {
-  return(
-    <div> 
-      <Dashboard/>
+  return (
+    <div>
+      <h2 style={{ textAlign: "center" }}>
+        Member Profile
+      </h2>
     </div>
-  )
+  );
 }
 
-export default Profile
+export default Profile;

@@ -1,0 +1,34 @@
+
+.member-banner-wrapper {
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(246, 246, 246);
+  /* border: 1px solid red; */
+  height: 7vh;
+  font-weight: 400;
+  padding: 0 15px;
+}
+
+.member-banner-left,
+.member-banner-right{
+  display: flex;
+}
+
+.member-banner-right {
+  text-transform: uppercase;
+}
+
+.member-banner-button,
+.member-banner-greeting {
+  margin: auto 0;
+  font-size: 70%;
+  /* border: 1px solid red; */
+}
+
+.member-banner-button {
+  margin-right: 15px;
+}
+
+.member-banner-button:last-child {
+  margin-right: 0px;
+}
