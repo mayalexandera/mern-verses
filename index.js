@@ -81,7 +81,7 @@ if (process.env === 'production') {
   // catch all statement, if there is no route handler,
   // the file isn't in client/build,
   // serve back index.html
-  app.get('*', (req, res) => {
+  app.get('/', (req, res) => {
     res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
   })
 }
