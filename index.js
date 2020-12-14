@@ -10,9 +10,11 @@ const cookieSession = require("cookie-session");
 const passport = require("passport");
 
 /*
- body-parser is an express middleware that instructs express to parse request body and make available to application.
+ body-parser is an express middleware that instructs express
+ to parse request body and make available to application.
 
- when you make a POST request to express server express DOES NOT by default parse the request Body.
+ when you make a POST request to express server express DOES NOT
+ by default parse the request Body.
 */
 const bodyParser = require("body-parser");
 
@@ -51,7 +53,11 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-// Telling express server that any request with a request body will now use bodyParser to parse body and assign it to the req.body property of the incoming request object
+/*
+Telling express server that any request with a request body
+will now use bodyParser to parse body and assign it to the req.body property
+of the incoming request object
+*/
 app.use(bodyParser.json())
 
 /* authRoutes.js, billingRoutes.js both exports a module object that returns a function, so this
@@ -59,6 +65,26 @@ registers in JS as the anonymous function call, passing the app argument.
 */ 
 require("./routes/authRoutes")(app);
 require("./routes/billingRoutes")(app);
+
+if (process.env === 'production') {
+  /*
+   express will serve up production assets.
+    like main.js, main.css...
+
+   express will serve up the index.html file if it doesn't recognize the route.
+
+  basically if the route isn't in either authRoutes || billngRoutes, look in the client/build dir.
+  */
+  app.use(express.static('client/build'))
+  const path = require('path')
+
+  // catch all statement, if there is no route handler,
+  // the file isn't in client/build,
+  // serve back index.html
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
+  })
+}
 
 //sets PORT to either prod environment variable PORT, or local port 5000.
 const PORT = process.env.PORT || 5000;

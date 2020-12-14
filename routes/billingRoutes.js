@@ -10,25 +10,24 @@ module.exports = (app) => {
   */
   app.post("/api/stripe", requireLogin, async (req, res) => {
     const charge = await stripe.charges.create({
-      amount: 500,
+      amount: 8900,
       currency: "usd",
       description: "$89/month",
       source: req.body.id,
     });
     
   /*
-     
-    req.user gets assigned by passport.  whenever there is a request comes in
-    set up with passport.initialize() & passport.session()
+    req.user gets assigned by passport.  whenever there is a request that 
+    comes in set up with passport.initialize() & passport.session()
 
     passport looks at the cookie, and if there is assigns the user model to the 
     request.
   */
-
-    req.user.credits +=5;
+    req.user.credits +=1;
     const user = await req.user.save()
 
     res.send(user)
-    console.log(user)
   });
 };
+
+
