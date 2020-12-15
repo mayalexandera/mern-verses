@@ -28,7 +28,11 @@ require("./models/User");
 require("./services/passport");
 
 // connects mongoose to mongoDB
-mongoose.connect(keys.mongoURI);
+// mongoose.connect(keys.mongoURI);
+mongoose.connect(keys.mongoURI, {
+  useUnifiedTopology: true,
+  useNewUrlParser: true,
+});
 
 //create app variable that returns express server function
 const app = express();
