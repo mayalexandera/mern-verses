@@ -36,7 +36,14 @@ mongoose.connect(keys.mongoURI, {
 
 //create app variable that returns express server function
 const app = express();
- 
+
+/*
+Telling express server that any request with a request body
+will now use bodyParser to parse body and assign it to the req.body property
+of the incoming request object
+*/
+app.use(bodyParser.json())
+
 //Telling express server (app.use()) to use cookieSession to make use of/set cookies retrieved from the browser.
 app.use(
   /* cookieSession() is an express middleware that takes in a configuration object which expects two properties:
@@ -56,13 +63,6 @@ app.use(
 // Telling express server(app.use()) to connect to passport to implement cookies for authentication (passport.initialize(), passport.session())
 app.use(passport.initialize());
 app.use(passport.session());
-
-/*
-Telling express server that any request with a request body
-will now use bodyParser to parse body and assign it to the req.body property
-of the incoming request object
-*/
-app.use(bodyParser.json())
 
 /* authRoutes.js, billingRoutes.js both exports a module object that returns a function, so this
 registers in JS as the anonymous function call, passing the app argument.
@@ -85,7 +85,7 @@ if (process.env === 'production') {
   // catch all statement, if there is no route handler,
   // the file isn't in client/build,
   // serve back index.html
-  app.get('/', (req, res) => {
+  app.get('*', (req, res) => {
     res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
   })
 }
