@@ -21,8 +21,9 @@ const bodyParser = require("body-parser");
 //logic to determine environment
 const keys = require("./config/keys");
 
-//mongoose User Schema
+//mongoose Schemas
 require("./models/User");
+require('./models/Survey')
 
 //o auth strategy configuration
 require("./services/passport");
@@ -69,6 +70,7 @@ registers in JS as the anonymous function call, passing the app argument.
 */ 
 require("./routes/authRoutes")(app);
 require("./routes/billingRoutes")(app);
+require('./routes/surveyRoutes')(app)
 
 if (process.env.NODE_ENV === 'production') {
   /*
