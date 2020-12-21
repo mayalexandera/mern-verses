@@ -70,7 +70,7 @@ registers in JS as the anonymous function call, passing the app argument.
 require("./routes/authRoutes")(app);
 require("./routes/billingRoutes")(app);
 
-if (process.env === 'production') {
+if (process.env.NODE_ENV === 'production') {
   /*
    express will serve up production assets.
     like main.js, main.css...
@@ -80,11 +80,11 @@ if (process.env === 'production') {
   basically if the route isn't in either authRoutes || billngRoutes, look in the client/build dir.
   */
   app.use(express.static('client/build'))
-  const path = require('path')
-
+  
   // catch all statement, if there is no route handler,
   // the file isn't in client/build,
   // serve back index.html
+  const path = require('path')
   app.get('*', (req, res) => {
     res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
   })
