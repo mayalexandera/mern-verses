@@ -23,7 +23,7 @@ const keys = require("./config/keys");
 
 //mongoose Schemas
 require("./models/User");
-require('./models/Survey')
+require("./models/Survey");
 
 //o auth strategy configuration
 require("./services/passport");
@@ -43,7 +43,7 @@ Telling express server that any request with a request body
 will now use bodyParser to parse body and assign it to the req.body property
 of the incoming request object
 */
-app.use(bodyParser.json())
+app.use(bodyParser.json());
 
 //Telling express server (app.use()) to use cookieSession to make use of/set cookies retrieved from the browser.
 app.use(
@@ -67,12 +67,12 @@ app.use(passport.session());
 
 /* authRoutes.js, billingRoutes.js both exports a module object that returns a function, so this
 registers in JS as the anonymous function call, passing the app argument.
-*/ 
+*/
 require("./routes/authRoutes")(app);
 require("./routes/billingRoutes")(app);
-require('./routes/surveyRoutes')(app)
+require("./routes/surveyRoutes")(app);
 
-if (process.env.NODE_ENV === 'production') {
+if (process.env.NODE_ENV === "production") {
   /*
    express will serve up production assets.
     like main.js, main.css...
@@ -81,15 +81,15 @@ if (process.env.NODE_ENV === 'production') {
 
   basically if the route isn't in either authRoutes || billngRoutes, look in the client/build dir.
   */
-  app.use(express.static('client/build'))
-  
+  app.use(express.static("client/build"));
+
   // catch all statement, if there is no route handler,
   // the file isn't in client/build,
   // serve back index.html
-  const path = require('path')
-  app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
-  })
+  const path = require("path");
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+  });
 }
 
 //sets PORT to either prod environment variable PORT, or local port 5000.
