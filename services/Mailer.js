@@ -8,7 +8,7 @@ class Mailer extends helper.Mail {
     super();
 
     //returns object we can use to interact with sendgrid API.
-    this.sgApi = sendgrid(keys.sendGridKey)
+    this.sgApi = sendgrid(keys.sendGridKey);
     this.from_email = new helper.Email("maya.alexandera@gmail.com");
     this.subject = subject;
     this.body = new helper.Content("text/html", content);
@@ -16,10 +16,10 @@ class Mailer extends helper.Mail {
     this.recipients = this.formatAddresses(recipients);
 
     //built in function from helper.Mail
-    this.addContent(this.body)
-    this.addClickTracking()
+    this.addContent(this.body);
+    this.addClickTracking();
     //take recipients list and register it with actual email
-    this.addRecipients()
+    this.addRecipients();
   }
 
   //helper function to properly format addresses using sendgrid's helper API Email function.
@@ -29,12 +29,14 @@ class Mailer extends helper.Mail {
     });
   }
 
+  //helper function to add click tracking to new Mailer class.
   addClickTracking() {
-    const trackingSettings = new helper.TrackingSettings()
-    const clickTracking = new helper.ClickTracking(true, true)
+    const trackingSettings = new helper.TrackingSettings();
+    const clickTracking = new helper.ClickTracking(true, true);
 
-    trackingSettings.setClickTracking(clickTracking)
-    this.addTrackingSettings(trackingSettings)
+    // setClickTracking and addTrackingSettings are functions provided by SendGrid
+    trackingSettings.setClickTracking(clickTracking);
+    this.addTrackingSettings(trackingSettings);
   }
 
   addRecipients() {
@@ -43,27 +45,25 @@ class Mailer extends helper.Mail {
 
     //iterate over list of recipients defined in constructor, and for each
     //recipient helper.Email object and add them to the personalize object.
-    this.recipients.forEach(recipient => {
-      personalize.addTo(recipient)
-    })
+    this.recipients.forEach((recipient) => {
+      personalize.addTo(recipient);
+    });
 
     //addPersonalization() defined by Mail base class, passing in the personalize
     // object.
-    this.addPersonalization(personalize)
+    this.addPersonalization(personalize);
   }
 
   async send() {
     const request = this.sgApi.emptyRequest({
-      method: 'POST',
-      path: '/v3/mail/send',
-      body: this.toJSON()
-    })
+      method: "POST",
+      path: "/v3/mail/send",
+      body: this.toJSON(),
+    });
     //sends off to send grid
-    const response = await this.sgApi.API(request)
-    return response
-    
+    const response = await this.sgApi.API(request);
+    return response;
   }
 }
-
 
 module.exports = Mailer;

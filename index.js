@@ -65,7 +65,7 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-/* authRoutes.js, billingRoutes.js both exports a module object that returns a function, so this
+/* authRoutes.js, billingRoutes.js, surveyRoutes.js are exports a module object that returns a function, so this
 registers in JS as the anonymous function call, passing the app argument.
 */
 require("./routes/authRoutes")(app);
