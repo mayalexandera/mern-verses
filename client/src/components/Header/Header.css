@@ -1,5 +1,5 @@
 .nav-wrapper,
-.center-menu {
+.center-menu{
   width: 100%;
   /* background-color: #fff; */
   position: fixed;
@@ -12,9 +12,17 @@
   padding: 0 10px;
 }
 
+.main-menu {
+  width: 100%;
+  /* position: fixed; */
+  display: flex;
+  justify-content: center;
+}
+
 .center-menu {
+  width: 30%;
   /* border: 1px solid red; */
-  /* display: flex; */
+  display: inline-flex;
   justify-content: center;
   /* height: 7vh; */
   /* z-index: 2; */
@@ -60,5 +68,5 @@
 .nav-spacer {
   height: 7vh;
   min-height: 60px;
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }

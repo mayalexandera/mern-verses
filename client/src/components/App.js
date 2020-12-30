@@ -10,6 +10,8 @@ import MemberPortal from "./MemberPortal/MemberPortal";
 import Dashboard from "./Dashboard/Dashboard";
 import Profile from "./Profile/Profile";
 import Favorites from "./Favorites/Favorites";
+import Products from "./Products/Products";
+import Cart from "./Cart/Cart";
 import Orders from "./Orders/Orders";
 import AccountSettings from "./AccountSettings/AccountSettings";
 import "./App.css";
@@ -36,6 +38,8 @@ class App extends Component {
             <Route path='/member/settings' component={AccountSettings} />
             <Route path='/member/orders' component={Orders} />
             <Route path='/member/favorites' component={Favorites} />
+            <Route path='/member/cart' component={Cart} />
+            <Route path='/products' component={Products} />
           </div>
         </BrowserRouter>
       </div>

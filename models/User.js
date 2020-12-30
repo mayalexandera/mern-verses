@@ -6,6 +6,11 @@ const { Schema } = mongoose
 //with an object the first property must be the type.
 const userSchema = new Schema({
   googleId: String,
+  displayName: String,
+  givenName: String,
+  familyName: String,
+  email: String,
+  photoUrl: String,
   credits: { type: Number, default: 0 }
 });
 

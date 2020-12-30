@@ -30,7 +30,7 @@ class AuthBanner extends Component {
           <div key={5} className='member-banner-left'>
 
             <NavLink className='member-banner-greeting' to='/member/profile'>
-              Hi, {this.props.auth.googleId}
+              Hi, {this.props.auth.givenName}
             </NavLink>
 
           </div>,
