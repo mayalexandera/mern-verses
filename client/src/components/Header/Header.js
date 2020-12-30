@@ -5,8 +5,22 @@ import { connect } from "react-redux";
 import "./Header.css";
 
 class Header extends Component {
+
+  memberMenu() {
+    const menu = 
+    <React.Fragment>
+      <NavLink className='nav-button' to='/favorites'>
+        Favorites
+      </NavLink>
+      <NavLink className='nav-button' to='/cart'>
+        Cart
+      </NavLink>
+    </React.Fragment>
+
+    return this.props.auth ? menu : null
+  }
   render() {
-    console.log(this.props.auth)
+    console.log(this.props.auth);
     return (
       <nav className='main-menu'>
         <div className='nav-wrapper'>
@@ -17,12 +31,15 @@ class Header extends Component {
           </ul>
 
           <ul className='right-menu'>
-            <NavLink className='nav-button' to='/member/favorites'>
-              Favorites
-            </NavLink>
-            <NavLink className='nav-button' to='/member/cart'>
+            {this.memberMenu()}
+            {/* {this.props.auth ? (
+              <NavLink className='nav-button' to='/favorites'>
+                Favorites
+              </NavLink>
+            ) : null}
+            <NavLink className='nav-button' to='/cart'>
               Cart
-            </NavLink>
+            </NavLink> */}
           </ul>
         </div>
         <ul className='center-menu'>
@@ -36,7 +53,7 @@ class Header extends Component {
             Plans
           </NavLink>
         </ul>
-        <div className='nav-spacer'/>
+        <div className='nav-spacer' />
       </nav>
     );
   }

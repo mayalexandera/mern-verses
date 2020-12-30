@@ -38,7 +38,9 @@ class App extends Component {
             <Route path='/member/settings' component={AccountSettings} />
             <Route path='/member/orders' component={Orders} />
             <Route path='/member/favorites' component={Favorites} />
-            <Route path='/member/cart' component={Cart} />
+            <Route exact path='/favorites' component={Favorites} />
+            {/* <Route exact path='/member/cart' component={Cart} /> */}
+            <Route exact path='/cart' component={Cart} />
             <Route path='/products' component={Products} />
           </div>
         </BrowserRouter>

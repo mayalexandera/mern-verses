@@ -47,11 +47,6 @@ passport.use(
       console.log(profile);
       const existingUser = await User.findOne({
         googleId: profile.id,
-        displayName: profile.displayName,
-        familyName: profile.name.familyName,
-        givenName: profile.name.givenName,
-        email: profile.emails[0].value,
-        photoUrl: profile.photos[0].value,
       });
 
       if (existingUser) {

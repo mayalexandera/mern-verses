@@ -1,36 +1,20 @@
 
 .member-banner-wrapper {
-  display: flex;
-  justify-content: space-between;
   background-color: rgb(246, 246, 246);
-  /* border: 1px solid red; */
   color: #555;
   height: 4vh;
   min-height: 30px;
   font-weight: 400;
-  padding: 0 15px;
-  list-style: none;
-}
-
-.member-banner-left,
-.member-banner-right {
-  display: flex;
-}
-
-.member-banner-right {
-  text-transform: uppercase;
-}
-
-.member-banner-greeting,
-.member-banner-right div,
-.member-banner-right a,
-.member-banner-right li {
-  margin: auto 0;
+  display:flex;
+  width: 100%;
   font-size: 70%;
-  /* border: 1px solid red; */
+  text-transform: uppercase;
+  align-items: center;
+  flex-direction: row-reverse;
 }
 
-.member-banner-right div {
-  margin-left: 15px;
-  margin-right: 15px;
+.member-banner-wrapper  a {
+  margin-left: 10px;
+  margin-right: 10px;
+  
 }

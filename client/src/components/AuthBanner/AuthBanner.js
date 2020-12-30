@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 
-import Payments from "../Payments/Payments";
 import "./AuthBanner.css";
 
 class AuthBanner extends Component {
@@ -10,52 +9,35 @@ class AuthBanner extends Component {
     switch (this.props.auth) {
       case null:
         return [
-          // <div key={0} />,
-          <div key={1} className='member-banner-button'>
-            <a href='/auth/google'>Sign Up |</a>
-          </div>,
-          <div key={2} className='member-banner-button'>
+          <div key={1}>
             <a href='/auth/google'>Login with Google</a>
+          </div>,
+          <div key={2}>|</div>,
+          <div key={3}>
+            <a href='/auth/google'>Sign Up</a>
           </div>,
         ];
       case false:
         return [
-          // <div key={3} />,
           <div key={4}>
             <a href='/auth/google'>Login with Google</a>
+          </div>,
+          <div key={5} >|</div>,
+          <div key={6}>
+            <a href='/auth/google'>Sign Up</a>
           </div>,
         ];
       default:
         return [
-          <div key={5} className='member-banner-left'>
-
-            <NavLink className='member-banner-greeting' to='/member/profile'>
-              Hi, {this.props.auth.givenName}
-            </NavLink>
-
-          </div>,
-
-          <div key={6} className='member-banner-right'>
-
-            <NavLink to='/member/profile'>
-              Profile
-            </NavLink>
-
-            <div key={7}>|</div>
-
-            <li key={10}>
-              Credits: {this.props.auth.credits}
-            </li>
-
-            <div key={11}>|</div>
-
-            <Payments/>
-
-            <div key={9} >|</div>
-
+          <div key={7}>
             <a href='/api/logout'>Logout</a>
-            
           </div>,
+          <div key={9} >|</div>,
+          <div key={8}>
+            <a href='/member/profile'>
+            Hi, {this.props.auth.givenName}
+            </a>
+          </div>
         ];
     }
   }
