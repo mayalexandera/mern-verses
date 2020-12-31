@@ -8,9 +8,28 @@ import { reduxForm, Field } from 'redux-form'
 const SurveyForm = (props) => {
 
   const renderFields = () => {
-    return (<div>
-      <Field type='text' name='title' component={SurveyField}/>
-    </div>)
+    return (
+      <div>
+        <Field
+          label='Overall Rating'
+          type='text'
+          name='rating'
+          component={SurveyField}
+        />
+        <Field
+          label='Review Title'
+          type='text'
+          name='reviewTitle'
+          component={SurveyField}
+        />
+        <Field
+          label='Review'
+          type='textarea'
+          name='Review'
+          component={SurveyField}
+        />
+      </div>
+    );
   }
 
     return (
