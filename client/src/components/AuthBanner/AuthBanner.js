@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 
 import "./AuthBanner.css";
@@ -41,6 +40,8 @@ class AuthBanner extends Component {
         ];
     }
   }
+
+  //add dropdown menu with account: profile, orders, favorites, account settings, logout
   render() {
     return (
       <nav>

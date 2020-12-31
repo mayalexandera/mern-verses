@@ -5,20 +5,6 @@ import { connect } from "react-redux";
 import "./Header.css";
 
 class Header extends Component {
-
-  memberMenu() {
-    const menu = 
-    <React.Fragment>
-      <NavLink className='nav-button' to='/favorites'>
-        Favorites
-      </NavLink>
-      <NavLink className='nav-button' to='/cart'>
-        Cart
-      </NavLink>
-    </React.Fragment>
-
-    return this.props.auth ? menu : null
-  }
   render() {
     console.log(this.props.auth);
     return (
@@ -31,15 +17,12 @@ class Header extends Component {
           </ul>
 
           <ul className='right-menu'>
-            {this.memberMenu()}
-            {/* {this.props.auth ? (
-              <NavLink className='nav-button' to='/favorites'>
-                Favorites
-              </NavLink>
-            ) : null}
-            <NavLink className='nav-button' to='/cart'>
+            <NavLink className='nav-button' to='/member/favorites'>
+              Favorites
+            </NavLink>
+            <NavLink className='nav-button' to='/member/cart'>
               Cart
-            </NavLink> */}
+            </NavLink>
           </ul>
         </div>
         <ul className='center-menu'>

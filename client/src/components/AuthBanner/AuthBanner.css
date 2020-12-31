@@ -1,20 +1,19 @@
 
 .member-banner-wrapper {
+  display:flex;
+  flex-direction: row-reverse;
+  align-items: center;
   background-color: rgb(246, 246, 246);
   color: #555;
   height: 4vh;
-  min-height: 30px;
-  font-weight: 400;
-  display:flex;
   width: 100%;
+  min-height: 30px;
   font-size: 70%;
+  font-weight: 400;
   text-transform: uppercase;
-  align-items: center;
-  flex-direction: row-reverse;
 }
 
 .member-banner-wrapper  a {
   margin-left: 10px;
   margin-right: 10px;
-  
 }
