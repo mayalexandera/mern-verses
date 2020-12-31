@@ -2,6 +2,8 @@
 import React from "react";
 import _ from "lodash";
 import SurveyField from "./SurveyField";
+
+import validateEmails from "../../utils/validateEmails";
 import { Link } from "react-router-dom";
 // import { Form, Field } from "react-final-form";
 import { reduxForm, Field } from "redux-form";
@@ -43,12 +45,10 @@ const SurveyForm = (props) => {
 
   return (
     <div className='survey-form-wrapper'>
-      <form onSubmit={props.handleSubmit((values) => console.log(values))}>
+      <form onSubmit={props.handleSubmit(props.onSurveySubmit)}>
         {renderFields()}
         <div className='survey-button-row'>
-          <button className='survey-button' type='submit'>
-            Cancel
-          </button>
+          <Link className='survey-button' to='/surveys'>Cancel</Link>
           <button className='survey-button' type='submit'>
             Next
           </button>
@@ -59,14 +59,17 @@ const SurveyForm = (props) => {
 };
 
 function validate(values) {
-  console.log(values)
+  // console.log(values)
   const errors = {};
+  
+  errors.emails = validateEmails(values.emails || '' )
 
   _.each(FIELDS, ({ name, noValueError }) => {
     if (!values[name]) {
       errors[name] = noValueError;
     }
   });
+
 
   return errors;
 }

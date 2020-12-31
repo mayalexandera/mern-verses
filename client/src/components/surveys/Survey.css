@@ -1,7 +1,6 @@
 .survey-container {
   display: flex;
   justify-content: center;
-  width: 100%;
   margin: 4vh;
   padding-top: 10vh;
   font-size: 50%;
@@ -30,7 +29,7 @@
 }
 
 .survey-field-row {
-    border-bottom: none;
+  border-bottom: none;
 }
 
 .survey-field-textarea {
@@ -41,7 +40,7 @@
   position: relative;
   height: 100%;
   width: 85%;
-    color: #555;
+  color: #555;
   padding: 10px 0px;
   border: none;
   font-size: 100%;

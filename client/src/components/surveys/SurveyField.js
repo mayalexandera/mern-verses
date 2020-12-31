@@ -2,8 +2,8 @@
 
 import React from 'react' 
 
-export default ({ input, label, className, meta: { error, touched } }) => {
-  console.log(error, touched)
+const SurveyField = ({ input, label, className, meta: { error, touched } }) => {
+  // console.log(error, touched)
   return (
     <div className={className}>
       {/* the input object from props (destructed and passed as argument to component is some amount of functions.  by using the spread operator, react will automatically add each property.  this frees you from having to pass each property a la onBlur={input.onBlur} onChange={input.onChange} etc */}
@@ -17,3 +17,5 @@ export default ({ input, label, className, meta: { error, touched } }) => {
     </div>
   );
 }
+
+export default SurveyField;
