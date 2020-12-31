@@ -2,12 +2,12 @@
 .member-banner-wrapper {
   display:flex;
   flex-direction: row-reverse;
+  position: fixed;
   align-items: center;
   background-color: rgb(246, 246, 246);
   color: #555;
-  height: 4vh;
   width: 100%;
-  min-height: 30px;
+  min-height: 8vh;
   font-size: 70%;
   font-weight: 400;
   text-transform: uppercase;

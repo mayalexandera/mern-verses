@@ -1,0 +1,51 @@
+.survey-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 4vh;
+  padding-top: 10vh;
+  font-size: 50%;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+.survey-form-wrapper {
+  padding: 20px 0px;
+  display: flex;
+  width: 100%;
+  max-width: 800px;
+  justify-content: center;
+  border: 1px solid red
+}
+
+.survey-field-row {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 3vh 0;
+  margin-bottom: 2vh;
+  /* border: 1px solid orange; */
+}
+
+.survey-field-row > input {
+  color: #555;
+  width: 80%;
+  height: 7vh;
+  border: 1px solid rgb(235, 235, 235);
+  padding-left: 30vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+
+ form {
+  width: 90%;
+}
+
+label {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  padding-left: 2vh;
+}

@@ -71,7 +71,6 @@ registers in JS as the anonymous function call, passing the app argument.
 require("./routes/authRoutes")(app);
 require("./routes/billingRoutes")(app);
 require("./routes/surveyRoutes")(app);
-require("./routes/seedRoutes")(app);
 
 if (process.env.NODE_ENV === "production") {
   /*
