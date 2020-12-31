@@ -1,34 +1,77 @@
 //surveyForm show a form for user to ass input
 import React from "react";
-import _ from 'lodash'
-import SurveyField from './SurveyField'
+import _ from "lodash";
+import SurveyField from "./SurveyField";
+import { Link } from "react-router-dom";
 // import { Form, Field } from "react-final-form";
-import { reduxForm, Field } from 'redux-form'
+import { reduxForm, Field } from "redux-form";
 
 const FIELDS = [
-  { label: "Survey Title:", name: "title" },
-  { label: "Subject Line:", name: "subject" },
-  { label: "Email Body:", name: "body" },
-  { label: "Recipient List:", name: "emails" },
-]
+  { label: "Survey Title:", name: "title", className: "survey-field-row",
+noValueError: 'You must provide a title.' },
+  { label: "Subject Line:", name: "subject", className: "survey-field-row",
+noValueError: 'You must provide a subject.' },
+  {
+    label: "Email Body:",
+    name: "body",
+    className: "survey-field-textarea email-body",
+    noValueError: 'You must provide a body.'
+  },
+  {
+    label: "Recipient List:",
+    name: "emails",
+    className: "survey-field-textarea",
+    noValueError: 'You must provide recipient(s).'
+  },
+];
 
 const SurveyForm = (props) => {
   const renderFields = () => {
-    return _.map(FIELDS, ({ label, name }, index) => {
-      return <Field key={index} component={SurveyField} type="text" label={label} name={name}/>
-    })
-  }
+    return _.map(FIELDS, ({ label, name, className }, index) => {
+      return (
+        <Field
+          key={index}
+          component={SurveyField}
+          type='text'
+          label={label}
+          name={name}
+          className={className}
+        />
+      );
+    });
+  };
 
-    return (
+  return (
     <div className='survey-form-wrapper'>
-      <form onSubmit={props.handleSubmit(values => console.log(values))}>
+      <form onSubmit={props.handleSubmit((values) => console.log(values))}>
         {renderFields()}
-        <button type='submit'>Submit</button>
+        <div className='survey-button-row'>
+          <button className='survey-button' type='submit'>
+            Cancel
+          </button>
+          <button className='survey-button' type='submit'>
+            Next
+          </button>
+        </div>
       </form>
     </div>
   );
 };
 
+function validate(values) {
+  console.log(values)
+  const errors = {};
+
+  _.each(FIELDS, ({ name, noValueError }) => {
+    if (!values[name]) {
+      errors[name] = noValueError;
+    }
+  });
+
+  return errors;
+}
+
 export default reduxForm({
-  form: 'surveyForm'
+  form: "surveyForm",
+  validate,
 })(SurveyForm);

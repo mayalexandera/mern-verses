@@ -1,51 +1,110 @@
 .survey-container {
-  width: 100%;
   display: flex;
   justify-content: center;
+  width: 100%;
   margin: 4vh;
   padding-top: 10vh;
   font-size: 50%;
-  text-transform: uppercase;
   font-weight: 400;
+  text-transform: uppercase;
 }
 
 .survey-form-wrapper {
-  padding: 20px 0px;
   display: flex;
+  justify-content: center;
   width: 100%;
   max-width: 800px;
-  justify-content: center;
-  border: 1px solid red
+  padding: 20px 0px;
 }
 
-.survey-field-row {
+.survey-form-wrapper > form {
+  width: 90%;
+}
+
+.survey-field-row,
+.survey-field-textarea {
   display: flex;
   align-items: center;
   width: 100%;
-  padding: 3vh 0;
-  margin-bottom: 2vh;
-  /* border: 1px solid orange; */
+  border: 1px solid #ebebeb;
+}
+
+.survey-field-row {
+    border-bottom: none;
+}
+
+.survey-field-textarea {
+  height: 16vh;
+}
+
+.survey-field-textarea > textarea {
+  position: relative;
+  height: 100%;
+  width: 85%;
+    color: #555;
+  padding: 10px 0px;
+  border: none;
+  font-size: 100%;
+}
+
+.survey-field-textarea > textarea,
+.survey-field-row > input {
+  font-family: "Courier";
+}
+
+.survey-field-textarea > label {
+  position: relative;
+  width: 100px;
+  padding-left: 2vh;
+  bottom: 30%;
+}
+
+.email-body {
+  border-bottom: none;
 }
 
 .survey-field-row > input {
-  color: #555;
-  width: 80%;
   height: 7vh;
-  border: 1px solid rgb(235, 235, 235);
-  padding-left: 30vh;
+  width: 85%;
+  color: #555;
+  border: none;
+  font-size: 100%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
 }
 
-
- form {
-  width: 90%;
-}
-
-label {
+.survey-field-row > label {
   display: flex;
   flex-direction: row;
-  position: absolute;
+  position: relative;
+  width: 100px;
   padding-left: 2vh;
+}
+
+.survey-button {
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  text-transform: uppercase;
+  min-width: 100px;
+  line-height: 9vh;
+  color: #fff;
+  background: #595959;
+  font-size: 110%;
+  font-family: "Lato", "Helvetica", sans-serif;
+  padding: 0px 15px;
+}
+
+.survey-button-row {
+  padding-top: 3vh;
+  display: flex;
+  justify-content: space-between;
+}
+
+.survey-field-error-message {
+  border: none;
+  position: absolute;
+  color: red;
+  left: 70%;
 }
