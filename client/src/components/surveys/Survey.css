@@ -9,6 +9,7 @@
 }
 
 .survey-form-wrapper {
+  border: 1px solid red;
   display: flex;
   justify-content: center;
   width: 100%;
@@ -16,7 +17,8 @@
   padding: 20px 0px;
 }
 
-.survey-form-wrapper > form {
+.survey-form-wrapper > form,
+.survey-form-wrapper > .survey-review {
   width: 90%;
 }
 
@@ -24,6 +26,8 @@
 .survey-field-textarea {
   display: flex;
   align-items: center;
+  padding: 9px 0px;
+  padding-left: 4vh;
   width: 100%;
   border: 1px solid #ebebeb;
 }
@@ -33,29 +37,26 @@
 }
 
 .survey-field-textarea {
+  max-height: 80px;
   height: 16vh;
 }
 
 .survey-field-textarea > textarea {
-  position: relative;
   height: 100%;
-  width: 85%;
-  color: #555;
-  padding: 10px 0px;
-  border: none;
-  font-size: 100%;
 }
 
 .survey-field-textarea > textarea,
-.survey-field-row > input {
+.survey-field-row > input,
+.survey-review-value
+ {
   font-family: "Courier";
-}
-
-.survey-field-textarea > label {
-  position: relative;
-  width: 100px;
-  padding-left: 2vh;
-  bottom: 30%;
+  width: 85%;
+  border: none;
+  font-size: 100%;
+  color: #555;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 .email-body {
@@ -64,46 +65,58 @@
 
 .survey-field-row > input {
   height: 7vh;
-  width: 85%;
-  color: #555;
-  border: none;
-  font-size: 100%;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
+  max-height: 40px;
 }
 
-.survey-field-row > label {
+.survey-field-row > label, 
+.survey-field-textarea > label {
   display: flex;
-  flex-direction: row;
-  position: relative;
   width: 100px;
-  padding-left: 2vh;
+}
+
+.survey-field-textarea > label {
+  position: relative;
+  bottom: 30%;
+}
+
+.survey-field-error-message {
+  max-width: 120px;
+  color: red;
+}
+
+.survey-button-row  {
+  padding-top: 3vh;
+  display: flex;
+  justify-content: space-between;
 }
 
 .survey-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border: none;
   cursor: pointer;
-  text-align: center;
   text-transform: uppercase;
   min-width: 100px;
-  line-height: 9vh;
+  height: 10vh;
+  max-height: 40px;
   color: #fff;
   background: #595959;
   font-size: 110%;
   font-family: "Lato", "Helvetica", sans-serif;
   padding: 0px 15px;
 }
-
-.survey-button-row {
-  padding-top: 3vh;
-  display: flex;
-  justify-content: space-between;
+.survey-review-row {
+  padding: 7px 0px;
 }
 
-.survey-field-error-message {
-  border: none;
-  position: absolute;
-  color: red;
-  left: 70%;
+.survey-review > .survey-review-row
+{
+  /* border: 1px solid red; */
+  width: 100%;
+  justify-content: center;
 }
+.survey-review-value {
+  text-transform: none;
+}
+
