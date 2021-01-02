@@ -36,7 +36,7 @@ class Header extends Component {
             Plans
           </NavLink>
         </ul>
-        <div className='nav-spacer' />
+        <div />
       </nav>
     );
   }

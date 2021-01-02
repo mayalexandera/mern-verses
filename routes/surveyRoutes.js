@@ -1,3 +1,6 @@
+const {Path} = require('path-parser')
+const _ = require('lodash')
+const { URL } = require('url')
 const mongoose = require("mongoose");
 const requireLogin = require("../middlewares/requireLogin");
 const requireCredits = require("../middlewares/requireCredits");
@@ -9,6 +12,16 @@ const Survey = mongoose.model("surveys");
 // require User to be logged in before requiring credits.
 
 module.exports = (app) => {
+
+  app.post('/api/surveys/webhooks', (req, res) => {
+    const events = _.map(req.body, event => {
+      console.log(event)
+      const pathname = new URL(event.url).pathname
+      const p = new Path('/api/surveys/:surveyId/:surveyChoice')
+      console.log(p.test(pathname))
+    // res.send({})
+  })
+})
   app.get('/api/surveys/thanks', (req, res) => {
     res.send('Thanks for voting!')
   }) 

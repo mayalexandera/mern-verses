@@ -1,65 +1,76 @@
-.nav-wrapper,
-.center-menu, .main-menu {
-  width: 100%;
-  background-color: #fff;
-  position: fixed;
-  z-index: 1;
-  display: flex;
-  justify-content: space-between;
-  height: 60px;
-  /* border: 1px solid red; */
-  top: 30px;
-  margin-bottom: 20px;
-}
+@media screen and (min-width: 768px) {
+  .nav-wrapper,
+  .center-menu,
+  .main-menu {
+    
+    width: 100%;
+    /* background-color: #fff; */
+    position: fixed;
+    z-index: 1;
+    display: flex;
+    justify-content: space-between;
+    height: 60px;
+    /* border: 1px solid red; */
+    top: 30px;
+  }
 
-.nav-wrapper {
-  padding: 0 20px;
-}
+  .nav-wrapper {
+    padding: 0 20px;
+    width: 100%;
+    /* background-color: #fff; */
+    position: fixed;
+    z-index: 1;
+    display: flex;
+    justify-content: space-between;
+    height: 60px;
+    top: 30px;
+  }
 
-.main-menu {
-  width: 100%;
-  justify-content: center;
-}
+  .main-menu {
+    width: 100%;
+    justify-content: center;
+  }
 
-.center-menu {
-  width: 30%;
-  display: inline-flex;
-  justify-content: center;
-}
+  .center-menu {
+    width: 30%;
+    display: inline-flex;
+    justify-content: center;
+  }
 
-.nav-button {
-  font-size: 80%;
-}
+  .nav-button {
+    font-size: 80%;
+  }
 
-.left-menu,
-.right-menu,
-.center-menu > .nav-button {
-  margin: auto 0;
-  display: inline-flex;
-  /* border: 1px solid red; */
-}
+  .left-menu,
+  .right-menu,
+  .center-menu > .nav-button {
+    margin: auto 0;
+    display: inline-flex;
+    /* border: 1px solid red; */
+  }
 
-.center-menu > .nav-button {
-  padding-right: 10px;
-}
+  .center-menu > .nav-button {
+    padding-right: 10px;
+  }
 
-.right-menu > .nav-button {
-  padding-left: 10px;
-}
+  .right-menu > .nav-button {
+    padding-left: 10px;
+  }
 
-.center-menu > .nav-button:last-child,
-.right-menu > .nav-button:first-child {
-  padding: 0px;
-}
+  .center-menu > .nav-button:last-child,
+  .right-menu > .nav-button:first-child {
+    padding: 0px;
+  }
 
-.nav-button,
-.nav-logo {
-  font-weight: 400;
-  color: black;
-  text-transform: uppercase;
-}
+  .nav-button,
+  .nav-logo {
+    font-weight: 400;
+    color: black;
+    text-transform: uppercase;
+  }
 
-.nav-logo {
-  font-weight: 900;
-  font-size: 200%;
+  .nav-logo {
+    font-weight: 900;
+    font-size: 200%;
+  }
 }

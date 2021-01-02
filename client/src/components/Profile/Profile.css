@@ -1,5 +1,7 @@
 .profile-wrapper {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   margin: 0 20px;
   padding-bottom: 48px;
 }
@@ -31,4 +33,12 @@
 
 .spacer {
   height: 48px;
+}
+
+.profile-survey-button {
+  vertical-align: top;
+  font-family: 'Bell Gothic Std';
+  color: #fff;
+  background-color: #555;
+  padding: 4px 10px;
 }

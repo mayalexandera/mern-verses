@@ -1,6 +1,6 @@
-.dashboard-wrapper {
+@media screen and (min-width: 768px){ 
+  .dashboard-wrapper {
   /* border: 1px solid red; */
-  /* margin-top: 5vh; */
   position: fixed;
   display: flex;
   width: 100%;
@@ -16,4 +16,4 @@
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
-}
+}}

@@ -27,7 +27,7 @@ class App extends Component {
     return (
       <Fragment>
         <BrowserRouter>
-            <AuthBanner />
+            <AuthBanner />  
             <Header />
             <div className='app-header'/>
             <Route exact path='/' component={Landing} />
