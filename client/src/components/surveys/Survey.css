@@ -34,23 +34,24 @@
 .survey-field-textarea {
   display: flex;
   align-items: center;
-  padding: 9px 0px;
-  padding-left: 4vh;
+  padding: 9px;
+  padding-left: 20px;
   width: 100%;
   border: 1px solid #ebebeb;
 }
 
 .survey-field-row {
   border-bottom: none;
+  height: 40px;
 }
 
 .survey-field-textarea {
-  max-height: 80px;
-  height: 16vh;
+  height: 80px;
 }
 
 .survey-field-textarea > textarea {
   height: 100%;
+  padding-top: 5px;
 }
 
 .survey-field-textarea > textarea,

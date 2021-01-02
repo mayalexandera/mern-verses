@@ -14,14 +14,13 @@ const Survey = mongoose.model("surveys");
 module.exports = (app) => {
 
   app.post('/api/surveys/webhooks', (req, res) => {
+    const p = new Path('/api/surveys/:surveyId/:choice')
+
     const events = _.map(req.body, ({ email, url } )=> {
-      const pathname = new URL(url).pathname
-      const p = new Path('/api/surveys/:surveyId/:surveyChoice')
-      const match = p.test(pathname)
+      const match = p.test(new URL(url).pathname)
       if (match) {
-        return { email, surveyId: match.surveyId, choice: match.surveyChoice }
+        return { email, surveyId: match.surveyId, choice: match.choice }
       }
-    // res.send({})
   })
   const compactEvents = _.compact(events)
   const uniqueEvents = _.uniqBy(compactEvents, 'email', 'surveyId')
