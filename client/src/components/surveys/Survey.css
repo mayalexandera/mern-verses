@@ -57,7 +57,7 @@
 .survey-field-row > input,
 .survey-review-value
  {
-  font-family: "Century Gothic";
+  font-family: "Courier";
   width: 85%;
   border: none;
   font-size: 100%;
@@ -102,11 +102,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
   border: none;
   cursor: pointer;
   text-transform: uppercase;
   min-width: 100px;
-  max-width: 120px;
+  max-width: 150px;
   height: 10vh;
   max-height: 40px;
   color: #fff;

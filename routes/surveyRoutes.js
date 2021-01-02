@@ -1,4 +1,4 @@
-const {Path} = require('path-parser')
+const { Path } = require('path-parser')
 const _ = require('lodash')
 const { URL } = require('url')
 const mongoose = require("mongoose");
@@ -14,13 +14,19 @@ const Survey = mongoose.model("surveys");
 module.exports = (app) => {
 
   app.post('/api/surveys/webhooks', (req, res) => {
-    const events = _.map(req.body, event => {
-      console.log(event)
-      const pathname = new URL(event.url).pathname
+    const events = _.map(req.body, ({ email, url } )=> {
+      const pathname = new URL(url).pathname
       const p = new Path('/api/surveys/:surveyId/:surveyChoice')
-      console.log(p.test(pathname))
+      const match = p.test(pathname)
+      if (match) {
+        return { email, surveyId: match.surveyId, choice: match.surveyChoice }
+      }
     // res.send({})
   })
+  const compactEvents = _.compact(events)
+  const uniqueEvents = _.uniqBy(compactEvents, 'email', 'surveyId')
+  console.log(uniqueEvents)
+  res.send({})
 })
   app.get('/api/surveys/thanks', (req, res) => {
     res.send('Thanks for voting!')

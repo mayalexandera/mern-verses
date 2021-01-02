@@ -10,7 +10,7 @@ class Header extends Component {
     return (
       <nav className='main-menu'>
         <div className='nav-wrapper'>
-          <ul className='left-menu'>
+          <ul className='logo-wrapper'>
             <NavLink className='nav-logo' to='/'>
               Verses
             </NavLink>
@@ -37,6 +37,13 @@ class Header extends Component {
           </NavLink>
         </ul>
         <div />
+
+        <div className='dropdown-container'>
+          <div className='small-menu-icon'>
+            <i class='material-icons'>menu</i>
+          </div>
+          <div className='small-dropdown-menu'>hi</div>
+        </div>
       </nav>
     );
   }
