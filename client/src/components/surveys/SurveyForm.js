@@ -31,7 +31,7 @@ const SurveyForm = (props) => {
       <form onSubmit={props.handleSubmit(props.onSurveySubmit)}>
         {renderFields()}
         <div className='survey-button-row'>
-          <NavLink className='survey-button' to='/surveys'>Cancel</NavLink>
+          <NavLink className='survey-button' to='/member/surveys'>Cancel</NavLink>
           <button className='survey-button' type='submit'>
             Next
           </button>

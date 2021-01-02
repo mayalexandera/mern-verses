@@ -123,11 +123,11 @@
   .small-menu-icon {
     display: inline-flex;
     align-items: center;
-    border: 1px solid red;
+    /* border: 1px solid red; */
   }
   
     .small-menu-icon > i {
-    border: 1px solid red;
+    /* border: 1px solid red; */
   }
 
   .logo-wrapper {

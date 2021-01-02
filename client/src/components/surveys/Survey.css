@@ -1,9 +1,9 @@
 .survey-container {
   display: flex;
   justify-content: center;
-  margin: 0 10px;
-  padding-top: 120px;
+  min-height: 600px;
   font-size: 50%;
+  width: 100%;
   font-weight: 400;
   text-transform: uppercase;
   -ms-overflow-style: none;  /* IE and Edge */
@@ -15,14 +15,17 @@
   display: flex;
   justify-content: center;
   width: 100%;
-  max-width: 800px;
   padding: 20px 0px;
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  
 }
 
-.top {
-  padding-top: 100px;
+.survey-portal-wrapper {
+  margin: 0 20px;
+  display: flex;
+  justify-content: center;
+  /* border: 1px solid red; */
+  margin-top: 200px;
 }
 
 .survey-form-wrapper > form,
@@ -139,3 +142,16 @@
 div {
   scrollbar-width: none;
 }
+
+.row {
+  display: flex;
+  width: 100%;
+  /* border: 1px solid red; */
+}
+
+.profile-survey-button-wrapper {
+  /* border: 1px solid red; */
+  display: inline-flex;
+  margin: 0 auto;
+}
+

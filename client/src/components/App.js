@@ -6,11 +6,11 @@ import * as actions from "../actions";
 import Header from "./Header/Header";
 import AuthBanner from "./AuthBanner/AuthBanner";
 import Landing from "./Landing/Landing";
-import MemberPortal from "./MemberPortal/MemberPortal";
 import SurveyDashboard from "./surveys/SurveyDashboard"
 import Profile from "./Profile/Profile";
 import SurveyNew from "./surveys/SurveyNew";
 import Favorites from "./Favorites/Favorites";
+import Dashboard from "./Dashboard/Dashboard";
 import Products from "./Products/Products";
 import Cart from "./Cart/Cart";
 import Orders from "./Orders/Orders";
@@ -28,17 +28,17 @@ class App extends Component {
       <Fragment>
         <BrowserRouter>
             <AuthBanner />  
-            <Header />
+            <Header onClick={console.log(this)} />
             <div className='app-header'/>
             <Route exact path='/' component={Landing} />
-            <Route exact path='/surveys' component={SurveyDashboard} />
-            <Route path='/surveys/new' component={SurveyNew} />
+            <Route exact path='/member/surveys' component={SurveyDashboard} />
+            <Route path='/member/surveys/new' component={SurveyNew} />
             <Route path='/products' component={Products} />
-            <Route path='/member' component={MemberPortal} />
+            <Route path='/member' component={Dashboard} />
             <Route path='/member/profile' component={Profile} />
             <Route path='/member/favorites' component={Favorites} />
             <Route path='/member/orders' component={Orders} />
-            <Route exact path='/member/cart' component={Cart} />
+            <Route path='/member/cart' component={Cart} />
 
             <Route path='/member/settings' component={AccountSettings} />
         </BrowserRouter>

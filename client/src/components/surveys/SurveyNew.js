@@ -3,7 +3,6 @@ import './Survey.css'
 import React, { Component } from 'react'
 import { reduxForm } from 'redux-form'
 import SurveyForm from './SurveyForm'
-import Dashboard from "../Dashboard/Dashboard";
 import SurveyFormReview from "./SurveyFormReview";
 
 class SurveyNew extends Component {
@@ -19,9 +18,7 @@ class SurveyNew extends Component {
 
   render() {
     return (
-      <div className='top'>
-        {/* <div className='spacer'/> */}
-        <Dashboard />
+      <div className='survey-portal-wrapper'>
         <div className='survey-container'>{this.renderContent()}</div>
       </div>
     );

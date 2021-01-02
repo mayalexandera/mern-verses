@@ -1,0 +1,12 @@
+.settings-container {
+  margin: 0 20px;
+  min-height: 600px;
+  display: flex;
+  justify-content: center;
+  /* border: 1px solid red; */
+  margin-top: 200px;
+}
+
+.settings-wrapper {
+  text-align: center;
+}

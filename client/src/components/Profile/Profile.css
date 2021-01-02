@@ -1,9 +1,13 @@
 .profile-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   margin: 0 20px;
+  margin-top: 200px;
   padding-bottom: 48px;
+  min-height: 600px;
+  /* border: 1px solid red; */
+}
+
+.profile-header {
+  font-size: 16px;
 }
 
 .profile-subtitle {
@@ -28,7 +32,12 @@
 }
 
 .profile-header-wrapper {
-  display: block;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  top: -20px;
+  /* border: 1px solid red; */
 }
 
 .spacer {
@@ -37,7 +46,9 @@
 
 .profile-survey-button {
   vertical-align: top;
-  font-family: 'Bell Gothic Std';
+  margin-right: 10px;
+  border-radius: 50%;
+  /* font-family: 'Bell Gothic Std'; */
   color: #fff;
   background-color: #555;
   padding: 4px 10px;
