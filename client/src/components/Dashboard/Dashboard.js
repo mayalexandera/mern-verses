@@ -4,7 +4,7 @@ import './Dashboard.css'
 
 function Dashboard() {
   return (
-    <nav>
+
       <div className='dashboard-wrapper'>
         <ul>
           <NavLink to='/member/profile'>Profile</NavLink>
@@ -13,7 +13,7 @@ function Dashboard() {
           <NavLink to='/member/settings'>Account Settings</NavLink>
         </ul>
       </div>
-    </nav>
+
   );
 }
 

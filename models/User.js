@@ -11,6 +11,7 @@ const userSchema = new Schema({
   familyName: String,
   email: String,
   photoUrl: String,
+  dateJoined: Date,
   credits: { type: Number, default: 0 }
 });
 

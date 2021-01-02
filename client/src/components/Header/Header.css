@@ -1,32 +1,30 @@
 .nav-wrapper,
-.center-menu{
+.center-menu, .main-menu {
   width: 100%;
   background-color: #fff;
   position: fixed;
   z-index: 1;
   display: flex;
   justify-content: space-between;
-  height: 7vh;
-  min-height: 60px;
+  height: 60px;
   /* border: 1px solid red; */
+  top: 30px;
+  margin-bottom: 20px;
+}
+
+.nav-wrapper {
   padding: 0 20px;
-  top: 8vh;
 }
 
 .main-menu {
   width: 100%;
-  /* position: fixed; */
-  display: flex;
   justify-content: center;
 }
 
 .center-menu {
   width: 30%;
-  /* border: 1px solid red; */
   display: inline-flex;
   justify-content: center;
-  /* height: 7vh; */
-  /* z-index: 2; */
 }
 
 .nav-button {
@@ -64,10 +62,4 @@
 .nav-logo {
   font-weight: 900;
   font-size: 200%;
-}
-
-.nav-spacer {
-  height: 7vh;
-  min-height: 60px;
-  /* border: 1px solid red; */
 }

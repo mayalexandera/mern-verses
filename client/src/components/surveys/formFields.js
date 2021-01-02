@@ -19,7 +19,7 @@ export default [
   },
   {
     label: "Recipient List:",
-    name: "emails",
+    name: "recipients",
     className: "survey-field-textarea",
     noValueError: "You must provide recipient(s).",
   },

@@ -44,10 +44,7 @@ class AuthBanner extends Component {
   //add dropdown menu with account: profile, orders, favorites, account settings, logout
   render() {
     return (
-      <nav>
         <div className='member-banner-wrapper'>{this.renderContent()}</div>
-        {/* <div className='nav-spacer' /> */}
-      </nav>
     );
   }
 }

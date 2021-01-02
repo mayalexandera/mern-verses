@@ -1,0 +1,34 @@
+.profile-wrapper {
+  display: block;
+  margin: 0 20px;
+  padding-bottom: 48px;
+}
+
+.profile-subtitle {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.profile-subtitle > h4 {
+  color: #757575;
+  font-size: 80%;
+  font-weight: 400;
+}
+
+.profile-photo-wrapper {
+  display: inline-block;
+  align-content: center;
+  height: 75px;
+  width: 75px;
+  background-size: 75px 75px;
+  border-radius: 50%;
+  margin-right: 4vh;
+}
+
+.profile-header-wrapper {
+  display: block;
+}
+
+.spacer {
+  height: 48px;
+}

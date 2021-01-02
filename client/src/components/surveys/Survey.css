@@ -1,20 +1,28 @@
 .survey-container {
   display: flex;
   justify-content: center;
-  margin: 4vh;
-  padding-top: 10vh;
+  margin: 0 10px;
+  padding-top: 100px;
   font-size: 50%;
   font-weight: 400;
   text-transform: uppercase;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  
 }
 
 .survey-form-wrapper {
-  border: 1px solid red;
+  /* border: 1px solid red; */
   display: flex;
   justify-content: center;
   width: 100%;
   max-width: 800px;
   padding: 20px 0px;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  
+}
+
+.top {
+  padding-top: 100px;
 }
 
 .survey-form-wrapper > form,
@@ -120,3 +128,11 @@
   text-transform: none;
 }
 
+.survey-dashboard-wrapper {
+  display: flex;
+  /* border: 1px solid red; */
+}
+
+div {
+  scrollbar-width: none;
+}

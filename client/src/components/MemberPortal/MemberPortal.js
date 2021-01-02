@@ -5,11 +5,12 @@ import './MemberPortal.css'
 
 function MemberPortal() {
   return (
-    <div>
-      <div className='spacer'/>
+    <div className='member-portal-container'>
+      <div className='spacer' />
       <Dashboard />
-      <div className='spacer'/>
-      <h2 style={{ textAlign: "center" }}>MemberPortal</h2>
+      <div className='spacer' />
+      <h5 style={{ textAlign: "center" }}>MemberPortal</h5>
+      <div className='spacer' />
     </div>
   );
 }

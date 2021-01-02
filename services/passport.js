@@ -59,6 +59,7 @@ passport.use(
         familyName: profile.name.familyName,
         givenName: profile.name.givenName,
         email: profile.emails[0].value,
+        dateJoined: Date.now(),
         photoUrl: profile.photos[0].value,
       }).save();
       done(null, user);
