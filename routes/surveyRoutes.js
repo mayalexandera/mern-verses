@@ -12,6 +12,7 @@ const Survey = mongoose.model("surveys");
 // require User to be logged in before requiring credits.
 
 module.exports = (app) => {
+
   app.post("/api/surveys/webhooks", (req, res) => {
     const p = new Path("/api/surveys/:surveyId/:choice");
 
@@ -44,9 +45,10 @@ module.exports = (app) => {
     res.send({});
   });
 
-  app.get("api/surveys/:surveyId/:choice", (req, res) => {
-    res.send("Thanks for voting!");
+  app.get("/api/surveys/:surveyId/:choice", (req, res) => {
+    res.redirect("/member/surveys/thanks");
   });
+
   app.post("/api/surveys", requireLogin, requireCredits, async (req, res) => {
     //expecting request body to contain title, body, subject, and recipients string
     console.log(res)

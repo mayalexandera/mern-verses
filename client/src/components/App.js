@@ -9,6 +9,7 @@ import Landing from "./Landing/Landing";
 import SurveyDashboard from "./surveys/SurveyDashboard"
 import Profile from "./Profile/Profile";
 import SurveyNew from "./surveys/SurveyNew";
+import SurveyThanks from "./surveys/SurveyThanks";
 import Favorites from "./Favorites/Favorites";
 import Dashboard from "./Dashboard/Dashboard";
 import Products from "./Products/Products";
@@ -24,6 +25,7 @@ class App extends Component {
   }
 
   render() {
+    
     return (
       <Fragment>
         <BrowserRouter>
@@ -32,6 +34,7 @@ class App extends Component {
             <div className='app-header'/>
             <Route exact path='/' component={Landing} />
             <Route exact path='/member/surveys' component={SurveyDashboard} />
+            <Route exact path='/member/surveys/thanks' component={SurveyThanks} />
             <Route path='/member/surveys/new' component={SurveyNew} />
             <Route path='/products' component={Products} />
             <Route path='/member' component={Dashboard} />

@@ -168,3 +168,9 @@ div {
   color: red;
   /* border: 1px solid red; */
 }
+
+
+.thanks-container {
+  margin-top: 250px;
+  text-align: center;
+}
