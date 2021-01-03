@@ -99,6 +99,7 @@
 .survey-button-row  {
   padding-top: 3vh;
   display: flex;
+  align-items: center;
   justify-content: space-between;
 }
 
@@ -131,6 +132,7 @@
   justify-content: center;
 }
 .survey-review-value {
+  font-family: 'Courier';
   text-transform: none;
 }
 
@@ -152,6 +154,21 @@ div {
 .profile-survey-button-wrapper {
   /* border: 1px solid red; */
   display: inline-flex;
+  align-items: center;
   margin: 0 auto;
+  font-size: 14px;
 }
 
+.add-credits-wrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 300px;
+  text-align: center;
+  align-items: center;
+  color: red;
+  /* border: 1px solid red; */
+}
+
+/* .add-credits-wrapper div:first-of-type {
+  padding-left: 20[px]
+} */
