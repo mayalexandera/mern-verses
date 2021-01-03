@@ -16,7 +16,7 @@ module.exports = (app) => {
     const p = new Path("/api/surveys/:surveyId/:choice");
 
     _.chain(req.body)
-      .map(req.body, ({ email, url }) => {
+      .map(({ email, url }) => {
         const match = p.test(new URL(url).pathname);
         if (match) {
           return { email, surveyId: match.surveyId, choice: match.choice };
@@ -27,14 +27,15 @@ module.exports = (app) => {
       .each(({ surveyId, email, choice }) => {
         Survey.updateOne(
           {
-            id: surveyId,
+            _id: surveyId,
             recipients: {
-              $lemMatch: { email: email, responded: false },
+              $elemMatch: { email: email, responded: false },
             },
           },
           {
             $inc: { [choice]: 1 },
             $set: { "recipients.$.responded": true },
+            lastResponded: new Date()
           }
         ).exec()
       })
