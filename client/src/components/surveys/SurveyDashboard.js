@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink } from 'react-router-dom'
+import SurveyList from './SurveyList'
 import './Survey.css'
 
 const SurveyDashboard = (props) => {
@@ -13,6 +14,7 @@ const SurveyDashboard = (props) => {
             Create New Survey
           </div>
       </div>
+      <SurveyList/>
     </div>
   );
 };
