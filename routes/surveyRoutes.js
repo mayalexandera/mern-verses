@@ -45,13 +45,19 @@ module.exports = (app) => {
     res.send({});
   });
 
+  app.get('/api/surveys', requireLogin, async (req, res) => {
+    const surveys = Survey.find({ _user: req.user.id })
+    .select({ recipients: false });
+
+    res.send(surveys)
+  })
+
   app.get("/api/surveys/:surveyId/:choice", (req, res) => {
     res.redirect("/member/surveys/thanks");
   });
 
   app.post("/api/surveys", requireLogin, requireCredits, async (req, res) => {
     //expecting request body to contain title, body, subject, and recipients string
-    console.log(res)
     const { title, subject, body, recipients } = req.body;
 
     // create survey model instance

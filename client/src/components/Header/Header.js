@@ -32,7 +32,7 @@ class Header extends Component {
           <NavLink className='nav-button' to='/products'>
             Accessories
           </NavLink>
-          <NavLink className='nav-button' to='/'>
+          <NavLink className='nav-button' to='/plans'>
             Plans
           </NavLink>
         </ul>

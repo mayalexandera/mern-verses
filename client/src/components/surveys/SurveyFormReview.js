@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
-import { NavLink } from "react-router-dom";
 
 import Payments from "../Payments/Payments";
 
@@ -9,7 +8,8 @@ import * as actions from '../../actions'
 import _ from 'lodash'
 import formFields from './formFields'
 
-const SurveyFormReview = ({ onCancel, formValues, auth, submitSurvey, history }) => {
+const SurveyFormReview = ({ onCancel, formValues, auth, submitSurvey, plans, history }) => {
+  console.log(plans)
   const reviewFields = _.map(formFields, ({ name, label }, index) => {
     return (
       <div className='survey-review-row' key={index}>
@@ -61,7 +61,8 @@ const SurveyFormReview = ({ onCancel, formValues, auth, submitSurvey, history })
 const mapStateToProps = (state) => {
   return { 
     formValues: state.form.surveyForm.values,
-    auth: state.auth
+    auth: state.auth,
+    plans: state.plans
   }
 }
 

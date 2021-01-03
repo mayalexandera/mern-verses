@@ -15,6 +15,7 @@ import Dashboard from "./Dashboard/Dashboard";
 import Products from "./Products/Products";
 import Cart from "./Cart/Cart";
 import Orders from "./Orders/Orders";
+import Plans from "./Plans/Plans";
 import AccountSettings from "./AccountSettings/AccountSettings";
 import "./App.css";
 
@@ -22,6 +23,7 @@ import "./App.css";
 class App extends Component {
   componentDidMount() {
     this.props.fetchUser();
+    this.props.fetchPlans();
   }
 
   render() {
@@ -37,6 +39,7 @@ class App extends Component {
             <Route exact path='/member/surveys/thanks' component={SurveyThanks} />
             <Route path='/member/surveys/new' component={SurveyNew} />
             <Route path='/products' component={Products} />
+            <Route path='/plans' component={Plans} />
             <Route path='/member' component={Dashboard} />
             <Route path='/member/profile' component={Profile} />
             <Route path='/member/favorites' component={Favorites} />

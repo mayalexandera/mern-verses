@@ -24,6 +24,7 @@ const keys = require("./config/keys");
 //mongoose Schemas
 require("./models/User");
 require("./models/Survey");
+require("./models/Plan");
 
 //o auth strategy configuration
 require("./services/passport");
@@ -34,7 +35,6 @@ mongoose.connect(keys.mongoURI, {
   useUnifiedTopology: true,
   useNewUrlParser: true,
 });
-
 //create app variable that returns express server function
 const app = express();
 
@@ -71,6 +71,7 @@ registers in JS as the anonymous function call, passing the app argument.
 require("./routes/authRoutes")(app);
 require("./routes/billingRoutes")(app);
 require("./routes/surveyRoutes")(app);
+require("./routes/planRoutes")(app);
 
 if (process.env.NODE_ENV === "production") {
   /*

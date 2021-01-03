@@ -1,11 +1,29 @@
 import React from "react";
+import { connect } from 'react-redux'
+import * as actions from "../../actions";
+import './Plans.css'
 
-function Plans() {
+
+const Plans = ( props ) => {
+  const renderPlans = () => {
+    return props.plans.map(plan => {
+      return (
+        <div>{plan.description}</div>
+      )
+    })
+  }
   return (
-    <div>
+    <div className='plans-container'>
       <h2 style={{ textAlign: "center" }}>Plans</h2>
+      {renderPlans()}
     </div>
   );
 }
 
-export default Plans;
+const mapStateToProps = (state) => {
+  return {
+    plans: state.plans
+  }
+}
+
+export default connect(mapStateToProps, actions)(Plans);
