@@ -2,10 +2,14 @@
   margin-top: 120px;
   display: flex;
   align-items: center;
+  min-height: 80vh;
   flex-direction: column;
+  background-color:hsl(86, 68%, 94%);
+  padding: 40px 0;
 }
 
 .plans-section {
+  margin-top: 40px;
   width: 90%;
   display: flex;
   justify-content: center;
@@ -18,7 +22,7 @@
   width: 275px;
   height: 450px;
   border-radius: 5px;
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
 
 .plan-card-body {
