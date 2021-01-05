@@ -1,30 +1,30 @@
 import React from "react";
 import { connect } from 'react-redux'
 import * as actions from "../../actions";
+import PlanCard from './PlanCard'
 import './Plans.css'
 
 
 const Plans = ( props ) => {
-  console.log(props)
+
   const renderPlans = () => {
     return props.plans.map(plan => {
       return (
-        <div>{plan.description}</div>
+        <PlanCard plan={plan} ></PlanCard>
       )
     })
   }
   return (
     <div className='plans-container'>
       <h2 style={{ textAlign: "center" }}>Plans</h2>
-      {renderPlans()}
+      <div className='plans-section'>
+        {renderPlans()}</div>
     </div>
   );
 }
 
-const mapStateToProps = (state) => {
-  return {
-    plans: state.plans
-  }
+const mapStateToProps = ({ plans }) => {
+  return { plans }
 }
 
 export default connect(mapStateToProps, actions)(Plans);

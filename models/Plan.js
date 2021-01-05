@@ -7,9 +7,10 @@ const { Schema } = mongoose;
 //with an object the first property must be the type.
 const planSchema = new Schema({
   months: Number,
-  price: Number,
-  discount: Number,
-  features: String,
+  items: Number,
+  trialPrice: Object,
+  regularPrice: String,
+  features: Array,
   description: String
 });
 
