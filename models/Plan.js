@@ -10,7 +10,7 @@ const planSchema = new Schema({
   items: Number,
   trialPrice: Object,
   regularPrice: String,
-  features: Array,
+  features: [String],
   description: String
 });
 

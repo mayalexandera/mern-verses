@@ -20,14 +20,13 @@
   box-shadow: 0px 2px 2px #efefef;
   margin: 0px 20px;
   width: 275px;
-  height: 450px;
   border-radius: 5px;
   /* border: 1px solid red; */
 }
 
 .plan-card-body {
-  padding: 20px;
-  height: 100%;
+  padding: 26px 24px;
+  /* height: 100%; */
 }
 
 .plan-card-features {
@@ -70,7 +69,6 @@
 .plan-description {
   font-size: 70%;
   height: 60px;
-  margin-bottom: 20px;
   line-height: 1.5;
   font-weight: 400;
 }
@@ -79,9 +77,8 @@
   display: block;
   list-style: none;
   width: 100%;
-  min-height: 85px;
-  margin: 15px 0;
-  font-size: 75%;
+  min-height: 73px;
+  font-size: 70%;
   font-weight: 400;
   line-height: 1.75;
 }
@@ -92,15 +89,12 @@
 }
 
 .plan-feature-bullet-points i {
-  padding-right: 18px;
+  padding-right: 16px;
+  font-size: 18px;
 }
 
 .plan-subtitle {
   font-size: 80%;
-}
-
-.plan-price-section {
-  margin-bottom: 5%;
 }
 
 .plan-trial-price {
@@ -108,7 +102,6 @@
   justify-content: left;
   align-items: baseline;
   font-weight: 400;
-  margin-top: 15px;
 }
 
 .plan-trial-price p {
@@ -117,7 +110,7 @@
 }
 
 .plan-trial-price span {
-  font-size: 150%;
+  font-size: 125%;
   font-weight: 600;
 }
 
@@ -136,20 +129,18 @@
 }
 
 .plan-regular-price span {
-  font-size: 70%;
+  font-size: 62.5%;
   font-weight: 400;
 }
 
 #plan-option,
 #current-plan,
 #disabled {
-  min-width: 226px;
   text-transform: uppercase;
-  font-size: 85%;
+  font-size: 80%;
   padding: 8px 26px;
   text-align: center;
-  width: 80%;
-  top: 10px;
+  width: 100%;
   box-shadow: 0 2px 2px #efefef;
 }
 
@@ -182,8 +173,19 @@
 }
 
 #plan-button {
-  margin-top: 5%;
+  margin: 12px 0 17px 0;
   display: flex;
   justify-content: center;
-  height: 8%;
+  /* height: 8%; */
+}
+
+#order-hr {
+  border-top-style: initial;
+  border-right-style: initial;
+  border-left-style: initial;
+  border-top-color: initial;
+  border-right-color: initial;
+  border-left-color: initial;
+  border-width: 0px 0px 1px;
+  margin: 15px 0px 10px 0px;
 }

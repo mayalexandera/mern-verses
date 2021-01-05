@@ -1,5 +1,5 @@
 import axios from "axios";
-import { FETCH_USER, FETCH_PLANS, FETCH_SURVEYS } from "./types";
+import { FETCH_USER, FETCH_PLANS, FETCH_SURVEYS, FETCH_PRODUCTS, FETCH_SIZES } from "./types";
 /*
   the whole purpose of redux-thunk is to inspect whatever value is returned from the action creator
 */
@@ -39,3 +39,18 @@ export const fetchSurveys = () => async dispatch => {
 
   dispatch({ type: FETCH_SURVEYS, payload: res.data})
 }
+
+export const fetchProducts = () => async (dispatch) => {
+  const res = await axios.get("/api/products");
+
+  dispatch({ type: FETCH_PRODUCTS, payload: res.data });
+};
+
+export const fetchSizes = (productId) => async (dispatch) => {
+  const res = await axios.get("/api/sizes", {
+    params: {
+    product: productId
+  }});
+
+  dispatch({ type: FETCH_SIZES, payload: res.data });
+};

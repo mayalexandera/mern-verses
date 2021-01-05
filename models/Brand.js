@@ -10,7 +10,10 @@ const brandSchema = new Schema({
   name: String,
   url: String,
   sizeChart: String,
-  products: [ProductSchema]
+  products: [{
+    type: Schema.Types.ObjectId,
+    ref: "Product"
+  }]
 });
 
 mongoose.model("brands", brandSchema);

@@ -6,14 +6,16 @@ const { Schema } = mongoose;
 //with an object the first property must be the type.
 const productSchema = new Schema({
   name: String,
-  productNumber: Number,
-  priceCents: Number,
+  price: String,
+  category: String,
   description: String,
-  images: [String],
-  sizes: [String],
-  productType: String,
-  details: [String],
-  fitDetails: [String]
+  fitDetails: Object,
+  productDetails: Array,
+  images: Object,
+  productSizes:[{
+    type: Schema.Types.ObjectId, ref: "Size"
+  }],
+  brand: { type: Schema.Types.ObjectId, ref: "Brand" },
 });
 
 mongoose.model("products", productSchema);

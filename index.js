@@ -25,6 +25,9 @@ const keys = require("./config/keys");
 require("./models/User");
 require("./models/Survey");
 require("./models/Plan");
+require("./models/Brand");
+require("./models/Product");
+require("./models/Size");
 
 //o auth strategy configuration
 require("./services/passport");
@@ -72,6 +75,8 @@ require("./routes/authRoutes")(app);
 require("./routes/billingRoutes")(app);
 require("./routes/surveyRoutes")(app);
 require("./routes/planRoutes")(app);
+require("./routes/productRoutes")(app);
+require("./routes/sizeRoutes")(app);
 
 if (process.env.NODE_ENV === "production") {
   /*

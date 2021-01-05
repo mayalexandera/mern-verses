@@ -52,7 +52,7 @@ const PlanCard = (props) => {
             onClick={(e) => clickHandler(e)}
             id={"plan-option"}
           >
-            plan
+            Try Now
           </button>
         </div>
         <div className='plan-price-section'>

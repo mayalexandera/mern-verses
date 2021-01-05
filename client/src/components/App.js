@@ -24,6 +24,8 @@ class App extends Component {
   componentDidMount() {
     this.props.fetchUser();
     this.props.fetchPlans();
+    this.props.fetchProducts();
+    this.props.fetchSizes("5ff4ce7196a64a8e67f4d874");
   }
 
   render() {

@@ -8,7 +8,7 @@ const Plans = mongoose.model("plans");
 module.exports = (app) => {
   app.get('/api/plans', async (req, res) => {
     const plans = await Plans.find({})
-    console.log(plans)
+    // console.log(plans)
     res.send(plans)
     // console.log(req.body, res)
   })
