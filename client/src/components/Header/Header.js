@@ -40,7 +40,7 @@ class Header extends Component {
 
         <div className='dropdown-container'>
           <div className='small-menu-icon'>
-            <i class='material-icons'>menu</i>
+            <i className='material-icons'>menu</i>
           </div>
           <div className='small-dropdown-menu'>hi</div>
         </div>

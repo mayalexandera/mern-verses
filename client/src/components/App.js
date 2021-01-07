@@ -13,6 +13,7 @@ import SurveyThanks from "./surveys/SurveyThanks";
 import Favorites from "./Favorites/Favorites";
 import Dashboard from "./Dashboard/Dashboard";
 import Products from "./Products/Products";
+import Product from "./Products/Product";
 import Cart from "./Cart/Cart";
 import Orders from "./Orders/Orders";
 import Plans from "./Plans/Plans";
@@ -24,8 +25,7 @@ class App extends Component {
   componentDidMount() {
     this.props.fetchUser();
     this.props.fetchPlans();
-    this.props.fetchProducts();
-    this.props.fetchSizes("5ff4ce7196a64a8e67f4d874");
+    // this.props.fetchProducts();
   }
 
   render() {
@@ -40,7 +40,8 @@ class App extends Component {
             <Route exact path='/member/surveys' component={SurveyDashboard} />
             <Route exact path='/member/surveys/thanks' component={SurveyThanks} />
             <Route path='/member/surveys/new' component={SurveyNew} />
-            <Route path='/products' component={Products} />
+            <Route path='/products' exact component={Products} />
+            <Route path='/products/:id' exact component={Product} />
             <Route path='/plans' component={Plans} />
             <Route path='/member' component={Dashboard} />
             <Route path='/member/profile' component={Profile} />

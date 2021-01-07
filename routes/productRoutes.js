@@ -8,4 +8,10 @@ module.exports = (app) => {
     res.send(products)
   }
   );
+
+  app.get("/api/products/:id", async (req, res) => {
+    const product = await Products.find({_id: req.query.productId})
+    res.send(product[0])
+  }
+  )
 }
