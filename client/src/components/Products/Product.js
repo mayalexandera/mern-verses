@@ -6,9 +6,14 @@ const Product = (props) => {
   const [sizeId, setSizeId] = useState("");
   const [size, setSize] = useState();
   const [errorMessage, setErrorMessage] = useState();
+
+  const prodId = props.match.params.id
+  const fetchProd = props.fetchProduct()
+  const fetchSizes = props.fetchSizes()
+  
   useEffect(() => {
-    const getProd = () => props.fetchSizes(props.match.params.id);
-    const getSizes = () => props.fetchProduct(props.match.params.id);
+    const getProd = () => fetchSizes(prodId);
+    const getSizes = () => fetchProd(prodId);
 
     getProd();
     getSizes();
@@ -44,7 +49,6 @@ const Product = (props) => {
   };
 
   const handleSizeClick = (e) => {
-    console.log(e.target.name);
     e.preventDefault();
     if (e.target.name === size) {
       setSizeId("");
