@@ -44,16 +44,16 @@ const Product = (props) => {
   };
 
   const handleSizeClick = (e) => {
-    console.log(e.target.name)
+    console.log(e.target.name);
     e.preventDefault();
     if (e.target.name === size) {
-      setSizeId('')
-      setSize('')
+      setSizeId("");
+      setSize("");
     } else if (e.target.name !== size) {
       setSizeId(e.target.value);
       setSize(e.target.name);
-    };
-  }
+    }
+  };
 
   const button = (alphaSize) => {
     return alphaSize === size ? "size-button-clicked" : "size-button";
@@ -103,7 +103,6 @@ const Product = (props) => {
                       id={button(size)}
                       value={_id}
                       name={size}
-
                     >
                       {size}
                     </button>
