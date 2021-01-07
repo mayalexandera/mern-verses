@@ -8,9 +8,9 @@ const Product = (props) => {
   const [errorMessage, setErrorMessage] = useState();
 
   const prodId = props.match.params.id
-  const fetchProd = props.fetchProduct()
-  const fetchSizes = props.fetchSizes()
-  
+  const fetchProd = props.fetchProduct
+  const fetchSizes = props.fetchSizes
+
   useEffect(() => {
     const getProd = () => fetchSizes(prodId);
     const getSizes = () => fetchProd(prodId);
