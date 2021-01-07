@@ -296,3 +296,20 @@
   margin-top: 10px;
   width: 95%;
 }
+
+@media screen and (max-width: 767px) {
+  .product-container {
+    padding-top: 40px;
+  }
+
+  .product-card-wrapper {
+    padding: 0;
+  }
+  .product-card-body {
+    width: 95%;
+  }
+  .product-card-content-wrapper {
+    /* display: flex; */
+    /* justify-content: center; */
+  }
+}

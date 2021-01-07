@@ -25,6 +25,7 @@ class Header extends Component {
             </NavLink>
           </ul>
         </div>
+
         <ul className='center-menu'>
           <NavLink className='nav-button' to='/products'>
             Clothing
@@ -36,7 +37,6 @@ class Header extends Component {
             Plans
           </NavLink>
         </ul>
-        <div />
 
         <div className='dropdown-container'>
           <div className='small-menu-icon'>
@@ -50,9 +50,6 @@ class Header extends Component {
 }
 
 function mapStateToProps({ auth }) {
-  //since the keys and values are the same can be further reduced
-
-  //   return { auth: state.auth }
   return { auth };
 }
 

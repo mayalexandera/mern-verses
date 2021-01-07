@@ -25,7 +25,6 @@ class App extends Component {
   componentDidMount() {
     this.props.fetchUser();
     this.props.fetchPlans();
-    // this.props.fetchProducts();
   }
 
   render() {

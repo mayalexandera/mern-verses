@@ -6,9 +6,11 @@ import "./Products.css";
 import ProductCard from "./ProductCard";
 
 const Products = (props) => {
+  const fetchProds = props.fetchProducts
+
   useEffect(() => {
-    const getProd = () => props.fetchProducts();
-    getProd()
+    const getProd = () => fetchProds();
+    getProd();
   }, []);
 
   const renderProducts = () => {
@@ -20,10 +22,8 @@ const Products = (props) => {
       <div>loading..</div>
     );
   };
-  // console.log(props.products);
   return (
     <div className='product-container'>
-      <h2 style={{ textAlign: "center" }}>Products</h2>
       <div className='products-section'>{renderProducts()}</div>
     </div>
   );
