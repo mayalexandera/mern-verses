@@ -37,12 +37,6 @@ require("./services/passport");
 mongoose.connect(keys.mongoURI, {
   useUnifiedTopology: true,
   useNewUrlParser: true,
-}, err => {
-  if (err) {
-    console.log(err)
-  } else {
-    console.log('connected')
-  }
 });
 //create app variable that returns express server function
 const app = express();
@@ -110,4 +104,4 @@ if (process.env.NODE_ENV === "production") {
 const PORT = process.env.PORT || 5000;
 
 // spins up server with express' 'listen' function
-app.listen(PORT, (err) => console.log(err));
+app.listen(PORT);
