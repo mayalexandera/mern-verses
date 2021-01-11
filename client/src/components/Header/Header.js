@@ -10,12 +10,9 @@ class Header extends Component {
     return (
       <nav className='main-menu'>
         <div className='nav-wrapper'>
-          <ul className='logo-wrapper'>
-            <NavLink className='nav-logo' to='/'>
-              Verses
-            </NavLink>
-          </ul>
-
+          <NavLink className='nav-logo' to='/'>
+            Verses
+          </NavLink>
           <ul className='right-menu'>
             <NavLink className='nav-button' to='/member/favorites'>
               Favorites
@@ -24,6 +21,13 @@ class Header extends Component {
               Cart
             </NavLink>
           </ul>
+          <div className='small-menu-icon'>
+            <i className='material-icons'>menu</i>
+            <div className='small-dropdown-menu'>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
         </div>
 
         <ul className='center-menu'>
@@ -37,13 +41,6 @@ class Header extends Component {
             Plans
           </NavLink>
         </ul>
-
-        <div className='dropdown-container'>
-          <div className='small-menu-icon'>
-            <i className='material-icons'>menu</i>
-          </div>
-          <div className='small-dropdown-menu'>hi</div>
-        </div>
       </nav>
     );
   }

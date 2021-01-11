@@ -6,7 +6,7 @@ const requireLogin = require("../middlewares/requireLogin");
 const requireCredits = require("../middlewares/requireCredits");
 const Mailer = require("../services/Mailer");
 const surveyTemplate = require("../services/emailTemplates/surveyTemplate");
-const Survey = mongoose.model("surveys");
+const Survey = mongoose.model("Survey");
 
 // must list middlewares in the order they should be called.
 // require User to be logged in before requiring credits.

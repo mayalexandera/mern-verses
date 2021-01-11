@@ -8,3 +8,6 @@ export const FETCH_PRODUCT = 'fetch_product'
 
 export const FETCH_SIZES = 'fetch_sizes'
 
+export const ADD_FAVORITE = 'add_favorite'
+export const FETCH_FAVORITES = 'fetch_favorites'
+

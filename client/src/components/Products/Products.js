@@ -5,17 +5,15 @@ import * as actions from "../../actions";
 import "./Products.css";
 import ProductCard from "./ProductCard";
 
-const Products = (props) => {
-  const fetchProds = props.fetchProducts
+const Products = ({ fetchProducts, products }) => {
 
   useEffect(() => {
-    const getProd = () => fetchProds();
-    getProd();
-  }, []);
+    fetchProducts()
+  }, [fetchProducts]);
 
   const renderProducts = () => {
-    return props.products !== null ? (
-      props.products.map((product, index) => {
+    return products !== null ? (
+      products.map((product, index) => {
         return <ProductCard key={index} product={product} />;
       })
     ) : (

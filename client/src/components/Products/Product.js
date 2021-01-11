@@ -2,33 +2,39 @@ import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import * as actions from "../../actions";
 
-const Product = (props) => {
+const Product = ({
+  fetchSizes,
+  fetchProduct,
+  addToFavorites,
+  fetchFavorites,
+  userId,
+  product,
+  sizes,
+  favorites,
+  match: {
+    params: { id },
+  },
+}) => {
   const [sizeId, setSizeId] = useState("");
   const [size, setSize] = useState();
-  const [errorMessage, setErrorMessage] = useState();
+  const [errorMessage, setErrorMessage] = useState("");
 
-  const prodId = props.match.params.id;
-  const fetchProd = props.fetchProduct;
-  const fetchSizes = props.fetchSizes;
+  const prodId = id;
 
   useEffect(() => {
-    const getProd = () => fetchSizes(prodId);
-    const getSizes = () => fetchProd(prodId);
-
-    getProd();
-    getSizes();
-  }, []);
+    fetchSizes(prodId);
+    fetchProduct(prodId);
+  }, [fetchSizes, fetchProduct, prodId]);
 
   const handleClick = (e) => {
     e.preventDefault();
-    size !== "" && props.userId
+    size !== "" && userId
       ? submitRequest(e)
       : setErrorMessage("Please select a size.");
   };
 
   const submitRequest = (e) => {
     if (e.target.value === "addToCart") {
-      console.log(e.target.value);
       // props.addToCart(
       //   props.product._id,
       //   sizeId,
@@ -37,13 +43,12 @@ const Product = (props) => {
     }
 
     if (e.target.value === "favorite" && size) {
-      // props.addToFavorites(props.product._id, sizeId);
-      console.log(e.target.value);
+      addToFavorites(prodId, sizeId);
     }
   };
 
   const verifyUser = (e) => {
-    return props.userId !== null
+    return userId !== null
       ? handleClick(e)
       : setErrorMessage("Sign up to place orders.");
   };
@@ -64,11 +69,11 @@ const Product = (props) => {
   };
 
   const renderProduct = () => {
-    if (props.product !== null) {
-      const images1 = [...props.product.images.model1];
+    if (product !== null) {
+      const images1 = [...product.images.model1];
 
-      if (!!props.product.images.model2) {
-        const images2 = [...props.product.images.model2];
+      if (!!product.images.model2) {
+        const images2 = [...product.images.model2];
       }
 
       return (
@@ -77,18 +82,16 @@ const Product = (props) => {
             {images1.map((img, idx) => {
               return (
                 <div key={idx}>
-                  <img key={img} src={img} alt={props.product.name} />
+                  <img key={img} src={img} alt={product.name} />
                 </div>
               );
             })}
           </div>
 
           <div className='span-2-of-5 product-header'>
-            <p className='product-brand-show-title'>
-              {props.product.brandName}
-            </p>
-            <p className='product-show-subtitle'>{props.product.name}</p>
-            <p className='product-show-subtitle'>${props.product.price}</p>
+            <p className='product-brand-show-title'>{product.brandName}</p>
+            <p className='product-show-subtitle'>{product.name}</p>
+            <p className='product-show-subtitle'>${product.price}</p>
             <hr id='product-show-hr' />
             <div className='product-menu'>
               <div className='product-show-select'>
@@ -98,7 +101,8 @@ const Product = (props) => {
                 </a>
               </div>
               <div>
-                {props.sizes.map(({ size, _id }, index) => {
+                {errorMessage}
+                {sizes.map(({ size, _id }, index) => {
                   return (
                     <button
                       key={index}
@@ -135,7 +139,7 @@ const Product = (props) => {
                 <p>Description</p>
                 <hr id='product-show-hr' />
                 <div className='product-show-description'>
-                  {props.product.description}
+                  {product.description}
                 </div>
               </div>
 
@@ -143,7 +147,7 @@ const Product = (props) => {
                 <p>Fit Details</p>
                 <hr id='product-show-hr' />
                 <ul className='fit-details'>
-                  {props.product.productDetails.map((detail, index) => {
+                  {product.productDetails.map((detail, index) => {
                     return <li key={index}>{detail}</li>;
                   })}
                 </ul>
@@ -164,6 +168,7 @@ const mapStateToProps = (state) => {
     product: state.products.product,
     sizes: state.sizes,
     userId: state.auth.googleId,
+    favorites: state.auth.favorites,
   };
 };
 

@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const Sizes = mongoose.model("sizes");
+const Sizes = mongoose.model("Size");
 
 module.exports = (app) => {
   app.get("/api/sizes", async (req, res) => {

@@ -77,6 +77,7 @@ require("./routes/surveyRoutes")(app);
 require("./routes/planRoutes")(app);
 require("./routes/productRoutes")(app);
 require("./routes/sizeRoutes")(app);
+require("./routes/favoriteRoutes")(app);
 
 if (process.env.NODE_ENV === "production") {
   /*
@@ -97,6 +98,10 @@ if (process.env.NODE_ENV === "production") {
     res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
   });
 }
+
+app.use((err, req, res, next) => {
+  res.status(500).send({ message: err.message });
+});
 
 //sets PORT to either prod environment variable PORT, or local port 5000.
 const PORT = process.env.PORT || 5000;

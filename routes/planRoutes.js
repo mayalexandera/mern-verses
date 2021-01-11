@@ -2,7 +2,7 @@ const { Path } = require("path-parser");
 const _ = require("lodash");
 const { URL } = require("url");
 const mongoose = require("mongoose");
-const Plans = mongoose.model("plans");
+const Plans = mongoose.model("Plan");
 
 
 module.exports = (app) => {

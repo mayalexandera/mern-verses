@@ -1,6 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { connect } from "react-redux";
+import * as actions from "../../actions";
 
-function Favorites() {
+const Favorites = (props) => {
+
+  useEffect(() => {
+    props.fetchFavorites()
+  }, [props.fetchFavorites])
   return (
     <div>
       <h2 style={{textAlign: 'center'}}>
@@ -10,4 +16,10 @@ function Favorites() {
   );
 }
 
-export default Favorites;
+const mapStateToProps = (state) => {
+  return {
+    favorites: state.favorites
+  }
+}
+
+export default connect(mapStateToProps, actions)(Favorites);

@@ -5,6 +5,7 @@ import plansReducer from './plansReducer'
 import surveysReducer from './surveysReducer'
 import productsReducer from './productsReducer'
 import sizesReducer from './sizesReducer'
+import favoritesReducer from './favoritesReducer'
 
 export default combineReducers({
   auth: authReducer,
@@ -12,6 +13,7 @@ export default combineReducers({
   plans: plansReducer,
   surveys: surveysReducer,
   products: productsReducer,
-  sizes: sizesReducer  
+  sizes: sizesReducer  ,
+  favorites: favoritesReducer
 
 })

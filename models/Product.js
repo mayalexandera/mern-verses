@@ -18,4 +18,6 @@ const productSchema = new Schema({
   brand: { type: Schema.Types.ObjectId, ref: "Brand" },
 });
 
-mongoose.model("products", productSchema);
+const Product = mongoose.model("Product", productSchema);
+
+module.exports = Product;
