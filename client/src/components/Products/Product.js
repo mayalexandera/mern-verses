@@ -6,7 +6,6 @@ const Product = ({
   fetchSizes,
   fetchProduct,
   addToFavorites,
-  fetchFavorites,
   userId,
   product,
   sizes,
@@ -42,10 +41,19 @@ const Product = ({
       // );
     }
 
-    if (e.target.value === "favorite" && size) {
-      addToFavorites(prodId, sizeId);
+    if (e.target.value === "favorite" && sizeId) {
+      let users = favorites.filter(fave => 
+        fave.product.toString() === prodId.toString()
+      )
+      if(users[0] !== undefined) {
+        return setErrorMessage("Item is already in your favorites")
+      } else if (users[0] === undefined ) {
+        addToFavorites(sizeId, prodId)
+      }
     }
-  };
+  }
+  
+
 
   const verifyUser = (e) => {
     return userId !== null
@@ -55,6 +63,7 @@ const Product = ({
 
   const handleSizeClick = (e) => {
     e.preventDefault();
+    console.log("sizeId", e.target.value)
     if (e.target.name === size) {
       setSizeId("");
       setSize("");
@@ -101,7 +110,7 @@ const Product = ({
                 </a>
               </div>
               <div>
-                {errorMessage}
+                <div style={{color: 'red'}}>{errorMessage}</div>
                 {sizes.map(({ size, _id }, index) => {
                   return (
                     <button

@@ -1,17 +1,13 @@
-import { ADD_FAVORITE, FETCH_FAVORITES } from "../actions/types";
+import { FETCH_FAVORITE_PRODUCTS } from "../actions/types";
 import { updateObject } from "../utils/updateObject";
 
 const initialState = {
-  favorites: []
+  products: []
 };
 export default function (state = initialState, action) {
-  // console.log(action.payload || false)
   switch (action.type) {
-    case ADD_FAVORITE:
-      // either an object or a string - empty strings are falsey
-      return updateObject(state, { favorites: action.payload }) || false;
-    case FETCH_FAVORITES:
-      return updateObject(state, { favorites: action.payload })
+      case FETCH_FAVORITE_PRODUCTS:
+        return updateObject(state, { products: action.payload }) || false
     default:
       return state;
   }

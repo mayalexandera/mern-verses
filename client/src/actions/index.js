@@ -1,5 +1,5 @@
 import axios from "axios";
-import { FETCH_USER, FETCH_PLANS, FETCH_SURVEYS, FETCH_PRODUCTS, FETCH_PRODUCT, FETCH_SIZES, ADD_FAVORITE, FETCH_FAVORITES } from "./types";
+import { FETCH_USER, FETCH_PLANS, FETCH_SURVEYS, FETCH_PRODUCTS, FETCH_PRODUCT, FETCH_SIZES, ADD_FAVORITE, FETCH_FAVORITE_PRODUCTS } from "./types";
 /*
   the whole purpose of redux-thunk is to inspect whatever value is returned from the action creator
 */
@@ -66,15 +66,15 @@ export const fetchSizes = (productId) => async (dispatch) => {
 export const addToFavorites = (sizeId, productId) => async (dispatch) => {
   const res = await axios.post(`/api/users/:id/favorites`, {
     params: {
+      size: sizeId,
       product: productId,
-      size: sizeId
     }
   })
   dispatch({ type: ADD_FAVORITE, payload: res.data })
 }
 
-export const fetchFavorites = () => async (dispatch) => {
-  const res = await axios.get('/api/users/:id/favorites')
+export const fetchFavoriteProducts = () => async (dispatch) => {
+  const res = await axios.get('/api/products')
 
-  dispatch({ type: FETCH_FAVORITES, payload: res.data })
+  dispatch({ type: FETCH_FAVORITE_PRODUCTS, payload: res.data })
 }

@@ -2,11 +2,11 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import * as actions from "../../actions";
 
-const Favorites = (props) => {
+const Favorites = ({favorites, fetchFavoriteProducts}) => {
 
   useEffect(() => {
-    props.fetchFavorites()
-  }, [props.fetchFavorites])
+    fetchFavoriteProducts()
+  }, [fetchFavoriteProducts])
   return (
     <div>
       <h2 style={{textAlign: 'center'}}>
@@ -18,7 +18,7 @@ const Favorites = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    favorites: state.favorites
+    products: state.favorites.products
   }
 }
 

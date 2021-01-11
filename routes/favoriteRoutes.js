@@ -1,18 +1,26 @@
-const mongoose = require('mongoose')
+const mongoose = require("mongoose");
+const FavoriteSchema = require("../models/Favorite");
+const Favorite = mongoose.model("Favorite", FavoriteSchema);
 
 module.exports = (app) => {
   app.post(`/api/users/:id/favorites`, async (req, res) => {
-    const favorite = new Favorite({
+    const newFavorite = new Favorite({
       product: req.body.params.product,
-      size: req.body.params.size
-    })
-    const user = req.user
-    user.favorites.push(favorite)
-    await user.save()
-    res.send(user.favorites)
-  })
+      size: req.body.params.size,
+    });
 
-  app.get('/api/users/:id/favorites', async (req, res) => {
-    res.send(req.user.favorites)
-  })
-}
+    req.user.favorites.push(newFavorite);
+    req.user
+      .save()
+      .then((user) => {
+        res.send(user);
+      })
+      .catch((err) => {
+        if (err) {
+          console.log(err);
+          res.sendStatus(500);
+          return;
+        }
+      });
+  });
+};
