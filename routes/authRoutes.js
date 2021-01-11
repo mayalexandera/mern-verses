@@ -9,11 +9,10 @@ module.exports = (app) => {
     })
   );
 
-
   /* after user comes back from o auth flow,
   passport middleware does its thing,
   arrow function redirects to '/surveys'
-  */ 
+  */
   app.get(
     "/auth/google/callback",
 
@@ -26,16 +25,13 @@ module.exports = (app) => {
       res.redirect("/");
     }
   );
-  
-  app.get('/api/current_user', (req, res) => {
-    res.send(req.user)
-  })
 
-  app.get('/api/logout', (req, res) => {
-    req.logout()
-    res.redirect('/')
-  })
+  app.get("/api/current_user", (req, res) => {
+    res.send(req.user);
+  });
 
-};  
-
- 
+  app.get("/api/logout", (req, res) => {
+    req.logout();
+    res.redirect("/");
+  });
+};

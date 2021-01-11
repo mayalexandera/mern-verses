@@ -32,6 +32,8 @@ require("./models/Size");
 //o auth strategy configuration
 require("./services/passport");
 
+mongoose.Promise = global.Promise
+
 // connects mongoose to mongoDB
 // mongoose.connect(keys.mongoURI);
 mongoose.connect(keys.mongoURI, {
