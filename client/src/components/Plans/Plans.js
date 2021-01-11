@@ -6,6 +6,7 @@ import './Plans.css'
 
 
 const Plans = ( props ) => {
+  console.log(props)
 
   const renderPlans = () => {
     return props.plans.map(plan => {
