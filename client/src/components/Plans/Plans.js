@@ -19,7 +19,7 @@ const Plans = ( props ) => {
     <div className='plans-container'>
       <h2 style={{ textAlign: "center" }}>Plans</h2>
       <div className='plans-section'>
-        {renderPlans()}</div>
+        {props.plans ? renderPlans() : null}</div>
     </div>
   );
 }
