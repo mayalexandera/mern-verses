@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import * as actions from "../../actions";
+import ThreeMonthPayment from "../Payments/ThreeMonthPayment";
 
 const PlanCard = (props) => {
   const clickHandler = (e) => {
@@ -46,14 +47,15 @@ const PlanCard = (props) => {
           })}
         </ul>
         <div id='plan-button'>
-          <button
+          {/* <button
             plan={props.plan._id}
             value='button'
             onClick={(e) => clickHandler(e)}
             id={"plan-option"}
           >
             Try Now
-          </button>
+          </button> */}
+          <ThreeMonthPayment amt={props.plan.trialPrice.price} credits={props.plan.trialPrice.credits}/>
         </div>
         <div className='plan-price-section'>
           <div className='plan-trial-price'>

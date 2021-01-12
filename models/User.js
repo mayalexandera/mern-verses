@@ -15,7 +15,8 @@ const UserSchema = new Schema({
   dateJoined: Date,
   credits: { type: Number, default: 0 },
   cart: [{ type: Schema.Types.ObjectId, ref: 'CartItem' }],
-  favorites: [FavoriteSchema]
+  favorites: [FavoriteSchema],
+  purchasedTrial: { type: Boolean, default: false }
 });
 
 const User = mongoose.model('User', UserSchema);

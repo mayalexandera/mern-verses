@@ -21,6 +21,13 @@ export const handleToken = (token) => async (dispatch) => {
 
 }
 
+export const handleThreeMonthToken = (token, amt, credits) => async (dispatch) => {
+  const res = await axios.post("/api/stripe", token, {
+    params: {amt, credits}});
+
+  dispatch({ type: FETCH_USER, payload: res.data });
+};
+
 export const fetchProducts = () => async (dispatch) => {
   const res = await axios.get("/api/products");
 
