@@ -7,7 +7,7 @@ const ThreeMonthPayment = ({amt, credits, terms, handleThreeMonthToken, id}) => 
     return (
       <StripeCheckout
         name='VERSES'
-        description={`$${amt*credits} ($${amt} ${terms})`}
+        description={`$${Number(amt*credits)} ($${amt} ${terms})`}
         amount={Number(amt*credits*100)}
         token={(token) => handleThreeMonthToken(token, amt, credits)}
         stripeKey={process.env.REACT_APP_STRIPE_KEY}
