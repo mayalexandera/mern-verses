@@ -9,9 +9,15 @@
 }
 
 .product-container {
-  padding-top: 120px;
+  margin-top: 120px;
 }
 
+  .products-section {
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-column-gap: 5px;
+  }
 
 #size-button {
   margin: 4px;
@@ -101,12 +107,13 @@
 
 .product-card-wrapper,
 .favorite-card-wrapper {
-  display: inline-flex;
-  padding: 8px;
+  /* display: contents; */
+  /* padding: 8px; */
   justify-content: center;
   vertical-align: top;
-  width: 33.3%;
+  /* width: 33.3%; */
   height: 645px;
+  margin-bottom: 18px;
 }
 
 .product-card-content-wrapper,
@@ -122,7 +129,7 @@
   vertical-align: top;
   position: relative;
   height: 100%;
-  width: 85%;
+  /* width: 85%; */
   display: flex;
   justify-content: center;
 }
@@ -130,8 +137,8 @@
 .product-card-details,
 .favorite-card-details {
   text-align: left;
-  padding: 10px;
-  height: 15%;
+  padding: 10px 6px;
+  /* height: 15%; */
   line-height: 1.45;
 }
 
@@ -142,9 +149,9 @@
 
 .product-photo-wrapper,
 .favorite-photo-wrapper {
-  display: flex;
+  /* display: flex; */
   justify-content: center;
-  height: 85%;
+  /* height: 85%; */
   width: 100%;
   overflow: hidden;
 }
@@ -152,8 +159,8 @@
 .product-photo-wrapper a img,
 .favorite-photo-wrapper img {
   display: block;
-  height: 100%;
-  width: auto;
+  /* height: 100%; */
+  width: 100%;
   margin: auto;
 }
 
@@ -288,25 +295,31 @@
   width: 95%;
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 1023px) {
   .product-container {
     display: block;
     padding-top: 40px;
   }
   .products-section {
     width: 100%;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-column-gap: 5px;
+    grid-row-gap: 10px;
+  }
+
+  .product-photo-wrapper {
+    height: 85%;
   }
   
   .product-photo-wrapper a img {
     width:100%;
-    padding: 0 3px;
     height: auto;
-    display: flex;
   }
 
   .product-card-details {
-    padding-top: 0;
-    line-height: 1.15;
+    /* padding-top: 0; */
+    /* line-height: 1.15; */
     font-size: 85%;
   }
   .product-title {
@@ -315,11 +328,16 @@
 
   .product-card-wrapper {
     padding: 0;
-    width: 50%;
-    margin-bottom: 20px;
-    /* display: inline-block; */
+    width: 100%;
+    height: 600px;
+    /* display: contents; */
   }
   .product-card-body {
     width: 100%;
+    height: 600px;
+  }
+
+  .product-card-content-wrapper {
+    /* height: 95%; */
   }
 }

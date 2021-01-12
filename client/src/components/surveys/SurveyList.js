@@ -1,25 +1,32 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
+import React, { Component } from "react";
+import { connect } from "react-redux";
 
-import { fetchSurveys } from '../../actions'
+import { fetchSurveys } from "../../actions";
 
 class SurveyList extends Component {
-
   componentDidMount() {
-    this.props.fetchSurveys()
+    this.props.fetchSurveys();
   }
-  
+
   render() {
     return (
-      <div> Survey List</div>
-    )
+      <div>
+        {this.props.surveys.map((survey) => {
+          return (
+            <div>
+              <div>{survey.title}</div>
+              <div>{survey.subject}</div>
+              <div>{survey.body}</div>
+            </div>
+          )
+        })}
+      </div>
+    );
   }
 }
 
-
 const mapStateToProps = ({ surveys }) => {
-  return { surveys }
-}
+  return { surveys };
+};
 
-export default connect(mapStateToProps, { fetchSurveys })(SurveyList)
-
+export default connect(mapStateToProps, { fetchSurveys })(SurveyList);
