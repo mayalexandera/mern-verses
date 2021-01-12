@@ -8,10 +8,14 @@ const { Schema } = mongoose;
 const planSchema = new Schema({
   months: Number,
   items: Number,
-  trialPrice: Object,
-  regularPrice: String,
+  trialPrice: {
+    price: Number,
+    terms: String
+  },
+  regularPrice: Number,
   features: [String],
-  description: String
+  description: String,
+  credits: Number,
 });
 
 const Plan = mongoose.model("Plan", planSchema);
