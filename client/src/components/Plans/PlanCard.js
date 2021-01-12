@@ -33,7 +33,7 @@ const PlanCard = ({plan: {id, description, items, features, trialPrice, regularP
           })}
         </ul>
         <div id='plan-button'>
-          <ThreeMonthPayment id={'plan-option'} amt={trialPrice.price} credits={trialPrice.credits}>
+          <ThreeMonthPayment id={'plan-option'} amt={trialPrice.price} credits={trialPrice.credits} terms={trialPrice.terms}>
             </ThreeMonthPayment>
         </div>
         <div className='plan-price-section'>

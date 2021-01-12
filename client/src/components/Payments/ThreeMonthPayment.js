@@ -3,11 +3,11 @@ import StripeCheckout from "react-stripe-checkout";
 import { connect } from "react-redux";
 import * as actions from "../../actions/";
 
-const ThreeMonthPayment = ({amt, credits, handleThreeMonthToken, id}) => {
+const ThreeMonthPayment = ({amt, credits, terms, handleThreeMonthToken, id}) => {
     return (
       <StripeCheckout
         name='VERSES'
-        description={`$${amt*credits} ($${amt}/${credits} month)`}
+        description={`$${amt*credits} ($${amt}${terms})`}
         amount={amt*credits*100}
         token={(token) => handleThreeMonthToken(token, amt, credits)}
         stripeKey={process.env.REACT_APP_STRIPE_KEY}
