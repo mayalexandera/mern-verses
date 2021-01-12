@@ -1,4 +1,5 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
+const CartItemSchema = require('./CartItem');
 const { Schema } = mongoose
 const FavoriteSchema = require('./Favorite')
 //const Schema = mongoose.Schema
@@ -14,7 +15,7 @@ const UserSchema = new Schema({
   photoUrl: String,
   dateJoined: Date,
   credits: { type: Number, default: 0 },
-  cart: [{ type: Schema.Types.ObjectId, ref: 'CartItem' }],
+  cart: [CartItemSchema],
   favorites: [FavoriteSchema],
   purchasedTrial: { type: Boolean, default: false }
 });

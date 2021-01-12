@@ -80,6 +80,7 @@ require("./routes/planRoutes")(app);
 require("./routes/productRoutes")(app);
 require("./routes/sizeRoutes")(app);
 require("./routes/favoriteRoutes")(app);
+require("./routes/cartRoutes")(app);
 
 if (process.env.NODE_ENV === "production") {
   /*

@@ -6,8 +6,10 @@ const Product = ({
   fetchSizes,
   fetchProduct,
   addToFavorites,
+  addCartItem,
   userId,
   product,
+  cart,
   sizes,
   favorites,
   match: {
@@ -33,12 +35,9 @@ const Product = ({
   };
 
   const submitRequest = (e) => {
-    if (e.target.value === "addToCart") {
-      // props.addToCart(
-      //   props.product._id,
-      //   sizeId,
-      //   size
-      // );
+    if (e.target.value === "addToCart" && sizeId) {
+      addCartItem(sizeId, prodId, 1, product.name, product.price)
+      // console.log(!!cart.filter(item => item.size.toString() === sizeId.toString()).length)
     }
 
     if (e.target.value === "favorite" && sizeId) {
@@ -177,6 +176,7 @@ const mapStateToProps = (state) => {
     product: state.products.product,
     sizes: state.sizes,
     userId: state.auth.googleId,
+    cart: state.auth.cart,
     favorites: state.auth.favorites,
   };
 };

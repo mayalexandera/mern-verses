@@ -3,9 +3,11 @@ const Schema = mongoose.Schema
 
 
 const CartItemSchema = new Schema({
-  size: { type: Schema.Types.ObjectId, ref: 'Size' }
-})
+  product: { type: Schema.Types.ObjectId, ref: "Product" },
+  size: { type: Schema.Types.ObjectId, ref: "Size" },
+  name: String,
+  price: Number,
+  count: Number
+});
 
-const CartItem = mongoose.model('CartItem', CartItemSchema)
-
-module.exports = CartItem
+module.exports = CartItemSchema

@@ -11,3 +11,5 @@ export const FETCH_SIZES = 'fetch_sizes'
 export const ADD_FAVORITE = 'add_favorite'
 export const FETCH_FAVORITE_PRODUCTS = 'fetch_favorite_products'
 
+export const ADD_CART_ITEM = 'add_cart_item'
+
