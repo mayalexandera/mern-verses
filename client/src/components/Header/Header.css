@@ -3,26 +3,18 @@
   .center-menu,
   .main-menu {
     width: 100%;
-    background-color: #fff;
     position: fixed;
     z-index: 1;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     height: 60px;
     /* border: 1px solid red; */
     top: 30px;
   }
-
   .nav-wrapper {
     padding: 0 20px;
-    width: 100%;
-    /* background-color: #fff; */
-    position: fixed;
-    z-index: 1;
-    display: flex;
-    justify-content: space-between;
-    height: 60px;
-    top: 30px;
+    background-color: #fff;
   }
 
   .main-menu {
@@ -30,22 +22,33 @@
     justify-content: center;
   }
 
+  .cart-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+.cart-button > span {
+  position: absolute;
+}
+
+.cart-button p {
+  font-size: 65%;
+  position: relative;
+  top: 2px;
+}
+
   .center-menu {
     width: 33%;
-    display: inline-flex;
     justify-content: center;
+  }
+
+  .right-menu {
+    display: inline-flex;
   }
 
   .nav-button {
     font-size: 80%;
-  }
-
-  .logo-wrapper,
-  .right-menu,
-  .center-menu > .nav-button {
-    margin: auto 0;
-    display: inline-flex;
-    /* border: 1px solid red; */
   }
 
   .center-menu > .nav-button {
@@ -53,7 +56,8 @@
   }
 
   .right-menu > .nav-button {
-    padding-left: 10px;
+    padding-left: 30px;
+    padding-right: 20px;
   }
 
   .center-menu > .nav-button:last-child,
@@ -76,6 +80,7 @@
   .small-menu-icon,
   .small-dropdown-menu {
     visibility: hidden;
+    display: none;
   }
 }
 

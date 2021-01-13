@@ -13,23 +13,24 @@ class Header extends Component {
           <NavLink className='nav-logo' to='/'>
             Verses
           </NavLink>
-          <ul className='right-menu'>
-            <NavLink className='nav-button' to='/member/favorites'>
-              Favorites
+          <div className='right-menu'>
+              <NavLink className='nav-button' to='/member/favorites'>
+                <span className='material-icons-outlined'>favorite_border</span>
+              </NavLink>
+            <NavLink
+              className='nav-button cart-button'
+              to='/member/cart'
+            >
+              <span className='material-icons-outlined'>shopping_bag</span>
+              <p>{this.props.auth ? this.props.auth.cart.length : null}</p>
             </NavLink>
-            <NavLink className='nav-button' to='/member/cart'>
-              Cart
-            </NavLink>
-          </ul>
+          </div>
+
           <div className='small-menu-icon'>
-            <i className='material-icons'>menu</i>
-            <div className='small-dropdown-menu'>
-              <div></div>
-              <div></div>
-            </div>
+            <i className='material-icons-outlined'>menu</i>
+            <div className='small-dropdown-menu'></div>
           </div>
         </div>
-
         <ul className='center-menu'>
           <NavLink className='nav-button' to='/products'>
             Clothing
