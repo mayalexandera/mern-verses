@@ -98,9 +98,27 @@
   transition: 0.3s;
 }
 
+.error-message {
+  margin: 0 auto;
+  border: none;
+  height: 15px;
+  display: block;
+  color: red;
+  background: transparent;
+  text-align: center;
+  cursor: pointer;
+  margin-top: 5px;
+}
+
+.error-message:hover {
+  font-style: italic;
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+
 .product-actions {
   font-size: 95%;
-  padding-top: 30px;
+  padding-top: 20px;
 }
 
 /*####################################################*/

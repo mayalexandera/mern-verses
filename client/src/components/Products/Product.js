@@ -9,22 +9,21 @@ const Product = ({
   addCartItem,
   userId,
   product,
-  cart,
   sizes,
   favorites,
   match: {
     params: { id },
   },
 }) => {
+
   const [sizeId, setSizeId] = useState("");
   const [size, setSize] = useState();
   const [errorMessage, setErrorMessage] = useState("");
-
   const prodId = id;
 
   useEffect(() => {
-    fetchSizes(prodId);
     fetchProduct(prodId);
+    fetchSizes(prodId);
   }, [fetchSizes, fetchProduct, prodId]);
 
   const handleClick = (e) => {
@@ -36,33 +35,21 @@ const Product = ({
 
   const submitRequest = (e) => {
     if (e.target.value === "addToCart" && sizeId) {
-      addCartItem(sizeId, prodId, 1, product.name, product.price)
-      // console.log(!!cart.filter(item => item.size.toString() === sizeId.toString()).length)
+      addCartItem(sizeId, prodId, 1, product.name, product.price);
     }
 
     if (e.target.value === "favorite" && sizeId) {
-      let users = favorites.filter(fave => 
-        fave.product.toString() === prodId.toString()
-      )
-      if(users[0] !== undefined) {
-        return setErrorMessage("Item is already in your favorites")
-      } else if (users[0] === undefined ) {
-        addToFavorites(sizeId, prodId)
-      }
+      let existingFavorite = favorites.filter(
+        (fave) => fave.product.toString() === prodId.toString()
+      );
+
+      existingFavorite[0] ? setErrorMessage("This item is already in your favorites")
+      : addToFavorites(sizeId, prodId);
     }
-  }
-  
-
-
-  const verifyUser = (e) => {
-    return userId !== null
-      ? handleClick(e)
-      : setErrorMessage("Sign up to place orders.");
   };
 
   const handleSizeClick = (e) => {
     e.preventDefault();
-    console.log("sizeId", e.target.value)
     if (e.target.name === size) {
       setSizeId("");
       setSize("");
@@ -78,16 +65,13 @@ const Product = ({
 
   const renderProduct = () => {
     if (product !== null) {
-      const images1 = [...product.images.model1];
-
-      if (!!product.images.model2) {
-        const images2 = [...product.images.model2];
-      }
+      const images = [...product.images.model1];
 
       return (
         <div className='product-show'>
+
           <div className='span-3-of-5'>
-            {images1.map((img, idx) => {
+            {images.map((img, idx) => {
               return (
                 <div key={idx}>
                   <img key={img} src={img} alt={product.name} />
@@ -109,22 +93,22 @@ const Product = ({
                 </a>
               </div>
               <div>
-                <div style={{color: 'red'}}>{errorMessage}</div>
                 {sizes.map(({ size, _id }, index) => {
                   return (
                     <button
-                      key={index}
-                      onClick={(e) => handleSizeClick(e)}
-                      className='product-show-subtitle'
-                      id={button(size)}
-                      value={_id}
-                      name={size}
+                    key={index}
+                    onClick={(e) => handleSizeClick(e)}
+                    className='product-show-subtitle'
+                    id={button(size)}
+                    value={_id}
+                    name={size}
                     >
                       {size}
                     </button>
                   );
                 })}
               </div>
+                <button onClick={() => setTimeout(() => {setErrorMessage(null)}, 1000)}className='error-message'>{errorMessage}</button>
 
               <ul className='product-actions'>
                 <button
@@ -167,18 +151,12 @@ const Product = ({
     }
     return <div>loading </div>;
   };
-
+  
   return <div className='product-container'>{renderProduct()}</div>;
 };
 
-const mapStateToProps = (state) => {
-  return {
-    product: state.products.product,
-    sizes: state.sizes,
-    userId: state.auth.googleId,
-    cart: state.auth.cart,
-    favorites: state.auth.favorites,
-  };
+const mapStateToProps = ({ products: { product }, sizes, auth: { favorites, googleId } }) => {
+  return { product, sizes, favorites, userId: googleId };
 };
 
 export default connect(mapStateToProps, actions)(Product);

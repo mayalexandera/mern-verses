@@ -1,12 +1,14 @@
-import React, { Component } from "react";
+import React, { useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
-
+import * as actions from "../../actions";
 import "./Header.css";
 
-class Header extends Component {
-  render() {
-    console.log(this.props.auth);
+const Header = ({ fetchUser, auth }) => {
+
+  useEffect(() => {
+    fetchUser()
+  }, [fetchUser])
     return (
       <nav className='main-menu'>
         <div className='nav-wrapper'>
@@ -14,15 +16,13 @@ class Header extends Component {
             Verses
           </NavLink>
           <div className='right-menu'>
-              <NavLink className='nav-button' to='/member/favorites'>
-                <span className='material-icons-outlined'>favorite_border</span>
-              </NavLink>
-            <NavLink
-              className='nav-button cart-button'
-              to='/member/cart'
-            >
+            <NavLink className='nav-button favorites-button' to='/member/favorites'>
+              <span className='material-icons-outlined'>favorite_border</span>
+              <p>{auth ? auth.favorites.length : null}</p>
+            </NavLink>
+            <NavLink className='nav-button cart-button' to='/member/cart'>
               <span className='material-icons-outlined'>shopping_bag</span>
-              <p>{this.props.auth ? this.props.auth.cart.length : null}</p>
+              <p>{auth ? auth.cart.length : null}</p>
             </NavLink>
           </div>
 
@@ -44,11 +44,10 @@ class Header extends Component {
         </ul>
       </nav>
     );
-  }
 }
 
 function mapStateToProps({ auth }) {
   return { auth };
 }
 
-export default connect(mapStateToProps)(Header);
+export default connect(mapStateToProps, actions)(Header);

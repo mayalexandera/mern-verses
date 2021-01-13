@@ -9,7 +9,6 @@
     justify-content: space-between;
     align-items: center;
     height: 60px;
-    /* border: 1px solid red; */
     top: 30px;
   }
   .nav-wrapper {
@@ -22,20 +21,29 @@
     justify-content: center;
   }
 
-  .cart-button {
+  .cart-button, .favorites-button {
     display: flex;
     justify-content: center;
     align-items: center;
   }
 
-.cart-button > span {
+.cart-button > span,
+.favorites-button > span {
   position: absolute;
 }
 
-.cart-button p {
+.cart-button p,
+.favorite-button p {
   font-size: 65%;
+  font-weight: 400;
   position: relative;
   top: 2px;
+}
+
+.favorites-button p {
+  font-size: 65%;
+  position: relative;
+  bottom: .5px;
 }
 
   .center-menu {

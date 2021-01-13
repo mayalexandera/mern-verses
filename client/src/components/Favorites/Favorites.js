@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import * as actions from "../../actions";
 
-const Favorites = ({favorites, fetchFavoriteProducts}) => {
+const Favorites = ({ favorites, fetchFavoriteProducts }) => {
 
   useEffect(() => {
     fetchFavoriteProducts()

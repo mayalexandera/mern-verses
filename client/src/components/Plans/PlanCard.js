@@ -26,7 +26,7 @@ const PlanCard = ({plan: {id, description, items, features, trialPrice, regularP
           {features.map((feature) => {
             return (
               <li>
-                <i class='material-icons'>check</i>
+                <i class='material-icons-outlined'>done</i>
                 <span>{feature}</span>
               </li>
             );
