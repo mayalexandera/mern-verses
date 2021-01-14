@@ -1,5 +1,5 @@
 import { ADD_FAVORITE, FETCH_FAVORITES } from "../actions/types";
-import { updateObject } from "../utils/updateObject";
+import { updateObject } from "../../utils/updateObject";
 
 export default function (state = null, action) {
   switch (action.type) {

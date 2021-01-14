@@ -106,9 +106,10 @@
 
   .nav-wrapper {
     width: 100%;
-    border: 1px solid red;
+    /* border: 1px solid red; */
     height: 60px;
     display: flex;
+    padding: 0px 10px;
     justify-content: space-between;
     align-items: center;
   }
@@ -119,7 +120,6 @@
   }
 
   .dropdown-container {
-    /* border: 1px solid red; */
     display: inline-flex;
     flex-direction: column;
     align-items: flex-end;
@@ -128,7 +128,6 @@
   .small-menu-icon {
     padding: 5px 10px;
     display: inline;
-    border: 1px solid red;
   }
 
   .small-menu-icon > i {
@@ -158,3 +157,4 @@
     visibility: visible;
   }
 }
+

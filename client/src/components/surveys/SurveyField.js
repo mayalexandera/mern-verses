@@ -7,7 +7,6 @@ const SurveyField = ({ input, label, className, meta: { error, touched } }) => {
   return (
     <Fragment>
       <div className={className}>
-        {/* the input object from props (destructed and passed as argument to component is some amount of functions.  by using the spread operator, react will automatically add each property.  this frees you from having to pass each property a la onBlur={input.onBlur} onChange={input.onChange} etc */}
         <label>{label}</label>
         {className === "survey-field-row" ? (
           <input {...input} />

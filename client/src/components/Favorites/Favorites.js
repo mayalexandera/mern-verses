@@ -2,7 +2,7 @@ import React, { useEffect, Fragment } from "react";
 import { connect } from "react-redux";
 import FavoriteCard from "./FavoriteCard";
 import "./Favorites.css";
-import * as actions from "../../actions";
+import * as actions from "../../store/actions";
 
 const Favorites = ({ favorites }) => {
 

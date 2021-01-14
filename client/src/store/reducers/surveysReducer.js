@@ -1,4 +1,5 @@
 import { FETCH_SURVEYS } from '../actions/types'
+import { updateObject } from "../../utils/updateObject";
 
 export default function(state=[], action) {
   switch (action.type) {

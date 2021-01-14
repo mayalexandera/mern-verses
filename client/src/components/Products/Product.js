@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
-import * as actions from "../../actions";
+import * as actions from "../../store/actions";
 
 const Product = ({
   fetchSizes,
@@ -10,13 +10,13 @@ const Product = ({
   userId,
   product,
   sizes,
-  favorites,
+  favoriteList,
   match: {
     params: { id },
   },
 }) => {
   const [sizeId, setSizeId] = useState("");
-  const [size, setSize] = useState();
+  const [size, setSize] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const prodId = id;
 
@@ -33,9 +33,7 @@ const Product = ({
   };
 
   const submitRequest = (e) => {
-    let newItem = {};
-    if (e.target.value === "addToCart" && sizeId) {
-      newItem = 
+    if (e.target.value === "addToCart") {
       addCartItem(
         prodId,
         sizeId,
@@ -48,22 +46,24 @@ const Product = ({
       );
     }
 
-    if (e.target.value === "favorite" && sizeId) {
-      // let existingFavorite = favorites.filter(
-      //   (fave) => fave.product.toString() === prodId.toString()
-      // );
-
-      // existingFavorite[0] ? setErrorMessage("This item is already in your favorites")
-      // :
-      addFavorite(
-        prodId,
-        sizeId,
-        product.name,
-        product.brandName,
-        product.price,
-        size,
-        product.images.model1[0]
-      );
+    if (e.target.value === "favorite") {
+      let existingFavorite = null;
+      if (!!favoriteList) {
+        existingFavorite = favoriteList.items
+          .filter((fave) => fave.productId === prodId)
+          .map((item) => item._id);
+      }
+      !!existingFavorite[0]
+        ? setErrorMessage("This item is already in your favorites")
+        : addFavorite(
+            prodId,
+            sizeId,
+            product.name,
+            product.brandName,
+            product.price,
+            size,
+            product.images.model1[0]
+          );
     }
   };
 
@@ -84,7 +84,6 @@ const Product = ({
 
   const renderProduct = () => {
     if (product !== null) {
-      console.log(product.images);
       const images = [...product.images.model1];
       return (
         <div className='product-show'>
@@ -184,10 +183,11 @@ const Product = ({
 
 const mapStateToProps = ({
   products: { product },
+  favoriteList,
   sizes,
   auth: { googleId },
 }) => {
-  return { product, sizes, userId: googleId };
+  return { product, favoriteList, sizes, userId: googleId };
 };
 
 export default connect(mapStateToProps, actions)(Product);

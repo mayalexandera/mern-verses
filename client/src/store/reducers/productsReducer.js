@@ -1,5 +1,5 @@
 import { FETCH_PRODUCTS, FETCH_PRODUCT } from "../actions/types";
-import { updateObject } from '../utils/updateObject'
+import { updateObject } from "../../utils/updateObject";
 
 const initialState = {
   products: null,

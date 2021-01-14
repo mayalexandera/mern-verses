@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { deleteFavorite } from '../../actions'
+import { deleteFavorite } from '../../store/actions'
 
 const FavoriteCard = ({product: {_id, sizeId, product, name, brandName, price, size, featuredImage }, deleteFavorite}) => {
   const clickHandler = (e) => {

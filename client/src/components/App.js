@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { BrowserRouter, Route } from "react-router-dom";
 import { connect } from "react-redux";
-import * as actions from "../actions";
+import * as actions from "../store/actions";
 
 import Header from "./Header/Header";
 import AuthBanner from "./AuthBanner/AuthBanner";

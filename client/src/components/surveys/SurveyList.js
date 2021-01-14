@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
-import { fetchSurveys } from "../../actions";
+import { fetchSurveys } from "../../store/actions";
 
 class SurveyList extends Component {
   componentDidMount() {

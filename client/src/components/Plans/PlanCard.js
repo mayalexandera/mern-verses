@@ -1,6 +1,4 @@
 import React from "react";
-import { connect } from "react-redux";
-import * as actions from "../../actions";
 import ThreeMonthPayment from "../Payments/ThreeMonthPayment";
 
 const PlanCard = ({plan: {id, credits, description, items, features, trialPrice, regularPrice }}) => {

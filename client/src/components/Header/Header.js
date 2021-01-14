@@ -1,14 +1,11 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
-import * as actions from "../../actions";
+import * as actions from "../../store/actions";
 import "./Header.css";
 
-const Header = ({ fetchUser, favoriteList, cart, auth }) => {
+const Header = ({ fetchUser, favoriteList, cart }) => {
 
-  // useEffect(() => {
-  //   fetchUser()
-  // }, [fetchUser])
   console.log(fetchUser, favoriteList, cart, "Header")
     return (
       
@@ -48,8 +45,8 @@ const Header = ({ fetchUser, favoriteList, cart, auth }) => {
     );
 }
 
-function mapStateToProps({ auth, cart, favoriteList }) {
-  return { auth, cart, favoriteList };
+function mapStateToProps({ cart, favoriteList }) {
+  return { cart, favoriteList };
 }
 
 export default connect(mapStateToProps, actions)(Header);

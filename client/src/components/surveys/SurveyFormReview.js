@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom'
 
 import Payments from "../Payments/Payments";
 
-import * as actions from '../../actions'
+import * as actions from '../../store/actions'
 import _ from 'lodash'
 import formFields from './formFields'
 

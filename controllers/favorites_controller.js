@@ -18,6 +18,7 @@ exports.addFavorite = async (req, res) => {
     size: req.body.params.size,
     featuredImage: req.body.params.featuredImage,
   };
+  
   faveList = await FavoriteList.findById(req.user._id);
   if (faveList) {
     faveList.items.push(newFavorite);
