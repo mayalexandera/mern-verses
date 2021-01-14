@@ -18,7 +18,7 @@ module.exports = FavoriteItem
 
 const FavoriteListSchema = new Schema({
   items: [FavoriteItemSchema],
-  user: {
+  _id: {
     type: Schema.Types.ObjectId,
     ref: "User"
   },

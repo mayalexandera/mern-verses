@@ -11,16 +11,17 @@ exports.addToCart = async (req, res) => {
     const newCartItem = {
       productId: req.body.params.productId,
       sizeId: req.body.params.sizeId,
-      count: req.body.params.count,
-      price: req.body.params.price,
       name: req.body.params.name,
+      brandName: req.body.params.brandName,
+      price: req.body.params.price,
+      count: req.body.params.count,
       size: req.body.params.size,
       featuredImage: req.body.params.featuredImage,
     };
 
   console.log(cart[0], cart)
-  cart.items.push(newCartItem)
-  await cart.save()
-  res.send(cart)
+  cart[0].items.push(newCartItem)
+  await cart[0].save()
+  res.send(cart[0])
 
 };

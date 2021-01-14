@@ -15,7 +15,6 @@ const Product = ({
     params: { id },
   },
 }) => {
-
   const [sizeId, setSizeId] = useState("");
   const [size, setSize] = useState();
   const [errorMessage, setErrorMessage] = useState("");
@@ -34,15 +33,15 @@ const Product = ({
   };
 
   const submitRequest = (e) => {
-    let newItem = {}
+    let newItem = {};
     if (e.target.value === "addToCart" && sizeId) {
       addCartItem(
-        sizeId,
         prodId,
-        1,
+        sizeId,
         product.name,
         product.brandName,
         product.price,
+        1,
         size,
         product.images.model1[0]
       );
@@ -54,8 +53,16 @@ const Product = ({
       // );
 
       // existingFavorite[0] ? setErrorMessage("This item is already in your favorites")
-      // : 
-      addFavorite(sizeId, prodId, product.name, product.brandName, product.price, size, product.images.model1[0]);
+      // :
+      addFavorite(
+        prodId,
+        sizeId,
+        product.name,
+        product.brandName,
+        product.price,
+        size,
+        product.images.model1[0]
+      );
     }
   };
 
@@ -76,11 +83,10 @@ const Product = ({
 
   const renderProduct = () => {
     if (product !== null) {
-      console.log(product.images)
+      console.log(product.images);
       const images = [...product.images.model1];
       return (
         <div className='product-show'>
-
           <div className='span-3-of-5'>
             {images.map((img, idx) => {
               return (
@@ -107,19 +113,28 @@ const Product = ({
                 {sizes.map(({ size, _id }, index) => {
                   return (
                     <button
-                    key={index}
-                    onClick={(e) => handleSizeClick(e)}
-                    className='product-show-subtitle'
-                    id={button(size)}
-                    value={_id}
-                    name={size}
+                      key={index}
+                      onClick={(e) => handleSizeClick(e)}
+                      className='product-show-subtitle'
+                      id={button(size)}
+                      value={_id}
+                      name={size}
                     >
                       {size}
                     </button>
                   );
                 })}
               </div>
-                <button onClick={() => setTimeout(() => {setErrorMessage(null)}, 1000)}className='error-message'>{errorMessage}</button>
+              <button
+                onClick={() =>
+                  setTimeout(() => {
+                    setErrorMessage(null);
+                  }, 1000)
+                }
+                className='error-message'
+              >
+                {errorMessage}
+              </button>
 
               <ul className='product-actions'>
                 <button
@@ -162,11 +177,15 @@ const Product = ({
     }
     return <div>loading </div>;
   };
-  
+
   return <div className='product-container'>{renderProduct()}</div>;
 };
 
-const mapStateToProps = ({ products: { product }, sizes, auth: { googleId } }) => {
+const mapStateToProps = ({
+  products: { product },
+  sizes,
+  auth: { googleId },
+}) => {
   return { product, sizes, userId: googleId };
 };
 

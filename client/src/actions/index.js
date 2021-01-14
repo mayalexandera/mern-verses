@@ -85,8 +85,8 @@ export const fetchSizes = (productId) => async (dispatch) => {
 };
 
 export const addFavorite = (
-  sizeId,
   productId,
+  sizeId,
   name,
   brandName,
   price,
@@ -95,8 +95,8 @@ export const addFavorite = (
 ) => async (dispatch) => {
   const res = await axios.post(`/api/favorites`, {
     params: {
-      sizeId,
       productId,
+      sizeId,
       name,
       brandName,
       price,
@@ -134,21 +134,23 @@ export const fetchFavoriteSizes = () => async (dispatch) => {
 };
 
 export const addCartItem = (
-  sizeId,
   productId,
-  count,
+  sizeId,
   name,
+  brandName,
   price,
+  count,
   size,
   featuredImage
 ) => async (dispatch, getState) => {
   const res = await axios.post(`/api/carts`, {
     params: {
-      sizeId,
       productId,
-      count,
+      sizeId,
       name,
+      brandName,
       price,
+      count,
       size,
       featuredImage,
     },
