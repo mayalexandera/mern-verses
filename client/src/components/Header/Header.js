@@ -18,11 +18,11 @@ const Header = ({ fetchUser, auth }) => {
           <div className='right-menu'>
             <NavLink className='nav-button favorites-button' to='/member/favorites'>
               <span className='material-icons-outlined'>favorite_border</span>
-              <p>{auth ? auth.favorites.length : null}</p>
+              {/* <p>{auth ? auth.favorites.length : null}</p> */}
             </NavLink>
             <NavLink className='nav-button cart-button' to='/member/cart'>
               <span className='material-icons-outlined'>shopping_bag</span>
-              <p>{auth ? auth.cart.length : null}</p>
+              {/* <p>{auth ? auth.cart.length : null}</p> */}
             </NavLink>
           </div>
 

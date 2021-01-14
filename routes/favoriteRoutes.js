@@ -1,5 +1,8 @@
-const { addFavorite } = require('../controllers/favorites_controller')
+const {
+  addFavorite,
+  deleteFavorite,
+} = require("../controllers/favorites_controller");
 
 module.exports = (app) => {
-  app.post('/api/users/:id/favorites', addFavorite);
+  app.post("/api/favorites", addFavorite);
 };

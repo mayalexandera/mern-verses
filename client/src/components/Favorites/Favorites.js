@@ -1,25 +1,33 @@
-import React, { useEffect } from "react";
+import React, { useEffect, Fragment } from "react";
 import { connect } from "react-redux";
+import FavoriteCard from "./FavoriteCard";
+import "./Favorites.css";
 import * as actions from "../../actions";
 
-const Favorites = ({ favorites, fetchFavoriteProducts }) => {
+const Favorites = ({ favorites }) => {
 
-  useEffect(() => {
-    fetchFavoriteProducts()
-  }, [fetchFavoriteProducts])
+  const renderFavorites = () => {
+    return favorites ? (
+      favorites.map((fave) => {
+        return <FavoriteCard product={fave} />;
+      })
+    ) : (
+      <div className='favorites-placeholder'>
+        Items added to your favorites will be saved here.
+      </div>
+    );
+  };
   return (
-    <div>
-      <h2 style={{textAlign: 'center'}}>
-        Favorites
-      </h2>
-    </div>
+    <Fragment>
+      <div className='favorites-container'>
+        <div className='favorites-section'>{renderFavorites()}</div>
+      </div>
+    </Fragment>
   );
-}
+};
 
-const mapStateToProps = (state) => {
-  return {
-    products: state.favorites.products
-  }
-}
+const mapStateToProps = ({ auth: { favorites } }) => {
+  return { favorites };
+};
 
 export default connect(mapStateToProps, actions)(Favorites);

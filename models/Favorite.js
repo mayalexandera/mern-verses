@@ -1,9 +1,32 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
-const FavoriteSchema = new Schema({
-  product: { type: Schema.Types.ObjectId, ref: "Product" },
-  size: { type: Schema.Types.ObjectId, ref: "Size" },
+const FavoriteItemSchema = new Schema({
+  productId: { type: Schema.Types.ObjectId, ref: "Product" },
+  sizeId: { type: Schema.Types.ObjectId, ref: "Size" },
+  name: String,
+  brandName: String,
+  price: Number,
+  count: Number,
+  size: String,
+  featuredImage: String
 });
 
-module.exports = FavoriteSchema;
+const FavoriteItem = mongoose.model("FavoriteItem", FavoriteItemSchema);
+module.exports = FavoriteItem
+
+
+const FavoriteListSchema = new Schema({
+  items: [FavoriteItemSchema],
+  user: {
+    type: Schema.Types.ObjectId,
+    ref: "User"
+  },
+    updated: Date,
+    created: {
+      type: Date,
+      default: Date.now,
+    },
+});
+const FavoriteList = mongoose.model('FavoriteList', FavoriteListSchema)
+module.exports = FavoriteList

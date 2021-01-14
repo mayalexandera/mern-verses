@@ -1,8 +1,8 @@
-const { addToCart } = require('../controllers/carts_controller')
+const { addToCart, addFavoriteToCart } = require('../controllers/carts_controller')
 
 module.exports = (app) => {
 
-  app.post("/api/users/:id/cart", addToCart)
+  app.post("/api/carts", addToCart)
 
 }
 

@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import * as actions from "../../actions";
 import ThreeMonthPayment from "../Payments/ThreeMonthPayment";
 
-const PlanCard = ({plan: {id, description, items, features, trialPrice, regularPrice }}) => {
+const PlanCard = ({plan: {id, credits, description, items, features, trialPrice, regularPrice }}) => {
   const clickHandler = (e) => {
     e.preventDefault();
   
@@ -13,11 +13,11 @@ const PlanCard = ({plan: {id, description, items, features, trialPrice, regularP
     <div className='plan-card'>
       <div className='plan-card-body'>
         <div className='plan-card-details'>
-          <div>Up to</div>
+          <div></div>
           <div className=
           'items-per-month'>
-            <p>{items} </p>
-            <span>items per month</span>
+            <p>{credits}</p>
+            <span>{credits > 1 ? 'months' : 'month'}</span>
           </div>
         </div>
         <div className='plan-description'>{description}</div>
@@ -33,7 +33,7 @@ const PlanCard = ({plan: {id, description, items, features, trialPrice, regularP
           })}
         </ul>
         <div id='plan-button'>
-          <ThreeMonthPayment id={'plan-option'} amt={trialPrice.price} credits={trialPrice.credits} terms={trialPrice.terms}>
+          <ThreeMonthPayment id={'plan-option'} amt={trialPrice.price} credits={credits} terms={trialPrice.terms}>
             </ThreeMonthPayment>
         </div>
         <div className='plan-price-section'>

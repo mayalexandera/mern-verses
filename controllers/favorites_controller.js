@@ -1,31 +1,26 @@
 const mongoose = require("mongoose");
-const FavoriteSchema = require("../models/Favorite");
-const Favorite = mongoose.model("Favorite", FavoriteSchema);
+const FavoriteList = require('../models/Favorite')
 
 exports.addFavorite = async (req, res) => {
-  const favorite = req.user.favorites.filter(
-    (item) => item.product.toString() === req.body.params.product.toString()
-  );
+  let faveList
+  faveList = await FavoriteList.find({ user: req.user._id })
+    if (!faveList){ 
+      faveList = new FavoriteList({ user: req.user._id })
+    }
 
-  if (favorite[0]) {
-    return res.send({ message: "item is already in your favorites." });
-  } else {
-    const newFavorite = new Favorite({
-      product: req.body.params.product,
+    const newFavorite = {
+      productId: req.body.params.productId,
+      sizeId: req.body.params.sizeId,
+      name: req.body.params.name,
+      brandName: req.body.params.brandName,
+      price: req.body.params.price,
+      count: req.body.params.count,
       size: req.body.params.size,
-    });
-    req.user.favorites.push(newFavorite);
-  }
-  await req.user
-    .save()
-    .then((user) => {
-      res.send(user);
-    })
-    .catch((err) => {
-      if (err) {
-        console.log(err);
-        res.sendStatus(500);
-        return;
-      }
-    });
+      featuredImage: req.body.params.featuredImage
+    }
+
+    faveList.items.push(newFavorite)
+    faveList.save()
+    res.send(faveList)
+
 };

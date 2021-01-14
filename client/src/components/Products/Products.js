@@ -17,7 +17,7 @@ const Products = ({ fetchProducts, products }) => {
         return <ProductCard key={index} product={product} />;
       })
     ) : (
-      <div>loading..</div>
+      null
     );
   };
   return (

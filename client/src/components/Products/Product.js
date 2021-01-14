@@ -5,7 +5,7 @@ import * as actions from "../../actions";
 const Product = ({
   fetchSizes,
   fetchProduct,
-  addToFavorites,
+  addFavorite,
   addCartItem,
   userId,
   product,
@@ -34,17 +34,28 @@ const Product = ({
   };
 
   const submitRequest = (e) => {
+    let newItem = {}
     if (e.target.value === "addToCart" && sizeId) {
-      addCartItem(sizeId, prodId, 1, product.name, product.price);
+      addCartItem(
+        sizeId,
+        prodId,
+        1,
+        product.name,
+        product.brandName,
+        product.price,
+        size,
+        product.images.model1[0]
+      );
     }
 
     if (e.target.value === "favorite" && sizeId) {
-      let existingFavorite = favorites.filter(
-        (fave) => fave.product.toString() === prodId.toString()
-      );
+      // let existingFavorite = favorites.filter(
+      //   (fave) => fave.product.toString() === prodId.toString()
+      // );
 
-      existingFavorite[0] ? setErrorMessage("This item is already in your favorites")
-      : addToFavorites(sizeId, prodId);
+      // existingFavorite[0] ? setErrorMessage("This item is already in your favorites")
+      // : 
+      addFavorite(sizeId, prodId, product.name, product.brandName, product.price, size, product.images.model1[0]);
     }
   };
 
@@ -65,8 +76,8 @@ const Product = ({
 
   const renderProduct = () => {
     if (product !== null) {
+      console.log(product.images)
       const images = [...product.images.model1];
-
       return (
         <div className='product-show'>
 
@@ -155,8 +166,8 @@ const Product = ({
   return <div className='product-container'>{renderProduct()}</div>;
 };
 
-const mapStateToProps = ({ products: { product }, sizes, auth: { favorites, googleId } }) => {
-  return { product, sizes, favorites, userId: googleId };
+const mapStateToProps = ({ products: { product }, sizes, auth: { googleId } }) => {
+  return { product, sizes, userId: googleId };
 };
 
 export default connect(mapStateToProps, actions)(Product);
