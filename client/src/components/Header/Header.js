@@ -4,12 +4,14 @@ import { connect } from "react-redux";
 import * as actions from "../../actions";
 import "./Header.css";
 
-const Header = ({ fetchUser, auth }) => {
+const Header = ({ fetchUser, favoriteList, cart, auth }) => {
 
-  useEffect(() => {
-    fetchUser()
-  }, [fetchUser])
+  // useEffect(() => {
+  //   fetchUser()
+  // }, [fetchUser])
+  console.log(fetchUser, favoriteList, cart, "Header")
     return (
+      
       <nav className='main-menu'>
         <div className='nav-wrapper'>
           <NavLink className='nav-logo' to='/'>
@@ -18,11 +20,11 @@ const Header = ({ fetchUser, auth }) => {
           <div className='right-menu'>
             <NavLink className='nav-button favorites-button' to='/member/favorites'>
               <span className='material-icons-outlined'>favorite_border</span>
-              {/* <p>{auth ? auth.favorites.length : null}</p> */}
+              <p>{favoriteList ? favoriteList.items.length : null}</p>
             </NavLink>
             <NavLink className='nav-button cart-button' to='/member/cart'>
               <span className='material-icons-outlined'>shopping_bag</span>
-              {/* <p>{auth ? auth.cart.length : null}</p> */}
+              <p>{cart ? cart.items.length : null}</p>
             </NavLink>
           </div>
 
@@ -46,8 +48,8 @@ const Header = ({ fetchUser, auth }) => {
     );
 }
 
-function mapStateToProps({ auth }) {
-  return { auth };
+function mapStateToProps({ auth, cart, favoriteList }) {
+  return { auth, cart, favoriteList };
 }
 
 export default connect(mapStateToProps, actions)(Header);

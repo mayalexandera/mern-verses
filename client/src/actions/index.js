@@ -8,7 +8,8 @@ import {
   FETCH_SIZES,
   ADD_FAVORITE,
   ADD_CART_ITEM,
-  FETCH_FAVORITE_SIZES,
+  FETCH_FAVORITES,
+  FETCH_CART,
   DELETE_FAVORITE,
 } from "./types";
 /*
@@ -93,7 +94,7 @@ export const addFavorite = (
   size,
   featuredImage
 ) => async (dispatch) => {
-  const res = await axios.post(`/api/favorites`, {
+  const res = await axios.post(`/api/favoritelists`, {
     params: {
       productId,
       sizeId,
@@ -108,7 +109,7 @@ export const addFavorite = (
 };
 
 export const deleteFavorite = (_id) => async (dispatch) => {
-  const res = await axios.delete(`/api/favorites/${_id}`);
+  const res = await axios.delete(`/api/favoriteslists/${_id}`);
   dispatch({ type: FETCH_USER, payload: res.data });
 };
 
@@ -127,11 +128,17 @@ export const addFavoriteToCart = (
   ).then(deleteFavorite(_id));
 };
 
-export const fetchFavoriteSizes = () => async (dispatch) => {
-  const res = await axios.get("/api/member/:id/favorites/sizes");
+export const fetchFavorites = () => async (dispatch, getState) => {
+  const res = await axios.get(`/api/favoritelists`);
 
-  dispatch({ type: FETCH_FAVORITE_SIZES, payload: res.data });
+  dispatch({ type: FETCH_FAVORITES, payload: res.data });
 };
+
+export const fetchCart = () => async dispatch => {
+  const res = await axios.get('/api/carts')
+
+  dispatch({ type: FETCH_CART, payload: res.data})
+}
 
 export const addCartItem = (
   productId,

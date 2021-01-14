@@ -12,6 +12,7 @@ import SurveyNew from "./surveys/SurveyNew";
 import SurveyThanks from "./surveys/SurveyThanks";
 import Favorites from "./Favorites/Favorites";
 import Dashboard from "./Dashboard/Dashboard";
+import Layout from "./HOC/Layout";
 import Products from "./Products/Products";
 import Product from "./Products/Product";
 import Cart from "./Cart/Cart";
@@ -22,18 +23,13 @@ import "./App.css";
 
 
 class App extends Component {
-  componentDidMount() {
-    this.props.fetchUser();
-    this.props.fetchPlans();
-  }
-
   render() {
-    
+    console.log(this.props, "App")
     return (
-      <Fragment>
+      <Layout>
         <BrowserRouter>
             <AuthBanner />  
-            <Header onClick={console.log(this)} />
+            <Header />
             <div className='app-header'/>
             <Route exact path='/' component={Landing} />
             <Route exact path='/member/surveys' component={SurveyDashboard} />
@@ -50,7 +46,7 @@ class App extends Component {
 
             <Route path='/member/settings' component={AccountSettings} />
         </BrowserRouter>
-      </Fragment>
+      </Layout>
     );
   }
 }

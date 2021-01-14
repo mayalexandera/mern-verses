@@ -35,6 +35,7 @@ const Product = ({
   const submitRequest = (e) => {
     let newItem = {};
     if (e.target.value === "addToCart" && sizeId) {
+      newItem = 
       addCartItem(
         prodId,
         sizeId,

@@ -1,8 +1,14 @@
 const mongoose = require("mongoose");
-const FavoriteList = require('../models/Favorite')
+const FavoriteList = require("../models/Favorite");
+
+
+exports.fetchFavorites = async (req, res) => {
+  const list = await FavoriteList.findById(req.user._id)
+  res.send(list)
+}
 
 exports.addFavorite = async (req, res) => {
-  let faveList
+  let faveList;
   const newFavorite = {
     productId: req.body.params.productId,
     sizeId: req.body.params.sizeId,
@@ -12,18 +18,13 @@ exports.addFavorite = async (req, res) => {
     size: req.body.params.size,
     featuredImage: req.body.params.featuredImage,
   };
-  faveList = await FavoriteList.find({ _id: req.user._id })
-    if (faveList){ 
-      faveList[0].items.push(newFavorite)
-      faveList[0].save()
-      res.send(faveList[0])
-    } else {
-
-      faveList = new FavoriteList({ _id: req.user._id, items: [newFavorite]})
-      res.send(faveList)
-    }
-    
-    
-
-
+  faveList = await FavoriteList.findById(req.user._id);
+  if (faveList) {
+    faveList.items.push(newFavorite);
+    faveList.save();
+    res.send(faveList);
+  } else {
+    faveList = new FavoriteList({ _id: req.user._id, items: [newFavorite] });
+    res.send(faveList);
+  }
 };
