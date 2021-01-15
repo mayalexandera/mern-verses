@@ -2,114 +2,11 @@
   padding-top: 130px;
 }
 
-.product-gallery-wrapper {
-  max-width: 1440px;
-  margin: 0 auto;
-}
 
-.product-gallery-container {
-  flex: 3 1;
-}
 
-.product-gallery-list {
-  position: relative;
-  width: 100%;
-}
-
-.product-summary-container {
-  flex: 1 1;
-  display: none;
-}
-
-.product-gallery-image-wrapper {
-  background: transparent;
-  padding-bottom: 0;
-  padding-top: 0;
-  margin-bottom: 12px;
-}
-
-.product-gallery-image-spacer {
-  position: relative;
-  padding-top: 125%;
-}
-
-.product-summary-wrapper {
-  flex: 1 1;
-  height: 100%;
-  padding-top: 4px;
-}
-
-.product-gallery-image {
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  bottom: 0px;
-  left: 0px;
-  height: 100%;
-  width: 100%;
-}
-
-.product-gallery-image img {
-  max-width: 100%;
-}
-
-.product-summary-body {
-  padding-left: 0;
-  padding-right: 0;
-  margin-bottom: 32px;
-}
-
-.product-summary-details-wrapper {
-  margin-bottom: 8px;
-}
-
-.product-summary-details-body {
-  display: flex;
-  width: 100%;
-  margin-bottom: 0;
-}
-
-.product-summary-details-left-row {
-  flex: 3 1 80%;
-  padding-right: 8px;
-}
-
-.product-summary-detail-subtitle {
-  max-width: 65%;
-  font-weight: 500;
-  padding-bottom: 4px;
-  display: inline-block;
-}
-.headline-small {
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 1.5;
-}
-
-.headline-2 {
-  font-weight: 500;
-  font-size: 28px;
-  line-height: 1.428571;
-}
-
-.product-summary-detail-title {
-  font-weight: 500;
-  line-height: 1.2;
-  letter-spacing: 0.007em;
-  font-size: 28px;
-}
-
-.product-summary-details-right-row {
-  flex: 1 0 auto;
-  text-align: right;
-  margin-top: 12px;
-}
-
-.product-current-price {
-  font-weight: 500;
-  margin-bottom: -4px;
-  color: black;
-}
+/*###################################*/
+/*##########DETAILS BANNER###########*/
+/*###################################*/
 
 .product-details-banner {
   display: flex;
@@ -145,14 +42,290 @@
   margin-top: 12px;
 }
 
+/*###################################*/
+/*###########PHOTO GALLERY############*/
+/*###################################*/
+
+.product-gallery-wrapper {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.product-gallery-container {
+  flex: 3 1;
+}
+
+.product-gallery-list {
+  position: relative;
+  width: 100%;
+}
+
+.product-gallery-image {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+}
+
+.product-gallery-image img {
+  max-width: 100%;
+}
+
+/*###################################*/
+/*#########PRODUCT SUMMARY###########*/
+/*###################################*/
+
+.product-summary-container {
+  flex: 1 1;
+  /* display: none; */
+}
+
+.product-gallery-image-wrapper {
+  background: transparent;
+  padding-bottom: 0;
+  padding-top: 0;
+  margin-bottom: 12px;
+}
+
+.product-gallery-image-spacer {
+  position: relative;
+  padding-top: 125%;
+}
+
+.product-summary-wrapper {
+  flex: 1 1;
+  height: 100%;
+  padding-top: 4px;
+}
+
+.product-summary-body {
+  padding-left: 0;
+  padding-right: 0;
+  margin-bottom: 32px;
+}
+
+.product-summary-details-wrapper {
+  margin-bottom: 8px;
+}
+
+.product-summary-details-body {
+  display: flex;
+  width: 100%;
+  margin-bottom: 0;
+}
+
+.product-summary-details-left-row {
+  flex: 3 1 80%;
+  padding-right: 8px;
+}
+
+.product-summary-details-right-row {
+  flex: 1 0 auto;
+  text-align: right;
+  margin-top: 12px;
+}
+
+.product-summary-detail-title {
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.007em;
+  font-size: 28px;
+}
+
+.product-summary-detail-subtitle {
+  max-width: 65%;
+  font-weight: 500;
+  padding-bottom: 4px;
+  display: inline-block;
+}
+
+.headline-small {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.headline-2 {
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 1.428571;
+}
+
+.product-current-price {
+  font-weight: 500;
+  margin-bottom: -4px;
+  color: black;
+}
+
+/*###################################*/
+/*#########PRODUCT SIZES###########*/
+/*###################################*/
+
+.product-select-size-fieldset{
+  margin-top: 20px;
+  margin-bottom: 12px;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.select-size-form-header {
+  width: 100%;
+  text-align: left;
+}
+
+.size-header {
+  background: transparent;
+  text-align: left;
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.size-header-row {
+  display: flex;
+  text-align: left;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+}
+.size-chart-link {
+  color: #757575;
+  padding-right: 0;
+  display: inline-block;
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.select-size-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 7px;
+  margin-top: 8px;
+}
+
+input[type="radio"] {
+  -webkit-appearance: radio;
+}
+
+input {
+  border: 0;
+  margin: 0;
+  font-size: 14px;
+  border-radius: 2px;
+}
+
+fieldset {
+  border: none;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap;
+}
+
+.select-size-grid > :not(input):not(label) > label {
+    -webkit-box-flex: 1;
+  flex-grow: 1;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+}
+
+.product-select-size-fieldset-wrapper input[type="radio"]:not(:disabled) + label {
+  cursor: pointer;
+}
+
+.product-select-size-fieldset-wrapper  input[type="radio"].visually-hidden + label {
+  outline: none;
+}
+
+.select-size-grid  div {
+  position: relative;
+}
+
+.select-size-label {
+  border-radius: 4px;
+  height: 48px;
+}
+
+.product-select-size-fieldset-wrapper label {
+     background: rgb(255, 255, 255);
+  color: rgb(17, 17, 17);
+  box-shadow: rgb(229, 229, 229) 0px 0px 0px 1px;
+  width: 48px;
+}
+
+/*#################################################*/
+/*############# ADD TO CART BUTTONS ###############*/
+/*#################################################*/
+
+#floating-atc-wrapper {
+  /* bottom: 0px;
+  left: 0px;
+  right: 0px;
+  z-index: 1; */
+}
+
+
+.atc-btn-container {
+  display: table;
+  vertical-align: middle;
+  margin-top: 10px;
+  margin-bottom: 24px;
+  width: 100%;
+}
+
+.add-to-cart-button {
+  background: black;
+  color: white;
+}
+
+.add-to-wishlist-button {
+  margin-top: 12px;
+  background: 0 0;
+  color: black;
+box-shadow: inset 0 1px 0 0 #ccc, inset -1px 0 0 0 #ccc, inset 0 -1px 0 0 #ccc, inset 1px 0 0 0 #ccc;
+}
+
+.add-to-wishlist-button span:last-of-type {
+  font-size: 100%;
+  position: relative;
+}
+
+.wishlist-btn-tooltip {
+  padding-right: 12px;
+  padding-left: 12px;
+  padding-bottom: 4px;
+  padding-top: 4px;
+}
+
+
+
+/*#################################################*/
+/*#################### MEDIA QUERIES###############*/
+/*#################################################*/
+
+@media screen and (min-width: 961px) {
+
+}
+
+
 @media (min-width: 1025px) {
+  .product-gallery-wrapper {
+    display: flex;
+  }
+
   .product-summary-container {
     width: 456px;
     display: block;
-  }
-
-  .product-gallery-wrapper {
-    display: flex;
   }
 
   .product-summary-wrapper {
@@ -197,5 +370,27 @@
     padding-right: 48px;
     padding-left: 24px;
     margin-top: 48px;
+  }
+
+  .product-select-container {
+    margin-top: 32px;
+  }
+
+  .select-size-form-header {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .product-select-size-fieldset-wrapper {
+    padding-right: 0px;
+    padding-left: 0px;
+  }
+  .size-header-row {
+    padding-top: 0;
+  }
+
+  .atc-btn-container {
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }

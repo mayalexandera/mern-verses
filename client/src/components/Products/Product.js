@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import * as actions from "../../store/actions";
+import { reduxForm, Field } from "redux-form";
 
 import "./ProductShow.css";
 
@@ -84,6 +85,24 @@ const Product = ({
     return alphaSize === size ? "size-button-clicked" : "size-button";
   };
 
+  const renderSizeGrid = () => {
+    return product.productSizes.map((size) => {
+      return (
+        <div>
+          <input
+            className='visually-hidden'
+            name={size.size}
+            type='radio'
+            value={size._id}
+          />
+          <label for={size._id} className='select-size-label'>
+            {size.size}
+          </label>
+        </div>
+      );
+    });
+  };
+
   const renderProduct = () => {
     if (product !== null) {
       return (
@@ -110,7 +129,6 @@ const Product = ({
               <div>
                 <div>
                   <div className='product-gallery-list'>
-                    {/** map through images  */}
                     {product.images.model1.map((image) => {
                       return (
                         <div className='product-gallery-image-wrapper'>
@@ -154,6 +172,48 @@ const Product = ({
                         </div>
                       </div>
                     </div>
+                  </div>
+                  <div className='product-select-container'>
+                    <form className='product-select-size-form'>
+                      <div className='product-select-size-fieldset-wrapper'>
+                        <fieldset className='product-select-size-fieldset'>
+                          <legend className='headline-small select-size-form-header'>
+                            <div className='headline-small size-header-row'>
+                              <span className='size-header'>Select Size</span>
+                              <a className='size-chart-link'>Size Guide</a>
+                            </div>
+                          </legend>
+                          <div className='select-size-grid'>
+                            {renderSizeGrid()}
+                          </div>
+                        </fieldset>
+                      </div>
+                      <div>
+                        <div id='floating-atc-wrapper'>
+                          <div className='atc-btn-container'>
+                            <button
+                              className='btn-primary-dark btn-lg add-to-cart-button'
+                              label='Add to Bag'
+                            >
+                              Add to Bag
+                            </button>
+                            <button
+                              label='add-to-wishlist'
+                              className='btn-secondary-dark btn-lg add-to-wishlist-button'
+                            >
+                              <span className='wishlist-btn-tooltip'>Favorite</span>
+                              <span className='material-icons-outlined'>
+                                favorite_border
+                              </span>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                  <div className='product-description-container'>
+                    {product.description}
+                    
                   </div>
                 </div>
               </div>

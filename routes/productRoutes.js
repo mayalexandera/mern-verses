@@ -8,8 +8,12 @@ module.exports = (app) => {
   });
 
   app.get("/api/products/:id", async (req, res) => {
-    const product = await Products.find({ _id: req.query.productId });
+    const product = await Products.find({ _id: req.query.productId })
+      .populate({
+        path: "productSizes",
+        match: { quantity: { $gte: 1 } },
+      })
+      .exec();
     res.send(product[0]);
   });
-
 };

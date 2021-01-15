@@ -8,7 +8,7 @@ const Favorites = ({ favoriteList }) => {
   const renderFavorites = () => {
     return favoriteList ? (
       favoriteList.items.map((fave) => {
-        return <FavoriteCard product={fave} />;
+        return <FavoriteCard key={fave._id} product={fave} />;
       })
     ) : (
       <div className='favorites-placeholder'>
