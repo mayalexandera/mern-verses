@@ -1,11 +1,19 @@
 import React from "react";
+import { connect } from "react-redux";
+import "./Cart.css";
+import CartList from "./CartList";
 
-function Cart() {
-  return (
-    <div>
-      <h2 style={{ textAlign: "center" }}>Cart</h2>
-    </div>
-  );
-}
+const Cart = ({ cart }) => {
+  const renderCart = () => {
+    if (cart) {
+      return <CartList items={cart.items} />;
+    }
+  };
+  return <div className='cart-container'><main>{renderCart()}</main></div>;
+};
 
-export default Cart;
+const mapStateToProps = ({ cart }) => {
+  return { cart };
+};
+
+export default connect(mapStateToProps)(Cart);

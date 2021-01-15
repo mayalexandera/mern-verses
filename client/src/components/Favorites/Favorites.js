@@ -1,14 +1,14 @@
-import React, { useEffect, Fragment } from "react";
+import React, { Fragment } from "react";
 import { connect } from "react-redux";
 import FavoriteCard from "./FavoriteCard";
 import "./Favorites.css";
 import * as actions from "../../store/actions";
 
-const Favorites = ({ favorites }) => {
+const Favorites = ({ favoriteList }) => {
 
   const renderFavorites = () => {
-    return favorites ? (
-      favorites.map((fave) => {
+    return favoriteList ? (
+      favoriteList.items.map((fave) => {
         return <FavoriteCard product={fave} />;
       })
     ) : (
@@ -26,8 +26,8 @@ const Favorites = ({ favorites }) => {
   );
 };
 
-const mapStateToProps = ({ auth: { favorites } }) => {
-  return { favorites };
+const mapStateToProps = ({ favoriteList }) => {
+  return { favoriteList };
 };
 
 export default connect(mapStateToProps, actions)(Favorites);
