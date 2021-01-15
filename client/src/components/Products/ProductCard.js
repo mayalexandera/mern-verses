@@ -4,25 +4,33 @@ import { NavLink } from "react-router-dom";
 const ProductCard = ({ product: { name, _id, price, brandName, images }}) => {
 
   return (
-    <div className='product-card-wrapper'>
+    <div className='product-grid-card'>
       <div className='product-card-body'>
-        <div className='product-card-content-wrapper'>
-          <div className='product-photo-wrapper'>
-            <NavLink to={`/products/${_id}`}>
-              <img alt={name} src={images.model1[0]} />
-            </NavLink>
-          </div>
-          <React.Fragment>
-            <div className='product-card-details'>
-              <p className='product-title'>
-                <strong>{brandName}</strong>
-              </p>
-              <p className='product-subtitle'>{name}</p>
-              <p className='product-subtitle'>${price}</p>
-            </div>
-          </React.Fragment>
-        </div>
+       <figure>
+         <NavLink to={`/products/${_id}`} className='product-card-link-overlay'>
+      <div className='product-card-image-wrapper'>
+        <img className='product-card-image' src={images.model1[0]}/>
       </div>
+         </NavLink>
+         <div className='product-card-info'>
+           <div>
+             <div className='product-card-titles'>
+               <div className='product-card-title'>{brandName}</div>
+               <div className='product-card-subtitle'>{name}</div>
+             </div>
+           </div>
+           <div className='product-card-animation-wrapper'>
+             <div className='product-card-price-wrapper'>
+               <div className='product-card-price'>
+                 <div className='product-price-wrapper'>
+                   <div className='product-card-current-price'>${price}</div>
+                 </div>
+               </div>
+             </div>
+           </div>
+         </div>
+       </figure>
+    </div>
     </div>
   );
 };

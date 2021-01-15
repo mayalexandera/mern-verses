@@ -1,28 +1,21 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
+import ProductList from "./ProductList";
+import CategoryHeader from "../CategoryHeader/CategoryHeader";
 import * as actions from "../../store/actions";
-
 import "./Products.css";
-import ProductCard from "./ProductCard";
 
 const Products = ({ fetchProducts, products }) => {
-
   useEffect(() => {
-    fetchProducts()
+    fetchProducts();
   }, [fetchProducts]);
 
-  const renderProducts = () => {
-    return products !== null ? (
-      products.map((product, index) => {
-        return <ProductCard key={index} product={product} />;
-      })
-    ) : (
-      null
-    );
-  };
   return (
     <div className='product-container'>
-      <div className='products-section'>{renderProducts()}</div>
+      <div className='products-section'>
+        <CategoryHeader/>
+        <ProductList products={products} />
+      </div>
     </div>
   );
 };
