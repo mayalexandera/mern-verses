@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import * as actions from "../../store/actions";
 
+import "./ProductShow.css";
+
 const Product = ({
   fetchSizes,
   fetchProduct,
@@ -84,101 +86,85 @@ const Product = ({
 
   const renderProduct = () => {
     if (product !== null) {
-      const images = [...product.images.model1];
       return (
-        <div className='product-show'>
-          <div className='span-3-of-5'>
-            {images.map((img, idx) => {
-              return (
-                <div key={idx}>
-                  <img key={img} src={img} alt={product.name} />
+        <div>
+          <div className='product-details-banner-wrapper'>
+            <div>
+              <div className='product-details-banner'>
+                <div className='product-details-banner-body'>
+                  <h2 className='headline-small product-details-banner-subtitle'>
+                    {product.brandName}
+                  </h2>
+                  <h1 className='headline-2 product-details-banner-title'>
+                    {product.name}
+                  </h1>
                 </div>
-              );
-            })}
+                <div className='headline-small product-details-banner-left-row'>
+                  ${product.price}
+                </div>
+              </div>
+            </div>
           </div>
-
-          <div className='span-2-of-5 product-header'>
-            <p className='product-brand-show-title'>{product.brandName}</p>
-            <p className='product-show-subtitle'>{product.name}</p>
-            <p className='product-show-subtitle'>${product.price}</p>
-            <hr id='product-show-hr' />
-            <div className='product-menu'>
-              <div className='product-show-select'>
-                <p>Select Size</p>
-                <a className='size-chart' href={"www.google.com"}>
-                  Size Chart
-                </a>
-              </div>
+          <div className='product-gallery-wrapper'>
+            <div className='product-gallery-container'>
               <div>
-                {sizes.map(({ size, _id }, index) => {
-                  return (
-                    <button
-                      key={index}
-                      onClick={(e) => handleSizeClick(e)}
-                      className='product-show-subtitle'
-                      id={button(size)}
-                      value={_id}
-                      name={size}
-                    >
-                      {size}
-                    </button>
-                  );
-                })}
-              </div>
-              <button
-                onClick={() =>
-                  setTimeout(() => {
-                    setErrorMessage(null);
-                  }, 1000)
-                }
-                className='error-message'
-              >
-                {errorMessage}
-              </button>
-
-              <ul className='product-actions'>
-                <button
-                  onClick={(e) => handleClick(e)}
-                  value='addToCart'
-                  id='add-to-cart-button'
-                >
-                  Add to Cart
-                </button>
-                <button
-                  onClick={(e) => handleClick(e)}
-                  value='favorite'
-                  id='add-to-favorites-button'
-                >
-                  Add To Favorites
-                </button>
-              </ul>
-
-              <div className='product-show-description-container'>
-                <p>Description</p>
-                <hr id='product-show-hr' />
-                <div className='product-show-description'>
-                  {product.description}
+                <div>
+                  <div className='product-gallery-list'>
+                    {/** map through images  */}
+                    {product.images.model1.map((image) => {
+                      return (
+                        <div className='product-gallery-image-wrapper'>
+                          <div className='product-gallery-image-spacer'>
+                            <div>
+                              <img
+                                src={image}
+                                alt={product.name}
+                                className='product-gallery-image'
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
                 </div>
               </div>
+            </div>
 
-              <div className='fit-details-container'>
-                <p>Fit Details</p>
-                <hr id='product-show-hr' />
-                <ul className='fit-details'>
-                  {product.productDetails.map((detail, index) => {
-                    return <li key={index}>{detail}</li>;
-                  })}
-                </ul>
+            <div className='product-summary-container'>
+              <div className='product-summary-wrapper'>
+                <div className='product-summary-body'>
+                  <div className='product-summary-details-wrapper'>
+                    <div>
+                      <div className='product-summary-details-body'>
+                        <div className='product-summary-details-left-row'>
+                          <h2 className='headline-small product-summary-detail-subtitle'>
+                            {product.brandName}
+                          </h2>
+                          <h1 className='headline-2 product-summary-detail-title'>
+                            {product.name}
+                          </h1>
+                        </div>
+                        <div className='headline-small product-summary-details-right-row'>
+                          <div className='product-summary-details-price-wrapper'>
+                            <div className='product-current-price'>
+                              ${product.price}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       );
     }
-    return <div>loading </div>;
   };
 
-  return <div className='product-container'>{renderProduct()}</div>;
+  return <div className='product-show-container'>{renderProduct()}</div>;
 };
 
 const mapStateToProps = ({

@@ -28,6 +28,7 @@
   text-align: left;
 }
 
+
 .product-grid-card {
   vertical-align: top;
   width: 50%;
@@ -149,11 +150,10 @@
   }
 
   .product-card-price {
-  font-size: 14px;
-}
+    font-size: 14px;
+  }
 
-.product-price-wrapper {
-  line-height: 20px !important;
-}
-  
+  .product-price-wrapper {
+    line-height: 20px !important;
+  }
 }
