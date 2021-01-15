@@ -1,12 +1,11 @@
-
 .cart-container {
   margin-top: 0px;
-      width: 100%;
-    padding-left: 8px;
-    padding-right: 8px;
-    padding-top: 180px;
+  width: 100%;
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-top: 180px;
 }
-main {
+.cart-section {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
@@ -21,12 +20,12 @@ main {
 .cart-list {
   width: 66.6%;
   display: inline-block;
-      position: relative;
-    min-height: 1px;
-    font-size: 16px;
-    line-height: 1.75;
-    padding-left: 8px;
-    padding-right: 8px;
+  position: relative;
+  min-height: 1px;
+  font-size: 16px;
+  line-height: 1.75;
+  padding-left: 8px;
+  padding-right: 8px;
 }
 
 .cart-summary-wrapper {
@@ -44,7 +43,8 @@ main {
   margin-bottom: 16px;
   width: 100%;
   vertical-align: top;
-display: inline-block;}
+  display: inline-block;
+}
 
 .cart-header-container {
   margin-top: 0px;
@@ -86,7 +86,7 @@ h4 {
 }
 
 .cart-item-product-thumbnail {
-  height: 150px;
+  height: 180px;
   padding-right: 16px;
   display: table-cell;
   vertical-align: top;
@@ -105,7 +105,6 @@ h4 {
   min-height: 123px;
   position: relative;
   display: block;
-  vertical-align: top;
 }
 
 .cart-item-product-details {
@@ -269,7 +268,6 @@ h4 {
   -webkit-tap-highlight-color: transparent;
 }
 
-
 .shipping-info {
   font-size: 16px;
   white-space: nowrap;
@@ -280,9 +278,9 @@ h4 {
 }
 
 .shipping-info-cell {
-display: inline;
-font-weight: 300;
-color: black;
+  display: inline;
+  font-weight: 300;
+  color: black;
 }
 .shipping-pickup-modal {
   display: inline;
@@ -290,10 +288,9 @@ color: black;
 
 .shipping-pickup-link {
   font-size: 16px;
-  font-family: 'Lato';
+  font-family: "Lato";
   border: 0px;
   cursor: pointer;
   text-decoration: underline;
   background-color: transparent;
 }
-

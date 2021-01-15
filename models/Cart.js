@@ -18,6 +18,12 @@ module.exports = CartItem
 
 const CartSchema = new Schema({
   items: [CartItemSchema],
+  totals: {
+    subTotal: Number, default: 0,
+    total: Number, default: 0,
+    quantity: Number, default: 0,
+    discountTotal: Number, default: 0
+  },
   _id: {
     type: Schema.Types.ObjectId,
     ref: "User",

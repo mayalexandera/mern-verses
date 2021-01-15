@@ -5,7 +5,6 @@ import "./Favorites.css";
 import * as actions from "../../store/actions";
 
 const Favorites = ({ favoriteList }) => {
-
   const renderFavorites = () => {
     return favoriteList ? (
       favoriteList.items.map((fave) => {
@@ -20,7 +19,9 @@ const Favorites = ({ favoriteList }) => {
   return (
     <Fragment>
       <div className='favorites-container'>
-        <div className='favorites-section'>{renderFavorites()}</div>
+        <div className='favorites-section'>
+          <div className='favorite-content'>{renderFavorites()}</div>
+        </div>
       </div>
     </Fragment>
   );

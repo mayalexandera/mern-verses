@@ -1,43 +1,58 @@
 import React from "react";
 import { connect } from "react-redux";
-import { deleteFavorite } from '../../store/actions'
+import { deleteFavorite } from "../../store/actions";
 
-const FavoriteCard = ({product: {_id, sizeId, product, name, brandName, price, size, featuredImage }, deleteFavorite}) => {
+const FavoriteCard = ({
+  product: {
+    _id,
+    sizeId,
+    product,
+    name,
+    brandName,
+    price,
+    size,
+    featuredImage,
+  },
+  deleteFavorite,
+}) => {
   const clickHandler = (e) => {
     e.preventDefault();
-    console.log(e.target.value)
-    deleteFavorite(e.target.value)
+    console.log(e.target.value);
+    deleteFavorite(e.target.value);
   };
   return (
-    <div className='favorite-card-wrapper'>
-      <div className='favorite-card-body'>
-        <div className='favorite-photo-wrapper'>
-          <img alt={name} src={featuredImage} />
-        </div>
-        <React.Fragment>
-          <div className='favorite-card-details'>
-            <div className='favorite-card-product-details'>
-              <p className='favorite-title'>
-                <strong>{brandName}</strong>
-              </p>
-              <p className='favorite-subtitle'>{name} - {size}</p>
-              <p className='favorite-subtitle'>${price}</p>
-            </div>
-            <div className='favorite-actions'>
-              <button
-                value={_id}
-                id='favorite-card-button'
-                onClick={(e) => clickHandler(e)}
-              >
-                Add to Cart
+    <div className='favorite-item-wrapper'>
+      <div className='favorite-item-body'>
+        <a>
+          <div className='favorite-item-thumbnail-wrapper'>
+            <div className='heart-wishlist-button-wrapper'>
+              <button className='heart-wishlist-button'>
+                <span class='material-icons'>favorite</span>
               </button>
             </div>
+            <div className='image-spacer'></div>
+            <img src={featuredImage} className='favorite-item-thumbnail'></img>
           </div>
-        </React.Fragment>
+        </a>
+      </div>
+      <div className='favorite-product-details-wrapper'>
+        <div className='favorite-product-details'>
+          <a>
+            <p className='favorite-product-title'>{brandName}</p>
+          </a>
+          <p className='favorite-product-subtitle'>{name}</p>
+        </div>
+        <div className='favorite-product-detail-row'>
+          <span className='favorite-product-price'>${price}</span>
+        </div>
+        <div className='favorite-list-grid-actions'>
+          <button className='favorite-list-button'>
+            <span>Select Size</span>
+          </button>
+        </div>
       </div>
     </div>
   );
 };
 
-// export default FavoriteCard;
 export default connect(null, { deleteFavorite })(FavoriteCard);
