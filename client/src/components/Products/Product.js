@@ -124,6 +124,7 @@ const Product = ({
               </div>
             </div>
           </div>
+          <div className='full-width-spacer'/>
           <div className='product-gallery-wrapper'>
             <div className='product-gallery-container'>
               <div>
@@ -213,7 +214,6 @@ const Product = ({
                   </div>
                   <div className='product-description-container'>
                     {product.description}
-                    
                   </div>
                 </div>
               </div>

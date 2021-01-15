@@ -239,6 +239,11 @@ fieldset {
   justify-content: center;
 }
 
+.product-select-size-fieldset-wrapper {
+  padding-right: 24px;
+  padding-left: 24px;
+}
+
 .product-select-size-fieldset-wrapper input[type="radio"]:not(:disabled) + label {
   cursor: pointer;
 }
@@ -314,7 +319,30 @@ box-shadow: inset 0 1px 0 0 #ccc, inset -1px 0 0 0 #ccc, inset 0 -1px 0 0 #ccc, 
 /*#################################################*/
 
 @media screen and (min-width: 961px) {
+.atc-btn-container {
+    padding-right: 24px;
+    padding-left: 24px;
+  }
 
+.full-width-spacer {
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+  .product-description-container {
+    padding-right: 24px;
+    padding-left: 24px;
+    padding-top: 24px;
+  }
+
+  .product-summary-details-wrapper {
+    display: none;
+  }
+
+  .select-size-form-header {
+    padding-right: 24px;
+    padding-left: 24px;
+  }
 }
 
 
