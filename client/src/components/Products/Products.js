@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import ProductList from "./ProductList";
-import CategoryHeader from "../CategoryHeader/CategoryHeader";
+import ProductLocalMenu from "../ProductLocalMenu/ProductLocalMenu";
 import * as actions from "../../store/actions";
 import "./Products.css";
 
@@ -12,8 +12,9 @@ const Products = ({ fetchProducts, products }) => {
 
   return (
     <div className='product-container'>
+
       <div className='products-section'>
-        <CategoryHeader/>
+        <ProductLocalMenu/>
         <ProductList products={products} />
       </div>
     </div>

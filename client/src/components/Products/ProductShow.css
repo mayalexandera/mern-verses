@@ -1,8 +1,6 @@
 .product-show-container {
-  padding-top: 130px;
+  padding-top: 140px;
 }
-
-
 
 /*###################################*/
 /*##########DETAILS BANNER###########*/
@@ -109,6 +107,7 @@
 
 .product-summary-details-wrapper {
   margin-bottom: 8px;
+  display: none;
 }
 
 .product-summary-details-body {
@@ -138,7 +137,7 @@
 .product-summary-detail-subtitle {
   max-width: 65%;
   font-weight: 500;
-  padding-bottom: 4px;
+  padding-bottom: 8px;
   display: inline-block;
 }
 
@@ -151,7 +150,7 @@
 .headline-2 {
   font-weight: 500;
   font-size: 28px;
-  line-height: 1.428571;
+  line-height: 1.1;
 }
 
 .product-current-price {
@@ -164,7 +163,7 @@
 /*#########PRODUCT SIZES###########*/
 /*###################################*/
 
-.product-select-size-fieldset{
+.product-select-size-fieldset {
   margin-top: 20px;
   margin-bottom: 12px;
   font-size: 16px;
@@ -230,7 +229,7 @@ fieldset {
 }
 
 .select-size-grid > :not(input):not(label) > label {
-    -webkit-box-flex: 1;
+  -webkit-box-flex: 1;
   flex-grow: 1;
   display: flex;
   -webkit-box-align: center;
@@ -244,15 +243,19 @@ fieldset {
   padding-left: 24px;
 }
 
-.product-select-size-fieldset-wrapper input[type="radio"]:not(:disabled) + label {
+.product-select-size-fieldset-wrapper
+  input[type="radio"]:not(:disabled)
+  + label {
   cursor: pointer;
 }
 
-.product-select-size-fieldset-wrapper  input[type="radio"].visually-hidden + label {
+.product-select-size-fieldset-wrapper
+  input[type="radio"].visually-hidden
+  + label {
   outline: none;
 }
 
-.select-size-grid  div {
+.select-size-grid div {
   position: relative;
 }
 
@@ -262,7 +265,7 @@ fieldset {
 }
 
 .product-select-size-fieldset-wrapper label {
-     background: rgb(255, 255, 255);
+  background: rgb(255, 255, 255);
   color: rgb(17, 17, 17);
   box-shadow: rgb(229, 229, 229) 0px 0px 0px 1px;
   width: 48px;
@@ -278,7 +281,6 @@ fieldset {
   right: 0px;
   z-index: 1; */
 }
-
 
 .atc-btn-container {
   display: table;
@@ -297,7 +299,8 @@ fieldset {
   margin-top: 12px;
   background: 0 0;
   color: black;
-box-shadow: inset 0 1px 0 0 #ccc, inset -1px 0 0 0 #ccc, inset 0 -1px 0 0 #ccc, inset 1px 0 0 0 #ccc;
+  box-shadow: inset 0 1px 0 0 #ccc, inset -1px 0 0 0 #ccc, inset 0 -1px 0 0 #ccc,
+    inset 1px 0 0 0 #ccc;
 }
 
 .add-to-wishlist-button span:last-of-type {
@@ -312,39 +315,130 @@ box-shadow: inset 0 1px 0 0 #ccc, inset -1px 0 0 0 #ccc, inset 0 -1px 0 0 #ccc, 
   padding-top: 4px;
 }
 
+.product-description-container {
+  padding-top: 24px;
+}
 
+.product-description-body {
+  font-size: 16px;
+  line-height: 1.5;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+.product-description-body p {
+  line-height: 1.75;
+}
+
+.product-description-features {
+  padding-top: 32px;
+  padding-bottom: 28px;
+  list-style: none;
+}
+
+.product-description-features li {
+  list-style-type: disc;
+  margin-left: 16px;
+  margin-bottom: 4px;
+}
+
+.product-detail-link-btn {
+  box-shadow: inset 0 -1px 0 0 #111;
+  padding-bottom: 2px;
+  font-weight: 500;
+  padding-left: 0;
+  padding-right: 0;
+  border-radius: 0;
+  background: 0 0;
+}
+
+/*#################################################*/
+/*#################ACCORDION MENU##################*/
+/*#################################################*/
+
+.accordion-panel-menu {
+  box-shadow: inset 0 -1px 0 0 #e5e5e5;
+  padding-top: 48px;
+  margin-left: 24px;
+  margin-right: 24px;
+  margin-top: 12px;
+}
+
+.accordion-panel-menu-item {
+  min-width: 320px;
+}
+
+.accordion-panel-menu-item-btn {
+  box-shadow: inset 0 1px 0 0 #e5e5e5;
+  width: 100%;
+  display: flex;
+  background: 0 0;
+  position: relative;
+  padding: 28px 0;
+  text-align: left;
+}
+
+.accordion-panel-menu-btn {
+  padding: 0 4px;
+  position: relative;
+  width: 83.33333333333334%;
+  display: inline-block;
+}
+
+.accordion-panel-menu h3 {
+  font-size: 20px;
+  line-height: 1.2;
+}
+.accordion-panel-menu-btn-title {
+  color: #111111;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.2;
+}
+
+.col-sm-2 {
+  width: 16.666666666666664%;
+  display: inline-block;
+  text-align: left;
+}
+
+.atc-btn-container {
+  padding-right: 24px;
+  padding-left: 24px;
+}
 
 /*#################################################*/
 /*#################### MEDIA QUERIES###############*/
 /*#################################################*/
 
 @media screen and (min-width: 961px) {
-.atc-btn-container {
-    padding-right: 24px;
-    padding-left: 24px;
-  }
-
-.full-width-spacer {
-  width: 100%;
-  margin-bottom: 16px;
-}
-
-  .product-description-container {
-    padding-right: 24px;
-    padding-left: 24px;
-    padding-top: 24px;
-  }
-
-  .product-summary-details-wrapper {
-    display: none;
+  .full-width-spacer {
+    width: 100%;
+    margin-bottom: 16px;
   }
 
   .select-size-form-header {
     padding-right: 24px;
     padding-left: 24px;
   }
-}
 
+  .accordion-panel-menu-item-btn {
+    text-align: left;
+  }
+
+  .product-description-body {
+     padding-right: 0px;
+    padding-left: 0px;
+  }
+
+   /* .product-description-body {
+     padding-right: 24px;
+    padding-left: 24px;
+  } */
+}
 
 @media (min-width: 1025px) {
   .product-gallery-wrapper {
@@ -363,7 +457,16 @@ box-shadow: inset 0 1px 0 0 #ccc, inset -1px 0 0 0 #ccc, inset 0 -1px 0 0 #ccc, 
   .product-summary-body {
     max-width: 377px;
   }
+
+  .product-summary-details-wrapper {
+    display: block;
+  }
+
   .product-details-banner-wrapper {
+    display: none;
+  }
+
+  .full-width-spacer {
     display: none;
   }
 }
@@ -371,6 +474,10 @@ box-shadow: inset 0 1px 0 0 #ccc, inset -1px 0 0 0 #ccc, inset 0 -1px 0 0 #ccc, 
 @media (min-width: 0px) {
   .product-summary-wrapper {
     margin-right: 0;
+  }
+
+  .size-header-row {
+    padding-top: 32px;
   }
 }
 
@@ -398,6 +505,7 @@ box-shadow: inset 0 1px 0 0 #ccc, inset -1px 0 0 0 #ccc, inset 0 -1px 0 0 #ccc, 
     padding-right: 48px;
     padding-left: 24px;
     margin-top: 48px;
+    margin-right: 7px;
   }
 
   .product-select-container {
@@ -420,5 +528,12 @@ box-shadow: inset 0 1px 0 0 #ccc, inset -1px 0 0 0 #ccc, inset 0 -1px 0 0 #ccc, 
   .atc-btn-container {
     padding-left: 0px;
     padding-right: 0px;
+  }
+
+  .accordion-panel-menu {
+    padding-top: 40px;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
   }
 }

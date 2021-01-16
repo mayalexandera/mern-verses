@@ -25,8 +25,7 @@ const Product = ({
 
   useEffect(() => {
     fetchProduct(prodId);
-    fetchSizes(prodId);
-  }, [fetchSizes, fetchProduct, prodId]);
+  }, [fetchProduct, prodId]);
 
   const handleClick = (e) => {
     e.preventDefault();
@@ -124,7 +123,7 @@ const Product = ({
               </div>
             </div>
           </div>
-          <div className='full-width-spacer'/>
+          <div className='full-width-spacer' />
           <div className='product-gallery-wrapper'>
             <div className='product-gallery-container'>
               <div>
@@ -193,16 +192,18 @@ const Product = ({
                         <div id='floating-atc-wrapper'>
                           <div className='atc-btn-container'>
                             <button
-                              className='btn-primary-dark btn-lg add-to-cart-button'
+                              className='vcss-btn-primary-dark btn-lg add-to-cart-button'
                               label='Add to Bag'
                             >
                               Add to Bag
                             </button>
                             <button
                               label='add-to-wishlist'
-                              className='btn-secondary-dark btn-lg add-to-wishlist-button'
+                              className='vcss-btn-secondary-dark btn-lg add-to-wishlist-button'
                             >
-                              <span className='wishlist-btn-tooltip'>Favorite</span>
+                              <span className='wishlist-btn-tooltip'>
+                                Favorite
+                              </span>
                               <span className='material-icons-outlined'>
                                 favorite_border
                               </span>
@@ -213,7 +214,38 @@ const Product = ({
                     </form>
                   </div>
                   <div className='product-description-container'>
-                    {product.description}
+                    <div className='product-description-body'>
+                      <p>{product.description}</p>
+                      <ul className='product-description-features'>
+                        {product.productDetails.map((feature, index) => {
+                          return <li key={index}>{feature}</li>;
+                        })}
+                      </ul>
+                      <button className='product-detail-link-btn'>
+                        <span> View Product Details</span>
+                      </button>
+                    </div>
+                    <div className='accordion-panel-menu'>
+                      <div className='accordion-panel-menu-item'>
+                        <button className='accordion-panel-menu-item-btn'>
+                          <div className='accordion-panel-menu-btn'>
+                            <h3 className='accordion-panel-menu-btn-title'>
+                              Free Shipping and Returns
+                            </h3>
+                          </div>
+                        </button>
+                      </div>
+
+                      <div className='accordion-menu-item'>
+                        <button className='accordion-panel-menu-item-btn'>
+                          <div className='accordion-panel-menu-btn'>
+                            <h3 className=' accordion-panel-menu-btn-title'>
+                              {"Reviews (0)"}
+                            </h3>
+                          </div>
+                        </button>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>

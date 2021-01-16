@@ -1,0 +1,26 @@
+.local-menu-wrapper {
+  position: relative;
+  background-color: #fff;
+}
+
+.local-menu {
+  margin-left: 0;
+  margin-right: 0;
+  vertical-align: top;
+}
+
+[data-container-type=local_menu] .grid-col {
+  min-height: auto
+}
+
+@media (min-width: 640px) {
+  .local-menu-wrapper{margin-top: 0px;}
+}
+
+@media only screen and (min-width: 1024px) {
+  .col-lg-12 {
+    width: 100%;
+    display: inline-block;
+  }
+
+}
