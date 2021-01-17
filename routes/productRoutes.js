@@ -2,7 +2,7 @@ const {
   fetchProducts,
   fetchProdByCat,
   fetchProdById,
-  fetchCategories
+  fetchCategories,
 } = require("../controllers/products_controller");
 
 module.exports = (app) => {

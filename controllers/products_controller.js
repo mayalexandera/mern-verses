@@ -29,11 +29,13 @@ exports.fetchProducts = async (req, res) => {
 };
 
 exports.fetchProdById = async (req, res) => {
-  const product = await Product.findOne(req.query.productId)
+  console.log(req.params)
+  const query = { _id: req.params.id }
+  const product = await Product.find(query)
     .populate({
       path: "productSizes",
       match: { quantity: { $gte: 1 } },
     })
     .exec();
-  res.send(product);
+  res.send(product[0]);
 };
