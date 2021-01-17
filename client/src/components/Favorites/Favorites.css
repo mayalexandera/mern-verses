@@ -64,10 +64,11 @@ a {
   position: relative;
   min-width: 100%;
   max-width: 100%;
+  overflow: hidden;
 }
 
 .image-spacer {
-  padding-bottom: 100%;
+  padding-bottom: 140%;
 }
 
 .favorite-item-thumbnail {
