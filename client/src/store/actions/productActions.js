@@ -8,18 +8,15 @@ export const fetchProducts = () => async (dispatch) => {
 };
 
 export const fetchProduct = (productId) => async (dispatch) => {
-  const res = await axios.get("/api/products/:id", {
-    params: { productId },
-  });
+  const res = await axios.get(`/api/products/${productId}`);
 
   dispatch({ type: FETCH_PRODUCT, payload: res.data });
 };
 
-export const fetchProdByCat = (category) => async (dispatch) => {
-  const res = await axios.get(`/api/product/list/${category}`, {
-    params: { category }
-  })
-  dispatch({ type: FETCH_PROD_BY_CAT, payload: res.data[0] })
+export const fetchProdByCat = (cat) => async (dispatch) => {
+  const res = await axios.get(`/api/products/list/${cat}`)
+  console.log(res)
+  dispatch({ type: FETCH_PROD_BY_CAT, payload: res.data })
 }
 
 export const fetchCategories = () => async (dispatch) => {

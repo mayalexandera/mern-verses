@@ -3,7 +3,8 @@ const Cart = require("../models/Cart");
 exports.fetchCart = async (req, res) => {
   const cart = await Cart.findById(req.user._id, (err) => {
     if (err) {
-      res.sendStatus(400).json({ error: error });
+      console.log(err)
+      return res.status(400).json({ error: "Your request could not be processed."})
     }
   });
   res.send(cart);
@@ -23,7 +24,10 @@ exports.addToCart = async (req, res) => {
   };
   cart = await Cart.findById(req.user._id, (err) => {
     if (err) {
-      res.sendStatus(400).json({ error: error });
+      console.log(err);
+      return res
+        .status(400)
+        .json({ error: "Your request could not be processed." });
     }
   });
   if (cart) {

@@ -20,7 +20,10 @@ exports.addFavorite = async (req, res) => {
 
   faveList = await FavoriteList.findById(req.user._id, (err) => {
     if (err) {
-      res.sendStatus(400).json({ error: error });
+      console.log(err);
+      return res
+        .status(400)
+        .json({ error: "Your request could not be processed." });
     }
   });
   if (faveList) {
@@ -37,11 +40,10 @@ exports.addFavorite = async (req, res) => {
 exports.deleteFavorite = async (req, res) => {
   const list = await FavoriteList.findById(req.user._id, (err) => {
     if (err) {
-      res
-        .sendStatus(400)
-        .json({
-          error: "Your request could not be processed.  Please try again.",
-        });
+      console.log(err);
+      return res
+        .status(400)
+        .json({ error: "Your request could not be processed." });
     }
   });
   const items = list.items.filter(

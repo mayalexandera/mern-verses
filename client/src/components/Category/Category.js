@@ -12,7 +12,7 @@ import "../Products/Products.css";
 const Category = (props) => {
   return (
     <div className='product-container'>
-      <CategoryHeader category={props.byCategory.name} count={props.byCategory.products.length}/>
+      { props.byCategory ? <CategoryHeader category={props.byCategory.name} count={props.byCategory.products.length}/> : null}
       {/* <CategoryNav/> */}
       <div className='products-section'>
         {props.byCategory ? <ProductList products={props.byCategory.products} /> : null};

@@ -1,8 +1,8 @@
 import axios from "axios";
 import { FETCH_CART, ADD_CART_ITEM, DELETE_FAVORITE } from './types'
 
-export const fetchCart = () => async (dispatch) => {
-  const res = await axios.get("/api/carts");
+export const fetchCart = () => async (dispatch, getState) => {
+  const res = await axios.get(`/api/carts`);
 
   dispatch({ type: FETCH_CART, payload: res.data });
 };

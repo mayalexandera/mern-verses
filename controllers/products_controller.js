@@ -3,45 +3,37 @@ const Product = require("../models/Product");
 const Category = require("../models/Category");
 
 exports.fetchProdByCat = async (req, res) => {
-  const products = await Category.find({ name: req.params.category })
-    .populate({ path: "products" })
-    .exec((err) => {
-      if (err) {
-        res.sendStatus(400).json({ error: error });
-      }
-    });
+  const query = { name: req.params.category}
+  const products = await Category.findOne(query)
+    .populate('products')
+    .exec();
   res.send(products);
 };
 
 exports.fetchCategories = async (req, res) => {
-  const categories = await Category.find({}, (err) => {
-    if (err) {
-      res.sendStatus(400).json({ error: error });
-    }
-  });
-  const names = categories.map((category) => category.name);
+  const categories = await Category.find({});
+  const names = categories.map(cat => cat.name)
   res.send(names);
 };
 
 exports.fetchProducts = async (req, res) => {
   const products = await Product.find({}, (err) => {
     if (err) {
-      res.sendStatus(400).json({ error: error });
+      console.log(err);
+      return res
+        .status(400)
+        .json({ error: "Your request could not be processed." });
     }
   });
   res.send(products);
 };
 
 exports.fetchProdById = async (req, res) => {
-  const product = await Product.find({ _id: req.query.productId })
+  const product = await Product.findOne(req.query.productId)
     .populate({
       path: "productSizes",
       match: { quantity: { $gte: 1 } },
     })
-    .exec((err) => {
-      if (err) {
-        res.sendStatus(400).json({ error: error });
-      }
-    });
-  res.send(product[0]);
+    .exec();
+  res.send(product);
 };

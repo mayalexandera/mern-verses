@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { NavLink } from "react-router-dom";
-import * as actions from "../../store/actions";
+import { fetchProduct, addFavorite, addCartItem } from "../../store/actions";
 import { reduxForm, Field } from "redux-form";
 
 import "./ProductShow.css";
@@ -100,7 +100,7 @@ const Product = ({
   };
 
   const renderProduct = () => {
-    if (product !== null) {
+    if (product !== null && product !== '') {
       return (
         <div>
           <div className='product-details-banner-wrapper'>
@@ -268,4 +268,4 @@ const mapStateToProps = ({
   return { product, favoriteList, sizes, userId: googleId };
 };
 
-export default connect(mapStateToProps, actions)(Product);
+export default connect(mapStateToProps, { fetchProduct, addFavorite, addCartItem })(Product);
