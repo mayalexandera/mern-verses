@@ -40,6 +40,7 @@
   line-height: 1.75;
   padding-left: 8px;
   padding-right: 8px;
+  font-weight: 400;
 }
 
 .favorite-item-body {
@@ -84,6 +85,7 @@ a {
   position: relative;
   vertical-align: top;
   margin: 12px 0px 24px;
+  font-weight: 400;
 }
 
 .favorite-product-details {

@@ -6,7 +6,7 @@ import * as actions from "../../store/actions";
 
 const Favorites = ({ favoriteList }) => {
   const renderFavorites = () => {
-    return favoriteList ? (
+    return favoriteList && favoriteList.items.length > 0 ? (
       favoriteList.items.map((fave) => {
         return <FavoriteCard key={fave._id} product={fave} />;
       })

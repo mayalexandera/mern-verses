@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
+import { NavLink } from "react-router-dom";
 import * as actions from "../../store/actions";
 import { reduxForm, Field } from "redux-form";
 
@@ -25,61 +26,55 @@ const Product = ({
     fetchProduct(prodId);
   }, [fetchProduct, prodId]);
 
-  const handleClick = (e) => {
+  const handleAddToBag = (e) => {
     e.preventDefault();
     size !== "" && userId
-      ? submitRequest(e)
+      ? addCartItem(
+          prodId,
+          sizeId,
+          product.name,
+          product.brandName,
+          product.price,
+          1,
+          size,
+          product.images.model1[0]
+        )
       : setErrorMessage("Please select a size.");
   };
 
-  const submitRequest = (e) => {
-    if (e.target.value === "addToCart") {
-      addCartItem(
-        prodId,
-        sizeId,
-        product.name,
-        product.brandName,
-        product.price,
-        1,
-        size,
-        product.images.model1[0]
-      );
-    }
 
-    if (e.target.value === "favorite") {
-      let existingFavorite = null;
-      if (!!favoriteList) {
-        existingFavorite = favoriteList.items
-          .filter((fave) => fave.productId === prodId)
-          .map((item) => item._id);
-      }
-      !!existingFavorite[0]
-        ? setErrorMessage("This item is already in your favorites")
-        : addFavorite(
-            prodId,
-            sizeId,
-            product.name,
-            product.brandName,
-            product.price,
-            size,
-            product.images.model1[0]
-          );
-    }
-  };
-
-  const handleSizeClick = (e) => {
+  const handleAddToFavorites = (e) => {
     e.preventDefault();
-    if (e.target.name === size) {
-      setSizeId("");
-      setSize("");
-    } else if (e.target.name !== size) {
-      setSizeId(e.target.value);
-      setSize(e.target.name);
+    let existingFavorite
+    if (!!favoriteList) {
+      existingFavorite = favoriteList.items
+        .filter((fave) => fave.productId === prodId)
+        .map((item) => item._id);
     }
+    !!existingFavorite[0]
+      ? setErrorMessage("This item is already in your favorites")
+      : addFavorite(
+          prodId,
+          sizeId,
+          product.name,
+          product.brandName,
+          product.price,
+          size,
+          product.images.model1[0]
+        );
+    addFavorite(
+      prodId,
+      sizeId,
+      product.name,
+      product.brandName,
+      product.price,
+      size,
+      product.images.model1[0]
+    );
   };
 
-  const button = (alphaSize) => {
-    return alphaSize === size ? "size-button-clicked" : "size-button";
+  const button = (size_id) => {
+    return size_id === sizeId ? "size-button-clicked" : "size-button";
   };
 
   const renderSizeGrid = () => {
@@ -92,7 +87,11 @@ const Product = ({
             type='radio'
             value={size._id}
           />
-          <label for={size._id} className='select-size-label'>
+          <label
+            id={button(size._id)}
+            for={size._id}
+            className='select-size-label'
+          >
             {size.size}
           </label>
         </div>
@@ -192,12 +191,14 @@ const Product = ({
                             <button
                               className='vcss-btn-primary-dark btn-lg add-to-cart-button'
                               label='Add to Bag'
+                              onClick={handleAddToBag}
                             >
                               Add to Bag
                             </button>
                             <button
                               label='add-to-wishlist'
                               className='vcss-btn-secondary-dark btn-lg add-to-wishlist-button'
+                              onClick={handleAddToFavorites}
                             >
                               <span className='wishlist-btn-tooltip'>
                                 Favorite
@@ -206,6 +207,7 @@ const Product = ({
                                 favorite_border
                               </span>
                             </button>
+                            {errorMessage}
                           </div>
                         </div>
                       </div>

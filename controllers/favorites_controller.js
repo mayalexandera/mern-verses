@@ -29,3 +29,15 @@ exports.addFavorite = async (req, res) => {
     res.send(faveList);
   }
 };
+
+exports.deleteFavorite = async (req, res) => {
+  const list = await FavoriteList.findById(req.user._id, err => {
+    if (err) {
+      res.sendStatus(400).json({ error: "Your request could not be processed.  Please try again."})
+    }
+  })
+  const items = list.items.filter((item) => item._id.toString() !== req.params.favorite_id.toString())
+  list.items = items
+  await list.save()
+  res.send(list)
+}

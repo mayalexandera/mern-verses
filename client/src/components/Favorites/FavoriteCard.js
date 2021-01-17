@@ -5,25 +5,23 @@ import { deleteFavorite } from "../../store/actions";
 const FavoriteCard = ({
   product: {
     _id,
-    sizeId,
-    product,
+    productId,
     name,
     brandName,
     price,
-    size,
     featuredImage,
   },
   deleteFavorite,
 }) => {
   const clickHandler = (e) => {
     e.preventDefault();
-    console.log(e.target.value);
-    deleteFavorite(e.target.value);
+    console.log(_id)
+    deleteFavorite(_id);
   };
   return (
     <div className='favorite-item-wrapper'>
       <div className='favorite-item-body'>
-        <a>
+        <a href={`/products/${productId}`}>
           <div className='favorite-item-thumbnail-wrapper'>
             <div className='heart-wishlist-button-wrapper'>
               <button className='heart-wishlist-button'>
@@ -37,7 +35,7 @@ const FavoriteCard = ({
       </div>
       <div className='favorite-product-details-wrapper'>
         <div className='favorite-product-details'>
-          <a>
+          <a href={`/products/${productId}`}>
             <p className='favorite-product-title'>{brandName}</p>
           </a>
           <p className='favorite-product-subtitle'>{name}</p>
@@ -46,7 +44,7 @@ const FavoriteCard = ({
           <span className='favorite-product-price'>${price}</span>
         </div>
         <div className='favorite-list-grid-actions'>
-          <button className='favorite-list-button'>
+          <button onClick={clickHandler} className='favorite-list-button'>
             <span>Select Size</span>
           </button>
         </div>

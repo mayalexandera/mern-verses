@@ -208,6 +208,14 @@ input[type="radio"] {
   -webkit-appearance: radio;
 }
 
+#size-button-clicked {
+  border: 1px solid black;
+}
+
+#size-button {
+  border: none;
+}
+
 input {
   border: 0;
   margin: 0;
@@ -429,12 +437,7 @@ fieldset {
     text-align: left;
   }
 
-  .product-description-body {
-     padding-right: 0px;
-    padding-left: 0px;
-  }
-
-   /* .product-description-body {
+  /* .product-description-body {
      padding-right: 24px;
     padding-left: 24px;
   } */
@@ -506,6 +509,11 @@ fieldset {
     padding-left: 24px;
     margin-top: 48px;
     margin-right: 7px;
+  }
+
+  .product-description-body {
+    padding-right: 0px;
+    padding-left: 0px;
   }
 
   .product-select-container {
