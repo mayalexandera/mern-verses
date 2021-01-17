@@ -3,12 +3,9 @@ const { Schema } = mongoose;
 
 const FavoriteItemSchema = new Schema({
   productId: { type: Schema.Types.ObjectId, ref: "Product" },
-  sizeId: { type: Schema.Types.ObjectId, ref: "Size" },
   name: String,
   brandName: String,
   price: Number,
-  count: Number,
-  size: String,
   featuredImage: String
 });
 

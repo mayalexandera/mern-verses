@@ -39,3 +39,14 @@ exports.addToCart = async (req, res) => {
     res.send(cart);
   }
 };
+
+
+exports.deleteCartItem = async (req, res) => {
+  console.log(req.params)
+  const cart = await Cart.findById(req.user._id)
+  const newList = await cart.items.filter(item => item._id.toString() !== req.params.cartItemId.toString() )
+  console.log(newList)
+  cart.items = newList
+  await cart.save()
+  res.send(cart)
+}

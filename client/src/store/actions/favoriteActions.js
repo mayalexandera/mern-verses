@@ -1,23 +1,22 @@
 import axios from "axios";
-import { FETCH_USER, ADD_FAVORITE, FETCH_FAVORITES, DELETE_FAVORITE } from "./types";
+import { FETCH_USER, ADD_FAVORITE, FETCH_FAVORITES, DELETE_FAVORITE, ADD_FAVORITE_FAILED } from "./types";
 
 export const addFavorite = (
   productId,
-  sizeId,
   name,
   brandName,
   price,
-  size,
   featuredImage
-) => async (dispatch) => {
+) => async (dispatch, getState) => {
+  const favorites = getState().favoriteList.items
+  const existing = favorites.map(item => item.productId === productId)
+  console.log(existing)
   const res = await axios.post(`/api/favoritelists`, {
     params: {
       productId,
-      sizeId,
       name,
       brandName,
       price,
-      size,
       featuredImage,
     },
   });

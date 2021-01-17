@@ -12,8 +12,10 @@ export const FETCH_SIZES = 'fetch_sizes'
 export const FETCH_FAVORITES = "fetch_favorites";
 
 export const ADD_FAVORITE = 'add_favorite'
+export const ADD_FAVORITE_FAILED = "add_favorite_failed";
 export const DELETE_FAVORITE = 'delete_favorite'
 
 export const ADD_CART_ITEM = 'add_cart_item'
+export const DELETE_CART_ITEM = 'delete_cart_item'
 export const FETCH_CART = 'fetch_cart'
 

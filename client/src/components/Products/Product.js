@@ -28,7 +28,7 @@ const Product = ({
 
   const handleAddToBag = (e) => {
     e.preventDefault();
-    size !== "" && userId
+    size !== "" && sizeId
       ? addCartItem(
           prodId,
           sizeId,
@@ -42,36 +42,27 @@ const Product = ({
       : setErrorMessage("Please select a size.");
   };
 
-
   const handleAddToFavorites = (e) => {
     e.preventDefault();
-    let existingFavorite
-    if (!!favoriteList) {
-      existingFavorite = favoriteList.items
-        .filter((fave) => fave.productId === prodId)
-        .map((item) => item._id);
-    }
-    !!existingFavorite[0]
-      ? setErrorMessage("This item is already in your favorites")
-      : addFavorite(
-          prodId,
-          sizeId,
-          product.name,
-          product.brandName,
-          product.price,
-          size,
-          product.images.model1[0]
-        );
     addFavorite(
       prodId,
-      sizeId,
       product.name,
       product.brandName,
       product.price,
-      size,
       product.images.model1[0]
     );
   };
+
+  const sizeHandler = (select) => {
+    if(size !== select.size) {
+      setSize(select.size)
+      setSizeId(select._id)
+    }
+    if (size === select.size) {
+      setSize("")
+      setSizeId("")
+    }
+  }
 
   const button = (size_id) => {
     return size_id === sizeId ? "size-button-clicked" : "size-button";
@@ -91,6 +82,7 @@ const Product = ({
             id={button(size._id)}
             for={size._id}
             className='select-size-label'
+            onClick={() => sizeHandler(size)}
           >
             {size.size}
           </label>
@@ -100,7 +92,7 @@ const Product = ({
   };
 
   const renderProduct = () => {
-    if (product !== null && product !== '') {
+    if (product !== null && product !== "") {
       return (
         <div>
           <div className='product-details-banner-wrapper'>
@@ -259,13 +251,12 @@ const Product = ({
   return <div className='product-show-container'>{renderProduct()}</div>;
 };
 
-const mapStateToProps = ({
-  products: { product },
-  favoriteList,
-  sizes,
-  auth: { googleId },
-}) => {
-  return { product, favoriteList, sizes, userId: googleId };
+const mapStateToProps = ({ products: { product }, favoriteList, sizes }) => {
+  return { product, favoriteList, sizes };
 };
 
-export default connect(mapStateToProps, { fetchProduct, addFavorite, addCartItem })(Product);
+export default connect(mapStateToProps, {
+  fetchProduct,
+  addFavorite,
+  addCartItem,
+})(Product);

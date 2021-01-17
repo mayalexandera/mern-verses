@@ -1,8 +1,12 @@
 import React from "react";
 
-const CartItem = ({ item }) => {
+const CartItem = ({ item, deleteCartItem }) => {
   const quantities = [1, 2, 3, 4, 5, 6, 7, 8];
   const sizeRange = ["XS", "S", "M", "L"];
+
+  const deleteCartItemHandler = () => {
+    deleteCartItem(item._id);
+  };
   return (
     <div className='cart-item-wrapper'>
       <div className='cart-item-card-body'>
@@ -23,9 +27,9 @@ const CartItem = ({ item }) => {
                 <label>Size</label>
                 <div className='size-select-wrapper'>
                   {/* <div> */}
-                    <span class='material-icons-outlined'>
-                      keyboard_arrow_down
-                    </span>
+                  <span class='material-icons-outlined'>
+                    keyboard_arrow_down
+                  </span>
                   {/* </div> */}
                   <select className='size-select'>
                     {sizeRange.map((size) => {
@@ -74,6 +78,7 @@ const CartItem = ({ item }) => {
               <button
                 name='remove-item-button'
                 className='cart-item-button'
+                onClick={deleteCartItemHandler}
               >
                 Remove
               </button>
@@ -83,12 +88,13 @@ const CartItem = ({ item }) => {
       </div>
       <div className='shipping-info'>
         <div className='shipping-info-row-title'>Shipping</div>
-        <div className='shipping-info-cell'>{"Arrives by Thu, Jan 21 "}
-        <div className='shipping-pickup-modal'>
-          <span>{"to "}</span>
-          <button className='shipping-pickup-link'>10280</button>
+        <div className='shipping-info-cell'>
+          {"Arrives by Thu, Jan 21 "}
+          <div className='shipping-pickup-modal'>
+            <span>{"to "}</span>
+            <button className='shipping-pickup-link'>10280</button>
           </div>
-          </div>
+        </div>
       </div>
     </div>
   );

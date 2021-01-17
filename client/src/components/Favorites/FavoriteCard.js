@@ -15,7 +15,6 @@ const FavoriteCard = ({
 }) => {
   const clickHandler = (e) => {
     e.preventDefault();
-    console.log(_id)
     deleteFavorite(_id);
   };
   return (
@@ -45,7 +44,7 @@ const FavoriteCard = ({
         </div>
         <div className='favorite-list-grid-actions'>
           <button onClick={clickHandler} className='favorite-list-button'>
-            <span>Select Size</span>
+            <span>Remove</span>
           </button>
         </div>
       </div>

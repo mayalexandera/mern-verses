@@ -4,7 +4,7 @@ export { addFavorite, deleteFavorite, fetchFavorites} from "./favoriteActions";
 
 export { handleToken, handleThreeMonthToken} from "./paymentActions";
 
-export { addCartItem, addFavoriteToCart, fetchCart } from "./cartActions";
+export { addCartItem, addFavoriteToCart, fetchCart, deleteCartItem } from "./cartActions";
 
 export { fetchUser } from './userActions'
 

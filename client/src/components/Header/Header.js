@@ -21,7 +21,7 @@ const Header = ({ fetchUser, favoriteList, cart }) => {
             </NavLink>
             <NavLink className='nav-button cart-button' to='/member/cart'>
               <span className='material-icons-outlined'>shopping_bag</span>
-              <p>{cart ? cart.items.length : null}</p>
+              <p>{cart && cart.items ? cart.items.length : null}</p>
             </NavLink>
           </div>
 

@@ -1,16 +1,17 @@
 import React from "react";
 import { connect } from "react-redux";
-// import "./Cart.css";
+import { deleteCartItem } from "../../store/actions";
 import CartItem from "./CartItem";
 import CartSummary from "./CartSummary";
 
-const Cart = ({ cart }) => {
+const Cart = ({ cart, deleteCartItem }) => {
   const renderCart = () => {
-    if (cart) {
+    if (cart && cart.items.length > 0) {
       return cart.items.map((item) => {
-        return <CartItem item={item} key={item._id} />;
+        return <CartItem deleteCartItem={deleteCartItem} item={item} key={item._id} />;
       });
     }
+    return <div>Items added to your bag will be saved here.</div>
   };
   return (
 
@@ -32,4 +33,4 @@ const mapStateToProps = ({ cart }) => {
   return { cart };
 };
 
-export default connect(mapStateToProps)(Cart);
+export default connect(mapStateToProps, { deleteCartItem })(Cart);
