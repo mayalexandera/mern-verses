@@ -3,20 +3,32 @@ const Product = require("../models/Product");
 const Category = require("../models/Category");
 
 exports.fetchProdByCat = async (req, res) => {
-  const products = await Category.find({ name: req.params.category }).populate({path: 'products'}).exec()
-  console.log(products);
-  res.send(products)
+  const products = await Category.find({ name: req.params.category })
+    .populate({ path: "products" })
+    .exec((err) => {
+      if (err) {
+        res.sendStatus(400).json({ error: error });
+      }
+    });
+  res.send(products);
 };
 
 exports.fetchCategories = async (req, res) => {
-  const categories = await Category.find({})
-  console.log(categories)
-  const names = categories.map(category => category.name)
-  res.send(names)
-}
+  const categories = await Category.find({}, (err) => {
+    if (err) {
+      res.sendStatus(400).json({ error: error });
+    }
+  });
+  const names = categories.map((category) => category.name);
+  res.send(names);
+};
 
 exports.fetchProducts = async (req, res) => {
-  const products = await Product.find({});
+  const products = await Product.find({}, (err) => {
+    if (err) {
+      res.sendStatus(400).json({ error: error });
+    }
+  });
   res.send(products);
 };
 
@@ -26,6 +38,10 @@ exports.fetchProdById = async (req, res) => {
       path: "productSizes",
       match: { quantity: { $gte: 1 } },
     })
-    .exec();
+    .exec((err) => {
+      if (err) {
+        res.sendStatus(400).json({ error: error });
+      }
+    });
   res.send(product[0]);
 };

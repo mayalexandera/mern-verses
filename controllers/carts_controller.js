@@ -1,12 +1,15 @@
 const mongoose = require("mongoose");
 const Cart = require("../models/Cart");
- exports.fetchCart = async (req, res) => {
-   const cart = await Cart.findById(req.user._id);
-   res.send(cart);
- };
+exports.fetchCart = async (req, res) => {
+  const cart = await Cart.findById(req.user._id, (err) => {
+    if (err) {
+      res.sendStatus(400).json({ error: error });
+    }
+  });
+  res.send(cart);
+};
 
-  exports.addToCart = async (req, res) => {
- 
+exports.addToCart = async (req, res) => {
   let cart;
   const newCartItem = {
     productId: req.body.params.productId,
@@ -18,7 +21,11 @@ const Cart = require("../models/Cart");
     size: req.body.params.size,
     featuredImage: req.body.params.featuredImage,
   };
-  cart = await Cart.findById(req.user._id);
+  cart = await Cart.findById(req.user._id, (err) => {
+    if (err) {
+      res.sendStatus(400).json({ error: error });
+    }
+  });
   if (cart) {
     cart.items.push(newCartItem);
     await cart.save();
