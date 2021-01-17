@@ -1,20 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import { fetchProdByCat } from "../../store/actions";
+import * as actions from "../../store/actions";
 import { Link } from "react-router-dom";
 
 import "./ProductLocalMenu.css";
 
+const ProductLocalMenu = (props) => {
 
-const ProductLocalMenu = ({fetchProdByCat}) => {
-
-  const categories = ["pants", "tops", "shirts", "sale", "t-Shirts", "coats","jackets", "overalls"]
+  useEffect(() => {
+    props.fetchCategories()
+  }, [props.fetchCategories])
 
   const handleCategoryClick = (cat) => {
-    console.log(cat)
-    fetchProdByCat(cat)
-  }
-  
+    console.log(cat);
+    props.fetchProdByCat(cat);
+  };
+
   return (
     <div className='local_menu-wrapper'>
       <div className='local_menu grid-row'>
@@ -24,11 +25,20 @@ const ProductLocalMenu = ({fetchProdByCat}) => {
               <div className='sticky-inner-wrapper'>
                 <div className='sticky-menu container fixed-fluid'>
                   <div className='sub-menu'>
-                     <ul className='sub-menu-list'>
-                        {categories.map((cat, idx) => {
-                          return <li key={idx}><Link onClick={() => handleCategoryClick(cat)} to={ `/product/list/` + cat}>{cat}</Link></li> })
-                        }
-                     </ul>
+                    <ul className='sub-menu-list'>
+                      {props.categories ? props.categories.map((cat, idx) => {
+                        return (
+                          <li key={idx}>
+                            <Link
+                              onClick={() => handleCategoryClick(cat)}
+                              to={`/product/list/` + cat}
+                            >
+                              {cat}
+                            </Link>
+                          </li>
+                        );
+                      }): null}
+                    </ul>
                   </div>
                 </div>
               </div>
@@ -40,8 +50,8 @@ const ProductLocalMenu = ({fetchProdByCat}) => {
   );
 };
 
-const mapStateToProps = ({ products: { products } }) => {
-  return { products }
-}
+const mapStateToProps = (state) => {
+  return { categories: state.products.categories };
+};
 
-export default connect(mapStateToProps, { fetchProdByCat })(ProductLocalMenu)
+export default connect(mapStateToProps, actions)(ProductLocalMenu);

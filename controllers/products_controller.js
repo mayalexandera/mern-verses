@@ -1,12 +1,19 @@
 const mongoose = require("mongoose");
 const Product = require("../models/Product");
+const Category = require("../models/Category");
 
 exports.fetchProdByCat = async (req, res) => {
-  console.log(req.params)
-  const products = await Product.find({ category: req.params.category });
+  const products = await Category.find({ name: req.params.category }).populate({path: 'products'}).exec()
   console.log(products);
   res.send(products)
 };
+
+exports.fetchCategories = async (req, res) => {
+  const categories = await Category.find({})
+  console.log(categories)
+  const names = categories.map(category => category.name)
+  res.send(names)
+}
 
 exports.fetchProducts = async (req, res) => {
   const products = await Product.find({});

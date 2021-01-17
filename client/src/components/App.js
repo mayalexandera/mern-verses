@@ -11,6 +11,7 @@ import Profile from "./Profile/Profile";
 import SurveyNew from "./surveys/SurveyNew";
 import SurveyThanks from "./surveys/SurveyThanks";
 import Favorites from "./Favorites/Favorites";
+import Category from "./Category/Category";
 import Dashboard from "./Dashboard/Dashboard";
 import Layout from "./HOC/Layout";
 import Products from "./Products/Products";
@@ -35,8 +36,8 @@ class App extends Component {
             <Route exact path='/member/surveys' component={SurveyDashboard} />
             <Route exact path='/member/surveys/thanks' component={SurveyThanks} />
             <Route path='/member/surveys/new' component={SurveyNew} />
-            <Route path='/products' component={Products} />
-            <Route path='/products/:category' component={Products} />
+            <Route exact path='/products' component={Products} />
+            <Route path='/product/list/:category' component={Category} />
             <Route path='/products/:id' exact component={Product} />
             <Route path='/plans' component={Plans} />
             <Route path='/member' component={Dashboard} />

@@ -20,6 +20,10 @@
   display: flex;
 }
 
+.product-grid-container {
+flex: 1 1 0%;
+}
+
 .product-grid {
   flex: 1 1 0%;
   padding-left: 48px;
@@ -124,6 +128,12 @@
 }
 
 @media (max-width: 639px), (max-width: 1023px) and (min-width: 640px) {
+
+  .product-grid-container {
+    padding: 0px;
+    max-width: 1920px;
+    position: relative;
+  }
   .product-grid-items {
     padding-left: 0px;
     padding-right: 0px;

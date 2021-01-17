@@ -12,7 +12,6 @@ const Products = ({ fetchProducts, products }) => {
 
   return (
     <div className='product-container'>
-
       <div className='products-section'>
         <ProductLocalMenu/>
         <ProductList products={products} />

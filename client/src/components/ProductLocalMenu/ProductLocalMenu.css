@@ -20,11 +20,11 @@
   min-height: auto;
 }
 
-.local-menu {
+.container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: baseline;
+  justify-content: center;
+  align-items: center;
   padding-top: 36px;
   padding-bottom: 24px;
   transition: padding 0.2s;
@@ -102,6 +102,10 @@
 
   .sub-menu-list > li {
     position: relative;
+  }
+
+  .container {
+    position: static;
   }
 }
 @media only screen and (min-width: 1024px) {

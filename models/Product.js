@@ -16,6 +16,7 @@ const productSchema = new Schema({
     type: Schema.Types.ObjectId, ref: "Size"
   }],
   brand: { type: Schema.Types.ObjectId, ref: "Brand" },
+  brand: { type: Schema.Types.ObjectId, ref: "Category" },
 });
 
 const Product = mongoose.model("Product", productSchema);
