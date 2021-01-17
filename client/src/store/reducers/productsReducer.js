@@ -1,4 +1,4 @@
-import { FETCH_PRODUCTS, FETCH_PRODUCT } from "../actions/types";
+import { FETCH_PRODUCTS, FETCH_PRODUCT, FETCH_PROD_BY_CAT } from "../actions/types";
 import { updateObject } from "../../utils/updateObject";
 
 const initialState = {
@@ -13,6 +13,8 @@ export default function (state = initialState, action) {
       return updateObject(state, { products: action.payload }) || false;
     case FETCH_PRODUCT:
       return updateObject(state, { product: action.payload }) || false
+    case FETCH_PROD_BY_CAT: 
+    return updateObject(state, { products: action.payload }) || false
       default:
       return state;
   }

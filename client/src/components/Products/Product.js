@@ -6,13 +6,11 @@ import { reduxForm, Field } from "redux-form";
 import "./ProductShow.css";
 
 const Product = ({
-  fetchSizes,
   fetchProduct,
   addFavorite,
   addCartItem,
   userId,
   product,
-  sizes,
   favoriteList,
   match: {
     params: { id },

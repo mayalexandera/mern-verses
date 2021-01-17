@@ -1,15 +1,14 @@
 .plans-container {
-  margin-top: 120px;
+  padding-top: 120px;
   display: flex;
   align-items: center;
-  min-height: 80vh;
   flex-direction: column;
   background-color:hsl(86, 68%, 94%);
-  padding: 40px 0;
 }
 
 .plans-section {
-  margin-top: 40px;
+  margin-top: 48px;
+  margin-bottom: 96px;
   width: 90%;
   display: flex;
   justify-content: center;

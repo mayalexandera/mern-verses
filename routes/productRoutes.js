@@ -1,19 +1,13 @@
-const mongoose = require("mongoose");
-const Products = mongoose.model("Product");
+const {
+  fetchProducts,
+  fetchProdByCat,
+  fetchProdById,
+} = require("../controllers/products_controller");
 
 module.exports = (app) => {
-  app.get("/api/products", async (req, res) => {
-    const products = await Products.find({});
-    res.send(products);
-  });
+  app.get("/api/products", fetchProducts);
 
-  app.get("/api/products/:id", async (req, res) => {
-    const product = await Products.find({ _id: req.query.productId })
-      .populate({
-        path: "productSizes",
-        match: { quantity: { $gte: 1 } },
-      })
-      .exec();
-    res.send(product[0]);
-  });
+  app.get("/api/products/:id", fetchProdById);
+
+  app.get(`/api/product/list/:category`, fetchProdByCat);
 };

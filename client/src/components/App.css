@@ -50,12 +50,11 @@ body {
 }
 
 a {
-      color: #111;
-    cursor: pointer;
-    text-decoration: none;
-    font-weight: 500;
-}
+  color: #111;
+  cursor: pointer;
+  text-decoration: none;
 
+}
 
 @font-face {
   font-family: "Material Icons Outlined";
@@ -133,9 +132,8 @@ a {
 input[type="button"] {
   outline: 0;
 }
- 
-[class*=col-] {
+
+[class*="col-"] {
   padding-left: 0;
   padding-right: 0;
 }
-

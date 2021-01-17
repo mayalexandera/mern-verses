@@ -35,7 +35,8 @@ class App extends Component {
             <Route exact path='/member/surveys' component={SurveyDashboard} />
             <Route exact path='/member/surveys/thanks' component={SurveyThanks} />
             <Route path='/member/surveys/new' component={SurveyNew} />
-            <Route path='/products' exact component={Products} />
+            <Route path='/products' component={Products} />
+            <Route path='/products/:category' component={Products} />
             <Route path='/products/:id' exact component={Product} />
             <Route path='/plans' component={Plans} />
             <Route path='/member' component={Dashboard} />

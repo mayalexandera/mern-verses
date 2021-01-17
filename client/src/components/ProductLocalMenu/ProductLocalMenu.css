@@ -1,26 +1,134 @@
-.local-menu-wrapper {
+.local_menu-wrapper {
   position: relative;
   background-color: #fff;
 }
 
-.local-menu {
+.local_menu {
   margin-left: 0;
   margin-right: 0;
   vertical-align: top;
 }
 
-[data-container-type=local_menu] .grid-col {
-  min-height: auto
+.sticky-inner-wrapper {
+  position: relative;
+  top: 0px;
+  z-index: 90;
+  background-color: white;
+}
+
+[data-container-type="local_menu"] .grid-col {
+  min-height: auto;
+}
+
+.local-menu {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  padding-top: 36px;
+  padding-bottom: 24px;
+  transition: padding 0.2s;
+  flex-direction: column;
+  position: relative;
+  background: #fff;
+}
+
+.container {
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.container.fixed-fluid {
+  margin-left: 12px;
+  margin-right: 12px;
+  max-width: 1808px;
+  width: auto;
+}
+
+.sub-menu {
+  padding-top: 12px;
+  margin-top: 0;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  width: 100%;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.sub-menu-list ul {
+  display: inline-block;
+  white-space: nowrap;
+  padding: 0 20px;
+}
+
+.sub-menu-list > li {
+  font-weight: 400;
+  display: inline-block;
+  margin-right: 16px;
+  text-transform: capitalize;
 }
 
 @media (min-width: 640px) {
-  .local-menu-wrapper{margin-top: 0px;}
+  .local_menu-wrapper {
+    margin-top: 0px;
+  }
+
+  .sticky-menu {
+    position: static;
+  }
+
+  .sub-menu {
+    padding-left: 0;
+    padding-top: 0;
+    margin-top: 12px;
+    width: auto;
+    overflow: visible;
+  }
 }
 
+@media only screen and (min-width: 640px) {
+  .sub-menu {
+    padding-left: 0;
+    padding-top: 0;
+    margin-top: 12px;
+    width: auto;
+    overflow: visible;
+  }
+
+  .sub-menu-list {
+    padding: 0;
+  }
+
+  .sub-menu-list > li {
+    position: relative;
+  }
+}
 @media only screen and (min-width: 1024px) {
   .col-lg-12 {
     width: 100%;
     display: inline-block;
   }
 
+  .container.fixed-fluid {
+    margin-left: 48px;
+    margin-right: 48px;
+  }
+
+  .sticky-menu {
+    flex-direction: row;
+    padding-top: 26px;
+    padding-bottom: 34px;
+  }
+
+  .container {
+    flex-direction: row;
+    padding-top: 26px;
+    padding-bottom: 34px;
+  }
+
+  .sub-menu-list {
+    text-align: center;
+    list-style: none;
+  }
 }

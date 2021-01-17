@@ -1,5 +1,5 @@
 import axios from "axios";
-import { FETCH_PRODUCT, FETCH_PRODUCTS } from "./types";
+import { FETCH_PRODUCT, FETCH_PRODUCTS, FETCH_PROD_BY_CAT } from "./types";
 
 export const fetchProducts = () => async (dispatch) => {
   const res = await axios.get("/api/products");
@@ -14,3 +14,12 @@ export const fetchProduct = (productId) => async (dispatch) => {
 
   dispatch({ type: FETCH_PRODUCT, payload: res.data });
 };
+
+export const fetchProdByCat = (category) => async (dispatch) => {
+  console.log(category)
+  const res = await axios.get(`/api/product/list/${category}`, {
+    params: { category }
+  })
+
+  dispatch({ type: FETCH_PROD_BY_CAT, payload: res.data })
+}
