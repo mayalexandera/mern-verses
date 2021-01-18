@@ -1,12 +1,14 @@
 import React from "react";
 
-const CartItem = ({ item, deleteCartItem }) => {
+const CartItem = ({ item, deleteCartItem, updateCartItem }) => {
   const quantities = [1, 2, 3, 4, 5, 6, 7, 8];
-  const sizeRange = ["XS", "S", "M", "L"];
 
-  const deleteCartItemHandler = () => {
-    deleteCartItem(item._id);
+  const deleteCartItemHandler = () => deleteCartItem(item._id);
+
+  const updateHandler = (e) => {
+    updateCartItem(e.target.id, e.target.value, item);
   };
+
   return (
     <div className='cart-item-wrapper'>
       <div className='cart-item-card-body'>
@@ -26,14 +28,21 @@ const CartItem = ({ item, deleteCartItem }) => {
               <div className='size-element-cell'>
                 <label>Size</label>
                 <div className='size-select-wrapper'>
-                  {/* <div> */}
-                  <span class='material-icons-outlined'>
+                  <span className='material-icons-outlined'>
                     keyboard_arrow_down
                   </span>
-                  {/* </div> */}
-                  <select className='size-select'>
-                    {sizeRange.map((size) => {
-                      return <option value={size}>{size}</option>;
+                  <select
+                    value={item.sizeId}
+                    id={"sizeId"}
+                    className='size-select'
+                    onChange={updateHandler}
+                  >
+                    {item.productId.productSizes.map((size) => {
+                      return (
+                        <option key={size._id} value={size._id}>
+                          {size.size}
+                        </option>
+                      );
                     })}
                   </select>
                 </div>
@@ -42,13 +51,22 @@ const CartItem = ({ item, deleteCartItem }) => {
                 <label>Quantity</label>
                 <div className='size-select-wrapper'>
                   <div>
-                    <span class='material-icons-outlined'>
+                    <span className='material-icons-outlined'>
                       keyboard_arrow_down
                     </span>
                   </div>
-                  <select className='size-select'>
-                    {quantities.map((size) => {
-                      return <option value={size}>{size}</option>;
+                  <select
+                    id={"count"}
+                    value={item.count}
+                    className='size-select'
+                    onChange={updateHandler}
+                  >
+                    {quantities.map((num) => {
+                      return (
+                        <option key={num} value={num}>
+                          {num}
+                        </option>
+                      );
                     })}
                   </select>
                 </div>

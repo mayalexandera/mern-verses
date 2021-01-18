@@ -2,17 +2,14 @@ import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { fetchProduct, addFavorite, addCartItem } from "../../store/actions";
-import { reduxForm, Field } from "redux-form";
-
 import "./ProductShow.css";
 
 const Product = ({
   fetchProduct,
   addFavorite,
   addCartItem,
-  userId,
-  product,
   favoriteList,
+  product,
   match: {
     params: { id },
   },
@@ -44,25 +41,20 @@ const Product = ({
 
   const handleAddToFavorites = (e) => {
     e.preventDefault();
-    addFavorite(
-      prodId,
-      product.name,
-      product.brandName,
-      product.price,
-      product.images.model1[0]
-    );
+    console.log(favoriteList.message)
+    addFavorite(product);
   };
 
   const sizeHandler = (select) => {
-    if(size !== select.size) {
-      setSize(select.size)
-      setSizeId(select._id)
+    if (size !== select.size) {
+      setSize(select.size);
+      setSizeId(select._id);
     }
     if (size === select.size) {
-      setSize("")
-      setSizeId("")
+      setSize("");
+      setSizeId("");
     }
-  }
+  };
 
   const button = (size_id) => {
     return size_id === sizeId ? "size-button-clicked" : "size-button";
@@ -200,6 +192,7 @@ const Product = ({
                               </span>
                             </button>
                             {errorMessage}
+                            {favoriteList.message}
                           </div>
                         </div>
                       </div>

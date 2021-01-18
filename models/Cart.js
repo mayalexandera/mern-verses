@@ -8,7 +8,7 @@ const CartItemSchema = new Schema({
   brandName: String,
   price: Number,
   count: Number,
-  size: String,
+  // size: String,
   featuredImage: String
 });
 

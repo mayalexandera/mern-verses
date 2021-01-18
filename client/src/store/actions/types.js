@@ -17,5 +17,6 @@ export const DELETE_FAVORITE = 'delete_favorite'
 
 export const ADD_CART_ITEM = 'add_cart_item'
 export const DELETE_CART_ITEM = 'delete_cart_item'
+export const UPDATE_CART_ITEM = 'update_cart_item'
 export const FETCH_CART = 'fetch_cart'
 

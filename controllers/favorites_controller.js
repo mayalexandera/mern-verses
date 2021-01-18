@@ -7,15 +7,15 @@ exports.fetchFavorites = async (req, res) => {
 };
 
 exports.addFavorite = async (req, res) => {
+  const { _id, name, brandName, price, images } = req.body.product
   let faveList;
   const newFavorite = {
-    productId: req.body.params.productId,
-    name: req.body.params.name,
-    brandName: req.body.params.brandName,
-    price: req.body.params.price,
-    featuredImage: req.body.params.featuredImage,
+    productId: _id,
+    name,
+    brandName,
+    price,
+    featuredImage: images.model1[0],
   };
-
   faveList = await FavoriteList.findById(req.user._id);
   if (faveList) {
     faveList.items.push(newFavorite);

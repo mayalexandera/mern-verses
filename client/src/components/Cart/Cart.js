@@ -3,10 +3,10 @@ import { connect } from "react-redux";
 import "./Cart.css";
 import CartList from "./CartList";
 
-const Cart = ({ cart }) => {
+const Cart = ({ items }) => {
   const renderCart = () => {
-    if (cart) {
-      return <CartList items={cart.items} />;
+    if (items) {
+      return <CartList items={items} />;
     }
   };
 
@@ -17,8 +17,8 @@ const Cart = ({ cart }) => {
   );
 };
 
-const mapStateToProps = ({ cart }) => {
-  return { cart };
+const mapStateToProps = ({ cart : { items } }) => {
+  return { items };
 };
 
 export default connect(mapStateToProps)(Cart);
