@@ -1,5 +1,5 @@
 import { FETCH_SIZES } from "../actions/types";
-import { updateObject } from "../../utils/updateObject";
+// import { updateObject } from "../../utils/updateObject";
 
 export default function (state = [], action) {
   // console.log(action.payload || false)

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import * as actions from '../../store/actions/'
 
 import "./AuthBanner.css";
 
@@ -61,4 +62,4 @@ function mapStateToProps({ auth }) {
   return { auth };
 }
 
-export default connect(mapStateToProps)(AuthBanner);
+export default connect(mapStateToProps, actions)(AuthBanner);

@@ -2,10 +2,6 @@ import React from "react";
 import ThreeMonthPayment from "../Payments/ThreeMonthPayment";
 
 const PlanCard = ({plan: {id, credits, description, items, features, trialPrice, regularPrice }}) => {
-  const clickHandler = (e) => {
-    e.preventDefault();
-  
-  };
 
   return (
     <div className='plan-card'>

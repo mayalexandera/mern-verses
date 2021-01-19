@@ -7,9 +7,9 @@ import ProductSideBarItem from "./ProductSideBarItem";
 import "./ProductSideBar.css";
 
 const ProductSideBar = (props) => {
-  useEffect(() => {
-    props.fetchCategories();
-  }, []);
+  // useEffect(() => {
+  //   props.fetchCategories();
+  // }, [props]);
 
   const handleCategoryClick = (cat) => {
     console.log(cat);

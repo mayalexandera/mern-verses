@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import ProductList from "../Products/ProductList";
 import CategoryHeader from './CategoryHeader'
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 import "./Category.css";
 import "../Products/Products.css";

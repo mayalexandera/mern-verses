@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from 'react-router-dom'
 
 const CartItem = ({ item, deleteCartItem, updateCartItem }) => {
   const quantities = [1, 2, 3, 4, 5, 6, 7, 8];
@@ -13,9 +14,11 @@ const CartItem = ({ item, deleteCartItem, updateCartItem }) => {
     <div className='cart-item-wrapper'>
       <div className='cart-item-card-body'>
         <figure className='cart-item-product-thumbnail'>
-          <a className='thumbnail'>
-            <img src={item.featuredImage} />
-          </a>
+         <NavLink className='thumbnail' to={`/products/${item._id}`}>
+            {/* <a className='thumbnail'> */}
+              <img alt={item.name} src={item.featuredImage} />
+            {/* </a> */}
+         </NavLink>
         </figure>
         <div className='cart-item-product-details-wrapper'>
           <div className='cart-item-product-details'>

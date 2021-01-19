@@ -19,12 +19,12 @@ const ProductSideBarItem = ({ filter }) => {
           <div className='filter-group__items-group'>
             {filter.options.map((filter, index) => {
               return (
-                <a key={index} className='filter-item'>
+                <div key={index} className='filter-item'>
                   <div className='pseudo-checkbox'>
                     <div className='icon-wrapper'></div>
                   </div>
                   <span className='filter-item__item-label'>{filter}</span>
-                </a>
+                </div>
               );
             })}
           </div>

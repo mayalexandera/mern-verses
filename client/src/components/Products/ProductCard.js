@@ -9,7 +9,7 @@ const ProductCard = ({ product: { name, _id, price, brandName, images }}) => {
        <figure>
          <NavLink to={`/products/${_id}`} className='product-card-link-overlay'>
       <div className='product-card-image-wrapper'>
-        <img className='product-card-image' src={images.model1[0]}/>
+        <img alt={`${name}`} className='product-card-image' src={images.model1[0]}/>
       </div>
          </NavLink>
          <div className='product-card-info'>

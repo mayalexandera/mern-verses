@@ -2,7 +2,8 @@ import axios from "axios";
 import { FETCH_CART, ADD_CART_ITEM, DELETE_FAVORITE, DELETE_CART_ITEM, UPDATE_CART_ITEM } from './types'
 
 export const fetchCart = () => async (dispatch, getState) => {
-  const user = getState().auth.userId 
+  const user = getState().auth.isLoggedIn
+  console.log(user)
   if ( user ) {
     const res = await axios.get(`/api/carts`);
     dispatch({ type: FETCH_CART, payload: res.data });
@@ -54,14 +55,14 @@ export const addFavoriteToCart = (
 }
 
 export const deleteCartItem = (cartItemId) => async (dispatch, getState) => {
-  const user = getState().auth._id
+  const user = getState().auth.user._id
   const res = await axios.delete(`/api/carts/${user}/${cartItemId}`)
 
   dispatch({ type: DELETE_CART_ITEM, payload: res.data })
 }
 
-export const updateCartItem= (field, value, cartItem) => async (dispatch, getState) => {
-  const user = getState().auth._id
+export const updateCartItem = (field, value, cartItem) => async (dispatch, getState) => {
+  const user = getState().auth.user._id
   const res = await axios.put(`/api/carts/${user}/${cartItem._id}`, { field, value, cartItem })
 
   dispatch({ type: UPDATE_CART_ITEM, payload: res.data })

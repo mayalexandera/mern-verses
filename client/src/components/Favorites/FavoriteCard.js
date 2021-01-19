@@ -28,7 +28,7 @@ const FavoriteCard = ({
               </button>
             </div>
             <div className='image-spacer'></div>
-            <img src={featuredImage} className='favorite-item-thumbnail'></img>
+            <img alt={`${name}`} src={featuredImage} className='favorite-item-thumbnail'></img>
           </div>
         </a>
       </div>

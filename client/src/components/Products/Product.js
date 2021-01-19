@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
-import { NavLink } from "react-router-dom";
+// import { NavLink } from "react-router-dom";
 import { fetchProduct, addFavorite, addCartItem } from "../../store/actions";
 import "./ProductShow.css";
 
@@ -41,11 +41,13 @@ const Product = ({
 
   const handleAddToFavorites = (e) => {
     e.preventDefault();
+    if (!favoriteList.items.length <= 0) addFavorite(product)
+
     const exists = favoriteList.items.map((item) => item.product === product)
     if(exists[0] === undefined){
     console.log(exists[0] !== undefined);
     addFavorite(product);
-  } else {
+  } else if (exists[0].productId === product._id) {
     setErrorMessage("Item is already in your favorites.")
   }
 }
@@ -68,7 +70,7 @@ const Product = ({
   const renderSizeGrid = () => {
     return product.productSizes.map((size) => {
       return (
-        <div>
+        <div key={size._id}>
           <input
             className='visually-hidden'
             name={size.size}
@@ -77,7 +79,7 @@ const Product = ({
           />
           <label
             id={button(size._id)}
-            for={size._id}
+            htmlFor={size._id}
             className='select-size-label'
             onClick={() => sizeHandler(size)}
           >

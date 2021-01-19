@@ -6,9 +6,10 @@ import './Plans.css'
 
 
 const Plans = ( { fetchPlans, plans } ) => {
+  
   useEffect(() => {
    fetchPlans()
-  }, [])
+  }, [fetchPlans])
 
   const renderPlans = () => {
     return plans.map(plan => {

@@ -9,23 +9,17 @@ import { updateObject } from "../../utils/updateObject";
 const initialState = {
   items: null,
   totals: null,
-  isLoaded: false,
+  isLoaded: null,
+  message: null,
 };
 export default function (state = initialState, action) {
   switch (action.type) {
     case ADD_CART_ITEM:
       return action.payload || false;
     case FETCH_CART:
-      console.log(action.payload);
-      return !!action.payload
-        ? updateObject(state, {
-            items: action.payload,
-            isLoaded: true,
-          })
-        : updateObject(state, {
-            isLoaded: false,
-          });
+      return action.payload || false;
     case DELETE_CART_ITEM:
+      console.log(action.payload)
       return action.payload || false;
     case UPDATE_CART_ITEM:
       const newList = [];

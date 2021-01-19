@@ -1,13 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
+import * as actions from "../../store/actions";
 import "./Cart.css";
 import CartList from "./CartList";
 
-const Cart = ({ items }) => {
+const Cart = ({ items, fetchCart }) => {
+
+  useEffect(() => {
+    fetchCart()
+  }, [])
   const renderCart = () => {
-    // if (items) {
+    console.log(items)
+    if ( items && items ) {
       return <CartList items={items} />;
-    // }
+    }
   };
 
   return (
@@ -21,4 +27,4 @@ const mapStateToProps = ({ cart: { items } }) => {
   return { items };
 };
 
-export default connect(mapStateToProps)(Cart);
+export default connect(mapStateToProps, actions)(Cart);

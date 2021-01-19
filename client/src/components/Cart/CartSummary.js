@@ -13,10 +13,10 @@ const CartSummary = ({ cart }) => {
       </div>
       <div className='cart-summary-row'>
         <div className='cart-summary-item col-sm-12'>
-          <a>
+          <div>
             Do you have a Promo Code?
             <span class='material-icons'>expand_more</span>
-          </a>
+          </div>
         </div>
       </div>
       {cartSummaryFields.map((field, index) => {

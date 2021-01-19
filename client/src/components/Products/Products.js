@@ -5,10 +5,11 @@ import CategoryHeader from "../Category/CategoryHeader";
 import * as actions from "../../store/actions";
 import "./Products.css";
 
-const Products = ({ fetchProducts, products, byCategory }) => {
+const Products = ({ fetchProducts, fetchCategories, products, byCategory }) => {
   useEffect(() => {
     fetchProducts();
-  }, [fetchProducts]);
+    fetchCategories()
+  }, [fetchProducts, fetchCategories]);
 
   return (
     <div className='product-container'>

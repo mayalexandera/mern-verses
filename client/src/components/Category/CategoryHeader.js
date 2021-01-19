@@ -1,12 +1,10 @@
-import React, { Fragment } from "react";
-import { connect } from "react-redux";
-import * as actions from "../../store/actions";
+import React from "react";
+// import { connect } from "react-redux";
+// import * as actions from "../../store/actions";
 import "./CategoryHeader.css";
 
 const CategoryHeader = ({ category, products, count }) => {
-  // useEffect(() => {
-  //   props.fetchCategories()
-  // }, [])
+
   const renderCategoryHeader = () => {
     return category && category ? (
       <div className='wall-header-container'>

@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import { BrowserRouter, Route } from "react-router-dom";
 import { connect } from "react-redux";
 import * as actions from "../store/actions";
@@ -23,6 +23,7 @@ import AccountSettings from "./AccountSettings/AccountSettings";
 import "./App.css";
 
 class App extends Component {
+
   render() {
     console.log(this.props, "App");
     return (
