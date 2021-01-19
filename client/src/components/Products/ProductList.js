@@ -11,7 +11,7 @@ const ProductList = ({ products }) => {
       <div className='product-grid-container'>
             <div className='product-grid'>
               <div className='product-grid-items'>
-                {products
+                {products && products
                   ? products.map((product) => {
                       return (
                         <ProductCard product={product} key={product._id} />

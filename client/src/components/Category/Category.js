@@ -10,6 +10,7 @@ import "./Category.css";
 import "../Products/Products.css";
 
 const Category = (props) => {
+  console.log('in category container')
   return (
     <div className='product-container'>
       { props.byCategory ? <CategoryHeader category={props.byCategory.name} count={props.byCategory.products.length}/> : null}

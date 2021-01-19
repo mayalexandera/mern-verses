@@ -1,11 +1,16 @@
-import React, { useEffect } from "react";
-
+import React, { Fragment } from "react";
+import { connect } from "react-redux";
+import * as actions from "../../store/actions";
 import './CategoryHeader.css'
 
 const CategoryHeader = (props) => {
 
-  return (
-    <div className='wall-header-container'>
+  // useEffect(() => {
+  //   props.fetchCategories()
+  // }, [])
+  const renderCategoryHeader = () => {
+    return props.byCategory && props.byCategory ? (
+      <div className='wall-header-container'>
       <header className='wall-header'>
         {/* <div className='wall-breadcrumbs'>
           <ol className='wall-breadcrumbs__list'>
@@ -13,8 +18,8 @@ const CategoryHeader = (props) => {
         </div> */}
         <div className='wall-header__content'>
           <h1 className='wall-header__title'>
-            {props.category}
-            <span className='wall-header__item-count'>{`  (${props.count})`}</span>
+            {props.byCategory.name}
+            <span className='wall-header__item-count'>{`(${props.byCategory.products.length})`}</span>
           </h1>
           <nav className='wall-header__nav'>
             <button className='wall-header__filters-btn'>
@@ -47,7 +52,18 @@ const CategoryHeader = (props) => {
         </div>
       </header>
     </div>
+    ) : null
+  }
+  
+  return (
+  <React.Fragment>{renderCategoryHeader()}</React.Fragment>
   );
 };
 
-export default (CategoryHeader);
+const mapStateToProps = (state) => {
+  return {
+    byCategory: state.products.byCategory
+  }
+}
+
+export default connect(mapStateToProps)(CategoryHeader);

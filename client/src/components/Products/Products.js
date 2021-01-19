@@ -12,13 +12,8 @@ const Products = ({ fetchProducts, products }) => {
 
   return (
     <div className='product-container'>
+         {/* <CategoryHeader />  */}
       <div className='products-section'>
-        {products.byCategory && products.byCategory ? (
-          <CategoryHeader
-            category={products.byCategory.name}
-            count={products.byCategory.products.length}
-          />
-        ) : null}
         <ProductList products={products} />
       </div>
     </div>
