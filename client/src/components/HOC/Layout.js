@@ -12,7 +12,6 @@ class Layout extends Component {
   }
 
   render() {
-    console.log(this.props)
     return (
       <Aux>
         <main>{this.props.children}</main>

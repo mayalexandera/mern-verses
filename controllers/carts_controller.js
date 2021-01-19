@@ -42,7 +42,7 @@ exports.addToCart = async (req, res) => {
       .exec();
     res.send(result);
   } else {
-    cart = new Cart({ _id: req.user._id, items: [newFavorite] });
+    cart = new Cart({ _id: req.user._id, items: [newCartItem] });
     res.send(cart);
   }
 };

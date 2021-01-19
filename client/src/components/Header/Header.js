@@ -1,10 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 import * as actions from "../../store/actions";
 import "./Header.css";
 
-const Header = ({ fetchUser, favoriteList, cart }) => {
+const Header = ({ fetchUser, fetchFavorites, fetchCart, favoriteList, cart }) => {
+
+  // useEffect(() => {
+  //   fetchUser()
+  //   fetchFavorites()
+  //   fetchCart()
+  // }, [])
   console.log(fetchUser, favoriteList, cart, "Header");
   return (
     <nav className='main-menu'>
@@ -18,7 +24,7 @@ const Header = ({ fetchUser, favoriteList, cart }) => {
             to='/member/favorites'
           >
             <span className='material-icons-outlined'>favorite_border</span>
-            <p>{favoriteList ? favoriteList.items.length : null}</p>
+            <p>{favoriteList && favoriteList.items ? favoriteList.items.length : null}</p>
           </NavLink>
           <NavLink className='nav-button cart-button' to='/cart'>
             <span className='material-icons-outlined'>shopping_bag</span>
