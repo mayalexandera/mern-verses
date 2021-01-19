@@ -1,13 +1,19 @@
 import React from "react";
-import './AccountSettings.css'
-import Payments from "../Payments/Payments";
+import settings from './settings'
+import AccountSetting from './accountSetting'
+import "./AccountSettings.css";
 
-function AccountSettings() {
+const AccountSettings = (props) => {
   return (
     <div className='settings-container'>
-      <div className='settings-wrapper'>
-        <h2>Account Settings</h2>
-       <Payments/>
+      <div className='settings-nav-title'>
+        <h2 className='settings-headline-3'>Settings</h2>
+      </div>
+      <div className='settings-nav-wrapper'>
+        {settings.map((setting, index) => {
+          return <AccountSetting item={setting} index={index}/> 
+          })
+        }
       </div>
     </div>
   );

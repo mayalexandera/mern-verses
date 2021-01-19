@@ -6,9 +6,11 @@ import Aux from './Aux'
 
 class Layout extends Component {
   componentDidMount() {
-    this.props.fetchUser()
-    this.props.fetchFavorites()
-    this.props.fetchCart()
+    // if (this.props.isLoggedIn) {
+      this.props.fetchUser()
+      this.props.fetchFavorites()
+      this.props.fetchCart()
+    // }
   }
 
   render() {
@@ -24,6 +26,7 @@ class Layout extends Component {
 const mapStateToProps = (state) => {
   return {
     auth: state.auth,
+    isLoggedIn: !!state.auth,
     favoriteList: state.favoriteList,
     cart: state.cart
   };

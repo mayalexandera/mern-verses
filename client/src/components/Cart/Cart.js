@@ -3,10 +3,11 @@ import { connect } from "react-redux";
 import "./Cart.css";
 import CartList from "./CartList";
 
+
 const Cart = ({ items }) => {
   const renderCart = () => {
     if (items) {
-      return <CartList items={items} />;
+      return( <CartList items={items} />)
     }
   };
 

@@ -19,7 +19,7 @@ const Header = ({ fetchUser, favoriteList, cart }) => {
               <span className='material-icons-outlined'>favorite_border</span>
               <p>{favoriteList ? favoriteList.items.length : null}</p>
             </NavLink>
-            <NavLink className='nav-button cart-button' to='/member/cart'>
+            <NavLink className='nav-button cart-button' to='/cart'>
               <span className='material-icons-outlined'>shopping_bag</span>
               <p>{cart && cart.items ? cart.items.length : null}</p>
             </NavLink>

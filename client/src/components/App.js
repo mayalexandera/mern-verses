@@ -44,7 +44,7 @@ class App extends Component {
             <Route path='/member/profile' component={Profile} />
             <Route path='/member/favorites' component={Favorites} />
             <Route path='/member/orders' component={Orders} />
-            <Route path='/member/cart' component={Cart} />
+            <Route path='/cart' component={Cart} />
 
             <Route path='/member/settings' component={AccountSettings} />
         </BrowserRouter>

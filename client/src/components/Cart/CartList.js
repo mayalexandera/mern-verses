@@ -19,8 +19,8 @@ const Cart = ({ cart, deleteCartItem, updateCartItem }) => {
           <div className='cart-list'>
             <h4>Bag</h4> {renderCart()}
           </div>
-          <div className='cart-summary-wrapper'>
-            <div className='cart-summary'>
+          <div className='cart-summary-container'>
+            <div className='cart-summary-wrapper'>
               <CartSummary/>
             </div>
           </div>
