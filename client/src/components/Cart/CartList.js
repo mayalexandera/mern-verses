@@ -8,7 +8,7 @@ import PopoutCheckout from "./PopoutCheckout";
 
 const Cart = ({ cart, deleteCartItem, updateCartItem }) => {
   const renderCart = () => {
-    if (cart && cart.items) {
+    if (cart && cart.isLoaded) {
       return cart.items.map((item) => {
         return (
           <CartItem

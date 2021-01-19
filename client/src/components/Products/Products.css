@@ -21,13 +21,13 @@
 }
 
 .product-grid-container {
-flex: 1 1 0%;
+  flex: 1 1 0%;
+  padding-left: 40px;
+  padding-right: 48px;
 }
 
 .product-grid {
-  flex: 1 1 0%;
-  padding-left: 48px;
-  padding-right: 48px;
+  position:  relative;
   max-width: 1920px;
 }
 
@@ -128,9 +128,8 @@ flex: 1 1 0%;
 }
 
 @media (max-width: 639px), (max-width: 1023px) and (min-width: 640px) {
-
   .product-grid-container {
-    padding: 0px;
+    /* padding: 0px; */
     max-width: 1920px;
     position: relative;
   }
