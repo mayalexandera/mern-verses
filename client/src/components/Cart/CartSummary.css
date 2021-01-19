@@ -1,7 +1,6 @@
 .cart-summary-container {
   vertical-align: top;
   width: 33.3%;
-  display: inline-block;
   position: relative;
   min-height: 1px;
   line-height: 1.75;
@@ -51,12 +50,12 @@
 }
 .field-value {
   vertical-align: top;
-      position: relative;
-    min-height: 1px;
+  position: relative;
+  min-height: 1px;
   font-size: 16px;
-    line-height: 1.75;
-    padding-left: 8px;
-    padding-right: 8px;
+  line-height: 1.75;
+  padding-left: 8px;
+  padding-right: 8px;
 }
 
 .field-value-text {
@@ -122,38 +121,41 @@
 
 .checkout-button {
   display: inline-block;
-    vertical-align: top;
-    white-space: nowrap;
-    text-align: center;
-    text-decoration: none;
-    cursor: pointer;
-    transition: all 0.2s ease 0s;
-    background: rgb(17, 17, 17);
-    color: rgb(255, 255, 255);
-    line-height: 1.5;
-    margin-bottom: 12px;
-    width: 100%;
-    padding: 18px 24px;
-    border-radius: 30px;
-    font-weight: 500;
-    font-size: 16px;
+  vertical-align: top;
+  white-space: nowrap;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease 0s;
+  background: rgb(17, 17, 17);
+  color: rgb(255, 255, 255);
+  line-height: 1.5;
+  margin-bottom: 12px;
+  width: 100%;
+  padding: 18px 24px;
+  border-radius: 30px;
+  font-weight: 500;
+  font-size: 16px;
 }
 
 .paypal-button {
   display: inline-block;
-    vertical-align: top;
-    white-space: nowrap;
-    text-align: center;
-    text-decoration: none;
-    cursor: pointer;
-    line-height: 1.75;
-    transition: all 0.2s ease 0s;
-    color: rgb(255, 255, 255);
-    width: 100%;
-    padding: 18px 24px;
-    border-radius: 30px;
-    box-shadow: rgb(229, 229, 229) 0px 1px 0px 0px inset, rgb(229, 229, 229) -1px 0px 0px 0px inset, rgb(229, 229, 229) 0px -1px 0px 0px inset, rgb(229, 229, 229) 1px 0px 0px 0px inset;
-    background: rgb(245, 245, 245);
+  vertical-align: top;
+  white-space: nowrap;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  line-height: 1.75;
+  transition: all 0.2s ease 0s;
+  color: rgb(255, 255, 255);
+  width: 100%;
+  padding: 18px 24px;
+  border-radius: 30px;
+  box-shadow: rgb(229, 229, 229) 0px 1px 0px 0px inset,
+    rgb(229, 229, 229) -1px 0px 0px 0px inset,
+    rgb(229, 229, 229) 0px -1px 0px 0px inset,
+    rgb(229, 229, 229) 1px 0px 0px 0px inset;
+  background: rgb(245, 245, 245);
 }
 
 .paypal-button img {
@@ -178,14 +180,12 @@
   }
 
   .cart-summary-item-sub {
-
-  padding-bottom: 8px;
+    padding-bottom: 8px;
   }
 
   .cart-summary-row {
     padding-left: 12px;
     padding-right: 12px;
-    
   }
 
   .cart-summary-title {
@@ -211,5 +211,11 @@
     padding-bottom: 20px;
     margin: 0px;
     box-shadow: none;
+  }
+}
+
+@media screen and (max-width: 1023px) {
+  .cart-summary-container {
+    visibility: hidden;
   }
 }

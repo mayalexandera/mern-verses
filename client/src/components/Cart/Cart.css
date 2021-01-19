@@ -289,3 +289,20 @@ h4 {
   background-color: transparent;
 }
 
+@media screen and (max-width: 1024px) {
+  .cart-title {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .cart-list {
+    width: 100%;
+    padding: 24px 8px;
+    box-shadow: rgb(229, 229, 229) 0px 1px 0px 0px inset;
+  }
+
+  .cart-container {
+    padding-top: 108px;
+  }
+}

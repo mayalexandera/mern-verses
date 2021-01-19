@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import cartSummaryFields from './cartSummaryFields'
+import cartSummaryFields from "./cartSummaryFields";
 import "./CartSummary.css";
 
 const CartSummary = ({ cart }) => {
@@ -22,20 +22,36 @@ const CartSummary = ({ cart }) => {
       {cartSummaryFields.map((field, index) => {
         return (
           <div key={index} className='cart-summary-row'>
-            <div className={field.class}><div className='col-sm-9 field-title'>{field.title}</div><div className='col-sm-3 field-value'><div className='field-value-text'>{field.value}</div></div></div>
+            <div className={field.class}>
+              <div className='col-sm-9 field-title'>{field.title}</div>
+              <div className='col-sm-3 field-value'>
+                <div className='field-value-text'>{field.value}</div>
+              </div>
+            </div>
           </div>
         );
       })}
-      <hr className='summary-hr'/>
+      <hr className='summary-hr' />
       <div className='cart-summary-total'>
-            <div className='col-sm-6'><p className='total'>Total</p></div>
-      <div className='col-sm-6'><p className='total-currency'>$286.56</p></div>
+        <div className='col-sm-6'>
+          <p className='total'>Total</p>
+        </div>
+        <div className='col-sm-6'>
+          <p className='total-currency'>$286.56</p>
+        </div>
       </div>
-      <hr className='summary-hr'/>
+      <hr className='summary-hr' />
       <div className='checkout-button-container'>
         <div className='checkout-button-wrapper col-sm-12'>
-      <button className='checkout-button'>Checkout</button>
-      <button className='paypal-button'><img alt="Paypal" width="51" height="14" src="https://www.nike.com/assets/experience/pet/payment-icons/paypal@2x.png"/></button>
+          <button className='checkout-button'>Checkout</button>
+          <button className='paypal-button'>
+            <img
+              alt='Paypal'
+              width='51'
+              height='14'
+              src='https://www.nike.com/assets/experience/pet/payment-icons/paypal@2x.png'
+            />
+          </button>
         </div>
       </div>
     </aside>

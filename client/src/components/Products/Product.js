@@ -41,7 +41,7 @@ const Product = ({
 
   const handleAddToFavorites = (e) => {
     e.preventDefault();
-    console.log(favoriteList.message)
+    console.log(favoriteList.message);
     addFavorite(product);
   };
 
