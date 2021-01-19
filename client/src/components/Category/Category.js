@@ -2,8 +2,6 @@ import React from "react";
 import { connect } from "react-redux";
 import ProductList from "../Products/ProductList";
 import CategoryHeader from './CategoryHeader'
-
-import CategoryNav from './CategoryNav'
 import { Link } from "react-router-dom";
 
 import "./Category.css";
@@ -14,7 +12,7 @@ const Category = (props) => {
   return (
     <div className='product-container'>
       { props.byCategory ? <CategoryHeader category={props.byCategory.name} count={props.byCategory.products.length}/> : null}
-      {/* <CategoryNav/> */}
+      <div className='product-spacer'/>
       <div className='products-section'>
         {props.byCategory ? <ProductList products={props.byCategory.products} /> : null};
       </div>

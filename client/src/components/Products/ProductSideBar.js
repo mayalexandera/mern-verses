@@ -9,14 +9,12 @@ import "./ProductSideBar.css";
 const ProductSideBar = (props) => {
   useEffect(() => {
     props.fetchCategories();
-
   }, []);
 
-
-    const handleCategoryClick = (cat) => {
-      console.log(cat);
-      props.fetchProdByCat(cat);
-    };
+  const handleCategoryClick = (cat) => {
+    console.log(cat);
+    props.fetchProdByCat(cat);
+  };
 
   return (
     <div className='product-sidebar-wrapper product-sidebar'>

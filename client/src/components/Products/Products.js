@@ -5,14 +5,26 @@ import CategoryHeader from "../Category/CategoryHeader";
 import * as actions from "../../store/actions";
 import "./Products.css";
 
-const Products = ({ fetchProducts, products }) => {
+const Products = ({ fetchProducts, products, byCategory }) => {
   useEffect(() => {
     fetchProducts();
   }, [fetchProducts]);
 
   return (
     <div className='product-container'>
-         {/* <CategoryHeader />  */}
+      {products && products ? (
+        <CategoryHeader
+          category='Clothing'
+          count={products.length}
+          products={products}
+        />
+      ) : byCategory && byCategory ? (
+        <CategoryHeader
+          category={byCategory.name}
+          count={byCategory.products.length}
+          products={byCategory.products}
+        />
+      ) : null}
       <div className='products-section'>
         <ProductList products={products} />
       </div>
@@ -20,7 +32,10 @@ const Products = ({ fetchProducts, products }) => {
   );
 };
 const mapStateToProps = (state) => {
-  return { products: state.products.products };
+  return {
+    products: state.products.products,
+    byCategory: state.products.byCategory,
+  };
 };
 
 export default connect(mapStateToProps, actions)(Products);

@@ -41,9 +41,14 @@ const Product = ({
 
   const handleAddToFavorites = (e) => {
     e.preventDefault();
-    console.log(favoriteList.message);
+    const exists = favoriteList.items.map((item) => item.product === product)
+    if(exists[0] === undefined){
+    console.log(exists[0] !== undefined);
     addFavorite(product);
-  };
+  } else {
+    setErrorMessage("Item is already in your favorites.")
+  }
+}
 
   const sizeHandler = (select) => {
     if (size !== select.size) {
@@ -192,7 +197,7 @@ const Product = ({
                               </span>
                             </button>
                             {errorMessage}
-                            {favoriteList.message}
+                            {/* {favoriteList.message} */}
                           </div>
                         </div>
                       </div>

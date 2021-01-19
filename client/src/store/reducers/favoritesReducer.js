@@ -6,6 +6,7 @@ const initialState =
 export default function (state = initialState, action) {
   switch (action.type) {
     case ADD_FAVORITE:
+      console.log(action.payload)
       return action.payload || false;
     case FETCH_FAVORITES:
       return !!action.payload
