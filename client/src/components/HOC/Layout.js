@@ -12,7 +12,7 @@ class Layout extends Component {
   }
 
   render() {
-    console.log(this.props, "Layout");
+    console.log(this.props)
     return (
       <Aux>
         <main>{this.props.children}</main>
@@ -24,7 +24,6 @@ class Layout extends Component {
 const mapStateToProps = (state) => {
   return {
     auth: state.auth,
-    isLoggedIn: !!state.auth,
     favoriteList: state.favoriteList,
     cart: state.cart,
   };

@@ -5,7 +5,7 @@ import "./AuthBanner.css";
 
 class AuthBanner extends Component {
   renderContent() {
-    switch (!!this.props.auth.isLoggedIn) {
+    switch (this.props.auth.isLoggedIn) {
       case null:
         return [
           <div key={1}>

@@ -4,13 +4,15 @@ import { updateObject } from "../../utils/updateObject";
 const initialState = {
   items: null,
   totals: null,
-  message: null
+  message: null,
+  isLoaded: false
 }
 export default function (state = initialState, action) {
   switch (action.type) {
     case ADD_CART_ITEM:
       return action.payload || false;
     case FETCH_CART:
+      console.log(action.payload)
       return action.payload || false;
     case DELETE_CART_ITEM:
       return action.payload || false

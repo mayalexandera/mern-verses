@@ -10,6 +10,7 @@ export const FETCH_CATEGORIES = 'fetch_categories'
 
 export const FETCH_SIZES = 'fetch_sizes'
 export const FETCH_FAVORITES = "fetch_favorites";
+export const FETCH_FAVORITES_FAILED = "fetch_favorites_failed";
 
 export const ADD_FAVORITE = 'add_favorite'
 export const ADD_FAVORITE_FAILED = "add_favorite_failed";

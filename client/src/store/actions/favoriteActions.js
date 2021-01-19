@@ -1,5 +1,5 @@
 import axios from "axios";
-import { FETCH_USER, ADD_FAVORITE, FETCH_FAVORITES, DELETE_FAVORITE, ADD_FAVORITE_FAILED } from "./types";
+import { FETCH_USER, ADD_FAVORITE, FETCH_FAVORITES, DELETE_FAVORITE, ADD_FAVORITE_FAILED, FETCH_FAVORITES_FAILED } from "./types";
 
 export const addFavorite = (product) => async (dispatch, getState ) => {
   const existingList = getState().favoriteList
@@ -22,13 +22,10 @@ export const deleteFavorite = (favorite_id) => async (dispatch, getState) => {
 
 export const fetchFavorites = () => async (dispatch, getState) => {
   const user = getState().auth.userId
-  if (user ) {
+  if (user) {
     const res = await axios.get(`/api/favoritelists/${user}`);
     dispatch({ type: FETCH_FAVORITES, payload: res.data });
   }
-
-
-
 };
 
 export const favoriteExistsResponse =  (message) => {
