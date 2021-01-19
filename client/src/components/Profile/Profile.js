@@ -7,23 +7,23 @@ import "./Profile.css";
 
 const Profile = (props) => {
   const renderUser = () => {
-    return props.auth !== null && props.auth ? (
+    return props.auth.isLoggedIn && props.auth.user ? (
       <div className='profile-wrapper'>
         <div className='profile-header-wrapper'>
           <div>
             <div
-              style={{ backgroundImage: `url(${props.auth.photoUrl})` }}
+              style={{ backgroundImage: `url(${props.auth.user.photoUrl})` }}
               className='profile-photo-wrapper'
             />
 
             <div className='profile-subtitle'>
-              <h2>{props.auth.displayName}</h2>
+              <h2>{props.auth.user.displayName}</h2>
               <h4>Verses Member Since June 2017</h4>
             </div>
           </div>
           <div className='profile-header'>
             <div className='credits-container'>
-              Credits: {props.auth.credits}
+              Credits: {props.auth.user.credits}
               <Payments />
             </div>
             <div className='credits-container'>

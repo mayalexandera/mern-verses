@@ -5,17 +5,17 @@ import "./Cart.css";
 import CartList from "./CartList";
 
 const Cart = ({ items, fetchCart, isLoggedIn }) => {
-
   useEffect(() => {
-    if (isLoggedIn){ fetchCart()}
-  }, [isLoggedIn])
+    if (isLoggedIn) {
+      fetchCart();
+    }
+  }, [isLoggedIn]);
 
   const renderCart = () => {
-    console.log(items)
-    if ( items && items ) {
+    if (items && items) {
       return <CartList items={items} />;
     }
-    return <div>Items added to your bag will be saved here.</div>;
+    return <div id='empty-cart-message'>There are no items in your bag.</div>;
   };
 
   return (
@@ -25,7 +25,7 @@ const Cart = ({ items, fetchCart, isLoggedIn }) => {
   );
 };
 
-const mapStateToProps = ({ cart: { items }, auth: { isLoggedIn} }) => {
+const mapStateToProps = ({ cart: { items }, auth: { isLoggedIn } }) => {
   return { items, isLoggedIn };
 };
 

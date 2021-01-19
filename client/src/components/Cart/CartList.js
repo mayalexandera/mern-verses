@@ -3,12 +3,13 @@ import { connect } from "react-redux";
 import { deleteCartItem, updateCartItem } from "../../store/actions";
 import CartItem from "./CartItem";
 import CartSummary from "./CartSummary";
+import GuestWishlist from "./GuestWishlist";
 import MobileCartHeader from "./MobileCartHeader";
 import PopoutCheckout from "./PopoutCheckout";
 
 const Cart = ({ cart, deleteCartItem, updateCartItem }) => {
   const renderCart = () => {
-    if (cart && cart.items) {
+    if (cart && cart.items.length > 0) {
       return cart.items.map((item) => {
         return (
           <CartItem
@@ -19,21 +20,27 @@ const Cart = ({ cart, deleteCartItem, updateCartItem }) => {
           />
         );
       });
+    } else {
+      return (
+        <div className='empty-cart-message'>
+          There are no items in your bag.
+        </div>
+      );
     }
-    return <div>Items added to your bag will be saved here.</div>;
   };
   return (
     <div className='cart-content'>
       <MobileCartHeader />
       <div className='cart-list'>
         <h4 className='cart-title'>Bag</h4> {renderCart()}
-        <PopoutCheckout/>
+        <PopoutCheckout />
       </div>
       <div className='cart-summary-container'>
         <div className='cart-summary-wrapper'>
           <CartSummary />
         </div>
       </div>
+      <GuestWishlist />
     </div>
   );
 };

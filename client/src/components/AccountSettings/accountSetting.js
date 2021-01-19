@@ -2,7 +2,7 @@ import React from 'react'
 
 const AccountSetting = ({item, index}) => {
 return (
-<div key={index} className='settings-nav col-sm-12'>
+<div key={index} className='settings-nav-item-wrapper col-sm-12'>
   <div className='settings-nav-item'>
     <div className='settings-nav-item-button'>
       <div className='settings-nav-link'>

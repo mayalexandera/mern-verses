@@ -3,7 +3,7 @@ import React from 'react'
 
 const PopoutCheckout = (props) => {
   return (
-    <div> PopoutCheckout</div>
+    <div> </div>
   )
 }
 

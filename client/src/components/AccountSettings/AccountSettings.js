@@ -9,11 +9,19 @@ const AccountSettings = (props) => {
       <div className='settings-nav-title'>
         <h2 className='settings-headline-3'>Settings</h2>
       </div>
+      <div className='settings-spacer'/>
       <div className='settings-nav-wrapper'>
-        {settings.map((setting, index) => {
-          return <AccountSetting item={setting} index={index}/> 
-          })
-        }
+       <div className='settings-list-container'>
+          {settings.map((setting, index) => {
+            return <AccountSetting item={setting} index={index}/> 
+            })
+          }
+       </div>
+       <div className='mobile-container'>
+         <div className='mobile-container-main'>
+           
+         </div>
+       </div>
       </div>
     </div>
   );

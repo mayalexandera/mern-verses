@@ -5,13 +5,13 @@
 }
 
 .settings-nav-title {
-  margin-bottom: 48px;
+  margin-bottom: 24px;
   display: block;
 }
 
 .settings-headline-3 {
   font-size: 24px;
-  font-weight: 5000;
+  font-weight: 500;
   line-height: 1.1667;
 }
 
@@ -19,7 +19,7 @@
   min-height: calc(100vh - 570px);
 }
 
-.settings-nav {
+.settings-nav-item-wrapper {
   vertical-align: top;
   /* padding-bottom: 32px; */
   padding-left: 0px;
@@ -36,12 +36,12 @@
 
 .settings-nav-item-button {
   width: 100%;
-  box-shadow: inset 0 -1px 0 0 #e5e5e5;
+  /* box-shadow: inset 0 -1px 0 0 #e5e5e5; */
 }
 
 .settings-nav-link {
   color: rgb(17, 17, 17);
-  height: 56px;
+  height: 44px;
   position: relative;
   cursor: pointer;
   display: flex;
@@ -86,7 +86,81 @@
 }
 
 .chevron-right {
-  position: absolute;
+  display: none;
+}
+
+.settings-spacer {
+  height: 36px;
+}
+
+.settings-list-container {
+  padding-bottom: 32px;
+  padding-left: 0;
+  vertical-align: top;
+  display: inline-block;
+  padding-right: 24px;
+  line-height: 1.75;
+  font-size: 16px;
+}
+
+.settings-nav-item-wrapper {
+  display: none;
+}
+
+.mobile-container {
+  max-width: 768px;
+}
+
+@media only screen and (min-width: 1024px) {
+  .settings-container {
+    padding-left: 48px;
+    padding-right: 48px;
+    display: inline-block;
+    /* padding-top: 40px; */
+    width: 100%;
+  }
+  .settings-list-container {
+    max-width: 290px;
+    padding-right: 24px;
+    width: 33.3%;
+    display: inline-block;
+  }
+
+  .settings-nav-item-wrapper {
+    display: block;
+  }
+  
+  .mobile-container {
+    padding-bottom: 48px;
+    width: 33.3%;
+    display: inline-block;
+  }
+
+
+}
+
+@media (min-width: 1024px) {
+  .settings-list-container {
+    max-width: 290px;
+  }
+
+    .mobile-container {
+    margin-left: 140px;
+  }
+ 
+}
+
+@media only screen and (max-width: 1023px) {
+   .settings-nav-link {
+    height: 56px;
+  }
+
+  .settings-nav-item-button {
+    box-shadow: inset 0 -1px 0 0 #e5e5e5;
+  }
+
+  .chevron-right {
+    position: absolute;
   top: 6px;
   right: 10px;
   width: 20px;
@@ -96,7 +170,5 @@
   display: inline-block;
   vertical-align: top;
   font-weight: 400;
-}
-
-@media (max-width: 1023px) {
+  }
 }

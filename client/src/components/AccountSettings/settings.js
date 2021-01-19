@@ -1,6 +1,6 @@
 export default [
   {
-    title: "Account Settings",
+    title: "Account Details",
     icon:
       "https://www.nike.com/static/dotcom-member/settings/dist/3.0.4/images/accountDetails.svg",
   },
