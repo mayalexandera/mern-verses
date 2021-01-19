@@ -2,13 +2,21 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import * as actions from "../../store/actions";
 import productFilters from "./productFilters";
+import { Link } from "react-router-dom";
 import ProductSideBarItem from "./ProductSideBarItem";
 import "./ProductSideBar.css";
 
 const ProductSideBar = (props) => {
   useEffect(() => {
     props.fetchCategories();
+
   }, []);
+
+
+    const handleCategoryClick = (cat) => {
+      console.log(cat);
+      props.fetchProdByCat(cat);
+    };
 
   return (
     <div className='product-sidebar-wrapper product-sidebar'>
@@ -20,9 +28,14 @@ const ProductSideBar = (props) => {
             {props.categories
               ? props.categories.map((cat, idx) => {
                   return (
-                    <a key={idx} className='categories-item cat-style'>
-                      {cat}
-                    </a>
+                    <li key={idx} className='categories-item cat-style'>
+                      <Link
+                        onClick={() => handleCategoryClick(cat)}
+                        to={`/product/list/` + cat}
+                      >
+                        {cat}
+                      </Link>
+                    </li>
                   );
                 })
               : null}

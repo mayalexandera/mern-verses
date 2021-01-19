@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import ProductList from "./ProductList";
-import ProductLocalMenu from "../ProductLocalMenu/ProductLocalMenu";
+import CategoryHeader from "../Category/CategoryHeader";
 import * as actions from "../../store/actions";
 import "./Products.css";
 
@@ -13,7 +13,12 @@ const Products = ({ fetchProducts, products }) => {
   return (
     <div className='product-container'>
       <div className='products-section'>
-        <ProductLocalMenu/>
+        {products.byCategory && products.byCategory ? (
+          <CategoryHeader
+            category={products.byCategory.name}
+            count={products.byCategory.products.length}
+          />
+        ) : null}
         <ProductList products={products} />
       </div>
     </div>

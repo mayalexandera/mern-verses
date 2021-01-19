@@ -2,9 +2,11 @@ import React from "react";
 import ProductCard from "./ProductCard";
 import ProductSideBar from "./ProductSideBar";
 
+
 const ProductList = ({ products }) => {
   return (
     <div className='product-results-body'>
+    
       <ProductSideBar />
       <div className='product-grid-container'>
             <div className='product-grid'>
