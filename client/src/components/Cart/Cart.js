@@ -5,9 +5,9 @@ import CartList from "./CartList";
 
 const Cart = ({ items }) => {
   const renderCart = () => {
-    if (items) {
+    // if (items) {
       return <CartList items={items} />;
-    }
+    // }
   };
 
   return (

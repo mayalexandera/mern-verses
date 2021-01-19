@@ -2,9 +2,11 @@ import axios from "axios";
 import { FETCH_CART, ADD_CART_ITEM, DELETE_FAVORITE, DELETE_CART_ITEM, UPDATE_CART_ITEM } from './types'
 
 export const fetchCart = () => async (dispatch, getState) => {
-  const res = await axios.get(`/api/carts`);
-
-  dispatch({ type: FETCH_CART, payload: res.data });
+  const user = getState().auth.userId 
+  if ( user ) {
+    const res = await axios.get(`/api/carts`);
+    dispatch({ type: FETCH_CART, payload: res.data });
+  }
 };
 
 export const addCartItem = (

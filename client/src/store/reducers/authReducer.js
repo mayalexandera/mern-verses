@@ -1,10 +1,16 @@
 import { FETCH_USER } from '../actions/types'
 import { updateObject } from "../../utils/updateObject";
 
-export default function(state = null, action) {
+const initialState = {
+  isLoggedIn: false,
+  user: null
+}
+
+export default function(state = initialState, action) {
   switch (action.type) {
     case FETCH_USER:
-      return action.payload || false;
+     return !!action.payload ? 
+       updateObject(state, { user: action.payload, isLoggedIn: true}) : updateObject({user: null, isLoggedIn: false})
     default:
       return state;
   }

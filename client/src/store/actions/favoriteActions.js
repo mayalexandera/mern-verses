@@ -21,9 +21,14 @@ export const deleteFavorite = (favorite_id) => async (dispatch, getState) => {
 };
 
 export const fetchFavorites = () => async (dispatch, getState) => {
-  const res = await axios.get(`/api/favoritelists`);
+  const user = getState().auth.userId
+  if (user ) {
+    const res = await axios.get(`/api/favoritelists/${user}`);
+    dispatch({ type: FETCH_FAVORITES, payload: res.data });
+  }
 
-  dispatch({ type: FETCH_FAVORITES, payload: res.data });
+
+
 };
 
 export const favoriteExistsResponse =  (message) => {

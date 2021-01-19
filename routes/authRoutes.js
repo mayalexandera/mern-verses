@@ -21,12 +21,13 @@ module.exports = (app) => {
 
     //this is express arrow function - express provides arguments req & res
     (req, res) => {
-      // console.log(res)
+      console.log(res)
       res.redirect("/");
     }
   );
 
   app.get("/api/current_user", (req, res) => {
+    console.log(req)
     res.send(req.user);
   });
 
