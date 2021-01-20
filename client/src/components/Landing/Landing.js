@@ -1,5 +1,6 @@
 import React from "react";
 import "./Landing.css";
+import SideBarAnimation from '../Products/SideBarAnimation'
 
 const Landing = () => {
   return (
@@ -10,6 +11,7 @@ const Landing = () => {
         <p>curated clothing in the name of fluidity and freedom.</p>
         <p>the subscription service designed to degender self expression.</p>
       </div>
+      <SideBarAnimation/>
     </div>
   );
 };

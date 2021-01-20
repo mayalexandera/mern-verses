@@ -4,15 +4,12 @@ import * as actions from "../../store/actions";
 import productFilters from "./productFilters";
 import { Link } from "react-router-dom";
 import ProductSideBarItem from "./ProductSideBarItem";
+import SideBarAnimation from "./SideBarAnimation";
 import "./ProductSideBar.css";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
 
 const ProductSideBar = (props) => {
-  // useEffect(() => {
-  //   props.fetchCategories();
-  // }, [props]);
-
   const handleCategoryClick = (cat) => {
-    console.log(cat);
     props.fetchProdByCat(cat);
   };
 
@@ -26,7 +23,7 @@ const ProductSideBar = (props) => {
             {props.categories
               ? props.categories.map((cat, idx) => {
                   return (
-                    <li key={idx} className='categories-item cat-style'>
+                    <li key={idx} className='categories-item cat-style '>
                       <Link
                         onClick={() => handleCategoryClick(cat)}
                         to={`/product/list/` + cat}
@@ -41,9 +38,11 @@ const ProductSideBar = (props) => {
         </div>
         <div className='left-nav__filters'>
           <div className='filters css-er'>
-            {productFilters.map((filter, index) => {
-              return <ProductSideBarItem key={index} filter={filter} />;
-            })}
+            <ul>
+              {productFilters.map((filter, index) => {
+                return <SideBarAnimation key={index} filter={filter} />;
+              })}
+            </ul>
           </div>
         </div>
       </nav>

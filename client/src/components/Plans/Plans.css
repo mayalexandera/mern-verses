@@ -135,7 +135,7 @@
 #plan-option,
 #current-plan,
 #disabled {
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   font-size: 80%;
   padding: 8px 26px;
   text-align: center;

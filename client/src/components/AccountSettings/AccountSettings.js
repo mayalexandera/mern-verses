@@ -56,7 +56,9 @@ const AccountSettings = (props) => {
                     </div>
                   </div>
                   <div className='location-selection'>
-                    <h3 className='mobile-input-label' id="location">Location</h3>
+                    <h3 className='mobile-input-label' id='location'>
+                      Location
+                    </h3>
                   </div>
                   <div className='delete-account-wrapper'>
                     <hr className='pt3-sm' />

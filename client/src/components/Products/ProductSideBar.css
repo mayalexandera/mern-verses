@@ -13,7 +13,6 @@
 .product-sidebar__wrapper-top-point {
   top: 0px;
 }
-
 /*   .css-n99xye   */
 .product-toggle {
   width: 1px;
@@ -42,9 +41,6 @@
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-}
-
-.product-sidebar-nav__categories {
 }
 
 .categories {
@@ -81,9 +77,6 @@
   font-size: 16px;
 }
 
-.left-nav__filters {
-}
-
 .css-er .filter-group:first-of-type {
   border-top: 1px solid rgb(229, 229, 229);
 }
@@ -99,6 +92,25 @@
 
 .css-er.filter-group__btn {
   display: block;
+}
+
+.filter-group__count {
+  display: inline;
+}
+
+.filter-group__outer {
+  transition: height 150ms linear 0s;
+  overflow: hidden;
+  margin-left: -2px;
+  margin-top: 5px;
+}
+
+.filter-group__content {
+  padding: 0px 0px 20px;
+}
+
+.css-1az01ki {
+  transition: visibility 150ms ease 0s;
 }
 
 .headline-5 {
@@ -135,37 +147,10 @@
 }
 
 .left-nav-chevron {
+  display: inline-block;
+  margin: 0 0.5rem;
   position: absolute;
   top: 24px;
   right: 2px;
   transform: translateY(-50%);
-}
-
-.css-1ap.is--up::before {
-  animation: 200ms ease 0s 1 normal forwards running animation-jkrku4;
-}
-
-.css-1ap::before {
-  border-top-left-radius: 1px;
-  border-bottom-left-radius: 1px;
-  left: 0px;
-  transform: translateY(-50%) rotate(46deg);
-}
-
-.css-1ap::after {
-  border-top-right-radius: 1px;
-  border-bottom-right-radius: 1px;
-  right: 0px;
-  transform: translateY(-50%) rotate(-46deg);
-}
-
-.css-1apc7vz::after,
-.css-1apc7vz::before {
-  content: "";
-  width: 9px;
-  height: 2px;
-  background: rgb(0, 0, 0);
-  display: block;
-  position: absolute;
-  top: 50%;
 }
