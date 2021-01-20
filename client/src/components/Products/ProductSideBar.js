@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import * as actions from "../../store/actions";
 import productFilters from "./productFilters";
 import { Link } from "react-router-dom";
-import ProductSideBarItem from "./ProductSideBarItem";
 import SideBarAnimation from "./SideBarAnimation";
 import "./ProductSideBar.css";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
