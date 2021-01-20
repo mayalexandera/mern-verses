@@ -1,5 +1,5 @@
 .settings-container {
-  margin: 0 20px;
+  /* margin: 0 20px; */
   min-height: 720px;
   padding-top: 200px;
 }
@@ -109,6 +109,241 @@
 
 .mobile-container {
   max-width: 768px;
+  height: auto;
+  vertical-align: top;
+}
+
+.form-header-wrapper h1 {
+  text-transform: none;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.form-header-title {
+  overflow-wrap: anywhere;
+  hyphens: auto;
+}
+
+.email-form-item {
+  width: 100%;
+  box-sizing: border-box;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  overflow: visible;
+  position: relative;
+  min-height: 84px;
+}
+
+.input-layout-control {
+  display: flex;
+  -webkit-box-pack: start;
+  justify-content: flex-start;
+  -webkit-box-align: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  height: 56px;
+  top: 8px;
+  border-radius: 4px;
+}
+
+.account-form-input {
+  border: 0px;
+  margin: 0px;
+  padding: 16px;
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 16px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  line-height: 24px;
+  color: rgb(17, 17, 17);
+  background-color: transparent;
+  height: 56px;
+  border-radius: 4px;
+}
+
+.input-layout-control-label {
+  position: absolute;
+  left: 18px;
+  top: 15px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  user-select: none;
+  line-height: 14px;
+  transform: scale(0.75) translateY(-29px);
+  transform-origin: left center;
+  will-change: transform;
+  transition-property: transform;
+  transition-duration: 250ms;
+  background-color: white;
+  transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+  color: rgb(117, 117, 117);
+}
+
+.account-form-input-fieldset {
+  position: absolute;
+  box-sizing: border-box;
+  left: 0px;
+  bottom: 0px;
+  width: 100%;
+  height: 100%;
+  border-color: rgb(204, 204, 204);
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 4px;
+  padding: 0px;
+  margin: 0px;
+  pointer-events: none;
+}
+
+.account-form fieldset {
+  display: block;
+  margin-inline-start: 2px;
+  margin-inline-end: 2px;
+  padding-block-start: 0.35em;
+  padding-inline-start: 0.5em;
+  padding-inline-end: 0.75em;
+  padding-block-end: 0.625em;
+  min-inline-size: min-content;
+}
+
+fieldset legend {
+  padding: 0px 4px;
+  font-size: 12px;
+  border: 0px;
+  visibility: hidden;
+  height: 1px;
+  transition-property: padding, font-size;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.mobile-input-label {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.location-selection {
+  height: 56px;
+}
+
+#location {
+  padding-bottom: 12px;
+}
+
+.mobile-input-label-width {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.75;
+  width: 50%;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.mobile-input-wrapper {
+  padding-bottom: 2px;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.mobile-phone-number {
+  padding-right: 20px;
+  padding-bottom: 12px;
+  padding-top: 12px;
+}
+
+.col-sm-12 .mobile-phone-number-input {
+  vertical-align: middle;
+  text-align: right;
+  display: inline-block;
+  padding-left: 8px;
+  padding-right: 8px;
+  width: 50%;
+}
+
+.add-mobile-phone-number {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  text-align: center;
+  text-decoration: none;
+  box-sizing: border-box;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+  cursor: pointer;
+  padding: 0px;
+  color: rgb(17, 17, 17);
+  background: transparent;
+  border-width: 0px 0px 1px;
+  border-top-style: initial;
+  border-right-style: initial;
+  border-left-style: initial;
+  border-top-color: initial;
+  border-right-color: initial;
+  border-left-color: initial;
+  border-image: initial;
+  font-size: 12px;
+  line-height: 14px;
+  border-bottom-style: solid;
+  border-bottom-color: rgb(17, 17, 17);
+}
+
+.pt3-sm {
+  padding-bottom: 12px;
+  padding-top: 12px;
+  height: 1px;
+  border: none;
+  margin: 0;
+  -webkit-box-shadow: inset 0 1px 0 0 #e5e5e5;
+  box-shadow: inset 0 1px 0 0 #e5e5e5;
+}
+
+.pt3-ms {
+    padding-bottom: 12px;
+  padding-top: 12px;
+  height: 1px;
+  border: none;
+    margin-top: 24px;
+  margin-bottom: 16px;
+  -webkit-box-shadow: inset 0 1px 0 0 #e5e5e5;
+  box-shadow: inset 0 1px 0 0 #e5e5e5;
+}
+
+.delete-account-row {
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  align-items: center;
+  line-height: 1.75;
+}
+
+.delete-account-button {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    font-style: normal;
+    text-align: center;
+    text-decoration: none;
+    box-sizing: border-box;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    cursor: pointer;
+    padding: 7px 28px 9px;
+    position: relative;
+    overflow: hidden;
+    transform: translate3d(0px, 0px, 0px);
+    background: transparent;
+    color: rgb(17, 17, 17);
+    border-radius: 30px;
+    border: 1px solid rgb(204, 204, 204);
 }
 
 @media only screen and (min-width: 1024px) {
@@ -116,7 +351,6 @@
     padding-left: 48px;
     padding-right: 48px;
     display: inline-block;
-    /* padding-top: 40px; */
     width: 100%;
   }
   .settings-list-container {
@@ -129,14 +363,16 @@
   .settings-nav-item-wrapper {
     display: block;
   }
-  
+
   .mobile-container {
     padding-bottom: 48px;
     width: 33.3%;
     display: inline-block;
   }
 
-
+  .form-header-title {
+    margin-bottom: 36px;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -144,14 +380,16 @@
     max-width: 290px;
   }
 
-    .mobile-container {
+  .mobile-container {
     margin-left: 140px;
   }
- 
 }
 
 @media only screen and (max-width: 1023px) {
-   .settings-nav-link {
+  .settings-container {
+    margin: 0 20px;
+  }
+  .settings-nav-link {
     height: 56px;
   }
 
@@ -161,14 +399,21 @@
 
   .chevron-right {
     position: absolute;
-  top: 6px;
-  right: 10px;
-  width: 20px;
-  height: 44px;
-  line-height: 44px;
-  text-align: center;
-  display: inline-block;
-  vertical-align: top;
-  font-weight: 400;
+    top: 6px;
+    right: 10px;
+    width: 20px;
+    height: 44px;
+    line-height: 44px;
+    text-align: center;
+    display: inline-block;
+    vertical-align: top;
+    font-weight: 400;
+  }
+}
+
+@media only screen and (min-width: 640px) {
+  .col-md-12 {
+    width: 100%;
+    display: inline-block;
   }
 }

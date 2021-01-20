@@ -1,9 +1,9 @@
-import React from 'react'
+import React from "react";
+import { connect } from "react-redux";
 
-
-const GuestWishlist = () => {
-  return (
-    <div className='cart-favorites-container'>
+const GuestWishlist = ({ isLoggedIn }) => {
+  const renderWishList = () => {
+    return !isLoggedIn ? (
       <div className='cart-favorites'>
         <div className='col-sm-12' id='cart-favorite-item'>
           <h4>Favorites</h4>
@@ -15,8 +15,13 @@ const GuestWishlist = () => {
           </div>
         </div>
       </div>
-    </div>
-  );
-}
+    ) : null;
+  };
+  return <div className='cart-favorites-container'>{renderWishList()}</div>;
+};
 
-export default GuestWishlist;
+const mapStateToProps = ({ auth: { isLoggedIn } }) => {
+  return { isLoggedIn };
+};
+
+export default connect(mapStateToProps)(GuestWishlist);

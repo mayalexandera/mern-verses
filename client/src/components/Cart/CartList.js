@@ -7,10 +7,10 @@ import GuestWishlist from "./GuestWishlist";
 import MobileCartHeader from "./MobileCartHeader";
 import PopoutCheckout from "./PopoutCheckout";
 
-const Cart = ({ cart, deleteCartItem, updateCartItem }) => {
+const CartList = ({ items, deleteCartItem, updateCartItem }) => {
   const renderCart = () => {
-    if (cart && cart.items.length > 0) {
-      return cart.items.map((item) => {
+    if (items && items.length > 0) {
+      return items.map((item) => {
         return (
           <CartItem
             updateCartItem={updateCartItem}
@@ -45,10 +45,4 @@ const Cart = ({ cart, deleteCartItem, updateCartItem }) => {
   );
 };
 
-const mapStateToProps = ({ cart }) => {
-  return { cart };
-};
-
-export default connect(mapStateToProps, { deleteCartItem, updateCartItem })(
-  Cart
-);
+export default connect(null, { deleteCartItem, updateCartItem })(CartList);
