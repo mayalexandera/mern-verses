@@ -14,14 +14,6 @@
 .left-nav__wrapper-top-point {
   top: 0px;
 }
-/*   .css-n99xye   */
-.product-toggle {
-  width: 1px;
-  height: 1px;
-  display: block;
-  pointer-events: none;
-}
-
 .left-nav {
   width: 192px;
   position: relative;
@@ -29,12 +21,6 @@
   font-size: 16px;
   line-height: 1.5;
   display: block;
-}
-/*  css-1t5ayua   */
-.product-nav-transition {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
 }
 
 .left-nav__wrapper-top-point {

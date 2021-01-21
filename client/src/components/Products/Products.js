@@ -8,7 +8,7 @@ import "./Products.css";
 const Products = ({ fetchProducts, fetchCategories, products, byCategory }) => {
   useEffect(() => {
     fetchProducts();
-    fetchCategories()
+    fetchCategories();
   }, [fetchProducts, fetchCategories]);
 
   return (
