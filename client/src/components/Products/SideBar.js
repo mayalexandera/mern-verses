@@ -1,15 +1,11 @@
-import React, { useEffect } from "react";
+import React from "react";
+import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
 import * as actions from "../../store/actions";
 import productFilters from "./productFilters";
-import { Link } from "react-router-dom";
 import SideBarItem from './SideBarItem'
-// import "./ProductSideBar.css";
 import "./ProductSideBar.css";
-import { CSSTransition, TransitionGroup } from "react-transition-group";
-import cx from "classnames";
-import styled from "styled-components";
-
 
 
 const SideBar = (props) => {
@@ -25,15 +21,15 @@ const SideBar = (props) => {
     <div className='css-109b5m4 left-nav-wrapper'>
       <div className='left-nav__wrapper-top-point'></div>
       <nav style={styles} className='left-nav css-hrsjq4 css-xhk1pl'>
-        <div className='point css-n99xye left-nav__top-point'></div>
+        <div className='point left-nav__top-point'></div>
         <div className='left-nav__categories'>
-          <div className='categories css-10qr031'>
+          <div className='categories'>
             {props.categories
               ? props.categories.map((cat, idx) => {
                   return (
                     <div
                       key={idx}
-                      className='css-hrsjq4 css-xhk1pl css-1t2ydyg categories__item  is--button'
+                      className='css-hrsjq4 css-xhk1pl css-1t2ydyg categories__item'
                     >
                       <Link
                         onClick={() => handleCategoryClick(cat)}

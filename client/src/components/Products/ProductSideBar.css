@@ -34,16 +34,11 @@
   padding: 0px 0px 40px;
 }
 
-.css-10qr031 {
-  font-weight: 500;
-  padding: 0px 0px 40px;
-}
-
-.css-10qr031 .categories__item:first-of-type {
+ .categories__item:first-of-type {
   margin-top: 0px;
 }
 
-.css-10qr031 .categories__item {
+ .categories__item {
   font-weight: 500;
   white-space: normal;
   overflow-wrap: break-word;
@@ -104,21 +99,8 @@
   padding-right: 1.1em;
 }
 
-.css-10qr031 .categories__item.is--selected {
-  color: #111111;
-  cursor: default;
-}
-
-.css-10qr031 {
-  padding: 0px 0px 40px;
-}
 .categories__item:first-of-type {
   margin-top: 0;
-}
-
-.css-10qr031.is--desktop .categories__item.is--selected {
-  -webkit-text-decoration: underline;
-  text-decoration: underline;
 }
 
 .categories__item {
