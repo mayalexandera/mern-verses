@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Landing.css";
-import SideBarAnimation from '../Products/SideBarAnimation'
+import ProductSideBar from "../Products/ProductSideBar";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
+import styled from "styled-components";
 
 const Landing = () => {
+  const [text, setText] = useState('Hello')
   return (
     <div className='landing-container'>
       <h1>Verses</h1>
@@ -11,9 +14,27 @@ const Landing = () => {
         <p>curated clothing in the name of fluidity and freedom.</p>
         <p>the subscription service designed to degender self expression.</p>
       </div>
-      <SideBarAnimation/>
+      <ProductSideBar />
+      <CSSTransition
+        className='fade-appear'
+        in={text}
+        timeout={2000}
+        className='my-node'
+      >
+        <Item type='button' onClick={() => setText(false ? true : false)}>
+          {text}
+        </Item>
+      </CSSTransition>
     </div>
   );
 };
+
+const Item  =  styled.div`
+height: 40px;
+width: 40px;
+color: blue;
+`
+
+
 
 export default Landing;

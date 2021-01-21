@@ -1,18 +1,18 @@
 import React, { useState } from "react";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import cx from "classnames";
+import "./ProductAnimation.css";
 import styled from "styled-components";
 
 const SideBarAnimation = ({ filter, index }) => {
   const [expanded, setExpanded] = useState(true);
 
+  const [checked, setChecked] = useState(false);
+
   const Collapsible = styled.div`
-    width: 100%;
-    text-align: left;
-    padding: 0px;
-    border-bottom: 1px solid rgb(229, 229, 229);
-    display: block;
-    line-height: 28px;
+    height: auto;
+    transition: height 150ms linear 0s;
+    overflow: hidden;
   `;
 
   const Collapsible__trigger = styled.span`
@@ -22,15 +22,25 @@ const SideBarAnimation = ({ filter, index }) => {
     line-height: 1.5;
   `;
 
-  const Collapsible__contentOuter = styled.div`
-    display: block;
+  const Collapsible__contentInner = styled.div`
+    transition: height 1500ms linear 0s;
+    margin-top: 5px;
+    padding-bottom: 20px;
   `;
 
   const handleToggle = () => {
     !!expanded ? setExpanded(false) : setExpanded(true);
   };
 
-  var groupToggle = "filter-group";
+  const handleCheck = () => {
+    !!checked ? setChecked(false) : setChecked(true);
+  };
+
+  const handleCheckmark = () => {
+    !!checked ? setChecked(false) : setChecked(true);
+  };
+
+  var groupToggle = "filter-group filter-group";
   expanded ? (groupToggle += "__open") : (groupToggle += "__closed");
 
   var triggerToggle = "filter-group__btn";
@@ -53,49 +63,75 @@ const SideBarAnimation = ({ filter, index }) => {
 
   var animate = expanded ? "auto" : "0px";
 
+  var validateCheck = checked ? " is--checked" : null;
+  var checkmark = checked ? "is--toggled" : null;
+
+  // var filterGroupOuter = expanded
+  //   ? "height: auto; transition: none 0s ease 0s; overflow: hidden;"
+  //   : "height: 0px; transition: height 150ms linear 0s; overflow: hidden;";
+
   return (
     <>
-      <Collapsible onClick={handleToggle} className={cx('filter-group', groupToggle)}>
-        <Collapsible__trigger
-          onClick={handleToggle}
-          className={cx(triggerToggle)}
-        >
-          <div className={triggerContent}>
+      <div className={cx("filter-group", groupToggle)}>
+        <span className={cx(triggerToggle)}>
+          <div onClick={handleToggle} className={"trigger-content"}>
             {" "}
             <div className='trigger-content__label'>
               {filter && filter ? filter.title : null}
-              <div className={cx(filterGroupCount, isHidden)}></div>
-              <div className={cx("left-nav-chevron", chevronToggle)}>
-                <span className={cx("material-icons")}>{chevronDirection}</span>
-              </div>
+            </div>
+            <div className={cx("icon-chevron css-1apc7vz", chevronToggle)}>
+              <span className={cx("material-icons")}>{chevronDirection}</span>
             </div>
           </div>
-        </Collapsible__trigger>
-        <Collapsible__contentOuter
+        </span>
+        {/* begnning of list items */}
+        <Collapsible
           className={cx("filter-group__outer")}
           style={{ height: `${animate}` }}
         >
-          <div className={cx("filter-group__content")}>
-            <div className='filter-group__items-group'>
+          <Collapsible__contentInner className='filter-group__content  css-1az01ki'>
+            <div>
               {filter && filter
                 ? filter.options.map((filter, index) => {
                     return (
-                      <div key={index} className='filter-item'>
-                        <div className='pseudo-checkbox'>
-                          <div className='icon-wrapper'>
-                            <span className='filter-item__item-label'>
-                              {filter}
-                            </span>
+                      <button
+                        key={index}
+                        className='css-hrsjq4 css-xhk1pl css-1t2ydyg filter-item is--default css-11bod12  is--button'
+                      >
+                        <div
+                        id={index}
+                          onClick={handleCheck}
+                          className={cx(
+                            "pseudo-checkbox css-1n9lta1 ",
+                            validateCheck
+                          )}
+                        >
+                          <div
+                            // onClick={handleCheck}
+                            className={cx(
+                              "icon-checkmark css-1iktvq5",
+                              validateCheck
+                            )}
+                          >
+                            <div
+                              // onClick={handleCheckmark}
+                              className={
+                                ("icon-checkmark css-1iktvq5", checkmark)
+                              }
+                            ></div>
                           </div>
                         </div>
-                      </div>
+                        <span className='filter-item__item-label'>
+                          {filter}
+                        </span>
+                      </button>
                     );
                   })
                 : null}
             </div>
-          </div>
-        </Collapsible__contentOuter>
-      </Collapsible>
+          </Collapsible__contentInner>
+        </Collapsible>
+      </div>
     </>
   );
 };

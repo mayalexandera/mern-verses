@@ -7,8 +7,6 @@ import Aux from "./Aux";
 class Layout extends Component {
   componentDidMount() {
     this.props.fetchUser()
-    // this.props.fetchFavorites();
-    // this.props.fetchCart();
   }
 
   render() {
