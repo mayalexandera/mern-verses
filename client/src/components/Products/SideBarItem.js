@@ -61,7 +61,7 @@ const SideBarItem = ({ filter, index }) => {
                       <button className='css-xhk1pl css-1t2ydyg filter-item css-11bod12 '>
                         <ToggleButton filter={filter} />
                         <span className='filter-item__item-label'>
-                          {filter}
+                          {filter.name}
                         </span>
                       </button>
                     );

@@ -34,11 +34,11 @@
   padding: 0px 0px 40px;
 }
 
- .categories__item:first-of-type {
+.categories__item:first-of-type {
   margin-top: 0px;
 }
 
- .categories__item {
+.categories__item {
   font-weight: 500;
   white-space: normal;
   overflow-wrap: break-word;

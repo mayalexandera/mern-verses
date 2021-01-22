@@ -3,16 +3,14 @@ const Product = require("../models/Product");
 const Category = require("../models/Category");
 
 exports.fetchProdByCat = async (req, res) => {
-  const query = { name: req.params.category}
-  const products = await Category.findOne(query)
-    .populate('products')
-    .exec();
+  const query = { name: req.params.category };
+  const products = await Category.findOne(query).populate("products").exec();
   res.send(products);
 };
 
 exports.fetchCategories = async (req, res) => {
   const categories = await Category.find({});
-  const names = categories.map(cat => cat.name)
+  const names = categories.map((cat) => cat.name);
   res.send(names);
 };
 
@@ -29,8 +27,8 @@ exports.fetchProducts = async (req, res) => {
 };
 
 exports.fetchProdById = async (req, res) => {
-  console.log(req.params)
-  const query = { _id: req.params.id }
+  console.log(req.params);
+  const query = { _id: req.params.id };
   const product = await Product.find(query)
     .populate({
       path: "productSizes",
@@ -38,4 +36,25 @@ exports.fetchProdById = async (req, res) => {
     })
     .exec();
   res.send(product[0]);
+};
+
+exports.fetchProdByFilter = async (req, res) => {
+  let response;
+  const kind = req.params.type;
+  const val = req.params.value;
+  if (req.params.type === "expression" || req.params.type === "occasion") {
+    response = await Product.find({ tags: { $in: val } });
+  }
+
+  if (req.params.type === "price") {
+    const nums = req.params.value.split("-");
+    const min = Number(nums[0]);
+    const max = Number(nums[1]);
+    response = await Product.find({ price: { $gte: min, $lte: max } });
+  } else if (req.params.type === "brandName") {
+    const query = { [kind]: val };
+    response = await Product.find(query);
+  }
+
+  res.send(response);
 };

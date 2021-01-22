@@ -10,7 +10,7 @@ export { fetchUser } from './userActions'
 
 export { fetchSurveys, submitSurvey } from './surveyActions'
 
-export { fetchProducts, fetchProduct, fetchProdByCat, fetchCategories } from './productActions'
+export { fetchProducts, fetchProduct, fetchProdByCat, fetchCategories, fetchProdByFilter } from './productActions'
 
 export { fetchPlans } from './planActions'
 

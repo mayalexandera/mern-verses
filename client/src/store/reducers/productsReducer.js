@@ -1,4 +1,4 @@
-import { FETCH_PRODUCTS, FETCH_PRODUCT, FETCH_PROD_BY_CAT, FETCH_CATEGORIES } from "../actions/types";
+import { FETCH_PRODUCTS, FETCH_PRODUCT, FETCH_PROD_BY_CAT, FETCH_CATEGORIES, FETCH_PROD_BY_FILTER } from "../actions/types";
 import { updateObject } from "../../utils/updateObject";
 
 const initialState = {
@@ -18,6 +18,10 @@ export default function (state = initialState, action) {
 
     case FETCH_CATEGORIES: 
     return updateObject(state, { categories: action.payload })
+
+    case FETCH_PROD_BY_FILTER:
+      console.log(action.payload) 
+    return updateObject(state, { products: action.payload }) || false
       default:
       return state;
   }
