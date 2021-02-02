@@ -41,7 +41,7 @@ const SideBar = (props) => {
                   );
                 })
               : null}
-          </div>
+          </div> 
         </div>
         <div className='left-nav__filters'>
           <div className='filters css-1er76o1'>

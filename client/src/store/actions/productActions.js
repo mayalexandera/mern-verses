@@ -1,5 +1,12 @@
 import axios from "axios";
-import { FETCH_PRODUCT, FETCH_PRODUCTS, FETCH_PROD_BY_CAT, FETCH_CATEGORIES, FETCH_PROD_BY_FILTER } from "./types";
+import {
+  FETCH_PRODUCT,
+  FETCH_PRODUCTS,
+  FETCH_PROD_BY_CAT,
+  FETCH_CATEGORIES,
+  FETCH_PROD_BY_FILTER,
+  UPDATE_FILTERS,
+} from "./types";
 
 export const fetchProducts = () => async (dispatch) => {
   const res = await axios.get("/api/products");
@@ -14,19 +21,23 @@ export const fetchProduct = (productId) => async (dispatch) => {
 };
 
 export const fetchProdByCat = (cat) => async (dispatch) => {
-  const res = await axios.get(`/api/products/list/${cat}`)
-  console.log(res)
-  dispatch({ type: FETCH_PROD_BY_CAT, payload: res.data })
-}
+  const res = await axios.get(`/api/products/list/${cat}`);
 
-export const fetchProdByFilter = (filter) => async(dispatch) => {
-  console.log(filter)
-  const res = await axios.get(`/api/products/${filter.type}/${filter.value}`, filter)
-  dispatch({ type: FETCH_PROD_BY_FILTER, payload: res.data })
-}
+  dispatch({ type: FETCH_PROD_BY_CAT, payload: res.data });
+};
+
+export const fetchProdByFilter = (filter) => async (dispatch, getState) => {
+  await dispatch({ type: UPDATE_FILTERS, payload: filter });
+  const filters = getState().products.filters;
+  const res = await axios.get(`/api/products/${filter.type}/${filter.value}`, {
+    params: { filters },
+  });
+
+  dispatch({ type: FETCH_PROD_BY_FILTER, payload: res.data });
+};
 
 export const fetchCategories = () => async (dispatch) => {
-  const res = await axios.get('/api/categories')
+  const res = await axios.get("/api/categories");
 
-  dispatch({ type: FETCH_CATEGORIES, payload: res.data })
-}
+  dispatch({ type: FETCH_CATEGORIES, payload: res.data });
+};

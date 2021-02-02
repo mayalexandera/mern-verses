@@ -28,6 +28,7 @@ require("./models/Plan");
 require("./models/Brand");
 require("./models/Product");
 require("./models/Size");
+require("./models/Order");
 
 //o auth strategy configuration
 require("./services/passport");
@@ -81,6 +82,7 @@ require("./routes/productRoutes")(app);
 require("./routes/sizeRoutes")(app);
 require("./routes/favoriteRoutes")(app);
 require("./routes/cartRoutes")(app);
+require("./routes/orderRoutes")(app);
 
 if (process.env.NODE_ENV === "production") {
   /*

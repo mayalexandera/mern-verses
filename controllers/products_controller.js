@@ -17,7 +17,6 @@ exports.fetchCategories = async (req, res) => {
 exports.fetchProducts = async (req, res) => {
   const products = await Product.find({}, (err) => {
     if (err) {
-      console.log(err);
       return res
         .status(400)
         .json({ error: "Your request could not be processed." });
@@ -27,7 +26,6 @@ exports.fetchProducts = async (req, res) => {
 };
 
 exports.fetchProdById = async (req, res) => {
-  console.log(req.params);
   const query = { _id: req.params.id };
   const product = await Product.find(query)
     .populate({
@@ -39,6 +37,7 @@ exports.fetchProdById = async (req, res) => {
 };
 
 exports.fetchProdByFilter = async (req, res) => {
+  console.log(req)
   let response;
   const kind = req.params.type;
   const val = req.params.value;
@@ -48,10 +47,12 @@ exports.fetchProdByFilter = async (req, res) => {
 
   if (req.params.type === "price") {
     const nums = req.params.value.split("-");
-    const min = Number(nums[0]);
-    const max = Number(nums[1]);
+    const[ min, max ] = [Number(nums[0]), Number(nums[1])];
+
     response = await Product.find({ price: { $gte: min, $lte: max } });
+
   } else if (req.params.type === "brandName") {
+
     const query = { [kind]: val };
     response = await Product.find(query);
   }

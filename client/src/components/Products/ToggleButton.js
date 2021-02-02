@@ -9,11 +9,13 @@ const ToggleButton = (props) => {
 
   const handleClick = () => {
     setChecked(!checked);
+    if(checked) 
     props.fetchProdByFilter( props.filter )
   };
 
   var toggleCheck = !!checked ? " is--checked" : "";
 
+  console.log('toggle button', props)
   return (
     <div
       onClick={() => handleClick(props.filter.value)}

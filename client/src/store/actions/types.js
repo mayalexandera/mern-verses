@@ -8,6 +8,7 @@ export const FETCH_PRODUCT = 'fetch_product'
 export const FETCH_PROD_BY_CAT = 'fetch_prod_by_cat'
 export const FETCH_PROD_BY_FILTER = 'fetch_prod_by_filter'
 export const FETCH_CATEGORIES = 'fetch_categories'
+export const UPDATE_FILTERS = 'update_filters'
 
 export const FETCH_SIZES = 'fetch_sizes'
 export const FETCH_FAVORITES = "fetch_favorites";
@@ -21,4 +22,6 @@ export const ADD_CART_ITEM = 'add_cart_item'
 export const DELETE_CART_ITEM = 'delete_cart_item'
 export const UPDATE_CART_ITEM = 'update_cart_item'
 export const FETCH_CART = 'fetch_cart'
+export const HANDLE_CART_TOTAL = 'handle_cart_total'
 
+export const ADD_ORDER = 'add_order'

@@ -1,3 +1,4 @@
+const { cond } = require("lodash");
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
@@ -8,21 +9,21 @@ const CartItemSchema = new Schema({
   brandName: String,
   price: Number,
   count: Number,
-  // size: String,
-  featuredImage: String
+  featuredImage: String,
 });
 
-const CartItem = mongoose.model('CartItem', CartItemSchema)
-module.exports = CartItem
-
+const CartItem = mongoose.model("CartItem", CartItemSchema);
+module.exports = CartItem;
 
 const CartSchema = new Schema({
   items: [CartItemSchema],
   totals: {
-    subTotal: Number, default: 0,
-    total: Number, default: 0,
-    quantity: Number, default: 0,
-    discountTotal: Number, default: 0
+    subTotal: Number,
+    default: 0,
+    total: Number,
+    default: 0,
+    discountTotal: Number,
+    default: 0,
   },
   _id: {
     type: Schema.Types.ObjectId,
@@ -35,5 +36,16 @@ const CartSchema = new Schema({
   },
 });
 
-const Cart = mongoose.model('Cart', CartSchema)
-module.exports = Cart
+CartSchema.methods.createOrUpdateItem = function createOrUpdateItem(sizeId, callback) {
+  return this.model("Cart").find({ sizeId: sizeId }, callback);
+};
+
+CartSchema.static('findOneOrCreate', async function findOneOrCreate(condition, doc) {
+  const cart = await this.findOne(condition)
+
+  return cart || this.create(doc)
+})
+
+const Cart = mongoose.model("Cart", CartSchema);
+
+module.exports = Cart;

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
-// import { NavLink } from "react-router-dom";
 import { fetchProduct, addFavorite, addCartItem } from "../../store/actions";
 import "./ProductShow.css";
 
@@ -25,32 +24,25 @@ const Product = ({
 
   const handleAddToBag = (e) => {
     e.preventDefault();
+    const productSize = product.productSizes.filter(
+      (size) => size._id === sizeId
+    );
     size !== "" && sizeId
-      ? addCartItem(
-          prodId,
-          sizeId,
-          product.name,
-          product.brandName,
-          product.price,
-          1,
-          size,
-          product.images.model1[0]
-        )
+      ? addCartItem(product, productSize[0])
       : setErrorMessage("Please select a size.");
   };
 
   const handleAddToFavorites = (e) => {
     e.preventDefault();
-    if (!favoriteList.items.length <= 0) addFavorite(product)
+    if (!favoriteList.items.length <= 0) addFavorite(product);
 
-    const exists = favoriteList.items.map((item) => item.product === product)
-    if(exists[0] === undefined){
-    console.log(exists[0] !== undefined);
-    addFavorite(product);
-  } else if (exists[0].productId === product._id) {
-    setErrorMessage("Item is already in your favorites.")
-  }
-}
+    const exists = favoriteList.items.map((item) => item.product === product);
+    if (exists[0] === undefined) {
+      addFavorite(product);
+    } else if (exists[0].productId === product._id) {
+      setErrorMessage("Item is already in your favorites.");
+    }
+  };
 
   const sizeHandler = (select) => {
     if (size !== select.size) {

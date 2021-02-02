@@ -10,14 +10,13 @@ const CartItem = ({ item, deleteCartItem, updateCartItem }) => {
     updateCartItem(e.target.id, e.target.value, item);
   };
 
+  console.log(item)
   return (
     <div className='cart-item-wrapper'>
       <div className='cart-item-card-body'>
         <figure className='cart-item-product-thumbnail'>
          <NavLink className='thumbnail' to={`/products/${item._id}`}>
-            {/* <a className='thumbnail'> */}
               <img alt={item.name} src={item.featuredImage} />
-            {/* </a> */}
          </NavLink>
         </figure>
         <div className='cart-item-product-details-wrapper'>
@@ -35,12 +34,12 @@ const CartItem = ({ item, deleteCartItem, updateCartItem }) => {
                     keyboard_arrow_down
                   </span>
                   <select
-                    value={item.sizeId}
+                    value={item.sizeId._id}
                     id={"sizeId"}
                     className='size-select'
                     onChange={updateHandler}
                   >
-                    {item.productId.productSizes.map((size) => {
+                    { item.productId.productSizes.map((size) => {
                       return (
                         <option key={size._id} value={size._id}>
                           {size.size}

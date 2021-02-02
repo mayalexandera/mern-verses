@@ -17,6 +17,7 @@ import Layout from "./HOC/Layout";
 import Products from "./Products/Products";
 import Product from "./Products/Product";
 import Cart from "./Cart/Cart";
+import Checkout from "./Checkout/Checkout";
 import Orders from "./Orders/Orders";
 import Plans from "./Plans/Plans";
 import AccountSettings from "./AccountSettings/AccountSettings";
@@ -45,6 +46,8 @@ class App extends Component {
           <Route path='/member/favorites' component={Favorites} />
           <Route path='/member/orders' component={Orders} />
           <Route path='/cart' component={Cart} />
+          <Route path='/checkout' component={Checkout} />
+          <Route path='/order/success/:orderId' component={Checkout} />
 
           <Route path='/member/settings' component={AccountSettings} />
         </BrowserRouter>

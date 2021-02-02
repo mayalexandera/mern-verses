@@ -1,9 +1,16 @@
 import React from "react";
+import * as actions from '../../store/actions/index'
 import { connect } from "react-redux";
+import { NavLink } from 'react-router-dom'
 import cartSummaryFields from "./cartSummaryFields";
 import "./CartSummary.css";
 
-const CartSummary = ({ cart }) => {
+const CartSummary = ({ cart, addOrder }) => {
+
+  const handleCheckout = (e) => {
+    e.preventDefault()
+  addOrder(cart)
+  }
   return (
     <aside className='cart-summary-aside'>
       <div className='cart-summary-title-wrapper'>
@@ -16,6 +23,14 @@ const CartSummary = ({ cart }) => {
           <div>
             Do you have a Promo Code?
             <span class='material-icons'>expand_more</span>
+          </div>
+        </div>
+      </div>
+      <div className='cart-summary-row'>
+        <div className='cart-summary-item-sub col-sm-12'>
+          <div className='col-sm-9 field-title'>Subtotal</div>
+          <div className='col-sm-3 field-value'>
+            <div className='field-value-text'>{`$${cart.totals}.00`}</div>
           </div>
         </div>
       </div>
@@ -37,13 +52,15 @@ const CartSummary = ({ cart }) => {
           <p className='total'>Total</p>
         </div>
         <div className='col-sm-6'>
-          <p className='total-currency'>$286.56</p>
+          <p className='total-currency'>{`$${cart.totals}.00`}</p>
         </div>
       </div>
       <hr className='summary-hr' />
       <div className='checkout-button-container'>
         <div className='checkout-button-wrapper col-sm-12'>
-          <button className='checkout-button'>Checkout</button>
+          <NavLink to='/checkout' className='checkout-button'>
+            Checkout
+          </NavLink>
           <button className='paypal-button'>
             <img
               alt='Paypal'
@@ -62,4 +79,4 @@ const mapStateToProps = ({ cart }) => {
   return { cart };
 };
 
-export default connect(mapStateToProps)(CartSummary);
+export default connect(mapStateToProps, actions)(CartSummary);

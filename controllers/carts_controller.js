@@ -2,48 +2,55 @@ const mongoose = require("mongoose");
 const Cart = require("../models/Cart");
 
 exports.fetchCart = async (req, res) => {
-  let cart;
-  cart = await Cart.findById(req.user._id)
+  const cart = await Cart.findById(req.user._id)
     .populate({
       path: "items",
       populate: { path: "productId", populate: { path: "productSizes" } },
     })
-    .exec();
-
-  if (!cart) {
-    cart = await new Cart({ _id: req.user._id });
-    await cart.save();
-  }
+    .populate({
+      path: "items",
+      populate: { path: "sizeId", populate: { path: "Size" } },
+    });
   res.send(cart);
 };
 
 exports.addToCart = async (req, res) => {
-  let cart;
-  const newCartItem = {
-    productId: req.body.params.productId,
-    sizeId: req.body.params.sizeId,
-    name: req.body.params.name,
-    brandName: req.body.params.brandName,
-    price: req.body.params.price,
-    count: req.body.params.count,
-    size: req.body.params.size,
-    featuredImage: req.body.params.featuredImage,
-  };
-  cart = await Cart.findById(req.user._id);
-  if (cart) {
+  const cart = await Cart.findOneOrCreate({ _id: req.user._id });
+  const { _id, name, brandName, price, images } = req.body.product;
+  const productSize = req.body.productSize;
+
+  const item = cart.items.filter(
+    (i) => i.sizeId.toString() === productSize._id.toString()
+  );
+  let newCartItem;
+
+  if (item[0]) {
+    item[0].count++;
+    newCartItem = item[0];
+  } else {
+    newCartItem = {
+      productId: _id,
+      sizeId: productSize._id,
+      name,
+      brandName,
+      price,
+      count: 1,
+      size: productSize.size,
+      featuredImage: images.model1[0],
+    };
     cart.items.push(newCartItem);
-    await cart.save();
-    const result = await Cart.findById(req.user._id)
-      .populate({
-        path: "items",
-        populate: { path: "productId", populate: { path: "productSizes" } },
-      })
-      .exec();
-    res.send(result);
-  } else if (!cart) {
-    cart = new Cart({ _id: req.user._id, items: [newCartItem] });
-    res.send(cart);
   }
+  cart.save();
+  const result = await Cart.findById(req.user._id)
+    .populate({
+      path: "items",
+      populate: { path: "productId", populate: { path: "productSizes" } },
+    }).populate({
+      path: "items",
+      populate: { path: "sizeId", populate: { path: "Size" } },
+    })
+    .exec();
+  res.send(result);
 };
 
 exports.deleteCartItem = async (req, res) => {
@@ -74,7 +81,10 @@ exports.updateCartItem = async (req, res) => {
     .populate({
       path: "items",
       populate: { path: "productId", populate: { path: "productSizes" } },
-    })
+    }).populate({
+      path: "items",
+      populate: { path: "sizeId", populate: { path: "Size" } },
+    })  
     .exec();
   res.send(result);
 };
