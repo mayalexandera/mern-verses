@@ -30,7 +30,7 @@ const CartSummary = ({ cart, addOrder }) => {
         <div className='cart-summary-item-sub col-sm-12'>
           <div className='col-sm-9 field-title'>Subtotal</div>
           <div className='col-sm-3 field-value'>
-            <div className='field-value-text'>{`$${cart.totals}.00`}</div>
+            <div className='field-value-text'>{`$${cart.totals.subTotal}.00`}</div>
           </div>
         </div>
       </div>
@@ -52,7 +52,7 @@ const CartSummary = ({ cart, addOrder }) => {
           <p className='total'>Total</p>
         </div>
         <div className='col-sm-6'>
-          <p className='total-currency'>{`$${cart.totals}.00`}</p>
+          <p className='total-currency'>{`$${cart.totals.subTotal}.00`}</p>
         </div>
       </div>
       <hr className='summary-hr' />

@@ -66,6 +66,15 @@ a {
   padding-right: 8px;
 }
 
+.col-sm-4 {
+  width: 33.33333%;
+  display: inline-block;
+}
+.col-sm-8 {
+  width: 66.6666%;
+  display: inline-block;
+}
+
 .col-sm-9 {
   width: 75%;
   display: inline-block;
@@ -76,12 +85,24 @@ a {
   display: inline-block;
 }
 
+.col-lg-4 {
+  width: 33.3333%;
+  display: inline-block;
+}
+
+.col-lg-8 {
+  width: 66.6%;
+  display: inline-block;
+}
 .row {
   font-size: 0;
   margin-left: -8px;
   margin-right: -8px;
 }
 
+.bg-dark-grey {
+  background: #222;
+}
 @font-face {
   font-family: "Material Icons Outlined";
   font-style: normal;
@@ -159,9 +180,18 @@ input[type="button"] {
   outline: 0;
 }
 
+.bg-light-grey {
+  background: #e5e5e5;
+  color: black;
+}
+.text-color-grey {
+  color: #6d6d6d;
+}
+
 [class*="col-"] {
-  padding-left: 0;
-  padding-right: 0;
+  padding-left: 8px;
+  padding-right: 8px;
+  line-height: 1.71428;
 }
 
 button {

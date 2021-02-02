@@ -1,0 +1,150 @@
+.checkout-container {
+  margin-top: 0px;
+  width: 100%;
+  padding-top: 52px;
+}
+
+#checkout-wrapper {
+  max-width: 1024px;
+  margin-left: auto;
+  margin-right: auto;
+  min-height: calc(100vh - 396px);
+}
+
+.checkout-section {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  vertical-align: top;
+  margin-bottom: 20px;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+.checkout-banner {
+  text-align: center;
+}
+.section-header {
+  color: white;
+  text-transform: uppercase;
+  font-size: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  line-height: 1.2;
+  letter-spacing: 1.5px;
+  font-family: "Big Shoulders Display", cursive;
+}
+
+.shipping-section,
+.summary-section {
+  box-shadow: inset 0 1px 0 0 #e5e5e5, inset -1px 0 0 0 #e5e5e5,
+    inset 0 -1px 0 0 #e5e5e5, inset 1px 0 0 0 #e5e5e5;
+}
+
+.shipping-row,
+.summary-row {
+  margin-left: -8px;
+  margin-right: -8px;
+}
+
+.summary-row {
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+.summary-row:first-child {
+  padding-top: 0px;
+}
+.shipping-wrapper {
+  padding: 20px;
+}
+
+.summary-total {
+  margin-top: 8px;
+  height: 24px;
+}
+
+.total-text,
+.cart-total {
+  font-size: 16px;
+  font-family: "Big Shoulders Display", cursive;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.address-header {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.714;
+}
+
+.address-preview {
+  margin-bottom: 16px;
+  font-size: 14px;
+  line-height: 1.714;
+}
+
+.checkout-title {
+  font-weight: 800;
+  text-transform: uppercase;
+  font-family: "Big Shoulders Display", cursive;
+  font-size: 34px;
+  line-height: 1.411;
+  letter-spacing: 2px;
+}
+
+.summary-col {
+  padding: 20px;
+  width: 100%;
+  display: inline-block;
+  font-size: 14px;
+  line-height: 1.714;
+}
+.details-container {
+  border-spacing: 0 20px;
+  display: table;
+}
+.cart-details-title {
+   text-transform: uppercase;
+  font-family: "Big Shoulders Display", cursive;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 1px;
+  font-weight: 700;
+}
+
+.summary-price {
+  text-align: right;
+}
+
+.cart-total {
+  color: #fa5400;
+}
+
+.cart-details {
+  box-shadow: inset 0 1px 0 0 #e5e5e5;
+  padding-top: 24px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.shipping-container {
+  margin-bottom: 16px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.714;
+}
+
+@media screen and (max-width: 1024px) {
+  .checkout-container {
+    padding-top: 88px;
+  }
+}
+
+@media only screen and (min-width: 640px) {
+  .checkout-banner {
+    padding: 24px;
+  }
+}
