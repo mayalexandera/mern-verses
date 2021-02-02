@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from 'react-redux'
 import CartDetail from './CartDetail.js'
 
-const CartDetails = ({ items, totals }) => {
+const CartDetails = ({ items }) => {
   return (
     <div>
       <div className='cart-details'>
@@ -22,8 +22,8 @@ const CartDetails = ({ items, totals }) => {
   );
 };
 
-const mapStateToProps = ({ cart: { items, totals } }) => {
-  return { items, totals }
+const mapStateToProps = ({ cart: { items } }) => {
+  return { items }
 }
 
 export default connect(mapStateToProps)(CartDetails);

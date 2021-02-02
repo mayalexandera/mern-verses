@@ -1,7 +1,6 @@
 import React from "react";
 
 const CartDetail = ({ item }) => {
-  console.log(item)
   return (
     <figure className='checkout-cart-item'>
       <div className='checkout-cart-image'>

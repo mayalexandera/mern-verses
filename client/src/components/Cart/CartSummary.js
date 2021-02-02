@@ -1,16 +1,10 @@
 import React from "react";
-import * as actions from '../../store/actions/index'
 import { connect } from "react-redux";
 import { NavLink } from 'react-router-dom'
 import cartSummaryFields from "./cartSummaryFields";
 import "./CartSummary.css";
 
-const CartSummary = ({ cart, addOrder }) => {
-
-  const handleCheckout = (e) => {
-    e.preventDefault()
-  addOrder(cart)
-  }
+const CartSummary = ({ cart }) => {
   return (
     <aside className='cart-summary-aside'>
       <div className='cart-summary-title-wrapper'>
@@ -79,4 +73,4 @@ const mapStateToProps = ({ cart }) => {
   return { cart };
 };
 
-export default connect(mapStateToProps, actions)(CartSummary);
+export default connect(mapStateToProps)(CartSummary);

@@ -1,7 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
 import DeliveryOptions from "./DeliveryOptions";
-import BagSummary from './BagSummary'
+import BagSummary from "./BagSummary";
+import CheckoutPayment from "./CheckoutPayment";
+import OrderReview from "./OrderReview";
 import "./Checkout.css";
 
 const Checkout = ({ totals }) => {
@@ -13,9 +15,11 @@ const Checkout = ({ totals }) => {
         </div>
         <div className='checkout-section col-lg-8'>
           <DeliveryOptions />
+          <CheckoutPayment />
+          <OrderReview />
         </div>
         <div className='checkout-section col-lg-4'>
-          <BagSummary totals={ totals }/>
+          <BagSummary totals={totals} />
         </div>
       </div>
     </div>

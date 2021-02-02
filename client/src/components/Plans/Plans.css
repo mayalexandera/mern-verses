@@ -1,9 +1,17 @@
 .plans-container {
   padding-top: 120px;
   display: flex;
-  align-items: center;
-  flex-direction: column;
-  background-color:hsl(86, 68%, 94%);
+  justify-content: space-around;
+  flex-wrap: wrap;
+  vertical-align: top;
+  margin: 0px auto 40px;
+}
+
+.plans-container-title {
+  font-weight: 500;
+  margin-top: 56px;
+  font-size: 34px;
+  line-height: 1.5;
 }
 
 .plans-section {
@@ -14,55 +22,68 @@
   justify-content: center;
 }
 
-.plan-card {
-  background-color: #fff;
-  box-shadow: 0px 2px 2px #efefef;
-  margin: 0px 20px;
-  width: 275px;
-  border-radius: 5px;
-  /* border: 1px solid red; */
+.plans-section-container {
+  padding: 0px 32px 16px;
+  position: relative;
+}
+
+.plan-tiers-container {
+  max-width: 80%;
+  box-shadow: inset 0 1px 0 0 #e5e5e5, inset -1px 0 0 0 #e5e5e5,
+    inset 0 -1px 0 0 #e5e5e5, inset 1px 0 0 0 #e5e5e5;
+}
+
+.plans-membership-container {
+  padding-left: 56px;
+  padding-right: 56px;
+}
+
+.plans-membership-container header {
+  margin-bottom: 32px;
+}
+
+.image-wrapper {
+  width: 100%;
+  position: relative;
+}
+
+.image-wrapper img {
+  width: 100%;
+  position: relative;
+}
+
+#plans-col {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+#plans-col h2 {
+  text-align: left;
 }
 
 .plan-card-body {
-  padding: 26px 24px;
-  /* height: 100%; */
+  box-shadow: inset 1px 0 0 0 #e5e5e5;
 }
 
-.plan-card-features {
-  display: inline-block;
-  width: 100%;
-  line-height: 1.5;
-  margin-bottom: 10px;
+.tier-card-title {
+  padding: 8px 16px;
 }
 
-.plan-card-details {
-  display: inline-block;
-  height: 63px;
-  margin-bottom: 10px;
-}
-
-.plan-card-details div:first-of-type {
-  font-size: 70%;
+.tier-card-title div:first-of-type {
   font-weight: 300;
   padding-bottom: 5px;
 }
 
-.plan-card-details p {
-  font-size: 200%;
+.tier-card-title p {
   display: inline-block;
-  font-weight: 800;
+  font-size: 34px;
+  font-weight: 500;
   line-height: 1;
 }
 
-.plan-card-details span {
-  font-weight: 600;
+.tier-card-title span {
+  font-weight: 500;
   margin-left: 8px;
-  font-size: 75%;
-}
-
-.items-per-month {
-  display: flex;
-  align-items: baseline;
 }
 
 .plan-description {
@@ -78,6 +99,7 @@
   width: 100%;
   min-height: 73px;
   font-size: 70%;
+  margin-bottom: 48px;
   font-weight: 400;
   line-height: 1.75;
 }
@@ -85,6 +107,7 @@
 .plan-feature-bullet-points li {
   display: flex;
   align-items: center;
+  line-height: 1.9;
 }
 
 .plan-feature-bullet-points i {
@@ -92,99 +115,32 @@
   font-size: 18px;
 }
 
-.plan-subtitle {
-  font-size: 80%;
+.plan-price-section {
+  padding: 8px 16px;
+  box-shadow: inset 0 1px 0 0 #e5e5e5, inset 1px 0 0 0 #e5e5e5;
+  line-height: 2;
+  padding-top: 34px;
 }
 
-.plan-trial-price {
+.plan-price {
   display: flex;
   justify-content: left;
   align-items: baseline;
   font-weight: 400;
 }
 
-.plan-trial-price p {
-  font-size: 70%;
+.plan-price p {
+  font-size: 75%;
   padding-left: 5px;
 }
 
-.plan-trial-price span {
+.plan-price span {
   font-size: 125%;
-  font-weight: 600;
-}
-
-.plan-regular-price {
-  color: #757575;
-  display: flex;
-  justify-content: left;
-  align-items: baseline;
-  font-weight: 400;
-  margin-top: 5px;
-}
-
-.plan-regular-price p {
-  font-size: 10px;
-  padding-left: 5px;
-}
-
-.plan-regular-price span {
-  font-size: 62.5%;
-  font-weight: 400;
-}
-
-#plan-option,
-#current-plan,
-#disabled {
-  /* text-transform: uppercase; */
-  font-size: 80%;
-  padding: 8px 26px;
-  text-align: center;
-  width: 100%;
-  box-shadow: 0 2px 2px #efefef;
-}
-
-#current-plan {
-  background-color: hsl(85, 76%, 85%);
-  border: 1px solid hsl(85, 64%, 79%);
-}
-
-#plan-option,
-#disabled {
-  background-color: rgb(12, 11, 11);
-  border: 1px solid rgb(12, 11, 11);
-  color: #fff;
-}
-
-#disabled {
-  opacity: 0.5;
-}
-
-#disabled:hover {
-  opacity: 0.3;
-  transition: 0.3s;
-}
-
-#plan-option:hover,
-#current-plan:hover {
-  opacity: 0.8;
-  transition: 0.2s;
-  -webkit-transition: 0.3s;
+  font-weight: 500;
 }
 
 #plan-button {
   margin: 12px 0 17px 0;
   display: flex;
   justify-content: center;
-  /* height: 8%; */
-}
-
-#order-hr {
-  border-top-style: initial;
-  border-right-style: initial;
-  border-left-style: initial;
-  border-top-color: initial;
-  border-right-color: initial;
-  border-left-color: initial;
-  border-width: 0px 0px 1px;
-  margin: 15px 0px 10px 0px;
 }

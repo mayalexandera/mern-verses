@@ -13,7 +13,7 @@ const Cart = ({ items, fetchCart, isLoggedIn }) => {
 
   return (
     <div className='cart-container'>
-      <div className='cart-section'>{<CartList items={items} />}</div>
+      <div className='cart-section'>{ <CartList items={items} />}</div>
     </div>
   );
 };
