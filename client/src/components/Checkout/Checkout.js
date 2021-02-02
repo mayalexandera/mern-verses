@@ -4,7 +4,7 @@ import DeliveryOptions from "./DeliveryOptions";
 import BagSummary from './BagSummary'
 import "./Checkout.css";
 
-const Checkout = ({ items, totals, orders }) => {
+const Checkout = ({ totals }) => {
   return (
     <div className='checkout-container' id='checkout-wrapper'>
       <div className='checkout-container'>
@@ -22,8 +22,8 @@ const Checkout = ({ items, totals, orders }) => {
   );
 };
 
-const mapStateToProps = ({ cart: { items, totals }, orders }) => {
-  return { items, totals, orders };
+const mapStateToProps = ({ cart: { totals } }) => {
+  return { totals };
 };
 
 export default connect(mapStateToProps)(Checkout);

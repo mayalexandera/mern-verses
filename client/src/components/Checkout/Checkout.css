@@ -95,6 +95,37 @@
   letter-spacing: 2px;
 }
 
+.checkout-cart-item {
+  max-width: 230px;
+  padding-bottom: 20px;
+  display: table-row;
+}
+
+.checkout-cart-image {
+  display: table-cell;
+  vertical-align: top;
+}
+
+.checkout-cart-image img {
+  width: 60px;
+}
+
+.checkout-cart-item-details {
+  padding-left: 20px;
+}
+
+.item-name {
+  margin-bottom: 8px;
+  font-size: 14px;
+  line-height: 1.2857;
+}
+
+.item-style-color {
+  color: #6d6d6d;
+  font-size: 14px;
+  line-height: 1.7;
+  margin-bottom: -4px;
+}
 .summary-col {
   padding: 20px;
   width: 100%;
@@ -111,8 +142,8 @@
   font-family: "Big Shoulders Display", cursive;
   font-size: 16px;
   line-height: 1.5;
-  letter-spacing: 1px;
-  font-weight: 700;
+  letter-spacing: 1.25px;
+  font-weight: 800;
 }
 
 .summary-price {

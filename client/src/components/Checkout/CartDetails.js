@@ -8,11 +8,11 @@ const CartDetails = ({ items, totals }) => {
       <div className='cart-details'>
         <div>
           <header>
-            <h3 className='cart-details-title'>Cart Details</h3>
+            <h3 className='cart-details-title'>Arrives By Mon, Feb 8</h3>
           </header>
           <div className='details-container'>
             { items.map(item => {
-              return (<div>{item.name}</div>)
+              return (<CartDetail item={item}/>)
             })}
 
           </div>
