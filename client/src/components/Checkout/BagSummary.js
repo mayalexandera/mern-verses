@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from 'react-router-dom'
 import CartDetails from "./CartDetails";
 
 const BagSummary = ({ totals: { subTotal, estTax, estShipping } }) => {
@@ -7,6 +8,7 @@ const BagSummary = ({ totals: { subTotal, estTax, estShipping } }) => {
       <section>
         <header className='section-header bg-light-grey'>
           <h2>In Your Bag</h2>
+          <NavLink to='/cart'>Edit</NavLink>
         </header>
         <div className='summary-section'>
           <div className='summary-col'>

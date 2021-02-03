@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from 'react-router-dom'
 import "./Checkout.css";
 import shippingAddress from "./shippingFields";
 
@@ -7,6 +8,7 @@ const DeliveryOptions = () => {
     <section id='shipping'>
       <header className='section-header bg-dark-grey'>
         <h2>1. Delivery options</h2>
+        <NavLink to='/cart'>Edit</NavLink>
       </header>
       <div className='shipping-section '>
         <div className='shipping-row'>
