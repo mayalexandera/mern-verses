@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import * as actions from "../../store/actions";
 import PlanCard from "./PlanCard";
-import ThreeMonthPayment from '../Payments/ThreeMonthPayment'
+import ThreeMonthPayment from "../Payments/ThreeMonthPayment";
 import "./Plans.css";
 
 const Plans = ({ fetchPlans, plans }) => {
@@ -10,13 +10,13 @@ const Plans = ({ fetchPlans, plans }) => {
     fetchPlans();
   }, [fetchPlans]);
 
-  const [tier, setTier] = useState({})
+  const [tier, setTier] = useState({});
 
   const handleClick = (e, newTier) => {
-    e.preventDefault()
-    setTier(newTier)
-    console.log('hi', tier)
-  }
+    e.preventDefault();
+    setTier(newTier);
+    console.log("hi", tier);
+  };
   return (
     <div className='plans-container'>
       <div className='plans-section'>
@@ -34,26 +34,44 @@ const Plans = ({ fetchPlans, plans }) => {
               <p>What's included in a monthly membership</p>
             </header>
             <div>
-              <ul className='plan-feature-bullet-points'>
-                {plans
-                  ? plans[0].features.map((feature) => {
+              <div className='details-container'>
+                <ul className='plan-feature-bullet-points'>
+                  {plans && plans
+                    ? plans[0].features.map((feature) => {
+                        return (
+                          <li>
+                            <i class='material-icons-outlined'>done</i>
+                            <span>{feature}</span>
+                          </li>
+                        );
+                      })
+                    : null}
+                </ul>
+              </div>
+              <div className='plan-tiers-container'>
+                {plans && plans
+                  ? plans[0].tiers.map((tier, index) => {
                       return (
-                        <li>
-                          <i class='material-icons-outlined'>done</i>
-                          <span>{feature}</span>
-                        </li>
+                        <PlanCard
+                          id={"plans-col"}
+                          className='col-sm-4'
+                          handleClick={handleClick}
+                          tier={tier}
+                          index={index}
+                        />
                       );
                     })
-                  : null }
-              </ul>
-              <div className='plan-tiers-container'>
-                {plans ? plans[0].tiers.map((tier, index) => {
-                  return(<PlanCard handleClick={handleClick} tier={tier} index={index} />)
-                }): null }
+                  : null}
               </div>
             </div>
-            <div className=
-            'plan-button-wrapper'><ThreeMonthPayment className='plan-checkout-button' id={'plan-button'} tier={tier} credits={1} /></div>
+            <div className='plan-button-wrapper'>
+              <ThreeMonthPayment
+                className='plan-checkout-button'
+                id={"plan-button"}
+                tier={tier}
+                credits={1}
+              />
+            </div>
           </div>
         </div>
       </div>

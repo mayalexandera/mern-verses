@@ -20,8 +20,8 @@ const CartSchema = new Schema({
   totals: {
     subTotal: Number,
     default: 0,
-    total: Number,
-    default: 0,
+    total: { type: Number,
+    default: 0, min: 0 },
     discountTotal: Number,
     default: 0,
   },

@@ -2,13 +2,20 @@ const mongoose = require("mongoose");
 const FavoriteList = require("../models/Favorite");
 
 exports.fetchFavorites = async (req, res) => {
-  const list = await FavoriteList.findById(req.user._id);
-  res.send(list);
+  let list = await FavoriteList.findById(req.user._id);
+  if (list) {
+    res.send(list);
+  } else {
+    list = new FavoriteList({ _id: req.user._id });
+    await list.save();
+    res.send(list);
+  }
 };
 
 exports.addFavorite = async (req, res) => {
-  const { _id, name, brandName, price, images } = req.body.product
+  const { _id, name, brandName, price, images } = req.body.product;
   let faveList;
+
   const newFavorite = {
     productId: _id,
     name,
@@ -16,6 +23,7 @@ exports.addFavorite = async (req, res) => {
     price,
     featuredImage: images.model1[0],
   };
+
   faveList = await FavoriteList.findById(req.user._id);
   if (faveList) {
     faveList.items.push(newFavorite);
@@ -23,7 +31,7 @@ exports.addFavorite = async (req, res) => {
     res.send(faveList);
   } else {
     faveList = new FavoriteList({ _id: req.user._id, items: [newFavorite] });
-    await faveList.save()
+    await faveList.save();
     res.send(faveList);
   }
 };

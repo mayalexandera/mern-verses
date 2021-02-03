@@ -1,4 +1,4 @@
-import { ADD_ORDER } from "../actions/types";
+import { PLACE_ORDER } from "../actions/types";
 import { updateObject } from "../../utils/updateObject";
 
 const initialState = {
@@ -8,7 +8,7 @@ const initialState = {
 
 export default function (state = initialState, action) {
   switch (action.type) {
-    case ADD_ORDER:
+    case PLACE_ORDER:
       console.log(action.payload)
       return updateObject(state, { order: action.payload });
     default:

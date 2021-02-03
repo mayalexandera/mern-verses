@@ -24,4 +24,4 @@ export const UPDATE_CART_ITEM = 'update_cart_item'
 export const FETCH_CART = 'fetch_cart'
 export const HANDLE_CART_TOTAL = 'handle_cart_total'
 
-export const ADD_ORDER = 'add_order'
+export const PLACE_ORDER = 'place_order'

@@ -5,7 +5,7 @@ const { Schema } = mongoose;
 //with an object the first property must be the type.
 const MembershipSchema = new Schema({
   user: { type: Schema.Types.ObjectId, ref: "User" },
-  credits: Number,
+  credits: { type: Number, default: 0, min: [ 0, 'Too few credits'] },
   items: Number,
 });
 

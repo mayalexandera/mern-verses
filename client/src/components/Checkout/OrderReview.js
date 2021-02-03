@@ -1,6 +1,15 @@
 import React from 'react'  
+import { connect } from 'react-redux'
+import { placeOrder, calculateCartTotal } from '../../store/actions'
 
-const OrderReview = () => {
+const OrderReview = ({ placeOrder, calculateCartTotal }) => {
+
+  const handleClick = (e) => {
+    e.preventDefault()
+    calculateCartTotal()
+    console.log(placeOrder)
+    placeOrder()
+  }
   return (
     <section id='shipping'>
       <header className='section-header bg-dark-grey'>
@@ -16,7 +25,8 @@ const OrderReview = () => {
                 Policy, and Privacy Policy.
               </p>
               <div className='place-order-button-row'>
-                <div className='place-order-button-wrapper'>Place Order</div>
+                <button
+                onClick={handleClick}className='place-order-button-wrapper'>Place Order</button>
               </div>
             </div>
           </div>
@@ -26,4 +36,4 @@ const OrderReview = () => {
   );
 }
 
-export default OrderReview;
+export default connect(null, { placeOrder, calculateCartTotal })(OrderReview);

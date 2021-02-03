@@ -34,7 +34,10 @@ const Product = ({
 
   const handleAddToFavorites = (e) => {
     e.preventDefault();
-    if (!favoriteList.items.length <= 0) addFavorite(product);
+    if (!!favoriteList.items.length <= 0) {
+      console.log(addFavorite)
+      addFavorite(product);
+    }
 
     const exists = favoriteList.items.map((item) => item.product === product);
     if (exists[0] === undefined) {

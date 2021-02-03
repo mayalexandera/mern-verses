@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from 'react-router-dom'
 import CartDetails from "./CartDetails";
 
-const BagSummary = ({ totals: { subTotal, estTax, estShipping } }) => {
+const BagSummary = ({ totals: { subTotal, estTax, estShipping, total } }) => {
   return (
     <aside>
       <section>
@@ -30,7 +30,7 @@ const BagSummary = ({ totals: { subTotal, estTax, estShipping } }) => {
                  Total
                 </div>
               </div>
-              <div className='col-sm-4 summary-price'><div className='cart-total'>{`$${subTotal+estTax+estShipping}`}</div></div>
+              <div className='col-sm-4 summary-price'><div className='cart-total'>{`$${total}`}</div></div>
             </div>
           </div>
           <CartDetails/>

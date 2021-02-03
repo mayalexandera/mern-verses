@@ -1,11 +1,12 @@
 import React from "react";
+// import './Plans.css'
 
-const PlanCard = ({ tier, handleClick }) => {
+const PlanCard = ({ className, id, tier, handleClick }) => {
   return (
     <div
       onClick={(e) => handleClick(e, tier)}
-      className='col-sm-4'
-      id='plans-col'
+      className={className}
+      id={id}
     >
       <div className='plan-card-body'>
         <div className='tier-card-title'>

@@ -1,7 +1,7 @@
 import axios from 'axios'
-import { ADD_ORDER } from './types' 
+import { PLACE_ORDER } from './types' 
 
-export const addOrder = () => async (dispatch, getState) => {
+export const placeOrder = () => async (dispatch, getState) => {
   console.log('in order actions')
   const cartId = getState().cart._id
   const totals = getState().cart.totals
@@ -9,7 +9,7 @@ export const addOrder = () => async (dispatch, getState) => {
     const response = await axios.post(`/api/order/add`, {
       cartId, totals
     })
-    dispatch({ type: ADD_ORDER, payload: response.data })
+    dispatch({ type: PLACE_ORDER, payload: response.data })
 
   }
 }

@@ -13,6 +13,7 @@ const initialState = {
     subTotal: 0,
     estShipping: 0,
     estTax: 0,
+    total: 0,
   },
   isLoaded: null,
   message: null,
@@ -29,7 +30,8 @@ export default function (state = initialState, action) {
         }) || false
       );
     case HANDLE_CART_TOTAL:
-      return updateObject(state, { totals: { subTotal: action.payload, estTax: action.payload*0.08, estShipping: 7 } });
+      console.log(action.payload)
+      return updateObject(state, { totals: { subTotal: action.payload.subTotal, estTax: action.payload.estTax, estShipping: action.payload.estShipping, total: action.payload.total } });
     case DELETE_CART_ITEM:
       return action.payload || false;
     case UPDATE_CART_ITEM:

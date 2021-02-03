@@ -4,10 +4,9 @@ const { Schema } = mongoose;
 const sizeSchema = new Schema({
   product: { type: Schema.Types.ObjectId, ref: "Product" },
   brand: { type: Schema.Types.ObjectId, ref: "Brand" },
-  quantity: { type: Number, default: 10 },
+  quantity: { type: Number, default: 10, min: [0, "Out of stock"] },
   size: String,
   color: String,
-
 });
 
 const Size = mongoose.model("Size", sizeSchema);

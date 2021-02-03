@@ -13,7 +13,7 @@ export const fetchCart = () => async (dispatch, getState) => {
   console.log(user);
   if (user) {
     const res = await axios.get(`/api/carts`);
-    
+
     await dispatch({ type: FETCH_CART, payload: res.data });
     dispatch(calculateCartTotal());
   }
@@ -63,15 +63,28 @@ export const updateCartItem = (field, value, cartItem) => async (
     cartItem,
   });
 
-  dispatch({ type: UPDATE_CART_ITEM, payload: res.data });
+  await dispatch({ type: UPDATE_CART_ITEM, payload: res.data });
+  dispatch(calculateCartTotal());
 };
 
 export const calculateCartTotal = () => (dispatch, getState) => {
   const items = getState().cart.items;
-  let total = 0;
+  let newTotal = 0;
+  let totals = {
+    subTotal: 0,
+    estTax: 0,
+    estShipping: 0,
+    total: 0,
+  };
   items.map((item) => {
-    total += item.price * item.count;
+    newTotal += item.price * item.count;
   });
-  total = parseFloat(total.toFixed(2));
-  dispatch({ type: HANDLE_CART_TOTAL, payload: total });
+
+  totals.subTotal = parseFloat(newTotal.toFixed(2));
+  totals.estTax = Number(parseFloat(totals.subTotal * 0.08).toFixed(2));
+  totals.estShipping = 7;
+  totals.total = Number(
+    parseFloat(totals.estShipping + totals.estTax + totals.subTotal).toFixed(2)
+  );
+  dispatch({ type: HANDLE_CART_TOTAL, payload: totals });
 };
