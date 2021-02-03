@@ -1,30 +1,35 @@
-import React, { useEffect, useState } from "react"; 
-import { connect } from 'react-redux'
-import PlanCard from '../Plans/PlanCard'
+import React, { useEffect, useState } from "react";
+import { connect } from "react-redux";
+import PlanCard from "../Plans/PlanCard";
 
 import * as actions from "../../store/actions";
-import './Membership.css'
+import "./Membership.css";
 
 const Membership = ({ user, fetchPlans, plans }) => {
-
   useEffect(() => {
-    fetchPlans()
+    fetchPlans();
   }, [fetchPlans]);
-    const [tier, setTier] = useState({});
+  const [tier, setTier] = useState({});
 
+  const handleClick = (e, newTier) => {
+    e.preventDefault();
+    setTier(newTier);
+    console.log("hi", tier);
+  };
 
-    const handleClick = (e, newTier) => {
-      e.preventDefault();
-      setTier(newTier);
-      console.log("hi", tier);
-    };
-
-    const renderPlan = () => {
-      let plan =  plans[0].tiers.filter((tier) => {
-        return tier.items === user.membership[0].items
-      });
-      return (<PlanCard className='member-tier-card-body' id="member-col" tier={plan[0]} handleClick={handleClick}/>)
-    }
+  const renderPlan = () => {
+    let plan = plans[0].tiers.filter((tier) => {
+      return tier.items === user.membership[0].items;
+    });
+    return (
+      <PlanCard
+        className='member-tier-card-body'
+        id='member-col'
+        tier={plan[0]}
+        handleClick={handleClick}
+      />
+    );
+  };
 
   return (
     <div className='membership-container'>
@@ -46,7 +51,8 @@ const Membership = ({ user, fetchPlans, plans }) => {
             </ul>
 
             <div className='edit-button-container'>
-              <div>Looking to make a change?</div><div className='edit-button'>Edit</div>
+              <div>Looking to make a change?</div>
+              <div className='edit-button'>Edit</div>
             </div>
           </div>
         </div>
@@ -57,10 +63,10 @@ const Membership = ({ user, fetchPlans, plans }) => {
       </div>
     </div>
   );
-}
+};
 
-const mapStateToProps = ({plans} ) => {
- return { plans }
-}
+const mapStateToProps = ({ plans }) => {
+  return { plans };
+};
 
 export default connect(mapStateToProps, actions)(Membership);

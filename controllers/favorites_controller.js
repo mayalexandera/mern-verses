@@ -26,9 +26,19 @@ exports.addFavorite = async (req, res) => {
 
   faveList = await FavoriteList.findById(req.user._id);
   if (faveList) {
-    faveList.items.push(newFavorite);
-    await faveList.save();
-    res.send(faveList);
+    const existingItem = faveList.items.filter((item) => {
+      return item.productId.toString() === _id.toString()
+    })
+    console.log(existingItem)
+
+    if (existingItem[0] === undefined || existingItem.length === 0) {
+      faveList.items.push(newFavorite);
+      await faveList.save();
+      res.send(faveList);
+    }
+    else if (existingItem.length >= 1) {
+      res.send({ message: "Item already exists in your favorites."})
+    }
   } else {
     faveList = new FavoriteList({ _id: req.user._id, items: [newFavorite] });
     await faveList.save();

@@ -1,10 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
-import { fetchProduct, addFavorite, addCartItem } from "../../store/actions";
+import {
+  fetchFavorites,
+  fetchProduct,
+  addFavorite,
+  addCartItem,
+} from "../../store/actions";
 import "./ProductShow.css";
 
 const Product = ({
   fetchProduct,
+  fetchFavorites,
   addFavorite,
   addCartItem,
   favoriteList,
@@ -20,7 +26,8 @@ const Product = ({
 
   useEffect(() => {
     fetchProduct(prodId);
-  }, [fetchProduct, prodId]);
+    fetchFavorites();
+  }, [fetchProduct, fetchFavorites, prodId]);
 
   const handleAddToBag = (e) => {
     e.preventDefault();
@@ -34,17 +41,7 @@ const Product = ({
 
   const handleAddToFavorites = (e) => {
     e.preventDefault();
-    if (!!favoriteList.items.length <= 0) {
-      console.log(addFavorite)
-      addFavorite(product);
-    }
-
-    const exists = favoriteList.items.map((item) => item.product === product);
-    if (exists[0] === undefined) {
-      addFavorite(product);
-    } else if (exists[0].productId === product._id) {
-      setErrorMessage("Item is already in your favorites.");
-    }
+    addFavorite(product);
   };
 
   const sizeHandler = (select) => {
@@ -193,8 +190,10 @@ const Product = ({
                                 favorite_border
                               </span>
                             </button>
-                            {errorMessage}
-                            {/* {favoriteList.message} */}
+                            <div id="error-message-container">
+                              {errorMessage}
+                              {favoriteList.message}
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -254,4 +253,5 @@ export default connect(mapStateToProps, {
   fetchProduct,
   addFavorite,
   addCartItem,
+  fetchFavorites,
 })(Product);

@@ -1,23 +1,11 @@
 import axios from "axios";
-import { ADD_FAVORITE, FETCH_FAVORITES, DELETE_FAVORITE } from "./types";
+import { ADD_FAVORITE, FETCH_FAVORITES, ADD_FAVORITE_FAILED, DELETE_FAVORITE } from "./types";
 
 export const addFavorite = (product) => async (dispatch, getState) => {
-  const existingList = getState().favoriteList;
   const user = getState().auth.user._id;
-  if (!!existingList && existingList.items.length === 0) {
     const res = await axios.post(`/api/favoritelists/${user}`, { product });
-    dispatch({ type: ADD_FAVORITE, payload: res.data });
-  } else if (!!existingList && existingList.items.length > 0) {
-    existingList.items.filter(async (item) => {
-      if (item.productId.toString() === product._id.toString()) {
-        dispatch({ type: FETCH_FAVORITES, payload: existingList });
-      } else {
-        const res = await axios.post(`/api/favoritelists/${user}`, { product });
 
-        dispatch({ type: ADD_FAVORITE, payload: res.data });
-      }
-    });
-  }
+    dispatch({ type: ADD_FAVORITE, payload: res.data });
 };
 
 export const deleteFavorite = (favorite_id) => async (dispatch, getState) => {
@@ -37,3 +25,4 @@ export const fetchFavorites = () => async (dispatch, getState) => {
     dispatch({ type: FETCH_FAVORITES, payload: res.data });
   }
 };
+
