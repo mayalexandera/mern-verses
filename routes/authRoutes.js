@@ -1,5 +1,6 @@
 const passport = require("passport");
-
+const mongoose = require("mongoose");
+const User = mongoose.model("User");
 // object contains all route handlers.
 module.exports = (app) => {
   app.get(
@@ -26,9 +27,11 @@ module.exports = (app) => {
     }
   );
 
-  app.get("/api/current_user", (req, res) => {
+  app.get("/api/current_user", async (req, res) => {
     // console.log('current-user',req)
-    res.send(req.user);
+    const user = await User.findById(req.user._id).populate({ path: "membership" })
+    res.send(user);
+    
   });
 
   app.get("/api/logout", (req, res) => {

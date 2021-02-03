@@ -1,5 +1,8 @@
 const keys = require("../config/keys");
 const stripe = require("stripe")(keys.stripeSecretKey);
+const mongoose = require('mongoose')
+const Membership = mongoose.model("Membership")
+const User = mongoose.model("User")
 const requireLogin = require('../middlewares/requireLogin')
 
 module.exports = (app) => {
@@ -12,7 +15,7 @@ module.exports = (app) => {
     const charge = await stripe.charges.create({
       amount: Number(req.query.amt),
       currency: "usd",
-      description: "$89/month",
+      description: `${req.query.amt}/per month`,
       source: req.body.id,
     });
 
@@ -23,9 +26,16 @@ module.exports = (app) => {
     passport looks at the cookie, and if there is assigns the user model to the 
     request.
   */
-    req.user.credits += Number(req.query.credits);
-    req.user.purchasedTrial = true;
-    const user = await req.user.save()
+ console.log(req.query)
+    const membership = new Membership({
+      user: req.user._id,
+      credits: Number(req.query.credits),
+      items: Number(req.query.items)
+
+    })
+    req.user.membership = membership;
+   await req.user.save()
+   const user = await User.findById(req.user._id).populate({ path: "membership"})
 
     res.send(user)
   });

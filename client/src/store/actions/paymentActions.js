@@ -7,11 +7,11 @@ export const handleToken = (token) => async (dispatch) => {
   dispatch({ type: FETCH_USER, payload: res.data });
 };
 
-export const handleThreeMonthToken = (token, amt, credits) => async (
+export const handleThreeMonthToken = (token, amt, credits, items) => async (
   dispatch
 ) => {
   const res = await axios.post("/api/stripe", token, {
-    params: { amt, credits },
+    params: { amt, credits, items },
   });
 
   dispatch({ type: FETCH_USER, payload: res.data });

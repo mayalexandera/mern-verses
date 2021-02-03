@@ -23,7 +23,7 @@ const Profile = (props) => {
           </div>
           <div className='profile-header'>
             <div className='credits-container'>
-              Credits: {props.auth.user.credits}
+              Credits: {props.auth.user.membership[0].credits}
               <Payments />
             </div>
             <div className='credits-container'>

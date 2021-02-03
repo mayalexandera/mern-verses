@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import * as actions from "../../store/actions";
 import PlanCard from "./PlanCard";
@@ -10,6 +10,13 @@ const Plans = ({ fetchPlans, plans }) => {
     fetchPlans();
   }, [fetchPlans]);
 
+  const [tier, setTier] = useState({})
+
+  const handleClick = (e, newTier) => {
+    e.preventDefault()
+    setTier(newTier)
+    console.log('hi', tier)
+  }
   return (
     <div className='plans-container'>
       <div className='plans-section'>
@@ -41,11 +48,12 @@ const Plans = ({ fetchPlans, plans }) => {
               </ul>
               <div className='plan-tiers-container'>
                 {plans ? plans[0].tiers.map((tier, index) => {
-                  return(<PlanCard tier={tier} index={index} />)
+                  return(<PlanCard handleClick={handleClick} tier={tier} index={index} />)
                 }): null }
               </div>
             </div>
-            <div><ThreeMonthPayment id={'plan-button'} /></div>
+            <div className=
+            'plan-button-wrapper'><ThreeMonthPayment className='plan-checkout-button' id={'plan-button'} tier={tier} credits={1} /></div>
           </div>
         </div>
       </div>

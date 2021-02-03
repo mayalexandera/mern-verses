@@ -1,8 +1,12 @@
 import React from "react";
 
-const PlanCard = ({ tier }) => {
+const PlanCard = ({ tier, handleClick }) => {
   return (
-    <div className='col-sm-4' id='plans-col'>
+    <div
+      onClick={(e) => handleClick(e, tier)}
+      className='col-sm-4'
+      id='plans-col'
+    >
       <div className='plan-card-body'>
         <div className='tier-card-title'>
           <p>{tier.items}</p>
