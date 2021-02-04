@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import  Membership  from '../Membership/Membership'
+import Dashboard from '../Dashboard/Dashboard'
 import "./Profile.css";
 
 const Profile = (props) => {
@@ -28,7 +29,7 @@ const Profile = (props) => {
       <div>loading...</div>
     );
   };
-  return renderUser();
+  return <div><Dashboard title='Profile'/>{renderUser()}</div>
 };
 
 const mapStateToProps = ({ auth }) => {

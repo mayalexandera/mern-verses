@@ -1,11 +1,13 @@
 import React from "react";
 import settings from "./settings";
 import AccountSetting from "./accountSetting";
+import Dashboard from '../Dashboard/Dashboard'
 import "./AccountSettings.css";
 
 const AccountSettings = (props) => {
   return (
     <div className='settings-container'>
+      <Dashboard title='Account'/>
       <div className='settings-nav-title'>
         <h2 className='settings-headline-3'>Settings</h2>
       </div>

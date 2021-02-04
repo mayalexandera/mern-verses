@@ -2,26 +2,27 @@
   
    .dashboard-wrapper-container {
     background-color: #fff;
-    top: 90px;
+    top: 140px;
     padding-left: 48px;
     padding-right: 48px;
     vertical-align: middle;
+    left: 0;
+    right: 0;
     width: 100%;
-    /* border: 1px solid orange; */
-    position: fixed;
+    margin-bottom: 48px;
+    line-height: 1.6;
+    position: absolute;
   }
-
+  
   .dashboard-container {
+    margin-left: auto;
+    margin-right: auto;
     max-width: 1424px;
     display: flex;
     align-items: center;
-    /* border: 1px solid red; */
   }
 
   .dashboard-wrapper {
-    /* padding-bottom: 30px; */
-    /* padding-top: 30px; */
-    /* border: 1px solid red; */
     display: inline-block;
     width: 75%;
     font-weight: 400;
@@ -29,16 +30,18 @@
   }
 
   .dashboard-header {
-    /* border: 1px solid red; */
     display: inline-block;
     width: 25%;
+    text-align: left;
   }
 
+  .dashboard-header-title {
+    margin-left: 50px;
+    display: inline;
+  }
   .dashboard-list {
     width: 66.666%;
     text-align: center;
-    /* border: 1px solid red; */
-    display: inline-block;
   }
 
   .dashboard-list a {
@@ -47,8 +50,3 @@
   }
 }
 
-@media only screen and (min-width: 640px) {
-  .dashboard-wrapper-container {
-    margin-bottom: 48px;
-  }
-}
