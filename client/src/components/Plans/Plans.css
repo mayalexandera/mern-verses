@@ -61,7 +61,6 @@
   box-shadow: inset 1px 0 0 0 #e5e5e5;
 }
 
-
 .tier-card-title {
   padding: 8px 16px;
   padding-top: 34px;
@@ -143,7 +142,7 @@
 }
 
 .plan-button-wrapper {
-  max-width: 80%;
+  max-width: 90%;
 }
 
 .plan-checkout-button {

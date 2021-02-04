@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
-import  Membership  from '../Membership/Membership'
-import Dashboard from '../Dashboard/Dashboard'
+import Membership from "../Membership/Membership";
+import Dashboard from "../Dashboard/Dashboard";
 import "./Profile.css";
 
 const Profile = (props) => {
@@ -18,18 +18,22 @@ const Profile = (props) => {
             <div className='profile-subtitle'>
               <h2>{props.auth.user.displayName}</h2>
               <h4>Verses Member Since June 2017</h4>
-             <h4> Credits: {props.auth.user.membership[0].credits}</h4>
+              <h4> Credits: {props.auth.user.membership[0].credits}</h4>
             </div>
           </div>
-
         </div>
-        <Membership user={props.auth.user}/>
+        <Membership user={props.auth.user} />
       </div>
     ) : (
       <div>loading...</div>
     );
   };
-  return <div><Dashboard title='Profile'/>{renderUser()}</div>
+  return (
+    <div className='profile-container'>
+      <Dashboard title='Profile' />
+      {renderUser()}
+    </div>
+  );
 };
 
 const mapStateToProps = ({ auth }) => {

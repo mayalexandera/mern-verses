@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import * as actions from "../../store/actions";
 import OrderList from "./OrderList";
-import Dashboard from '../Dashboard/Dashboard'
+import Dashboard from "../Dashboard/Dashboard";
 import "./Orders.css";
 
 function Orders({ orders, fetchOrders }) {
@@ -17,9 +17,10 @@ function Orders({ orders, fetchOrders }) {
   };
   return (
     <div className='orders-container'>
-      <Dashboard title="Orders"/>
-      <h2>Orders</h2>
-      <div>{ orders.orders.length > 0 ? renderOrders() : null }</div>
+      <Dashboard title='Orders' />
+      <div className='orders-list-wrapper'>
+        {orders.orders.length > 0 ? renderOrders() : null}
+      </div>
     </div>
   );
 }

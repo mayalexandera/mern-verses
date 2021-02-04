@@ -2,18 +2,16 @@ const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
 const OrderItemSchema = new Schema({
-  productId: { type: Schema.Types.ObjectId, ref: "Product"},
-  sizeId: { type: Schema.Types.ObjectId, ref: "Size"},
-  orderId: { type: Schema.Types.ObjectId, ref: 'Order'},
+  productId: { type: Schema.Types.ObjectId, ref: "Product" },
+  sizeId: { type: Schema.Types.ObjectId, ref: "Size" },
+  orderId: { type: Schema.Types.ObjectId, ref: "Order" },
   count: Number,
-})
+});
 
-const OrderItem = mongoose.model("OrderItem", OrderItemSchema)
+const OrderItem = mongoose.model("OrderItem", OrderItemSchema);
 module.exports = OrderItem;
 
-
 const OrderSchema = new Schema({
-  // cart: { type: Schema.Types.ObjectId, ref: "Cart" },
   user: { type: Schema.Types.ObjectId, ref: "User" },
   items: [OrderItemSchema],
   totals: {
@@ -35,4 +33,4 @@ const OrderSchema = new Schema({
   },
 });
 
-module.exports = mongoose.model('Order', OrderSchema)
+module.exports = mongoose.model("Order", OrderSchema);

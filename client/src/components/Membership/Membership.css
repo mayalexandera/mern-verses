@@ -1,6 +1,8 @@
 .membership-container {
   padding-top: 36px;
-  margin: 0 40px;
+  max-width: 1920px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .membership-container-title {
@@ -12,7 +14,6 @@
 
 .membership-section {
   vertical-align: top;
-  margin: 0 56px;
   display: flex;
 }
 

@@ -190,7 +190,7 @@ const Product = ({
                                 favorite_border
                               </span>
                             </button>
-                            <div id="error-message-container">
+                            <div id='error-message-container'>
                               {errorMessage}
                               {favoriteList.message}
                             </div>

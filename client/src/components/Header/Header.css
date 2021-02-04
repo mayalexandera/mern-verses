@@ -1,17 +1,16 @@
 @media screen and (min-width: 768px) {
-
   .main-menu {
     width: 100%;
     z-index: 2;
-    position: relative;
+    position: fixed;
     top: 30px;
-    transition: transform .15s ease;
+    transition: transform 0.15s ease;
     height: 60px;
     display: block;
+    background: white;
   }
 
   .nav-wrapper {
-    max-width: 1920px;
     padding: 0 38px 0 36px;
     height: 60px;
     margin-left: auto;
@@ -21,30 +20,31 @@
     display: flex;
   }
 
-  .cart-button, .favorites-button {
+  .cart-button,
+  .favorites-button {
     display: flex;
     justify-content: center;
     align-items: center;
   }
 
-.cart-button > span,
-.favorites-button > span {
-  position: absolute;
-}
+  .cart-button > span,
+  .favorites-button > span {
+    position: absolute;
+  }
 
-.cart-button p,
-.favorite-button p {
-  font-size: 65%;
-  font-weight: 400;
-  position: relative;
-  top: 2px;
-}
+  .cart-button p,
+  .favorite-button p {
+    font-size: 65%;
+    font-weight: 400;
+    position: relative;
+    top: 2px;
+  }
 
-.favorites-button p {
-  font-size: 65%;
-  position: relative;
-  bottom: .5px;
-}
+  .favorites-button p {
+    font-size: 65%;
+    position: relative;
+    bottom: 0.5px;
+  }
 
   .center-menu-wrapper {
     position: unset;
@@ -79,7 +79,7 @@
     padding-top: 16px;
     padding-bottom: 18px;
     border-bottom: 2px solid transparent;
-    transition: border-color .1s, color .1s;
+    transition: border-color 0.1s, color 0.1s;
     display: block;
     font-size: 16px;
     font-weight: 500;
@@ -87,7 +87,7 @@
 
   .right-menu {
     text-align: right;
-    display:inline-block;
+    display: inline-block;
     padding-top: 16px;
   }
 
@@ -108,7 +108,7 @@
     margin-top: 3px;
     display: inline-block;
   }
-  
+
   .nav-logo a {
     font-weight: 900;
     font-size: 200%;
@@ -116,7 +116,7 @@
     visibility: visible;
     padding-left: 12px;
     padding-right: 12px;
-    transition: opacity .4s,visibility 0s;
+    transition: opacity 0.4s, visibility 0s;
   }
 
   .small-menu-icon,
@@ -174,7 +174,7 @@
   }
 
   .small-dropdown-menu {
-    border:1px solid blue;
+    border: 1px solid blue;
     height: 56px;
     width: 62px;
     position: absolute;
@@ -191,6 +191,7 @@
 }
 
 @media only screen and (min-width: 1440px) {
-.center-menu-list {
-    width: calc(100% - 680px)
-}}
+  .center-menu-list {
+    width: calc(100% - 680px);
+  }
+}

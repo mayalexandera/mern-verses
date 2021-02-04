@@ -9,43 +9,30 @@ const Header = ({ favoriteList, cart }) => {
     <header className='main-menu'>
       <div>
         <div className='nav-wrapper'>
-          {/* <div className='nav-container'> */}
           <div className='nav-logo'>
             <NavLink to='/'>Verses</NavLink>
           </div>
-
           <div className='small-menu-icon'>
             <i className='material-icons-outlined'>menu</i>
             <div className='small-dropdown-menu'></div>
           </div>
-
-          {/* </div> */}
           <div className='center-menu-wrapper'>
             <div className='center-menu-container'>
               <ul className='center-menu-list'>
                 <li>
-                  <NavLink to='/products'>
-                    Clothing
-                  </NavLink>
+                  <NavLink to='/products'>Clothing</NavLink>
                 </li>
-               <li>
-                  <NavLink to='/products'>
-                    Accessories
-                  </NavLink>
-               </li>
-            <li>
-                  <NavLink to='/plans'>
-                    Plans
-                  </NavLink>
-            </li>
+                <li>
+                  <NavLink to='/products'>Accessories</NavLink>
+                </li>
+                <li>
+                  <NavLink to='/plans'>Plans</NavLink>
+                </li>
               </ul>
             </div>
           </div>
           <div className='right-menu'>
-            <NavLink
-              className='nav-button favorites-button'
-              to='/member/favorites'
-            >
+            <NavLink className='nav-button favorites-button' to='/favorites'>
               <span className='material-icons-outlined'>favorite_border</span>
               <p>
                 {favoriteList && favoriteList.items
