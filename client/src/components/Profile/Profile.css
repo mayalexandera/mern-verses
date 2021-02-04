@@ -2,6 +2,8 @@
   position: relative;
   top: 220px;
   width: 100%;
+  margin-left: 48px;
+  margin-right: 48px;
   min-height: 2000px;
 }
 
@@ -10,7 +12,7 @@
   padding-bottom: 48px;
   overflow: scroll;
   width: auto;
-  max-width: 1808px;
+  max-width: 1424px;
   margin-left: auto;
   margin-right: auto;
   min-height: 600px;
