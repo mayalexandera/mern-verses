@@ -1,17 +1,22 @@
 .orders-container {
-  padding-top: 220px;
+  position: relative;
+  top: 220px;
   text-align: center;
 }
 
-.order-item-card-container {
-  /* background: blue; */
-}
-
 .orders-list-wrapper {
+  display: flex;
+  justify-content: center;
+  background: #fff;
+  width: 100%;
   max-width: 1200px;
-  width: auto;
+  padding-bottom: 34px;
   margin-left: auto;
   margin-right: auto;
+}
+
+.orders-list {
+  width: 100%;
 }
 
 .order-item-card-wrapper {
@@ -90,6 +95,12 @@
   font-weight: 500;
 }
 
-.prder-item-card-details-section {
+.oder-item-card-details-section {
   padding-top: 40px;
+}
+
+@media only screen and (max-width: 1449px) {
+  .orders-list {
+    width: 77%;
+  }
 }

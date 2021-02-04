@@ -18,8 +18,10 @@ function Orders({ orders, fetchOrders }) {
   return (
     <div className='orders-container'>
       <Dashboard title='Orders' />
-      <div className='orders-list-wrapper'>
-        {orders.orders.length > 0 ? renderOrders() : null}
+      <div className='orders-list-container'>
+        <div className='orders-list-wrapper'>
+         <div className='orders-list'> {orders.orders.length > 0 ? renderOrders() : null}</div>
+        </div>
       </div>
     </div>
   );

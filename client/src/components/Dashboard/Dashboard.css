@@ -5,7 +5,7 @@
   display: flex;
   justify-content: center;
   width: 100%;
-  max-width: 1424px;
+  max-width: 1200px;
   padding-bottom: 34px;
 }
 
@@ -43,7 +43,7 @@
 }
 
 .dashboard-wrapper-container {
-  /* background-color: green; */
+  background-color: #fff;
   top: 90px;
   margin-left: auto;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -51,13 +51,12 @@
   margin-right: auto;
   vertical-align: middle;
   left: 0;
-  z-index: 1;
+  z-index: 2;
   right: 0;
   width: 100%;
   font-size: 24px;
   line-height: 2.2;
   position: fixed;
-  padding-bottom: 40px;
 }
 
 .dashboard-header-spacer {

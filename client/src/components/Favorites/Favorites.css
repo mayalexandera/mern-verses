@@ -1,9 +1,10 @@
 .favorites-container {
-
+  position: relative;
+  top: 224px;
 }
 
 .favorites-section {
-  padding-top: 200px;
+  /* padding-top: 200px; */
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
@@ -215,7 +216,7 @@ a {
   padding: 4px;
   font-size: 12px;
   color: rgb(17, 17, 17);
-  background: rgb(255, 255, 255);
+  background: transparent;
 }
 
 @media only screen and (min-width: 1024px) {
@@ -230,5 +231,11 @@ a {
     height: 40px;
     width: 40px;
     padding: 6px;
+  }
+}
+
+@media only screen and (max-width: 1449px) {
+  .favorite-content {
+    width: 77%;
   }
 }
