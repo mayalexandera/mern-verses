@@ -7,6 +7,7 @@ const Dashboard = (props) => {
 
   return (
     <div className='dashboard-wrapper-container'>
+      <div className='dashboard-header-spacer'/>
       <div className='dashboard-container'>
         <div className='dashboard-header-wrapper'>
           <div className='dashboard-header'>

@@ -106,13 +106,13 @@
 
   .nav-logo {
     margin-top: 3px;
+    z-index: 4;
     display: inline-block;
   }
 
   .nav-logo a {
     font-weight: 900;
     font-size: 200%;
-    z-index: 4;
     visibility: visible;
     padding-left: 12px;
     padding-right: 12px;

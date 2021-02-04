@@ -24,7 +24,6 @@ import AccountSettings from "./AccountSettings/AccountSettings";
 import "./App.css";
 
 class App extends Component {
-
   render() {
     return (
       <Layout>

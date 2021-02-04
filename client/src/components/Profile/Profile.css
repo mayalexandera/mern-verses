@@ -1,7 +1,6 @@
 .profile-container {
   position: relative;
   top: 220px;
-  width: 100%;
   margin-left: 48px;
   margin-right: 48px;
   min-height: 2000px;
@@ -11,8 +10,9 @@
   margin: 0 20px;
   padding-bottom: 48px;
   overflow: scroll;
-  width: auto;
+  width: 100%;
   max-width: 1424px;
+  /* background-color: pink; */
   margin-left: auto;
   margin-right: auto;
   min-height: 600px;
@@ -75,4 +75,19 @@
   color: #fff;
   background-color: #555;
   padding: 4px 10px;
+}
+
+@media only screen and (min-width: 1424px) {
+  .profile-container {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+}
+
+@media only screen and (max-width: 1449px) {
+  .profile-container {
+    width: 77%;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
