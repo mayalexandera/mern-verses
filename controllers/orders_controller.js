@@ -4,38 +4,52 @@ const Order = require("../models/Order");
 const User = require("../models/User");
 
 exports.placeOrder = async (req, res) => {
-  const cart = req.body.cartId;
+  const cartId = req.body.cartId;
+  const items = req.body.items;
   const totals = req.body.totals;
-  const userId = req.user._id;
+  const user = req.user._id;
 
   const order = new Order({
-    cart,
+    cartId,
+    items,
     totals,
-    userId,
+    user,
   });
   await order.save();
 
-  const user = await User.findById(userId);
-  user.membership[0].credits -= 1;
-  await user.save();
+  const newUser = await User.findById(user);
+  newUser.membership[0].credits -= 1;
+  await newUser.save();
 
   const orderDoc = await Order.findById(order._id)
-    .populate("cart")
     .populate({ path: "items", populate: { path: "productId" } })
-    .populate("user");
+    .populate({ path: "items", populate: { path: "sizeId" } })
+    .populate("user")
+    .exec()
 
-  orderDoc.cart.items.map(async (item) => {
+  orderDoc.items.map(async (item) => {
     const size = await Size.findById(item.sizeId);
     size.quantity -= item.count;
     await size.save();
   });
-  const newOrder = {
-    _id: orderDoc._id,
-    created: orderDoc.created,
-    user: orderDoc.user,
-    totals: orderDoc.totals,
-    products: orderDoc.cart.items,
-  };
+  await orderDoc.save()
+
+  const newOrder = await Order.findById(order._id)
+    .populate({ path: "items", populate: { path: "productId" } })
+    .populate({ path: "items", populate: { path: "sizeId" } })
+    .populate("user")
+    .exec();
 
   res.send(newOrder);
 };
+
+
+exports.fetchOrders = async (req, res) => {
+  const user = req.user._id
+  const query = { user }
+  const orders = await Order.find(query)
+    .populate({ path: "items", populate: { path: "productId" } })
+    .populate({ path: "items", populate: { path: "sizeId" } }).exec();
+    
+  res.send(orders)
+}

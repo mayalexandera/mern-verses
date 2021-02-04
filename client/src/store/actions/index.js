@@ -26,4 +26,4 @@ export {
 export { fetchPlans } from "./planActions";
 
 export { fetchSizes } from "./sizesActions";
-export { placeOrder } from "./orderActions";
+export { placeOrder, fetchOrders } from "./orderActions";

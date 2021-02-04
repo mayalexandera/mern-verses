@@ -25,3 +25,4 @@ export const FETCH_CART = 'fetch_cart'
 export const HANDLE_CART_TOTAL = 'handle_cart_total'
 
 export const PLACE_ORDER = 'place_order'
+export const FETCH_ORDERS = 'fetch_orders'

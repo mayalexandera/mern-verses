@@ -4,46 +4,63 @@ import { connect } from "react-redux";
 import * as actions from "../../store/actions";
 import "./Header.css";
 
-const Header = ({ fetchUser, fetchFavorites, fetchCart, favoriteList, cart }) => {
-
-  console.log(fetchUser, favoriteList, cart, "Header");
+const Header = ({ favoriteList, cart }) => {
   return (
-    <nav className='main-menu'>
-      <div className='nav-wrapper'>
-        <NavLink className='nav-logo' to='/'>
-          Verses
-        </NavLink>
-        <div className='right-menu'>
-          <NavLink
-            className='nav-button favorites-button'
-            to='/member/favorites'
-          >
-            <span className='material-icons-outlined'>favorite_border</span>
-            <p>{favoriteList && favoriteList.items ? favoriteList.items.length : null}</p>
-          </NavLink>
-          <NavLink className='nav-button cart-button' to='/cart'>
-            <span className='material-icons-outlined'>shopping_bag</span>
-            <p>{cart && cart.items ? cart.items.length : null}</p>
-          </NavLink>
-        </div>
+    <header className='main-menu'>
+      <div>
+        <div className='nav-wrapper'>
+          {/* <div className='nav-container'> */}
+          <div className='nav-logo'>
+            <NavLink to='/'>Verses</NavLink>
+          </div>
 
-        <div className='small-menu-icon'>
-          <i className='material-icons-outlined'>menu</i>
-          <div className='small-dropdown-menu'></div>
+          <div className='small-menu-icon'>
+            <i className='material-icons-outlined'>menu</i>
+            <div className='small-dropdown-menu'></div>
+          </div>
+
+          {/* </div> */}
+          <div className='center-menu-wrapper'>
+            <div className='center-menu-container'>
+              <ul className='center-menu-list'>
+                <li>
+                  <NavLink to='/products'>
+                    Clothing
+                  </NavLink>
+                </li>
+               <li>
+                  <NavLink to='/products'>
+                    Accessories
+                  </NavLink>
+               </li>
+            <li>
+                  <NavLink to='/plans'>
+                    Plans
+                  </NavLink>
+            </li>
+              </ul>
+            </div>
+          </div>
+          <div className='right-menu'>
+            <NavLink
+              className='nav-button favorites-button'
+              to='/member/favorites'
+            >
+              <span className='material-icons-outlined'>favorite_border</span>
+              <p>
+                {favoriteList && favoriteList.items
+                  ? favoriteList.items.length
+                  : null}
+              </p>
+            </NavLink>
+            <NavLink className='nav-button cart-button' to='/cart'>
+              <span className='material-icons-outlined'>shopping_bag</span>
+              <p>{cart && cart.items ? cart.items.length : null}</p>
+            </NavLink>
+          </div>
         </div>
       </div>
-      <ul className='center-menu'>
-        <NavLink className='nav-button' to='/products'>
-          Clothing
-        </NavLink>
-        <NavLink className='nav-button' to='/products'>
-          Accessories
-        </NavLink>
-        <NavLink className='nav-button' to='/plans'>
-          Plans
-        </NavLink>
-      </ul>
-    </nav>
+    </header>
   );
 };
 

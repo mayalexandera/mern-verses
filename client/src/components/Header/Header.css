@@ -1,24 +1,24 @@
 @media screen and (min-width: 768px) {
-  .nav-wrapper,
-  .center-menu,
-  .main-menu {
-    width: 100%;
-    position: fixed;
-    z-index: 1;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 60px;
-    top: 30px;
-  }
-  .nav-wrapper {
-    padding: 0 20px;
-    background-color: #fff;
-  }
 
   .main-menu {
     width: 100%;
-    justify-content: center;
+    z-index: 2;
+    position: relative;
+    top: 30px;
+    transition: transform .15s ease;
+    height: 60px;
+    display: block;
+  }
+
+  .nav-wrapper {
+    max-width: 1920px;
+    padding: 0 38px 0 36px;
+    height: 60px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    justify-content: space-between;
+    display: flex;
   }
 
   .cart-button, .favorites-button {
@@ -46,43 +46,77 @@
   bottom: .5px;
 }
 
-  .center-menu {
-    width: 33%;
-    justify-content: center;
+  .center-menu-wrapper {
+    position: unset;
+    top: 0;
+  }
+
+  .center-menu-container {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    right: 0;
+    display: block;
+    text-align: center;
+  }
+
+  .center-menu-list {
+    list-style: none;
+    max-width: 1255px;
+    margin: 0 auto;
+    width: calc(100% - 426px);
+    height: 60px;
+  }
+
+  .center-menu-list li {
+    display: inline-block;
+  }
+
+  .center-menu-list li a {
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-top: 16px;
+    padding-bottom: 18px;
+    border-bottom: 2px solid transparent;
+    transition: border-color .1s, color .1s;
+    display: block;
+    font-size: 16px;
+    font-weight: 500;
   }
 
   .right-menu {
+    text-align: right;
+    display:inline-block;
+    padding-top: 16px;
+  }
+
+  .right-menu a {
     display: inline-flex;
+    vertical-align: middle;
+    background: transparent;
+    padding: 6px;
+    position: relative;
+    margin-left: 26px;
   }
 
   .nav-button {
     font-size: 80%;
   }
 
-  .center-menu > .nav-button {
-    padding-right: 10px;
-  }
-
-  .right-menu > .nav-button {
-    padding-left: 30px;
-    padding-right: 20px;
-  }
-
-  .center-menu > .nav-button:last-child,
-  .right-menu > .nav-button:first-child {
-    padding: 0px;
-  }
-
-  .nav-button,
   .nav-logo {
-    font-weight: 400;
-    color: black;
-    /* text-transform: uppercase; */
+    margin-top: 3px;
+    display: inline-block;
   }
-
-  .nav-logo {
+  
+  .nav-logo a {
     font-weight: 900;
     font-size: 200%;
+    z-index: 4;
+    visibility: visible;
+    padding-left: 12px;
+    padding-right: 12px;
+    transition: opacity .4s,visibility 0s;
   }
 
   .small-menu-icon,
@@ -95,7 +129,6 @@
 @media screen and (max-width: 767px) {
   .main-menu {
     width: 100%;
-    /* text-transform: uppercase; */
     color: black;
   }
   .nav-logo {
@@ -106,7 +139,6 @@
 
   .nav-wrapper {
     width: 100%;
-    /* border: 1px solid red; */
     height: 60px;
     display: flex;
     padding: 0px 10px;
@@ -158,3 +190,7 @@
   }
 }
 
+@media only screen and (min-width: 1440px) {
+.center-menu-list {
+    width: calc(100% - 680px)
+}}

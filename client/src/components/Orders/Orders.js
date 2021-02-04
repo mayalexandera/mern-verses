@@ -1,11 +1,28 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { connect } from "react-redux";
+import * as actions from "../../store/actions";
+import OrderList from "./OrderList";
+import "./Orders.css";
 
-function Orders() {
+function Orders({ orders, fetchOrders }) {
+  useEffect(() => {
+    fetchOrders();
+  }, [fetchOrders]);
+
+  const renderOrders = () => {
+    return orders.orders.map((order) => {
+      return <OrderList order={order} />;
+    });
+  };
   return (
-    <div>
-      <h2 style={{ textAlign: "center" }}>Orders</h2>
+    <div className='orders-container'>
+      <h2>Orders</h2>
+      <div>{ orders.orders.length > 0 ? renderOrders() : null }</div>
     </div>
   );
 }
 
-export default Orders;
+const mapStateToProps = ({ orders }) => {
+  return { orders };
+};
+export default connect(mapStateToProps, actions)(Orders);
