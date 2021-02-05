@@ -6,7 +6,8 @@ import * as actions from '../actions/index'
 export const fetchUser = () => async (dispatch) => {
   // const res = await axios.get("/api/current_user");
   const res = await axios.get("/api/current_user");
-
+console.log(res.data)
+ window.localStorage.setItem("user", `${res.data._id}`)
    dispatch({ type: FETCH_USER, payload: res.data });
   dispatch(actions.fetchCart())
   dispatch(actions.fetchFavorites())

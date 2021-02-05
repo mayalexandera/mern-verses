@@ -25,14 +25,14 @@ exports.placeOrder = async (req, res) => {
     .populate({ path: "items", populate: { path: "productId" } })
     .populate({ path: "items", populate: { path: "sizeId" } })
     .populate("user")
-    .exec()
+    .exec();
 
   orderDoc.items.map(async (item) => {
     const size = await Size.findById(item.sizeId);
     size.quantity -= item.count;
     await size.save();
   });
-  await orderDoc.save()
+  await orderDoc.save();
 
   const newOrder = await Order.findById(order._id)
     .populate({ path: "items", populate: { path: "productId" } })
@@ -43,13 +43,13 @@ exports.placeOrder = async (req, res) => {
   res.send(newOrder);
 };
 
-
 exports.fetchOrders = async (req, res) => {
-  const user = req.user._id
-  const query = { user }
+  const user = req.user._id;
+  const query = { user };
   const orders = await Order.find(query)
     .populate({ path: "items", populate: { path: "productId" } })
-    .populate({ path: "items", populate: { path: "sizeId" } }).exec();
-    
-  res.send(orders)
-}
+    .populate({ path: "items", populate: { path: "sizeId" } })
+    .exec();
+
+  res.send(orders);
+};

@@ -1,7 +1,7 @@
 import { FETCH_SIZES } from "../actions/types";
 // import { updateObject } from "../../utils/updateObject";
 
-export default function (state = [], action) {
+const sizesReducer = (state = [], action) => {
   // console.log(action.payload || false)
   switch (action.type) {
     case FETCH_SIZES:
@@ -11,3 +11,5 @@ export default function (state = [], action) {
       return state;
   }
 }
+
+export default sizesReducer;

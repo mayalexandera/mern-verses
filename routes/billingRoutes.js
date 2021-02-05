@@ -15,7 +15,7 @@ module.exports = (app) => {
     const charge = await stripe.charges.create({
       amount: Number(req.query.amt),
       currency: "usd",
-      description: `${req.query.amt}/per month`,
+      description: `${req.query.amt || '0'}/per month`,
       source: req.body.id,
     });
 

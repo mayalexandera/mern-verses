@@ -1,7 +1,7 @@
 import { FETCH_SURVEYS } from '../actions/types'
 // import { updateObject } from "../../utils/updateObject";
 
-export default function(state=[], action) {
+const surveysReducer = (state=[], action) => {
   switch (action.type) {
     case FETCH_SURVEYS:
       return action.payload
@@ -9,3 +9,5 @@ export default function(state=[], action) {
         return state
   }
 }
+
+export default surveysReducer;

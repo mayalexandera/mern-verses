@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import { NavLink } from "react-router-dom";
 import "./Dashboard.css";
 
 const Dashboard = (props) => {
-  console.log(props);
 
   return (
     <div className='dashboard-wrapper-container'>

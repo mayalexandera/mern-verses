@@ -3,13 +3,13 @@ import { NavLink } from "react-router-dom";
 
 const OrderItemCard = ({ orderNumber, orderedDate, item, index }) => {
   const dateType = new Date(orderedDate);
-  let [day, month, date, year] = dateType.toDateString("en-US").split(" ");
+  let [ day, month, date, year] = dateType.toDateString("en-US").split(" ");
   return (
     <div className='order-item-card-container' key={index}>
       <div className='order-item-card-wrapper'>
         <div className='order-item-card-body'>
           <div className='order-item-image-wrapper'>
-            <img src={item.productId.images.model1[0]} />
+            <img  alt={item.productId.name} src={item.productId.images.model1[0]} />
           </div>
           <div className='order-item-details-container'>
             <div className='flx-grow-md-0 order-items-details-list'>

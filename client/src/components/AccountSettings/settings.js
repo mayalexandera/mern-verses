@@ -1,4 +1,4 @@
-export default [
+const settings =  [
   {
     title: "Account Details",
     icon:
@@ -40,3 +40,5 @@ export default [
       "https://www.nike.com/static/dotcom-member/settings/dist/3.0.4/images/linkedAccounts.svg",
   },
 ];
+
+export default settings

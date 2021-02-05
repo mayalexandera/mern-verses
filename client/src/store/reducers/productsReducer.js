@@ -7,17 +7,15 @@ import {
   UPDATE_FILTERS,
 } from "../actions/types";
 import { updateObject } from "../../utils/updateObject";
-import { update } from "lodash";
 
 const initialState = {
   products: null,
   filters: [],
   product: null,
-  filters: null,
   byCategory: null,
   categories: null,
 };
-export default function (state = initialState, action) {
+const productsReducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCH_PRODUCTS:
       return updateObject(state, { products: action.payload }) || false;
@@ -62,3 +60,6 @@ export default function (state = initialState, action) {
       return state;
   }
 }
+
+
+export default productsReducer

@@ -18,7 +18,7 @@ const initialState = {
   isLoaded: null,
   message: null,
 };
-export default function (state = initialState, action) {
+const cartReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_CART_ITEM:
       return action.payload || false;
@@ -45,3 +45,5 @@ export default function (state = initialState, action) {
       return state;
   }
 }
+
+export default cartReducer;

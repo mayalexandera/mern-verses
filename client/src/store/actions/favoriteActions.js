@@ -1,5 +1,5 @@
 import axios from "axios";
-import { ADD_FAVORITE, FETCH_FAVORITES, ADD_FAVORITE_FAILED, DELETE_FAVORITE } from "./types";
+import { ADD_FAVORITE, FETCH_FAVORITES, DELETE_FAVORITE } from "./types";
 
 export const addFavorite = (product) => async (dispatch, getState) => {
   const user = getState().auth.user._id;

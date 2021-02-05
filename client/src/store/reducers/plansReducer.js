@@ -1,7 +1,7 @@
 import { FETCH_PLANS } from "../actions/types";
-import { updateObject } from "../../utils/updateObject";
+// import { updateObject } from "../../utils/updateObject";
 
-export default function (state = null, action) {
+const plansReducer = (state = null, action) => {
   // console.log(action.payload || false)
   switch (action.type) {
     case FETCH_PLANS:
@@ -11,3 +11,5 @@ export default function (state = null, action) {
       return state;
   }
 }
+
+export default plansReducer;

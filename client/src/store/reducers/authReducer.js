@@ -6,10 +6,12 @@ const initialState = {
   user: null,
 };
 
-export default function (state = initialState, action) {
+const authReducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCH_USER:
       console.log(action.payload)
+      
+       
       return action.payload
         ? updateObject(state, { user: { ...action.payload }, isLoggedIn: true })
         : updateObject(state, { user: null, isLoggedIn: false });
@@ -18,3 +20,6 @@ export default function (state = initialState, action) {
       return state;
   }
 }
+
+
+export default authReducer;

@@ -9,7 +9,7 @@ const Cart = ({ items, fetchCart, isLoggedIn }) => {
     if (isLoggedIn) {
       fetchCart();
     }
-  }, [isLoggedIn]);
+  }, [fetchCart, isLoggedIn]);
 
   return (
     <div className='cart-container'>

@@ -160,7 +160,7 @@ const Product = ({
                           <legend className='headline-small select-size-form-header'>
                             <div className='headline-small size-header-row'>
                               <span className='size-header'>Select Size</span>
-                              <a className='size-chart-link'>Size Guide</a>
+                              <p className='size-chart-link'>Size Guide</p>
                             </div>
                           </legend>
                           <div className='select-size-grid'>

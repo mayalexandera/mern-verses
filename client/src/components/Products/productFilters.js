@@ -1,4 +1,4 @@
-export default [
+const productFilters = [
   {
     title: "Shop By Price",
     options: [
@@ -35,3 +35,5 @@ export default [
     ],
   },
 ];
+
+export default productFilters

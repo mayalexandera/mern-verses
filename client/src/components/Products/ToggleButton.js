@@ -15,7 +15,6 @@ const ToggleButton = (props) => {
 
   var toggleCheck = !!checked ? " is--checked" : "";
 
-  console.log('toggle button', props)
   return (
     <div
       onClick={() => handleClick(props.filter.value)}

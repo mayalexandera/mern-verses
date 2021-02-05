@@ -2,7 +2,7 @@ import { ADD_FAVORITE, ADD_FAVORITE_FAILED,  DELETE_FAVORITE, FETCH_FAVORITES } 
 import { updateObject } from "../../utils/updateObject";
 const initialState = { items: [], error: null, message: null };
 
-export default function (state = initialState, action) {
+const favoritesReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_FAVORITE:
       return action.payload.message ? updateObject(state, { message: action.payload.message }) :  action.payload
@@ -16,3 +16,5 @@ export default function (state = initialState, action) {
       return state;
   }
 }
+
+export default favoritesReducer

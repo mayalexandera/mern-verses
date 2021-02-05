@@ -6,7 +6,7 @@ const initialState = {
   order: null,
 };
 
-export default function (state = initialState, action) {
+const orderReducer = (state = initialState, action) => {
   switch (action.type) {
     case PLACE_ORDER:
       console.log(action.payload)
@@ -17,3 +17,5 @@ export default function (state = initialState, action) {
       return state;
   }
 }
+
+export default orderReducer;

@@ -4,7 +4,7 @@ const CartDetail = ({ item }) => {
   return (
     <figure className='checkout-cart-item'>
       <div className='checkout-cart-image'>
-        <img src={item.featuredImage} />
+        <img alt={item.productId.name} src={item.featuredImage} />
       </div>
       <figcaption className='checkout-cart-item-details'>
         <div className='item-name'> {item.name}/{item.brandName}</div>

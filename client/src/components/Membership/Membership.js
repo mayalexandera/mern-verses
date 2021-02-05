@@ -14,7 +14,7 @@ const Membership = ({ user, fetchPlans, plans }) => {
   const handleClick = (e, newTier) => {
     e.preventDefault();
     setTier(newTier);
-    console.log("hi", tier);
+    console.log("Membership.js", tier);
   };
 
   const renderPlan = () => {
@@ -39,9 +39,9 @@ const Membership = ({ user, fetchPlans, plans }) => {
             <h3 className='membership-container-title'>Membership Benefits</h3>
             <ul className='plan-feature-bullet-points'>
               {plans && plans
-                ? plans[0].features.map((feature) => {
+                ? plans[0].features.map((feature, index) => {
                     return (
-                      <li>
+                      <li key={index}>
                         <i class='material-icons-outlined'>done</i>
                         <span>{feature}</span>
                       </li>

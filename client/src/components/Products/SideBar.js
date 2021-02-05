@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { CSSTransition, TransitionGroup } from "react-transition-group";
 import * as actions from "../../store/actions";
 import productFilters from "./productFilters";
 import SideBarItem from './SideBarItem'
