@@ -16,7 +16,6 @@ export const placeOrder = () => async (dispatch, getState) => {
 }
  
 export const fetchOrders = () => async (dispatch, getState) => {
-  const user = getState().auth.user._id
   const res = await axios.get(`/api/orders`)
 
   dispatch({ type: FETCH_ORDERS, payload: res.data})

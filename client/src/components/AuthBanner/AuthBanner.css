@@ -8,13 +8,23 @@
   width: 100%;
   height: 30px;
   font-size: 70%;
-  z-index: 100;
+  z-index: 1;
   font-weight: 400;
 }
 
 .member-banner-wrapper a {
   margin-left: 10px;
+  line-height: 1.333;
   margin-right: 10px;
+  font-weight: 500;
+  font-size: 12px;
+}
+
+.member-banner-wrapper a:hover {
+  opacity: 0.75;
+  -webkit-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  transition: all 0.2s ease;
 }
 
 @media only screen and (min-width: 1024px) {

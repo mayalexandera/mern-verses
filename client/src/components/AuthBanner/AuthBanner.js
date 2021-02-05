@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import * as actions from '../../store/actions/'
+import { fetchUser } from "../../store/actions/";
 
 import "./AuthBanner.css";
 
@@ -52,9 +52,7 @@ class AuthBanner extends Component {
 
   //add dropdown menu with account: profile, orders, favorites, account settings, logout
   render() {
-    return (
-        <div className='member-banner-wrapper'>{this.renderContent()}</div>
-    );
+    return <div className='member-banner-wrapper'>{this.renderContent()}</div>;
   }
 }
 
@@ -62,4 +60,4 @@ function mapStateToProps({ auth }) {
   return { auth };
 }
 
-export default connect(mapStateToProps, actions)(AuthBanner);
+export default connect(mapStateToProps, { fetchUser })(AuthBanner);

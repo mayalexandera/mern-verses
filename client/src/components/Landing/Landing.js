@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
+import { connect } from 'react-redux'  
 import "./Landing.css";
 const Landing = () => {
-  const [text, setText] = useState('Hello')
+
   return (
     <div className='landing-container'>
       <h1>Verses</h1>
@@ -14,4 +15,5 @@ const Landing = () => {
   );
 };
 
-export default Landing;
+
+export default (Landing);

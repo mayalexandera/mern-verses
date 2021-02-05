@@ -12,7 +12,6 @@ import SurveyNew from "./surveys/SurveyNew";
 import SurveyThanks from "./surveys/SurveyThanks";
 import Favorites from "./Favorites/Favorites";
 import Category from "./Category/Category";
-import Dashboard from "./Dashboard/Dashboard";
 import Layout from "./HOC/Layout";
 import Products from "./Products/Products";
 import Product from "./Products/Product";

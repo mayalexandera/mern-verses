@@ -85,6 +85,12 @@
     font-weight: 500;
   }
 
+  .center-menu-list li:hover {
+    opacity: 0.75;
+    -webkit-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+  }
   .right-menu {
     text-align: right;
     display: inline-block;

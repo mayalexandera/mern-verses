@@ -42,6 +42,13 @@
   padding-right: 16px;
 }
 
+.dashboard-list a:hover {
+  opacity: .75;
+    -webkit-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
 .dashboard-wrapper-container {
   background-color: #fff;
   top: 90px;

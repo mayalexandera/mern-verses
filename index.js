@@ -55,7 +55,7 @@ app.use(bodyParser.json());
 app.use(
   /* cookieSession() is an express middleware that takes in a configuration object which expects two properties:
 
-      maxAge: maximum amount of time a cookie can be stored in the browser before it is automatically expired.
+      maxAge: maximum amount of time a cookie can fbe stored in the browser before it is automatically expired.
 
       *** PASSED IN as a NUMBER in MILLISECONDS ***
 

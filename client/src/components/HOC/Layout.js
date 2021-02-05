@@ -6,7 +6,7 @@ import Aux from "./Aux";
 
 class Layout extends Component {
   componentDidMount() {
-    this.props.fetchUser()
+    this.props.fetchUser();
   }
 
   render() {
@@ -26,4 +26,10 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, actions)(Layout);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    fetchUser: () => dispatch(actions.fetchUser()),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Layout);
