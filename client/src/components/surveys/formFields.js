@@ -25,4 +25,4 @@ const formFields = [
   },
 ];
 
-export default formFields
+export default formFields;

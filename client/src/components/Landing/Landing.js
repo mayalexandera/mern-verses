@@ -1,7 +1,6 @@
 import React from "react";
 import "./Landing.css";
 const Landing = () => {
-
   return (
     <div className='landing-container'>
       <h1>Verses</h1>
@@ -14,5 +13,4 @@ const Landing = () => {
   );
 };
 
-
-export default (Landing);
+export default Landing;

@@ -23,7 +23,10 @@ const Plans = ({ fetchPlans, plans }) => {
         <div className='col-lg-6' id='plans-col'>
           <div className='plans-section-container'>
             <div className='image-wrapper'>
-              <img alt={'product layout'} src='https://www.wearseasons.com/_next/static/images/OutfitGrid-1-2d3c07113b3669ca7a421780c19d0639.jpg?w=1120&fit=clip&fm=webp&cs=srgb' />
+              <img
+                alt={"product layout"}
+                src='https://www.wearseasons.com/_next/static/images/OutfitGrid-1-2d3c07113b3669ca7a421780c19d0639.jpg?w=1120&fit=clip&fm=webp&cs=srgb'
+              />
             </div>
           </div>
         </div>

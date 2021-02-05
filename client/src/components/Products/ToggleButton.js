@@ -9,8 +9,7 @@ const ToggleButton = (props) => {
 
   const handleClick = () => {
     setChecked(!checked);
-    if(checked) 
-    props.fetchProdByFilter( props.filter )
+    if (checked) props.fetchProdByFilter(props.filter);
   };
 
   var toggleCheck = !!checked ? " is--checked" : "";

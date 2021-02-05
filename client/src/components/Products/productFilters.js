@@ -36,4 +36,4 @@ const productFilters = [
   },
 ];
 
-export default productFilters
+export default productFilters;

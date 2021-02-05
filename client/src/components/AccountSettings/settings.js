@@ -1,4 +1,4 @@
-const settings =  [
+const settings = [
   {
     title: "Account Details",
     icon:
@@ -41,4 +41,4 @@ const settings =  [
   },
 ];
 
-export default settings
+export default settings;

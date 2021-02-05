@@ -1,4 +1,3 @@
-const { cond } = require("lodash");
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
@@ -20,8 +19,7 @@ const CartSchema = new Schema({
   totals: {
     subTotal: Number,
     default: 0,
-    total: { type: Number,
-    default: 0, min: 0 },
+    total: { type: Number, default: 0, min: 0 },
     discountTotal: Number,
     default: 0,
   },
@@ -36,15 +34,21 @@ const CartSchema = new Schema({
   },
 });
 
-CartSchema.methods.createOrUpdateItem = function createOrUpdateItem(sizeId, callback) {
+CartSchema.methods.createOrUpdateItem = function createOrUpdateItem(
+  sizeId,
+  callback
+) {
   return this.model("Cart").find({ sizeId: sizeId }, callback);
 };
 
-CartSchema.static('findOneOrCreate', async function findOneOrCreate(condition, doc) {
-  const cart = await this.findOne(condition)
+CartSchema.static(
+  "findOneOrCreate",
+  async function findOneOrCreate(condition, doc) {
+    const cart = await this.findOne(condition);
 
-  return cart || this.create(doc)
-})
+    return cart || this.create(doc);
+  }
+);
 
 const Cart = mongoose.model("Cart", CartSchema);
 

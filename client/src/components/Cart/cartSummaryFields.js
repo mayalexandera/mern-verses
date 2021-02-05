@@ -1,4 +1,3 @@
-
 const cartSummaryFields = [
   {
     title: "Estimated Shipping & Handling",
@@ -12,4 +11,4 @@ const cartSummaryFields = [
   },
 ];
 
-export default cartSummaryFields
+export default cartSummaryFields;

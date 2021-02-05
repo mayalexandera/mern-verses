@@ -9,13 +9,13 @@ const initialState = {
 const orderReducer = (state = initialState, action) => {
   switch (action.type) {
     case PLACE_ORDER:
-      console.log(action.payload)
+      console.log(action.payload);
       return updateObject(state, { order: action.payload });
     case FETCH_ORDERS:
-      return updateObject(state, { orders: action.payload })
+      return updateObject(state, { orders: action.payload });
     default:
       return state;
   }
-}
+};
 
 export default orderReducer;

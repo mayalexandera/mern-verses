@@ -3,9 +3,8 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import * as actions from "../../store/actions";
 import productFilters from "./productFilters";
-import SideBarItem from './SideBarItem'
+import SideBarItem from "./SideBarItem";
 import "./ProductSideBar.css";
-
 
 const SideBar = (props) => {
   const handleCategoryClick = (cat) => {
@@ -14,7 +13,7 @@ const SideBar = (props) => {
 
   const styles = {
     width: 192,
-  }
+  };
 
   return (
     <div className='css-109b5m4 left-nav-wrapper'>
@@ -40,14 +39,13 @@ const SideBar = (props) => {
                   );
                 })
               : null}
-          </div> 
+          </div>
         </div>
         <div className='left-nav__filters'>
           <div className='filters css-1er76o1'>
-            
-              {productFilters.map((filter, index) => {
-                return <SideBarItem key={index} filter={filter} />;
-              })}
+            {productFilters.map((filter, index) => {
+              return <SideBarItem key={index} filter={filter} />;
+            })}
           </div>
         </div>
       </nav>

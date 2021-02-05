@@ -1,7 +1,7 @@
 const {
   addFavorite,
   deleteFavorite,
-  fetchFavorites
+  fetchFavorites,
 } = require("../controllers/favorites_controller");
 
 module.exports = (app) => {
