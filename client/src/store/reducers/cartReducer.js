@@ -44,7 +44,7 @@ const cartReducer = (state = initialState, action) => {
       return action.payload || false;
     case UPDATE_CART_ITEM:
       const newList = [];
-      action.payload.items.map((item) => {
+      action.payload.items.forEach((item) => {
         newList.push(JSON.parse(JSON.stringify(item)));
       });
       return updateObject(state, { items: [...newList] });

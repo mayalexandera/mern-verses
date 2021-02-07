@@ -1,11 +1,10 @@
 import React, { useState } from "react";
-import cx from "classnames";
 import styled from "styled-components";
 import ToggleButton from "./ToggleButton";
-import "./SideBar.css";
+
 const Collapsible = styled.div`
   height: auto;
-  transition: height 150ms linear 0s;
+  transition: height 1500ms linear 0s;
   overflow: hidden;
 `;
 
@@ -15,42 +14,37 @@ const CollapsibleContent = styled.div`
   padding-bottom: 20px;
 `;
 
-const SideBarItem = ({ filter, index }) => {
+const SideBarItem = ({ filter }) => {
   const [expanded, setExpanded] = useState(true);
 
-  let groupToggle = expanded ? "__open" : "__closed";
-  let triggerToggle = expanded ? " is-open " : (triggerToggle += " is-closed");
-  let chevronToggle = expanded ? " is--hidden" : " is--up";
   let chevronDirection = expanded ? "expand_less" : "expand_more";
   let animate = expanded ? "auto" : "0px";
 
   const handleToggle = () => {
-    !!expanded ? setExpanded(false) : setExpanded(true);
+   setExpanded(!expanded) 
   };
 
   const renderSideBarITem = () => {
     if (filter && filter) {
       return (
         <>
-          <div className={cx("filter-group filter-group", groupToggle)}>
-            <span className={cx("filter-group__btn", triggerToggle)}>
-              <div onClick={handleToggle} className={"trigger-content"}>
+        <div className='filter-group'>
+            <span className='filter-group__btn'>
+              <div onClick={handleToggle} className="trigger-content">
                 {" "}
                 <div className='trigger-content__label'>{filter.title}</div>
                 <div
-                  className={cx(
-                    "icon-chevron css-1apc7vz css-1apc7vz",
-                    chevronToggle
-                  )}
+                  className=
+                    "icon-chevron"
                 >
-                  <span className={cx("material-icons")}>
+                  <span className="material-icons">
                     {chevronDirection}
                   </span>
                 </div>
               </div>
             </span>
             <Collapsible
-              className={"filter-group__outer"}
+              className="filter-group__outer"
               style={{ height: `${animate}` }}
             >
               <CollapsibleContent className='filter-group__content'>
@@ -59,7 +53,7 @@ const SideBarItem = ({ filter, index }) => {
                     return (
                       <button
                         key={index}
-                        className='css-xhk1pl css-1t2ydyg filter-item css-11bod12 '
+                        className='css-1t2ydyg filter-item css-11bod12 '
                       >
                         <ToggleButton filter={filter} />
                         <span className='filter-item__item-label'>

@@ -20,7 +20,7 @@ const Header = ({ favoriteList, cart }) => {
             <div className='center-menu-container'>
               <ul className='center-menu-list'>
                 <li>
-                  <NavLink to='/products'>Clothing</NavLink>
+                  <NavLink className='center-menu-link' to='/products'>Clothing</NavLink>
                 </li>
                 <li>
                   <NavLink to='/products'>Accessories</NavLink>

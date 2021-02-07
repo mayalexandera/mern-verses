@@ -4,30 +4,23 @@ import { connect } from "react-redux";
 import * as actions from "../../store/actions";
 import productFilters from "./productFilters";
 import SideBarItem from "./SideBarItem";
-import "./ProductSideBar.css";
+import "./SideBar.css";
 
 const SideBar = (props) => {
   const handleCategoryClick = (cat) => {
     props.fetchProdByCat(cat);
   };
 
-  const styles = {
-    width: 192,
-  };
-
   return (
-    <div className='css-109b5m4 left-nav-wrapper'>
-      <div className='left-nav__wrapper-top-point'></div>
-      <nav style={styles} className='left-nav css-hrsjq4 css-xhk1pl'>
-        <div className='point left-nav__top-point'></div>
-        <div className='left-nav__categories'>
+    <div className='left-nav-wrapper'>
+      <nav className='left-nav'>
           <div className='categories'>
             {props.categories
-              ? props.categories.map((cat, idx) => {
+              && props.categories.map((cat, idx) => {
                   return (
                     <div
                       key={idx}
-                      className='css-hrsjq4 css-xhk1pl css-1t2ydyg categories__item'
+                      className='css-1t2ydyg categories__item'
                     >
                       <Link
                         onClick={() => handleCategoryClick(cat)}
@@ -38,9 +31,8 @@ const SideBar = (props) => {
                     </div>
                   );
                 })
-              : null}
+              }
           </div>
-        </div>
         <div className='left-nav__filters'>
           <div className='filters css-1er76o1'>
             {productFilters.map((filter, index) => {
@@ -53,8 +45,8 @@ const SideBar = (props) => {
   );
 };
 
-const mapStateToProps = (state) => {
-  return { categories: state.products.categories };
+const mapStateToProps = ({ products: { categories }}) => {
+  return { categories };
 };
 
 export default connect(mapStateToProps, actions)(SideBar);

@@ -76,7 +76,7 @@ export const calculateCartTotal = () => (dispatch, getState) => {
     estShipping: 0,
     total: 0,
   };
-  items.map((item) => {
+  items.forEach((item) => {
     newTotal += item.price * item.count;
   });
 

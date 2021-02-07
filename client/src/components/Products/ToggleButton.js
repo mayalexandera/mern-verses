@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import * as actions from "../../store/actions";
 import cx from "classnames";
-import "./SideBar.css";
+
 
 const ToggleButton = (props) => {
   const [checked, setChecked] = useState(false);
@@ -19,8 +19,8 @@ const ToggleButton = (props) => {
       onClick={() => handleClick(props.filter.value)}
       className={cx("pseudo-checkbox css-1n9lta1", toggleCheck)}
     >
-      <div className={cx("icon-checkmark css-1iktvq5", toggleCheck)}>
-        <div className={"icon-checkmark css-1iktvq5"}>
+      <div className={cx("icon-checkmark", toggleCheck)}>
+        <div className="icon-checkmark">
           <span id='checkmark' className='material-icons'>
             done
           </span>

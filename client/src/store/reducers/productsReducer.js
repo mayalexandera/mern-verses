@@ -34,8 +34,8 @@ const productsReducer = (state = initialState, action) => {
       if (!state.products) {
         return updateObject(state, { products: action.payload });
       } else {
-        state.filters.map((filter) => {
-          state.products.map((product) => {
+        state.filters.forEach((filter) => {
+          state.products.forEach((product) => {
             if (
               !updated.includes(product) &&
               product[filter.name] === filter.value
@@ -51,7 +51,7 @@ const productsReducer = (state = initialState, action) => {
       if (!state.filters) {
         return updateObject(state, { filters: updatedFilters });
       } else {
-        state.filters.map((filter) =>
+        state.filters.forEach((filter) =>
           updatedFilters.push(JSON.parse(JSON.stringify(filter)))
         );
         return updateObject(state, { filters: updatedFilters });
