@@ -27,6 +27,7 @@ export const fetchProdByCat = (cat) => async (dispatch) => {
 };
 
 export const fetchProdByFilter = (filter) => async (dispatch, getState) => {
+  console.log(filter)
   await dispatch({ type: UPDATE_FILTERS, payload: filter });
   const filters = getState().products.filters;
   const res = await axios.get(`/api/products/${filter.type}/${filter.value}`, {

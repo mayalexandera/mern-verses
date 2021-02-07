@@ -1,18 +1,5 @@
 import React, { useState } from "react";
-import styled from "styled-components";
 import ToggleButton from "./ToggleButton";
-
-const Collapsible = styled.div`
-  height: auto;
-  transition: height 1500ms linear 0s;
-  overflow: hidden;
-`;
-
-const CollapsibleContent = styled.div`
-  transition: height 1500ms linear 0s;
-  margin-top: 5px;
-  padding-bottom: 20px;
-`;
 
 const SideBarItem = ({ filter }) => {
   const [expanded, setExpanded] = useState(true);
@@ -21,56 +8,36 @@ const SideBarItem = ({ filter }) => {
   let animate = expanded ? "auto" : "0px";
 
   const handleToggle = () => {
-   setExpanded(!expanded) 
+    setExpanded(!expanded);
   };
 
-  const renderSideBarITem = () => {
-    if (filter && filter) {
+  const renderSideBarItem = () => {
       return (
         <>
-        <div className='filter-group'>
-            <span className='filter-group__btn'>
-              <div onClick={handleToggle} className="trigger-content">
-                {" "}
-                <div className='trigger-content__label'>{filter.title}</div>
-                <div
-                  className=
-                    "icon-chevron"
-                >
-                  <span className="material-icons">
-                    {chevronDirection}
-                  </span>
-                </div>
+          {filter && <div className='filter-group'>
+            <div onClick={handleToggle} className='trigger-content'>
+              {" "}
+              <p>{filter.title}</p>
+              <div className='icon-chevron'>
+                <span className='material-icons'>{chevronDirection}</span>
               </div>
-            </span>
-            <Collapsible
-              className="filter-group__outer"
+            </div>
+            <div
+              className='filter-group__list-outer'
               style={{ height: `${animate}` }}
             >
-              <CollapsibleContent className='filter-group__content'>
-                <div>
-                  {filter.options.map((filter, index) => {
-                    return (
-                      <button
-                        key={index}
-                        className='css-1t2ydyg filter-item css-11bod12 '
-                      >
-                        <ToggleButton filter={filter} />
-                        <span className='filter-item__item-label'>
-                          {filter.name}
-                        </span>
-                      </button>
-                    );
-                  })}
-                </div>
-              </CollapsibleContent>
-            </Collapsible>
-          </div>
+              <div className='filter-group__list-wrapper'>
+                {filter.options.map((filter, index) => (
+                  <ToggleButton key={index} {...filter} />
+                ))}
+              </div>
+            </div>
+          </div>}
         </>
       );
-    }
+
   };
-  return <>{renderSideBarITem()}</>;
+  return <>{renderSideBarItem()}</>;
 };
 
 export default SideBarItem;

@@ -1,31 +1,30 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import * as actions from "../../store/actions";
-import cx from "classnames";
 
-
-const ToggleButton = (props) => {
+const ToggleButton = ({ fetchProdByFilter, name, type, value }) => {
   const [checked, setChecked] = useState(false);
 
   const handleClick = () => {
     setChecked(!checked);
-    if (checked) props.fetchProdByFilter(props.filter);
+    const val = !checked;
+    if (val) fetchProdByFilter({ name, type, value, val });
   };
 
   var toggleCheck = !!checked ? " is--checked" : "";
 
   return (
-    <div
-      onClick={() => handleClick(props.filter.value)}
-      className={cx("pseudo-checkbox css-1n9lta1", toggleCheck)}
-    >
-      <div className={cx("icon-checkmark", toggleCheck)}>
-        <div className="icon-checkmark">
-          <span id='checkmark' className='material-icons'>
-            done
-          </span>
+    <div className='' onClick={() => handleClick()}>
+      <div className={`pseudo-checkbox ${toggleCheck}`}>
+        <div className={`icon-checkmark ${toggleCheck}`}>
+          <div className='icon-checkmark'>
+            <span id='checkmark' className='material-icons'>
+              done
+            </span>
+          </div>
         </div>
       </div>
+      {name}
     </div>
   );
 };
