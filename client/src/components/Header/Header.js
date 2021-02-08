@@ -12,10 +12,6 @@ const Header = ({ favoriteList, cart }) => {
           <div className='nav-logo'>
             <NavLink to='/'>Verses</NavLink>
           </div>
-          <div className='small-menu-icon'>
-            <i className='material-icons-outlined'>menu</i>
-            <div className='small-dropdown-menu'></div>
-          </div>
           <div className='center-menu-wrapper'>
             <div className='center-menu-container'>
               <ul className='center-menu-list'>
@@ -31,7 +27,7 @@ const Header = ({ favoriteList, cart }) => {
               </ul>
             </div>
           </div>
-          <div className='right-menu'>
+          <div className='right-header-menu'>
             <NavLink className='nav-button favorites-button' to='/favorites'>
               <span className='material-icons-outlined'>favorite_border</span>
               <p>

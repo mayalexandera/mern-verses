@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import ProductList from "./ProductList";
 import CategoryHeader from "../Category/CategoryHeader";
@@ -6,6 +6,9 @@ import * as actions from "../../store/actions";
 import "./Products.css";
 
 const Products = ({ fetchProducts, fetchCategories, products, byCategory }) => {
+
+  const [sidebar, setSidebar] = useState(false)
+
   useEffect(() => {
     fetchProducts();
     fetchCategories();
@@ -16,27 +19,26 @@ const Products = ({ fetchProducts, fetchCategories, products, byCategory }) => {
       {products && products ? (
         <CategoryHeader
           category='Clothing'
+          sidebar={sidebar}
+          setSidebar={setSidebar}
           count={products.length}
-          products={products}
         />
       ) : byCategory && byCategory ? (
         <CategoryHeader
           category={byCategory.name}
+          sidebar={sidebar}
+          setSidebar={setSidebar}
           count={byCategory.products.length}
-          products={byCategory.products}
         />
       ) : null}
       <div className='products-section'>
-        <ProductList products={products} />
+        <ProductList sidebar={sidebar} products={products} />
       </div>
     </div>
   );
 };
-const mapStateToProps = (state) => {
-  return {
-    products: state.products.products,
-    byCategory: state.products.byCategory,
-  };
+const mapStateToProps = ({ products: { products, byCategory } }) => {
+  return { products, byCategory };
 };
 
 export default connect(mapStateToProps, actions)(Products);
