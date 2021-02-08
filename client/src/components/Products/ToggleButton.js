@@ -14,7 +14,7 @@ const ToggleButton = ({ fetchProdByFilter, name, type, value }) => {
   var toggleCheck = !!checked ? " is--checked" : "";
 
   return (
-    <div className='' onClick={() => handleClick()}>
+    <div onClick={() => handleClick()}>
       <div className={`pseudo-checkbox ${toggleCheck}`}>
         <div className={`icon-checkmark ${toggleCheck}`}>
           <div className='icon-checkmark'>

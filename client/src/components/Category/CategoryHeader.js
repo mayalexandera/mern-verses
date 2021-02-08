@@ -51,7 +51,7 @@ const CategoryHeader = ({ category, sidebar, setSidebar, count }) => {
                 className='wall-header__filters-btn'
               >
                 <span className='wall-header__filter_text'>
-                  {sidebar ? "Hide FIlters" : "Show Filters"}
+                  {sidebar ? "Hide Filters" : "Show Filters"}
                 </span>
                 <div className='icon-filters'></div>
               </button>

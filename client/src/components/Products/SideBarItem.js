@@ -4,9 +4,7 @@ import ToggleButton from "./ToggleButton";
 
 const SideBarItem = ({ filter }) => {
   const [expanded, setExpanded] = useState(true);
-
   let chevronDirection = expanded ? "expand_less" : "expand_more";
-  let animate = expanded ? "auto" : "0px";
 
   const handleToggle = () => {
     setExpanded(!expanded);

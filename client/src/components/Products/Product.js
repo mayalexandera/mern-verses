@@ -1,11 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
-import {
-  fetchFavorites,
-  fetchProduct,
-  addFavorite,
-  addCartItem,
-} from "../../store/actions";
+import * as actions from "../../store/actions";
 import "./ProductShow.css";
 
 const Product = ({
@@ -249,9 +244,4 @@ const mapStateToProps = ({ products: { product }, favoriteList, sizes }) => {
   return { product, favoriteList, sizes };
 };
 
-export default connect(mapStateToProps, {
-  fetchProduct,
-  addFavorite,
-  addCartItem,
-  fetchFavorites,
-})(Product);
+export default connect(mapStateToProps, actions)(Product);

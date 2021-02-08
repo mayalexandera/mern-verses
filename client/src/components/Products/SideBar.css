@@ -1,9 +1,10 @@
 .left-nav-wrapper {
-  min-width: 240px;
-  overflow: hidden;
-  position: relative;
-  vertical-align: top;
-  background: white;
+
+}
+
+.sidebar-container {
+  display: none;
+  visibility: hidden;
 }
 
 .left-nav {
@@ -181,3 +182,4 @@
 .filter-transition-exit-active {
   transition: all 500ms ease;
 }
+
