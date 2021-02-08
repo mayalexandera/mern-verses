@@ -98,17 +98,20 @@
 .icon-chevron {
   margin-left: 8px;
   display: inline-block;
-  top: 8px;
+  top: 7px;
   width: 14px;
   height: 14px;
   position: relative;
 }
 
+.icon-chevron i {
+  font-size: 23px;
+}
 .dropdown__options-wrapper {
   position: absolute;
   right: 0px;
+  border: 1px solid red;
   overflow: hidden;
-  /* pointer-events: none; */
 }
 .dropdown-transition-enter {
   transform: translateY(-100%);
@@ -130,6 +133,7 @@
 .dropdown__options-list {
   padding-bottom: 15px;
   padding-right: 28px;
+  border: 1px solid blue;
   border-radius: 0px 0px 0px 20px;
   padding-top: 24px;
   background: rgb(255, 255, 255);

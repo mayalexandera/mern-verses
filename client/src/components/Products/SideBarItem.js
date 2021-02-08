@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { CSSTransition } from 'react-transition-group'
 import ToggleButton from "./ToggleButton";
 
 const SideBarItem = ({ filter }) => {
@@ -14,25 +15,32 @@ const SideBarItem = ({ filter }) => {
   const renderSideBarItem = () => {
       return (
         <>
-          {filter && <div className='filter-group'>
-            <div onClick={handleToggle} className='trigger-content'>
-              {" "}
-              <p>{filter.title}</p>
-              <div className='icon-chevron'>
-                <span className='material-icons'>{chevronDirection}</span>
+          {filter && (
+            <div className='filter-group'>
+              <div onClick={handleToggle} className='trigger-content'>
+                {" "}
+                <p>{filter.title}</p>
+                <div className='icon-chevron'>
+                  <span className='material-icons'>{chevronDirection}</span>
+                </div>
               </div>
+              <div className='filter-group__list-outer'>
+                <CSSTransition
+                  classNames='dropdown-transition'
+                  in={expanded}
+                  timeout={500}
+                  appear
+                  unmountOnExit
+                >
+                  <div className='filter-group__list-wrapper'>
+                    {filter.options.map((filter, index) => (
+                      <ToggleButton key={index} {...filter} />
+                    ))}
+                  </div>
+              </CSSTransition>
+                </div>
             </div>
-            <div
-              className='filter-group__list-outer'
-              style={{ height: `${animate}` }}
-            >
-              <div className='filter-group__list-wrapper'>
-                {filter.options.map((filter, index) => (
-                  <ToggleButton key={index} {...filter} />
-                ))}
-              </div>
-            </div>
-          </div>}
+          )}
         </>
       );
 

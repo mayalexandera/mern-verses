@@ -10,30 +10,23 @@ const CategoryHeader = ({ category, sidebar, setSidebar, count }) => {
 
   const [ sortBy, setSortBy] = useState(false)
   const [ selected, setSelected ] = useState("")
-  let sortByFilter
-  let val;
 
-  const handleClick = () => {
-    console.log(sidebar)
+  const handleSideBar = () => {
     setSidebar(!sidebar)
-    const val = !sidebar
-    console.log(val)
   }
 
     var valFilter =  sortBy ? "expand_less" : "expand_more"
 
 
   const handleSelected = (e) => {
-    sortByFilter = e.target.value;
+    console.log("in handleSelected")
     setSelected(e.target.value)
     setSortBy(!sortBy)
-    console.log(sortByFilter)
   }
 
   const handleSortBy = () => {
-    console.log("sortby",sortBy)
+    console.log("handleSortBy")
     setSortBy(!sortBy)
-    console.log("sortby",sortBy)
   }
   const renderCategoryHeader = () => {
     console.log(sidebar)
@@ -51,7 +44,7 @@ const CategoryHeader = ({ category, sidebar, setSidebar, count }) => {
             </h1>
             <nav className='wall-header__nav'>
               <button
-                onClick={() => handleClick()}
+                onClick={() => handleSideBar()}
                 className='wall-header__filters-btn'
               >
                 <span className='wall-header__filter_text'>Hide Filters</span>
