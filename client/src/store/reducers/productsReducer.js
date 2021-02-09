@@ -5,11 +5,13 @@ import {
   FETCH_CATEGORIES,
   FETCH_PROD_BY_FILTER,
   UPDATE_FILTERS,
+  SORT_BY_FILTER,
 } from "../actions/types";
 import { updateObject } from "../../utils/updateObject";
 
 const initialState = {
   products: null,
+  message: null,
   filters: [],
   product: null,
   byCategory: null,
@@ -18,22 +20,47 @@ const initialState = {
 const productsReducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCH_PRODUCTS:
-      return updateObject(state, { products: action.payload }) || false;
+      return (
+        updateObject(state, { products: action.payload, message: null }) ||
+        false
+      );
 
     case FETCH_PRODUCT:
-      return updateObject(state, { product: action.payload }) || false;
+      return (
+        updateObject(state, { product: action.payload, message: null }) || false
+      );
 
     case FETCH_PROD_BY_CAT:
-      return updateObject(state, { byCategory: action.payload }) || false;
+      return (
+        updateObject(state, { byCategory: action.payload, message: null }) ||
+        false
+      );
 
     case FETCH_CATEGORIES:
-      return updateObject(state, { categories: action.payload });
+      return updateObject(state, { categories: action.payload, message: null });
+
+    case SORT_BY_FILTER:
+      let products = [];
+
+      action.payload.map((item) =>
+        products.push(JSON.parse(JSON.stringify(item)))
+      );
+      return updateObject(state, { products: products });
 
     case FETCH_PROD_BY_FILTER:
-      let updated = [action.payload];
-      if (!state.products) {
-        return updateObject(state, { products: action.payload });
+      let updated = [];
+
+      if (action.payload.length === 0) {
+        return updateObject(state, { message: "No products found." });
+      }
+
+      if (state.products.length === 0) {
+        return updateObject(state, { products: action.payload, message: null });
       } else {
+        action.payload.map((item) => {
+          updated.push(JSON.parse(JSON.stringify(item)));
+        });
+
         state.filters.forEach((filter) => {
           state.products.forEach((product) => {
             if (
@@ -43,17 +70,23 @@ const productsReducer = (state = initialState, action) => {
               updated.push(JSON.parse(JSON.stringify(product)));
           });
         });
+
+        return updateObject(state, { products: updated, message: null });
       }
-      return updateObject(state, { products: action.payload }) || false;
 
     case UPDATE_FILTERS:
       let updatedFilters = [action.payload];
+
+      console.log(state.filters, action.payload)
       if (!state.filters) {
         return updateObject(state, { filters: updatedFilters });
       } else {
-        state.filters.forEach((filter) =>
-          updatedFilters.push(JSON.parse(JSON.stringify(filter)))
-        );
+        console.log(state.filters);
+        state.filters.forEach((filter) => {
+          console.log(filter);
+          updatedFilters.push(JSON.parse(JSON.stringify(filter)));
+        });
+        console.log(updatedFilters);
         return updateObject(state, { filters: updatedFilters });
       }
     default:

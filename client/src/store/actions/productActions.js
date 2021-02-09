@@ -1,4 +1,5 @@
 import axios from "axios";
+import _ from 'lodash'
 import {
   FETCH_PRODUCT,
   FETCH_PRODUCTS,
@@ -6,6 +7,7 @@ import {
   FETCH_CATEGORIES,
   FETCH_PROD_BY_FILTER,
   UPDATE_FILTERS,
+  SORT_BY_FILTER
 } from "./types";
 
 export const fetchProducts = () => async (dispatch) => {
@@ -27,8 +29,7 @@ export const fetchProdByCat = (cat) => async (dispatch) => {
 };
 
 export const fetchProdByFilter = (filter) => async (dispatch, getState) => {
-  console.log(filter)
-  await dispatch({ type: UPDATE_FILTERS, payload: filter });
+  dispatch({ type: UPDATE_FILTERS, payload: filter });
   const filters = getState().products.filters;
   const res = await axios.get(`/api/products/${filter.type}/${filter.value}`, {
     params: { filters },
@@ -42,3 +43,16 @@ export const fetchCategories = () => async (dispatch) => {
 
   dispatch({ type: FETCH_CATEGORIES, payload: res.data });
 };
+
+export const sortByFilter = ({ key, value }) => async (dispatch, getState) => {
+  let updated
+  const products = getState().products.products
+
+  if(value === 'price') {
+    updated = _.orderBy(products, [`${value}`], [`${key}`])
+    
+    dispatch({ type: SORT_BY_FILTER, payload: updated })
+  } else {
+    dispatch(fetchProducts())
+  }
+}

@@ -25,7 +25,7 @@ const Product = ({
   }, [fetchProduct, fetchFavorites, prodId]);
 
   const handleAddToBag = (e) => {
-    e.preventDefault();
+    e.preventDefault()
     const productSize = product.productSizes.filter(
       (size) => size._id === sizeId
     );
@@ -169,7 +169,7 @@ const Product = ({
                             <button
                               className='vcss-btn-primary-dark btn-lg add-to-cart-button'
                               label='Add to Bag'
-                              onClick={handleAddToBag}
+                              onClick={(e) => handleAddToBag(e)}
                             >
                               Add to Bag
                             </button>

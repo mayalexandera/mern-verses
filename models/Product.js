@@ -11,11 +11,19 @@ const productSchema = new Schema({
   description: String,
   fitDetails: Object,
   productDetails: Array,
+  updated: Date,
+  created: {
+    type: Date,
+    default: Date.now,
+  },
   images: Object,
   tags: [String],
-  productSizes:[{
-    type: Schema.Types.ObjectId, ref: "Size"
-  }],
+  productSizes: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Size",
+    },
+  ],
   brand: { type: Schema.Types.ObjectId, ref: "Brand" },
   category: { type: Schema.Types.ObjectId, ref: "Category" },
 });

@@ -24,7 +24,7 @@ const CartSummary = ({ cart }) => {
         <div className='cart-summary-item-sub col-sm-12'>
           <div className='col-sm-9 field-title'>Subtotal</div>
           <div className='col-sm-3 field-value'>
-            <div className='field-value-text'>{`$${cart.totals.subTotal}.00`}</div>
+            <div className='field-value-text'>{cart.totals && `$${cart.totals.subTotal}.00`}</div>
           </div>
         </div>
       </div>

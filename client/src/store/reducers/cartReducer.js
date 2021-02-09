@@ -22,8 +22,8 @@ const initialState = {
 
 const cartReducer = (state = initialState, action) => {
   switch (action.type) {
-    case ADD_CART_ITEM:
-      return action.payload || false;
+    case ADD_CART_ITEM: 
+    return updateObject(state, { items: action.payload.items }) || false;
     case FETCH_CART:
       return (
         updateObject(state, {

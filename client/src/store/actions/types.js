@@ -8,6 +8,7 @@ export const FETCH_PRODUCT = 'fetch_product'
 export const FETCH_PROD_BY_CAT = 'fetch_prod_by_cat'
 export const FETCH_PROD_BY_FILTER = 'fetch_prod_by_filter'
 export const FETCH_CATEGORIES = 'fetch_categories'
+export const SORT_BY_FILTER = 'sort_by_filter'
 export const UPDATE_FILTERS = 'update_filters'
 
 export const FETCH_SIZES = 'fetch_sizes'

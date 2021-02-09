@@ -5,7 +5,7 @@ import CategoryHeader from "../Category/CategoryHeader";
 import * as actions from "../../store/actions";
 import "./Products.css";
 
-const Products = ({ fetchProducts, fetchCategories, products, byCategory }) => {
+const Products = ({ message, fetchProducts, fetchCategories, products, byCategory }) => {
   const [sidebar, setSidebar] = useState(false);
 
   useEffect(() => {
@@ -30,14 +30,14 @@ const Products = ({ fetchProducts, fetchCategories, products, byCategory }) => {
           count={byCategory.products.length}
         />
       ) : null}
-      <div className='products-section'>
-        <ProductList sidebar={sidebar} products={products} />
-      </div>
+      { products && products ? <div className='products-section'>
+       { products && <ProductList message={message} sidebar={sidebar} />}
+      </div> : null }
     </div>
   );
 };
-const mapStateToProps = ({ products: { products, byCategory } }) => {
-  return { products, byCategory };
+const mapStateToProps = ({ products: { products, message, byCategory } }) => {
+  return { products, byCategory, message };
 };
 
 export default connect(mapStateToProps, actions)(Products);

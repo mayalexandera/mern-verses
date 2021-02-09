@@ -21,6 +21,7 @@ export {
   fetchProdByCat,
   fetchCategories,
   fetchProdByFilter,
+  sortByFilter
 } from "./productActions";
 
 export { fetchPlans } from "./planActions";
