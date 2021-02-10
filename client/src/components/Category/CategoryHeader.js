@@ -11,6 +11,7 @@ const CategoryHeader = ({
   count,
   sortByFilter,
 }) => {
+  
   const sortByFilters = [
     { title: "Newest", key: "created", order: "date" },
     { title: "Price: Low-High", key: "price", order: "asc" },

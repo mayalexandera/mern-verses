@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import * as actions from "../store/actions";
 
 import Header from "./Header/Header";
+import Footer from "./Footer/Footer";
 import AuthBanner from "./AuthBanner/AuthBanner";
 import Landing from "./Landing/Landing";
 import SurveyDashboard from "./surveys/SurveyDashboard";
@@ -47,6 +48,7 @@ class App extends Component {
 
           <Route path='/settings' component={AccountSettings} />
         </BrowserRouter>
+        <Footer/>
       </Layout>
     );
   }

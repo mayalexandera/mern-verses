@@ -28,7 +28,13 @@ export const fetchProdByCat = (cat) => async (dispatch) => {
   dispatch({ type: FETCH_PROD_BY_CAT, payload: res.data });
 };
 
+export const updateFilters = filter => (getState) => {
+  const filters = getState().filters
+  console.log(filter, filters, 'updateFilters')
+}
+
 export const fetchProdByFilter = (filter) => async (dispatch, getState) => {
+  // updateFilters(filter)
   dispatch({ type: UPDATE_FILTERS, payload: filter });
   const filters = getState().products.filters;
   const res = await axios.get(`/api/products/${filter.type}/${filter.value}`, {
@@ -50,7 +56,7 @@ export const sortByFilter = ({ key, value }) => async (dispatch, getState) => {
 
   if(value === 'price') {
     updated = _.orderBy(products, [`${value}`], [`${key}`])
-    
+
     dispatch({ type: SORT_BY_FILTER, payload: updated })
   } else {
     dispatch(fetchProducts())

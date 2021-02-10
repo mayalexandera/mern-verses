@@ -77,16 +77,16 @@ const productsReducer = (state = initialState, action) => {
     case UPDATE_FILTERS:
       let updatedFilters = [action.payload];
 
-      console.log(state.filters, action.payload)
       if (!state.filters) {
+
         return updateObject(state, { filters: updatedFilters });
       } else {
-        console.log(state.filters);
-        state.filters.forEach((filter) => {
-          console.log(filter);
-          updatedFilters.push(JSON.parse(JSON.stringify(filter)));
+        console.log(state.filters)
+        state.filters.forEach((filter) =>{
+        console.log(filter)
+          updatedFilters.push(JSON.parse(JSON.stringify(filter)))
         });
-        console.log(updatedFilters);
+        console.log(updatedFilters)
         return updateObject(state, { filters: updatedFilters });
       }
     default:
