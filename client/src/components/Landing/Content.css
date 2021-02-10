@@ -1,0 +1,12 @@
+.content-container {
+  height: 100vh;
+  margin-left: 12px;
+  margin-right: 12px;
+  max-width: 1808px;
+  width: auto;
+}
+
+.content-wrapper {
+  padding-right: 8px;
+  padding-left: 8px;
+}

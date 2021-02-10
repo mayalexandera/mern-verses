@@ -91,7 +91,7 @@
     -o-transition: all 0.2s ease;
     transition: all 0.2s ease;
   }
-  
+
   .right-header-menu {
     text-align: right;
     display: inline-block;
@@ -126,6 +126,10 @@
     transition: opacity 0.4s, visibility 0s;
   }
 
+  .nav-logo a:hover {
+    opacity: 0.75;
+  }
+
   .small-menu-icon,
   .small-dropdown-menu {
     visibility: hidden;
@@ -134,7 +138,6 @@
 }
 
 @media screen and (max-width: 767px) {
-
   .main-menu {
     width: 100%;
     color: black;

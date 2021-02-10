@@ -37,7 +37,6 @@ const Footer = () => {
           <div className='footer-col col-md-9'>
             <div className='accordion-group'>
               <div className='footer-accordion'>
-                <div className='accordion-body'>
                   <ul className='footer-links'>
                     {links.map((link, key) => (
                       <li key={key}>
@@ -46,10 +45,8 @@ const Footer = () => {
                     ))}
                   </ul>
                 </div>
-              </div>
 
               <div className='footer-accordion'>
-                <div className='accordion-body'>
                   <ul className='footer-links'>
                     <li id='bold'>Get help</li>
                     {helpLinks.map((link, key) => (
@@ -58,11 +55,9 @@ const Footer = () => {
                       </li>
                     ))}
                   </ul>
-                </div>
               </div>
 
               <div className='footer-accordion'>
-                <div className='accordion-body'>
                   <ul className='footer-links'>
                     <li id='bold'>About Verses</li>
                     {aboutLinks.map((link, key) => (
@@ -74,8 +69,7 @@ const Footer = () => {
                 </div>
               </div>
             </div>
-          </div>
-          <div className='social-menu col-md-3'>
+          <div className='social-menu'>
             {/* <ul className='social-links'>
               {socialLinks.map((link, i) => (
                 <li key={i}>
