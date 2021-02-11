@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 import ProductList from "../Products/ProductList";
 import CategoryHeader from './CategoryHeader'
@@ -8,13 +8,28 @@ import "./Category.css";
 import "../Products/Products.css";
 
 const Category = (props) => {
-  console.log('in category container')
+  const [sidebar, setSidebar] = useState(false);
+  console.log('in category container', props)
   return (
     <div className='product-container'>
-      { props.byCategory ? <CategoryHeader category={props.byCategory.name} count={props.byCategory.products.length}/> : null}
-      <div className='product-spacer'/>
+      {props.byCategory && props.byCategory ? (
+        <CategoryHeader
+          category={props.byCategory.name}
+          sidebar={sidebar}
+          setSidebar={setSidebar}
+          count={props.byCategory.products.length}
+        />
+      ) : null}
+      <div className='product-spacer' />
       <div className='products-section'>
-        {props.byCategory ? <ProductList products={props.byCategory.products} /> : null};
+        {props.byCategory && props.byCategory ? (
+          <ProductList
+            sidebar={sidebar}
+            setSidebar={setSidebar}
+            products={props.byCategory.products}
+          />
+        ) : null}
+        ;
       </div>
     </div>
   );

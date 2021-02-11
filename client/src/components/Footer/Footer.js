@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom'
 import "./Footer.css";
 
 const links = [
@@ -37,38 +38,40 @@ const Footer = () => {
           <div className='footer-col col-md-9'>
             <div className='accordion-group'>
               <div className='footer-accordion'>
-                  <ul className='footer-links'>
-                    {links.map((link, key) => (
-                      <li key={key}>
-                        <a id='bold'>{link}</a>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-              <div className='footer-accordion'>
-                  <ul className='footer-links'>
-                    <li id='bold'>Get help</li>
-                    {helpLinks.map((link, key) => (
-                      <li key={key}>
-                        <a>{link}</a>
-                      </li>
-                    ))}
-                  </ul>
+                <ul className='footer-links'>
+                  {links.map((link, key) => (
+                    <li key={key}>
+                      <Link id='bold' to='/'>
+                        {link}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
               </div>
 
               <div className='footer-accordion'>
-                  <ul className='footer-links'>
-                    <li id='bold'>About Verses</li>
-                    {aboutLinks.map((link, key) => (
-                      <li key={key}>
-                        <a>{link}</a>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                <ul className='footer-links'>
+                  <li id='bold'>Get help</li>
+                  {helpLinks.map((link, key) => (
+                    <li key={key}>
+                      <Link to='/'>{link}</Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className='footer-accordion'>
+                <ul className='footer-links'>
+                  <li id='bold'>About Verses</li>
+                  {aboutLinks.map((link, key) => (
+                    <li key={key}>
+                      <Link to='/'>{link}</Link>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
+          </div>
           <div className='social-menu'>
             {/* <ul className='social-links'>
               {socialLinks.map((link, i) => (
@@ -87,7 +90,7 @@ const Footer = () => {
             <ul className='sub-footer-menu'>
               {subFooterMenu.map((item, i) => (
                 <li key={i}>
-                  <a>{item}</a>
+                  <Link to='/'>{item}</Link>
                 </li>
               ))}
             </ul>

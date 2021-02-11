@@ -11,7 +11,7 @@ module.exports = (app) => {
 
   app.get("/api/products/:id", fetchProdById);
 
-  app.get(`/api/products/list/:category`, fetchProdByCat);
+  app.get(`/api/products/list/:categoryId`, fetchProdByCat);
 
   app.get(`/api/products/:type/:value`, fetchProdByFilter);
   

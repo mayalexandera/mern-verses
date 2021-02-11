@@ -3,15 +3,18 @@ const Product = require("../models/Product");
 const Category = require("../models/Category");
 
 exports.fetchProdByCat = async (req, res) => {
-  const query = { name: req.params.category };
-  const products = await Category.findOne(query).populate("products").exec();
+  // const query = { name: req.params.category };
+  const query = {_id: req.params.categoryId}
+  console.log(req)
+  const products = await Category.find(query).populate("products").exec();
+
+  console.log(products)
   res.send(products);
 };
 
 exports.fetchCategories = async (req, res) => {
   const categories = await Category.find({});
-  const names = categories.map((cat) => cat.name);
-  res.send(names);
+  res.send(categories);
 };
 
 exports.fetchProducts = async (req, res) => {

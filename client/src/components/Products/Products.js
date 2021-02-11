@@ -15,24 +15,17 @@ const Products = ({ message, fetchProducts, fetchCategories, products, byCategor
 
   return (
     <div className='product-container'>
-      {products && products ? (
+      {products &&
         <CategoryHeader
           category='Clothing'
           sidebar={sidebar}
           setSidebar={setSidebar}
           count={products.length}
         />
-      ) : byCategory && byCategory ? (
-        <CategoryHeader
-          category={byCategory.name}
-          sidebar={sidebar}
-          setSidebar={setSidebar}
-          count={byCategory.products.length}
-        />
-      ) : null}
-      { products && products ? <div className='products-section'>
-       { products && <ProductList message={message} sidebar={sidebar} />}
-      </div> : null }
+   }
+      { <div className='products-section'>
+       { products && <ProductList message={message} sidebar={sidebar} setSidebar={setSidebar} />}
+      </div> }
     </div>
   );
 };

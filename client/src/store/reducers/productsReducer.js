@@ -15,6 +15,7 @@ const initialState = {
   filters: [],
   product: null,
   byCategory: null,
+  category: null,
   categories: null,
 };
 const productsReducer = (state = initialState, action) => {

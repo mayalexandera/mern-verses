@@ -1,4 +1,4 @@
-@media screen and (min-width: 768px) {
+@media only screen and (min-width: 1024px) {
   .main-menu {
     width: 100%;
     z-index: 2;
@@ -13,10 +13,13 @@
   .nav-wrapper {
     padding: 0 38px 0 36px;
     height: 60px;
-    margin-left: auto;
+    margin-left: 
+    auto;
+     border: 1px solid black;
     margin-right: auto;
     width: 100%;
     justify-content: space-between;
+    align-items: center;
     display: flex;
   }
 
@@ -48,15 +51,18 @@
 
   .center-menu-wrapper {
     position: unset;
+     border: 1px solid black;
     top: 0;
   }
 
   .center-menu-container {
     position: absolute;
     height: 100%;
+     border: 1px solid black;
     width: 100%;
     left: 0;
     right: 0;
+    visibility: visible;
     display: block;
     text-align: center;
   }
@@ -117,6 +123,18 @@
     display: inline-block;
   }
 
+  .bag-count {
+    top: 2px;
+       font-size: 12px;
+    font-weight: 500;
+  }
+
+  .sm-hamburger-icon,
+  .nav-button.favorites-button {
+    visibility: hidden;
+    display: none;
+  }
+
   .nav-logo a {
     font-weight: 900;
     font-size: 200%;
@@ -137,18 +155,33 @@
   }
 }
 
-@media screen and (max-width: 767px) {
-  .main-menu {
+@media only screen and (min-width: 1440px) {
+  .center-menu-list {
+    width: calc(100% - 680px);
+  }
+}
+
+@media only screen and (max-width: 1023px) {
+  .center-menu-container {
+    visibility: hidden;
+    display: none;
+  }
+.main-menu {
     width: 100%;
     color: black;
+    border: 1px solid black;
   }
   .nav-logo {
     font-weight: 900;
     font-size: 200%;
+    line-height: 1;
+     border: 1px solid black;
+    margin-left: 8px;
     color: black;
   }
 
   .nav-wrapper {
+     border: 1px solid black;
     width: 100%;
     height: 60px;
     display: flex;
@@ -157,6 +190,25 @@
     align-items: center;
   }
 
+  .right-header-menu {
+    text-align: right;
+    display: inline-block;
+    position: absolute;
+    right: 40px;
+    margin-right: 18px;
+  }
+
+  .right-header-menu a {
+    display: inline-flex;
+    background: transparent;
+    position: relative;
+  }
+
+  .nav-button {
+    font-size: 80%;
+  }
+
+  
   .center-menu-wrapper {
     visibility: hidden;
     display: none;
@@ -169,14 +221,42 @@
     align-items: center;
   }
 
-  .right-header-menu {
+  .sm-hamburger-icon {
+    background: transparent;
+    width: 40px;
+    height: 40px;
+  }
+
+  .sm-hamburger-icon svg {
+    width: 24px;
+    height: 24px;
+  }
+
+
+  .nav-button.favorites-button {
     visibility: hidden;
     display: none;
   }
-}
 
-@media only screen and (min-width: 1440px) {
-  .center-menu-list {
-    width: calc(100% - 680px);
+  .nav-button.cart-button,
+  .sm-hamburger-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
   }
+
+  .bag-icon {
+    height: 28px;
+    width: 28px;
+  }
+
+  .bag-count {
+    display: block;
+    position: absolute;
+    left: 10.7px;
+    font-weight: 500;
+    font-size: 12px;
+    top: 9.8px;
+  }
+
 }

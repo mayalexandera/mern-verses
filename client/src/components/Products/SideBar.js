@@ -7,10 +7,11 @@ import productFilters from "./productFilters";
 import SideBarItem from "./SideBarItem";
 import "./SideBar.css";
 
-const SideBar = ({ categories, fetchProdByCat, sidebar }) => {
+const SideBar = ({ categories, fetchProdByCat, sidebar, setSidebar }) => {
   const categoryClick = (cat) => {
     fetchProdByCat(cat);
   };
+  console.log(categories)
 
   return (
     <CSSTransition
@@ -24,13 +25,13 @@ const SideBar = ({ categories, fetchProdByCat, sidebar }) => {
         <div className='left-nav'>
           <div className='categories'>
             {categories &&
-              categories.map((cat, idx) => (
+              categories.map(({name, _id}, idx) => (
                 <div key={idx} className='categories__item'>
                   <Link
-                    onClick={() => categoryClick(cat)}
-                    to={`/product/list/${cat}`}
+                    onClick={() => categoryClick(_id)}
+                    to={`/product/list/${name}`}
                   >
-                    {cat}
+                    {name}
                   </Link>
                 </div>
               ))}

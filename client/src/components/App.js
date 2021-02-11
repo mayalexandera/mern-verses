@@ -35,8 +35,8 @@ class App extends Component {
           <Route exact path='/member/surveys' component={SurveyDashboard} />
           <Route exact path='/member/surveys/thanks' component={SurveyThanks} />
           <Route path='/member/surveys/new' component={SurveyNew} />
-          <Route exact path='/products' component={Products} />
-          <Route path='/product/list/:category' component={Category} />
+          <Route exact path='/products' exact component={Products} />
+          <Route exact path='/product/list/:category' exact component={Category} />
           <Route path='/products/:id' exact component={Product} />
           <Route path='/plans' component={Plans} />
           <Route path='/member/profile' component={Profile} />
@@ -47,8 +47,8 @@ class App extends Component {
           <Route path='/order/success/:orderId' component={Checkout} />
 
           <Route path='/settings' component={AccountSettings} />
-        </BrowserRouter>
         <Footer/>
+        </BrowserRouter>
       </Layout>
     );
   }

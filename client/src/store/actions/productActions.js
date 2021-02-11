@@ -22,10 +22,10 @@ export const fetchProduct = (productId) => async (dispatch) => {
   dispatch({ type: FETCH_PRODUCT, payload: res.data });
 };
 
-export const fetchProdByCat = (cat) => async (dispatch) => {
-  const res = await axios.get(`/api/products/list/${cat}`);
+export const fetchProdByCat = (categoryId) => async (dispatch) => {
+  const res = await axios.get(`/api/products/list/${categoryId}`);
 
-  dispatch({ type: FETCH_PROD_BY_CAT, payload: res.data });
+  dispatch({ type: FETCH_PROD_BY_CAT, payload: res.data[0] });
 };
 
 export const updateFilters = filter => (getState) => {
