@@ -1,14 +1,15 @@
 import React from "react";
 import { connect } from 'react-redux'
 
-const GreetingButton = ({ user }) => {
+const GreetingButton = ({ showAccount, user }) => {
 
   const handleClick = (e) => {
     console.log(user)
+    showAccount()
   }
   return (
-    <div className='greeting-button-wrapper'>
-      <button onClick={(e) => handleClick(e)} className='greeting-button'>
+    <div onClick={(e) => handleClick(e)} className='greeting-button-wrapper'>
+      <button className='greeting-button'>
         <svg
           width='30px'
           style={{ display: "inline-block" }}

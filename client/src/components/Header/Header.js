@@ -1,15 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 import * as actions from "../../store/actions";
 import Hamburger from "./Hamburger";
 import DropdownContainer from "../Dropdown/DropdownContainer";
+import { CSSTransition } from "react-transition-group";
 import AuthBanner from "../AuthBanner/AuthBanner";
 import "./Header.css";
 
 const Header = ({ favoriteList, cart }) => {
+  const [expanded, setExpanded] = useState(false)
+  const showDropdown = () => {
+    console.log(expanded)
+    setExpanded(!expanded)
+    console.log(expanded)
+  }
   return (
-    <div className='main-menu-container'>
+    <div
+    className='main-menu-container'>
       <AuthBanner />
       <header className='main-menu'>
         <div className='nav-wrapper'>
@@ -75,12 +83,24 @@ const Header = ({ favoriteList, cart }) => {
           </div>
           <div className='sm-hamburger-icon-wrapper'>
             {" "}
-            <button className='sm-hamburger-icon'>
+            <button
+              onClick={showDropdown}
+              className='sm-hamburger-icon'
+            >
               <Hamburger />
             </button>
           </div>
-          <DropdownContainer />
+          <CSSTransition
+            className='slide-in-transition'
+            in={expanded}
+            timeout={500}
+            appear
+            unmountOnExit
+          >
+            <DropdownContainer showDropdown={showDropdown} />
+          </CSSTransition>
         </div>
+        {/* <DropdownContainer /> */}
       </header>
     </div>
   );

@@ -1,16 +1,18 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
-const DropdownRow = ({ item, i }) => {
+const DropdownRow = ({ item, i, showDropdown }) => {
   return (
-    <div className='dropdown-row'>
-      <a>
-        <button key={i} className='dropdown-button'>
-          <div className='dropdown_col'>
-            <p>{item}</p>
-          </div>
-        </button>
-        {/* <span className='material-icons-round'>navigate_next</span> */}
-      </a>
+    <div key={i} className='dropdown-row'>
+      <NavLink
+        className='dropdown-button'
+        onClick={showDropdown}
+        to={item.path}
+      >
+        <div className='dropdown_col'>
+          <p>{item.title}</p>
+        </div>
+      </NavLink>
     </div>
   );
 };

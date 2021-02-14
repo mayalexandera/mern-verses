@@ -1,12 +1,9 @@
 .wall-header-container {
   transition: transform 150ms ease 0s;
   position: sticky;
-  border: 1px solid pink;
   left: 0px;
   top: 90px;
-  /* transform: translateY(0px); */
-  z-index: 9;
-  /* display: block; */
+  z-index: 2;
   background: rgb(255, 255, 255);
 }
 

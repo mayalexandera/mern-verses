@@ -218,6 +218,11 @@
     width: 33.3%;
   }
 
+  .favorites-container {
+  position: relative;
+  top: 90px;
+  }
+
   .heart-wishlist-button {
     right: 8px;
   }

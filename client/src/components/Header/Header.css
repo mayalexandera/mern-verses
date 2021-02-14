@@ -8,8 +8,7 @@
     height: 60px;
     display: block;
     background: white;
-  }
-
+  } 
   .cart-button-wrapper,.favorites-button-wrapper {
     display: inline-flex;
   }
@@ -149,6 +148,8 @@
     visibility: hidden;
     display: none;
   }
+
+  /* .main-menu-container { min-height: 100vh;} */
   .main-menu {
     background-color: white;
     width: 100%;
@@ -210,9 +211,10 @@
     position: absolute;
     right: 12px;
     top: 8px;
-
     text-align: center;
   }
+
+
 
   .bag-button-wrapper {
     background: transparent;

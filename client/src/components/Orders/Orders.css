@@ -4,6 +4,11 @@
   text-align: center;
 }
 
+@media only screen and (max-width: 1023px) {
+  .orders-container { top: 90px; }
+  .dashboard-header-spacer { display: none; }
+}
+
 .orders-list-wrapper {
   display: flex;
   justify-content: center;

@@ -21,19 +21,21 @@ import Orders from "./Orders/Orders";
 import Plans from "./Plans/Plans";
 import AccountSettings from "./AccountSettings/AccountSettings";
 import "./App.css";
+import DropdownContainer from "./Dropdown/DropdownContainer";
 
-class App extends Component {
-  render() {
+const App = () =>  {
+ 
     return (
       <Layout>
         <BrowserRouter>
           <Header />
+        
           <Route exact path='/' component={Landing} />
           <Route exact path='/member/surveys' component={SurveyDashboard} />
           <Route exact path='/member/surveys/thanks' component={SurveyThanks} />
           <Route path='/member/surveys/new' component={SurveyNew} />
-          <Route  path='/products'  component={Products} />
-          <Route  path='/product/list/:category'  component={Category} />
+          <Route path='/products' component={Products} />
+          <Route path='/product/list/:category' component={Category} />
           <Route path='/products/:id' exact component={Product} />
           <Route path='/plans' component={Plans} />
           <Route path='/member/profile' component={Profile} />
@@ -44,11 +46,10 @@ class App extends Component {
           <Route path='/order/success/:orderId' component={Checkout} />
 
           <Route path='/settings' component={AccountSettings} />
-        <Footer/>
+          <Footer />
         </BrowserRouter>
       </Layout>
     );
-  }
 }
 
 export default connect(null, actions)(App);
