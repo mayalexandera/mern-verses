@@ -1,0 +1,217 @@
+* {
+  font-family: "Helvetica Neue";
+}
+
+.dropdown-container {
+  border: 1px solid red;
+  position: absolute;
+  overflow-x: hidden;
+  top: 0px;
+  right: -320px;
+  background: white;
+  height: 100vh;
+  width: 320px;
+}
+
+.dropdown-wrapper {
+  /* background: orange; */
+  margin-top: 26px;
+  padding: 0 36px 150px;
+}
+
+.dropdown-body {
+  border: 1px solid green;
+}
+
+.sub-menu-list {
+  margin-top: 20px;
+  border: 1px solid blue;
+  margin-bottom: 24px;
+}
+.dropdown_col {
+  /* width: 50%; */
+}
+
+.dropdown-account-panel-row {
+  padding: 4px 0;
+  font-weight: 500;
+  line-height: 1.5;
+  font-size: 16px;
+  width: 100%;
+  border: 1px solid pink;
+}
+
+.dropdown-account-panel-row a {
+  color: #757575;
+  display: block;
+}
+
+.dropdown-account-panel_col {
+  display: flex;
+  align-items: center;
+}
+
+.dropdown-account-panel_col svg {
+  width: 12px;
+  height: 12px;
+  margin-top: 2px;
+}
+
+.dropdown-account-panel_col > span {
+  font-family: "Helvetica Neue";
+  font-weight: 500;
+  padding-left: 16px;
+  display: inline-block;
+  width: 100%;
+  line-height: 1.5;
+  text-align: left;
+  font-size: 16px;
+}
+
+.dropdown-button {
+  text-align: left;
+  line-height: 1.166667;
+  background: transparent;
+}
+
+.dropdown-account-panel-button {
+  padding: 4px 0;
+  background: transparent;
+  line-height: 1.5;
+  margin-bottom: 24px;
+  font-size: 16px;
+  width: 100%;
+  border: 1px solid pink;
+}
+
+.navigate-before {
+  height: 21px;
+  width: 21px;
+}
+.dropdown-row {
+  padding: 10px 0;
+  border: 1px solid green;
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.user-name-wrapper {
+  margin-bottom: 16px;
+}
+.user-name {
+  font-size: 24px;
+  line-height: 48px;
+  margin-right: 6px;
+  font-weight: 500;
+}
+
+.greeting-button-wrapper {
+  border: 1px solid purple;
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom: 14px;
+}
+
+.greeting-button {
+  padding: 10px 0;
+  text-align: left;
+  line-height: 1.166667;
+  align-items: center;
+  display: inline-flex;
+  /* justify-content: space-between; */
+  background: transparent;
+}
+
+.greeting-button svg {
+  height: 23px;
+  width: 23px;
+  margin-right: 12px;
+  padding: 0;
+  border-radius: 100px;
+}
+.greeting-button p {
+  font-size: 16px;
+  line-height: 48px;
+  margin-right: 6px;
+  font-weight: 500;
+  font-family: "Helvetica Neue";
+}
+.dropdown-button span {
+  width: 12px;
+  height: 12px;
+}
+
+.dropdown_col p {
+  line-height: 1.1;
+  font-size: 24px;
+  display: inline;
+  font-family: "Helvetica Neue";
+  font-weight: 500;
+}
+
+.dropdown-member-row {
+  padding-top: 12px;
+  text-align: center;
+  width: 100%;
+}
+
+.dropdown-member-row a,
+.dropdown-row a {
+  display: flex;
+  width: 100%;
+}
+
+.dropdown-row a {
+  width: 100%;
+  justify-content: space-between;
+}
+.dropdown-member-row span {
+  /* width:36px;
+  text-align: center;
+  height: 32px; */
+}
+
+.dropdown-member-row svg {
+  height: 23px;
+  width: 23px;
+}
+
+.dropdown-member-row {
+  font-family: "Helvetica Neue";
+  font-weight: 500;
+  vertical-align: middle;
+  font-size: 16px;
+}
+
+.dropdown-member-row p {
+  display: inline;
+  padding-left: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.member-button-icon-wrapper {
+  display: inline;
+  width: 36px;
+  text-align: center;
+  position: relative;
+}
+.dropdown-member-count {
+  width: 36px;
+  /* display: block; */
+  position: absolute;
+  left: 0;
+  top: 5px;
+  /* border: 1px solid pink; */
+  font-size: 12px;
+  height: 21px;
+  text-align: center;
+  vertical-align: baseline;
+}

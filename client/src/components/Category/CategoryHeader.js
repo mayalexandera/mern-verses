@@ -58,6 +58,7 @@ const CategoryHeader = ({
                 <span className='wall-header__filter_text'>
                   {sidebar ? "Hide Filters" : "Show Filters"}
                 </span>
+                <span className='mobile__wall-header__filter-text'>{"Filters"}</span>
                 <div className='icon-filters'></div>
               </button>
               <div className='sort-by'>

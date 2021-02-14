@@ -36,9 +36,11 @@
 @media screen and (max-width: 1023px) {
   .member-banner-wrapper {
     visibility: hidden;
+    display: none;
   }
 
   .right-menu {
     visibility: hidden;
+    display: none;
   }
 }

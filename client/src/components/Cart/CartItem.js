@@ -34,7 +34,7 @@ const CartItem = ({ item, deleteCartItem, updateCartItem }) => {
                     keyboard_arrow_down
                   </span>
                   <select
-                    value={item.sizeId._id}
+                    value={item.sizeId && item.sizeId._id}
                     id={"sizeId"}
                     className='size-select'
                     onChange={updateHandler}

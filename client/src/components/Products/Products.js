@@ -13,7 +13,10 @@ const Products = ({ message, fetchProducts, fetchCategories, products, byCategor
     fetchCategories();
   }, [fetchProducts, fetchCategories]);
 
+  console.log(products)
+
   return (
+
     <div className='product-container'>
       {products &&
         <CategoryHeader
@@ -24,7 +27,7 @@ const Products = ({ message, fetchProducts, fetchCategories, products, byCategor
         />
    }
       { <div className='products-section'>
-       { products && <ProductList message={message} sidebar={sidebar} setSidebar={setSidebar} />}
+       { products && products ?<ProductList message={message} sidebar={sidebar} setSidebar={setSidebar} products={products} /> : null}
       </div> }
     </div>
   );

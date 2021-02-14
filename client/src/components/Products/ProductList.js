@@ -7,7 +7,7 @@ const ProductList = ({ products, message, sidebar, setSidebar }) => {
   console.log(message, products)
   return (
     <div className='product-results-body'>
-      {<SideBar setSidebar={setSidebar} sidebar={sidebar} />}
+      {products && <SideBar setSidebar={setSidebar} sidebar={sidebar} />}
       <div className='product-grid-container'>
         <div className='product-grid'>
           <div className='product-grid-items'>

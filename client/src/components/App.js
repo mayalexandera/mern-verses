@@ -5,7 +5,6 @@ import * as actions from "../store/actions";
 
 import Header from "./Header/Header";
 import Footer from "./Footer/Footer";
-import AuthBanner from "./AuthBanner/AuthBanner";
 import Landing from "./Landing/Landing";
 import SurveyDashboard from "./surveys/SurveyDashboard";
 import Profile from "./Profile/Profile";
@@ -28,15 +27,13 @@ class App extends Component {
     return (
       <Layout>
         <BrowserRouter>
-          <AuthBanner />
           <Header />
-          <div className='app-header' />
           <Route exact path='/' component={Landing} />
           <Route exact path='/member/surveys' component={SurveyDashboard} />
           <Route exact path='/member/surveys/thanks' component={SurveyThanks} />
           <Route path='/member/surveys/new' component={SurveyNew} />
-          <Route exact path='/products' exact component={Products} />
-          <Route exact path='/product/list/:category' exact component={Category} />
+          <Route  path='/products'  component={Products} />
+          <Route  path='/product/list/:category'  component={Category} />
           <Route path='/products/:id' exact component={Product} />
           <Route path='/plans' component={Plans} />
           <Route path='/member/profile' component={Profile} />
