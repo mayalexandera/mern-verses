@@ -1,12 +1,13 @@
-.left-nav-wrapper {
 
-}
 
 .sidebar-container {
   display: none;
   visibility: hidden;
 }
 
+@media only screen and (max-width: 411px) {
+  .left-nav-wrapper, .filter-transition {display: none; }
+}
 .left-nav {
   padding: 0px 0px 1em 48px;
   width: 192px;

@@ -11,7 +11,6 @@ const CategoryHeader = ({
   count,
   sortByFilter,
 }) => {
-
   const sortByFilters = [
     { title: "Newest", key: "created", order: "date" },
     { title: "Price: Low-High", key: "price", order: "asc" },
@@ -59,10 +58,13 @@ const CategoryHeader = ({
                   {sidebar ? "Hide Filters" : "Show Filters"}
                 </span>
                 <div className='icon-filters-wrapper'>
-        <div className='icon-filters'/>
+                  <div className='icon-filters' />
                 </div>
-                <span className='mobile__wall-header__filter-text'>{"Filters"}
-                <div className='icon-filters-wrapper'><div className='icon-filters'/></div>
+                <span className='mobile__wall-header__filter-text'>
+                  {"Filters"}
+                  <div className='icon-filters-wrapper'>
+                    <div className='icon-filters' />
+                  </div>
                 </span>
               </button>
               <div className='sort-by'>
