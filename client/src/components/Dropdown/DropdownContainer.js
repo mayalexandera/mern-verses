@@ -19,7 +19,7 @@ const DropdownContainer = ({ showDropdown }) => {
           { !selected && <div className='dropdown-body'>
             <GreetingButton showAccount={ showAccount } /> 
             <DropdownList showDropdown={showDropdown} />
-            <DropdownMemberList />
+            <DropdownMemberList showDropdown={showDropdown}/>
           </div> }
            { selected && <AccountSubMenuList showAccount={ showAccount } showDropdown={showDropdown}/>}
         </div>
