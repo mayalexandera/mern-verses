@@ -13,7 +13,6 @@
   scrollbar-width: none;
   font-size: 100%;
   vertical-align: baseline;
-  overflow-x: hidden;
 }
 
 *::-webkit-scrollbar {
@@ -29,7 +28,7 @@ body {
   font-weight: 400;
   font-size: 20px;
   text-rendering: optimizeLegibility;
-  /* overflow-x: scroll; */
+  overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -40,7 +39,7 @@ main {
 
 body {
   /* overflow-y: hidden; */
-  /* overflow-x: scroll; */
+  /* overflow-x: scroll; */ 
 }
 
 .clearfix {
