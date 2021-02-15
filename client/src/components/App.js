@@ -34,9 +34,9 @@ const App = () =>  {
           <Route exact path='/member/surveys' component={SurveyDashboard} />
           <Route exact path='/member/surveys/thanks' component={SurveyThanks} />
           <Route path='/member/surveys/new' component={SurveyNew} />
-          <Route path='/products' component={Products} />
-          <Route path='/product/list/:category' component={Category} />
-          <Route path='/products/:id' exact component={Product} />
+          <Route path='/products' exact component={Products} />
+          <Route exact path='/product/list/:category' exact component={Category} />
+          <Route exact path='/products/:id' exact component={Product} />
           <Route path='/plans' component={Plans} />
           <Route path='/member/profile' component={Profile} />
           <Route path='/favorites' component={Favorites} />

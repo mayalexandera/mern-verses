@@ -39,6 +39,7 @@ const CategoryHeader = ({
   const renderCategoryHeader = () => {
     return category && category ? (
       <div className='wall-header-container'>
+        <div className='wall-header-anchor-point'></div>
         <header className='wall-header'>
           {/* <div className='wall-breadcrumbs'>
           <ol className='wall-breadcrumbs__list'>
@@ -60,11 +61,13 @@ const CategoryHeader = ({
                 <div className='icon-filters-wrapper'>
                   <div className='icon-filters' />
                 </div>
+              </button>
+              <button
+                className='mobile-filters-button'
+                onClick={() => handleSideBar()}
+              >
                 <span className='mobile__wall-header__filter-text'>
                   {"Filters"}
-                  <div className='icon-filters-wrapper'>
-                    <div className='icon-filters' />
-                  </div>
                 </span>
               </button>
               <div className='sort-by'>

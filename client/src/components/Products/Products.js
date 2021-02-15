@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, Fragment } from "react";
 import { connect } from "react-redux";
 import ProductList from "./ProductList";
 import CategoryHeader from "../Category/CategoryHeader";
@@ -16,20 +16,22 @@ const Products = ({ message, fetchProducts, fetchCategories, products, byCategor
   console.log(products)
 
   return (
-
-    <div className='product-container'>
-      {products &&
-        <CategoryHeader
-          category='Clothing'
-          sidebar={sidebar}
-          setSidebar={setSidebar}
-          count={products.length}
-        />
-   }
-      { <div className='products-section'>
-       { products && products ?<ProductList message={message} sidebar={sidebar} setSidebar={setSidebar} products={products} /> : null}
-      </div> }
-    </div>
+    <Fragment>
+       {products &&
+          <CategoryHeader
+            category='Clothing'
+            sidebar={sidebar}
+            setSidebar={setSidebar}
+            count={products.length}
+          />
+     }
+      <div className='product-container'>
+   
+        { <div className='products-section'>
+         { products && products ?<ProductList message={message} sidebar={sidebar} setSidebar={setSidebar} products={products} /> : null}
+        </div> }
+      </div>
+    </Fragment>
   );
 };
 const mapStateToProps = ({ products: { products, message, byCategory } }) => {

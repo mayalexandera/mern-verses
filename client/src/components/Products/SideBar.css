@@ -1,12 +1,19 @@
 
-
+/* 
 .sidebar-container {
   display: none;
   visibility: hidden;
+} */
+
+.mobile__wall-header__filter-text { line-height: 1.75; }
+
+@media only screen and (min-width: 700px) {
+
+  /* .left-nav-wrapper { display: block; } */
 }
 
-@media only screen and (max-width: 411px) {
-  .left-nav-wrapper, .filter-transition {display: none; }
+@media only screen and (min-width: 376px) {
+  /* .left-nav-wrapper, .filter-transition {display: none; } */
 }
 .left-nav {
   padding: 0px 0px 1em 48px;
