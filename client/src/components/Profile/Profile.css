@@ -1,6 +1,4 @@
 .profile-container {
-  position: relative;
-  top: 60px;
   max-width: 1808px;
 }
 
@@ -35,12 +33,18 @@
   width: 75px;
   background-size: 75px 75px;
   border-radius: 50%;
-  margin-right: 4vh;
+  margin-right: 24px;
 }
 
 .profile-subtitle {
   display: inline-block;
   vertical-align: top;
+}
+
+.profile-subtitle h2 {
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 1.5;
 }
 
 .profile-subtitle > h4 {
@@ -82,19 +86,34 @@
 
 @media only screen and (min-width: 1024px) {
   .profile-container {
-    position: relative;
-    top: 90px;
+    padding-top: 90px;
     margin-left: 48px;
     margin-right: 48px;
     padding-left: 8px;
     padding-right: 8px;
   }
+
+  .profile-photo-wrapper {
+    width: 96px;
+    height: 96px;
+    background-size: 96px 96px;
+  }
 }
 
 @media only screen and (max-width: 411px) {
-  .profile-container { padding-bottom: 48px; }
+  .profile-container {
+    padding-bottom: 48px;
+  }
 
-  .profile-photo-wrapper  { width: 60px; height: 60px; background-size: 60px 60px; }
+  .profile-photo-wrapper {
+    width: 60px;
+    height: 60px;
+    background-size: 60px 60px;
+  }
 
-  .profile-subtitle h2 { font-size: 32px; line-height: 1.125; font-weight: 500; }
+  .profile-subtitle h2 {
+    font-size: 32px;
+    line-height: 1.125;
+    font-weight: 500;
+  }
 }

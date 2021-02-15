@@ -9,10 +9,12 @@ const OrderItemCard = ({ orderNumber, orderedDate, item, index }) => {
       <div className='order-item-card-wrapper'>
         <div className='order-item-card-body'>
           <div className='order-item-image-wrapper'>
-            <img
-              alt={item.productId.name}
-              src={item.productId.images.model1[0]}
-            />
+           <NavLink className='product-image-link' to ={`/products/${item.productId._id}`}>
+              <img
+                alt={item.productId.name}
+                src={item.productId.images.model1[0]}
+              />
+           </NavLink>
           </div>
           <div className='order-item-details-container'>
             <div className='flx-grow-md-0 order-items-details-list'>
