@@ -49,3 +49,8 @@
   line-height: 1.714;
   font-size: 14px;
 }
+
+
+@media (max-width: 639px), (max-width: 1023px) and (min-width: 640px) {  
+  .membership-tier-container { width: 100%; display: block; }
+}

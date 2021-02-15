@@ -9,6 +9,8 @@
   justify-content: space-around;
   flex-wrap: wrap;
   vertical-align: top;
+  padding-left: 32px;
+  padding-right: 32px;
 }
 
 .favorite-content {
@@ -17,6 +19,7 @@
   margin-top: 48px;
   margin-right: 0px;
   padding-left: 0px;
+  margin-bottom: 48px;
   padding-right: 0px;
 }
 
@@ -235,6 +238,26 @@
 
 @media only screen and (max-width: 1449px) {
   .favorite-content {
-    width: 77%;
+    /* width: 77%; */
   }
+}
+
+@media (max-width: 639px), (max-width: 1023px) and (min-width: 640px) {
+  .favorites-section {
+    padding: 0;
+  }
+
+  .favorite-content { margin-top: 0; }
+
+  .favorite-item-wrapper:nth-of-type(2n) {
+    padding-left: 0px;
+    padding-right: 3px;
+  }
+
+  .favorite-item-wrapper:nth-of-type(2n + 1) {
+    padding-right: 0px;
+    padding-left: 3px;
+  }
+
+  .favorite-item-body { padding: 0; }
 }
