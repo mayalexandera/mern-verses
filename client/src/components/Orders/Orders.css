@@ -1,13 +1,14 @@
 .orders-container {
   position: relative;
-  top: 220px;
+  top: 60px;
   text-align: center;
 }
 
-@media only screen and (max-width: 1023px) {
-  .orders-container { top: 90px; }
-  .dashboard-header-spacer { display: none; }
+@media only screen and (min-width: 1024px) {
+  .orders-container { top: 96px; padding-top: 50px; min-height: calc(100vh - 317px);}
+  /* .dashboard-header-spacer { display: none; } */
 }
+
 
 .orders-list-wrapper {
   display: flex;

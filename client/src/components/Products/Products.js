@@ -6,7 +6,7 @@ import * as actions from "../../store/actions";
 import "./Products.css";
 
 const Products = ({ message, fetchProducts, fetchCategories, products, byCategory }) => {
-  const [sidebar, setSidebar] = useState(false);
+  const [sidebar, setSidebar] = useState(true);
 
   useEffect(() => {
     fetchProducts();

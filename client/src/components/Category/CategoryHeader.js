@@ -58,8 +58,12 @@ const CategoryHeader = ({
                 <span className='wall-header__filter_text'>
                   {sidebar ? "Hide Filters" : "Show Filters"}
                 </span>
-                <span className='mobile__wall-header__filter-text'>{"Filters"}</span>
-                <div className='icon-filters'></div>
+                <div className='icon-filters-wrapper'>
+        <div className='icon-filters'/>
+                </div>
+                <span className='mobile__wall-header__filter-text'>{"Filters"}
+                <div className='icon-filters-wrapper'><div className='icon-filters'/></div>
+                </span>
               </button>
               <div className='sort-by'>
                 <div className='dropdown anchored--right'>
@@ -67,7 +71,7 @@ const CategoryHeader = ({
                     onClick={() => handleSortBy()}
                     className='dropdown__btn'
                   >
-                    <span className='dropdown__btn-text'>{"Sort By: "}</span>
+                    <span className='dropdown__btn-text'>{"Sort By"}</span>
                     <span className='dropdown__btn-selected-text'>
                       {selected}
                     </span>

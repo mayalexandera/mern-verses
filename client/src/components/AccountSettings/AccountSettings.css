@@ -1,15 +1,20 @@
 .settings-container {
-  min-height: 720px;
   position: relative;
-  top: 220px;
+  top: 60px;
+  padding-top: 40px;
+  min-height: 720px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
-@media only screen and (max-width: 1023px) {
-  .settings-container { top: 90px; }
+@media only screen and (min-width: 1024px) {
+  .settings-container {
+    top: 90px;
+  }
 }
 
 .settings-nav-title {
-  margin-bottom: 24px;
+  margin-bottom: 48px;
   display: block;
 }
 
@@ -25,7 +30,10 @@
 
 .settings-nav-item-wrapper {
   vertical-align: top;
+}
+#settings_col {
   padding-left: 0px;
+  padding-right: 0px;
 }
 
 .col-sm-12 {
@@ -91,16 +99,12 @@
   display: none;
 }
 
-.settings-spacer {
-  height: 36px;
-}
-
 .settings-list-container {
   padding-bottom: 32px;
   padding-left: 0;
   vertical-align: top;
   display: inline-block;
-  padding-right: 24px;
+  padding-right: 8px;
   line-height: 1.75;
   font-size: 16px;
 }
@@ -388,9 +392,6 @@ fieldset legend {
 }
 
 @media only screen and (max-width: 1023px) {
-  .settings-container {
-    margin: 0 20px;
-  }
   .settings-nav-link {
     height: 56px;
   }

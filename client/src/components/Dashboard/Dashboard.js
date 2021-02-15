@@ -5,23 +5,25 @@ import "./Dashboard.css";
 const Dashboard = (props) => {
   return (
     <div className='dashboard-wrapper-container'>
-      <div className='dashboard-header-spacer' />
       <div className='dashboard-container'>
         <div className='dashboard-header-wrapper'>
-          <div className='dashboard-header'>
+          <div>
             <div className='dashboard-header-title'>
-              {props.title || "...loading"}
+              <h1>{props.title || "...loading"}</h1>
+            </div>
+            <div className='dashboard-wrapper'>
+              <div className='dashboard-row'>
+                <ul className='dashboard-list'>
+                  <NavLink to='/member/profile'>Profile</NavLink>
+                  <NavLink to='/orders'>Orders</NavLink>
+                  <NavLink to='/favorites'>Favorites</NavLink>
+                  <NavLink to='/settings'>Settings</NavLink>
+                </ul>
+              </div>
             </div>
           </div>
-          <div className='dashboard-wrapper'>
-            <ul className='dashboard-list'>
-              <NavLink to='/member/profile'>Profile</NavLink>
-              <NavLink to='/orders'>Orders</NavLink>
-              <NavLink to='/favorites'>Favorites</NavLink>
-              <NavLink to='/settings'>Account</NavLink>
-            </ul>
-          </div>
         </div>
+        <hr className='dashboard-hr' />
       </div>
     </div>
   );
