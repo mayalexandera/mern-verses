@@ -5,6 +5,7 @@
 
 .favorites-section {
   /* padding-top: 200px; */
+  min-height: 700px;
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
@@ -260,4 +261,5 @@
   }
 
   .favorite-item-body { padding: 0; }
+
 }
