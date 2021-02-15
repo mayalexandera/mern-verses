@@ -36,7 +36,7 @@ const Membership = ({ user, fetchPlans, plans }) => {
       <div className='membership-section'>
         <div className='membership-tier-container'>
           <div>
-            <h3 className='membership-container-title'>Membership Benefits</h3>
+            <h3 className='membership-container-title'>Member Benefits</h3>
             <ul className='plan-feature-bullet-points'>
               {plans && plans
                 ? plans[0].features.map((feature, index) => {

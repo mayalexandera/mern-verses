@@ -17,7 +17,6 @@
 .plans-section {
   margin-top: 48px;
   margin-bottom: 96px;
-  width: 90%;
   display: flex;
   justify-content: center;
 }
@@ -28,7 +27,6 @@
 }
 
 .plan-tiers-container {
-  max-width: 90%;
   margin-bottom: 34px;
   box-shadow: inset 0 1px 0 0 #e5e5e5, inset -1px 0 0 0 #e5e5e5,
     inset 0 -1px 0 0 #e5e5e5, inset 1px 0 0 0 #e5e5e5;
@@ -48,12 +46,12 @@
   position: relative;
 }
 
-#plans-col {
+#plans_col {
   padding-left: 0px;
   padding-right: 0px;
 }
 
-#plans-col h2 {
+#plans_col h2 {
   text-align: left;
 }
 
@@ -162,4 +160,52 @@
   border-radius: 5px;
   font-weight: 600;
   font-size: 16px;
+}
+
+
+@media only screen and (max-width: 411px) {
+
+  .plans-section { margin-top: 0; display: block;}
+  .plan-price {
+    justify-content: center; 
+    align-items: center;
+  }
+
+  .plans-container-title { margin-top: 20px; }
+
+  .plan-price-section, 
+  .plan-title-section {
+    padding: 20px;
+    display: inline-flex;
+    width: 75%;
+    height: 115px;
+    text-align: center;
+  }
+
+.plan-title-section { width: 25%; box-shadow: inset 0 1px 0 0 #e5e5e5;}
+
+  #plans_col { width: 100%; }
+
+  .membership-tier-container {
+    margin-bottom: 34px;
+  }
+
+  .membership-container {
+    padding-top: 0;
+  }
+
+  .membership-container-title {
+    padding-bottom: 24px;
+    font-size: 24px; 
+  }
+  .details-container { width: 100%; }
+
+  .plans-membership-container { padding-left: 20px; padding-right: 20px;}
+
+  .plan-tiers-container { width: 100%; }
+
+  .tier-card-title { padding: 0px; }
+
+  .plan-card-body { display: flex; align-items: center; }
+  .plan-button-wrapper { max-width: 100%; }
 }

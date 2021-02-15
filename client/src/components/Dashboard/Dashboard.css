@@ -117,4 +117,7 @@
  .dashboard-wrapper-container { top: 90px }
 }
 
+@media only screen and (max-width: 411px) {  
+    .dashboard-header-title { display: none; }
+}
 

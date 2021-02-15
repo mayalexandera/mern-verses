@@ -90,3 +90,11 @@
     padding-right: 8px;
   }
 }
+
+@media only screen and (max-width: 411px) {
+  .profile-container { padding-bottom: 48px; }
+
+  .profile-photo-wrapper  { width: 60px; height: 60px; background-size: 60px 60px; }
+
+  .profile-subtitle h2 { font-size: 32px; line-height: 1.125; font-weight: 500; }
+}

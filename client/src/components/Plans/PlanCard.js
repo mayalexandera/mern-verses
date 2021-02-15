@@ -9,9 +9,11 @@ const PlanCard = ({ className, id, tier, handleClick }) => {
       id={id}
     >
       <div className='plan-card-body'>
-        <div className='tier-card-title'>
-          <p>{tier.items}</p>
-          <span>{tier.items < 2 ? "item" : "items"}</span>
+        <div className='plan-title-section'>
+          <div className='tier-card-title'>
+            <p>{tier.items}</p>
+            <span>{tier.items < 2 ? "item" : "items"}</span>
+          </div>
         </div>
         <div className='plan-price-section'>
           <div className='plan-price'>

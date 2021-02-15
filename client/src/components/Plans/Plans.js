@@ -20,7 +20,7 @@ const Plans = ({ fetchPlans, plans }) => {
   return (
     <div className='plans-container'>
       <div className='plans-section'>
-        <div className='col-lg-6' id='plans-col'>
+        <div className='col-lg-6' id='plans_col'>
           <div className='plans-section-container'>
             <div className='image-wrapper'>
               <img
@@ -30,7 +30,7 @@ const Plans = ({ fetchPlans, plans }) => {
             </div>
           </div>
         </div>
-        <div className='plans-col col-lg-6' id='plans-col'>
+        <div className='plans-col col-lg-6' id='plans_col'>
           <div className='plans-membership-container'>
             <header>
               <h2 className='plans-container-title'>Membership</h2>
@@ -56,7 +56,7 @@ const Plans = ({ fetchPlans, plans }) => {
                   ? plans[0].tiers.map((tier, index) => {
                       return (
                         <PlanCard
-                          id={"plans-col"}
+                          id={"plans_col"}
                           className='col-sm-4'
                           handleClick={handleClick}
                           tier={tier}

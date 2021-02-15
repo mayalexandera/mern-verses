@@ -51,6 +51,9 @@
 }
 
 
-@media (max-width: 639px), (max-width: 1023px) and (min-width: 640px) {  
+@media only screen and (max-width: 411px) {  
   .membership-tier-container { width: 100%; display: block; }
+  .membership-section { display: block; }
+  #member-col { width: 100% ; text-align: center; }
+
 }
