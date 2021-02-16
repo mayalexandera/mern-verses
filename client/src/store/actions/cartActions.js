@@ -80,7 +80,7 @@ export const calculateCartTotal = () => (dispatch, getState) => {
     newTotal += item.price * item.count;
   });
 
-  totals.subTotal = parseFloat(newTotal.toFixed(2));
+  totals.subTotal = Number(parseFloat(newTotal.toFixed(2)));
   totals.estTax = Number(parseFloat(totals.subTotal * 0.08).toFixed(2));
   totals.estShipping = 7;
   totals.total = Number(

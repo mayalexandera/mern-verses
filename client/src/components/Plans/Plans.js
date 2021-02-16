@@ -31,7 +31,7 @@ const Plans = ({ fetchPlans, plans }) => {
           </div>
         </div>
         <div className='plans-col col-lg-6' id='plans_col'>
-          <div className='plans-membership-container'>
+          <div className='plans-section-container'>
             <header>
               <h2 className='plans-container-title'>Membership</h2>
               <p>What's included in a monthly membership</p>
@@ -56,7 +56,7 @@ const Plans = ({ fetchPlans, plans }) => {
                   ? plans[0].tiers.map((tier, index) => {
                       return (
                         <PlanCard
-                          id={"plans_col"}
+                          id={"plans_table_col"}
                           className='col-sm-4'
                           handleClick={handleClick}
                           tier={tier}
