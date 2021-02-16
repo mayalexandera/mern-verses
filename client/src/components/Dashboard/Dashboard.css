@@ -36,7 +36,7 @@
   width: 100%;
   line-height: 1.75;
   font-size: 16px;
-  padding-bottom: 40px;
+  /* padding-bottom: 40px; */
   text-align: left;
   padding-right: 8px;
 }
@@ -103,7 +103,14 @@
 
 @media only screen and (min-width: 640px) {
   .dashboard-wrapper-container {
-    padding-top: 40px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
+
+  .dashboard-header-title {
+    display: inline-block;
+    padding-top: 20px;
+    padding-bottom: 20px;
   }
 }
 
@@ -128,8 +135,9 @@
   }
   .dashboard-header-title {
     width: 25%;
-    display: block;
-    padding-bottom: 40px;
+    padding-top: 0;
+    /* display: block; */
+    padding-bottom: 10px;
     padding-right: 8px;
   }
 
@@ -141,6 +149,7 @@
 
   .dashboard-header-wrapper {
     width: 100%;
+    padding-top: 50px;
   }
 
   .dashboard-wrapper-container {

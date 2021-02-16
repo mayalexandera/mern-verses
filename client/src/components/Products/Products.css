@@ -121,6 +121,10 @@
   font-weight: 500;
 }
 
+@media only screen and (min-width: 376px) {
+  .products-section { margin-top: 0; }
+}
+
 @media only screen and (max-width: 411px) {
   .product-container,
   .product-grid-container {
@@ -128,10 +132,12 @@
   }
 }
 
-@media only screen and (min-width: 767px) {
+@media only screen and (min-width: 768px) {
   .product-container {
-    padding-top: 96px;
+    padding-top: 133.5px;
   }
+
+  .products-section { margin-top: 40px; }
 }
 
 @media only screen and (min-width: 1024px) {
@@ -202,6 +208,3 @@
   }
 }
 
-@media only screen and (min-width: 376px) {
-  .products-section { margin-top: 0; }
-}

@@ -1,5 +1,5 @@
 .favorites-container {
-  padding-top: 90px;
+  padding-top: 225px;
 }
 
 .favorites-section {
@@ -214,6 +214,11 @@
   font-size: 12px;
   color: rgb(17, 17, 17);
   background: transparent;
+}
+@media only screen and (min-width: 768px) {
+  .favorites-container { padding-top: 197.5px; }
+
+  .favorites-section { padding-top: 20px; }
 }
 
 @media only screen and (min-width: 1024px) {
