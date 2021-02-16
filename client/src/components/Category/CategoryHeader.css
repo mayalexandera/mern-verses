@@ -1,5 +1,4 @@
 .wall-header-container {
-  transition: transform 150ms ease 0s;
   position: fixed;
   left: 0px;
   top: 0px;
@@ -89,9 +88,7 @@
 
 @media only screen and (max-width: 819px) {
   .wall-header-container {
-    /* padding: 0 20px; */
     min-height: 67.5px;
-    /* padding-top: 20px;  */
     top: 67.5px;
   }
 
@@ -300,12 +297,9 @@
   white-space: nowrap;
   display: block;
   line-height: 1.75;
-  z-index: 45;
   background: transparent;
 }
 
 .dropdown__option:hover {
   color: #757575;
 }
-
-/* .mobile__wall-header__filter-text { display: none; visibility: hidden; } */

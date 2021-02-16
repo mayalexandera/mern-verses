@@ -11,6 +11,7 @@ const CategoryHeader = ({
   count,
   sortByFilter,
 }) => {
+
   const sortByFilters = [
     { title: "Newest", key: "created", order: "date" },
     { title: "Price: Low-High", key: "price", order: "asc" },
@@ -19,12 +20,12 @@ const CategoryHeader = ({
 
   const [sortBy, setSortBy] = useState(false);
   const [selected, setSelected] = useState("");
+  
+  var valFilter = sortBy ? "expand_less" : "expand_more";
 
   const handleSideBar = () => {
     setSidebar(!sidebar);
   };
-
-  var valFilter = sortBy ? "expand_less" : "expand_more";
 
   const handleSelected = ({ title, order, key }) => {
     const request = { key: order, value: key };
@@ -36,15 +37,12 @@ const CategoryHeader = ({
   const handleSortBy = () => {
     setSortBy(!sortBy);
   };
+
   const renderCategoryHeader = () => {
     return category && category ? (
       <div className='wall-header-container'>
         <div className='wall-header-anchor-point'></div>
         <header className='wall-header'>
-          {/* <div className='wall-breadcrumbs'>
-          <ol className='wall-breadcrumbs__list'>
-          </ol>
-        </div> */}
           <div className='wall-header__content'>
             <h1 className='wall-header__title'>
               {category}
@@ -119,9 +117,8 @@ const CategoryHeader = ({
             </nav>
           </div>
         </header>
-        {/* <div className='wall-header-spacer' /> */}
       </div>
-    ) : null;
+    ) : null
   };
 
   return <React.Fragment>{renderCategoryHeader()}</React.Fragment>;

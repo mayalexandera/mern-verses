@@ -5,7 +5,13 @@ import CategoryHeader from "../Category/CategoryHeader";
 import * as actions from "../../store/actions";
 import "./Products.css";
 
-const Products = ({ message, fetchProducts, fetchCategories, products, byCategory }) => {
+const Products = ({
+  message,
+  fetchProducts,
+  fetchCategories,
+  products,
+  byCategory,
+}) => {
   const [sidebar, setSidebar] = useState(true);
 
   useEffect(() => {
@@ -13,23 +19,31 @@ const Products = ({ message, fetchProducts, fetchCategories, products, byCategor
     fetchCategories();
   }, [fetchProducts, fetchCategories]);
 
-  console.log(products)
+  console.log(products);
 
   return (
     <Fragment>
-       {products &&
-          <CategoryHeader
-            category='Clothing'
-            sidebar={sidebar}
-            setSidebar={setSidebar}
-            count={products.length}
-          />
-     }
+      {products && (
+        <CategoryHeader
+          category='Clothing'
+          sidebar={sidebar}
+          setSidebar={setSidebar}
+          count={products.length}
+        />
+      )}
       <div className='product-container'>
-   
-        { <div className='products-section'>
-         { products && products ?<ProductList message={message} sidebar={sidebar} setSidebar={setSidebar} products={products} /> : null}
-        </div> }
+        {
+          <div className='products-section'>
+            {products || byCategory ? (
+              <ProductList
+                message={message}
+                sidebar={sidebar}
+                setSidebar={setSidebar}
+                products={products || byCategory}
+              />
+            ) : null}
+          </div>
+        }
       </div>
     </Fragment>
   );

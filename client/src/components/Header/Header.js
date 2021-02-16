@@ -81,7 +81,6 @@ const Header = ({ favoriteList, cart }) => {
             </div>
           </div>
           <div className='sm-hamburger-icon-wrapper'>
-            {" "}
             <button onClick={showDropdown} className='sm-hamburger-icon'>
               <Hamburger />
             </button>
@@ -96,7 +95,6 @@ const Header = ({ favoriteList, cart }) => {
             <DropdownContainer showDropdown={showDropdown} />
           </CSSTransition>
         </div>
-        {/* <DropdownContainer /> */}
       </header>
     </div>
   );
