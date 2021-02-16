@@ -15,10 +15,10 @@
   vertical-align: baseline;
 }
 
-*::-webkit-scrollbar {
+/* *::-webkit-scrollbar {
   display: none;
   visibility: hidden;
-}
+} */
 
 html,
 body {

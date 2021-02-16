@@ -1,3 +1,15 @@
+.favorites-button-wrapper {
+  margin-right: 4px;
+  padding: 8px;
+}
+
+@media only screen and (max-width: 374px) {
+  .main-menu-container {
+    display: none;
+    visibility: hidden;
+  }
+}
+
 @media only screen and (min-width: 1024px) {
   .main-menu {
     width: 100%;
@@ -9,13 +21,17 @@
     height: 60px;
     display: block;
     background: white;
-  } 
-  .cart-button-wrapper,.favorites-button-wrapper {
+  }
+  .cart-button-wrapper,
+  .favorites-button-wrapper {
     display: inline-flex;
   }
 
-  .sm-hamburger-icon-wrapper { visibility: hidden; display: none; }
-  
+  .sm-hamburger-icon-wrapper {
+    visibility: hidden;
+    display: none;
+  }
+
   .nav-wrapper {
     padding: 0 38px 0 36px;
     height: 60px;
@@ -138,34 +154,26 @@
   }
 }
 
-
-.main-menu-container { overflow-x: hidden; }
-@media only screen and (min-width: 1440px) {
-  .center-menu-list {
-    width: calc(100% - 680px);
-  }
-}
-
 @media only screen and (max-width: 1023px) {
   .center-menu-container {
     visibility: hidden;
     display: none;
   }
 
-  /* .main-menu-container { min-height: 100vh;} */
   .main-menu {
     background-color: white;
     width: 100%;
     color: black;
-    position: sticky;
-    z-index: 100;
+    position: fixed;
+    top: 0;
+    z-index: 5;
     /* border: 1px solid black; */
   }
   .nav-logo {
     font-weight: 900;
     font-size: 200%;
     display: flex;
-    align-items: center;  
+    align-items: center;
     line-height: 1;
     /* border: 1px solid black; */
     padding-left: 8px;
@@ -178,6 +186,8 @@
     /* border: 1px solid black; */
     width: 100%;
     display: flex;
+    position: fixed;
+    background: #fff;
     padding: 0px 10px;
     justify-content: space-between;
     align-items: center;
@@ -262,7 +272,7 @@
     height: 24px;
     width: 24px;
   }
-    .favorite-count {
+  .favorite-count {
     display: none;
   }
 
@@ -276,12 +286,8 @@
   }
 }
 
-@media only screen and (max-width: 375px) {
-  .main-menu-container {
-    display: none;
-    visibility: hidden;
+@media only screen and (min-width: 1440px) {
+  .center-menu-list {
+    width: calc(100% - 680px);
   }
 }
-
-
-.favorites-button-wrapper { margin-right: 4px; padding: 8px; }

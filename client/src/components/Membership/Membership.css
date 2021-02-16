@@ -7,14 +7,13 @@
 
 .membership-container-title {
   font-weight: 500;
-  width: inherit;
   text-align: left;
   margin-bottom: 12px;
 }
 
 .membership-section {
   vertical-align: top;
-  display: flex;
+  /* display: flex; */
 }
 
 .membership-tier-container {
@@ -52,8 +51,20 @@
 
 
 @media only screen and (max-width: 411px) {  
-  .membership-tier-container { width: 100%; display: block; }
-  .membership-section { display: block; }
-  #member-col { width: 100% ; text-align: center; }
+  .membership-section { display: block; width: 100%;  }
+  .membership-tier-container { width: 100%; display: block; margin-bottom: 50px;}
 
 }
+@media only screen and (min-width: 376px) {  
+  .membership-tier-container { width: 100%; display: block; margin-bottom: 50px;}
+  .membership-section { display: block;  }
+
+}
+
+
+@media only screen and (min-width: 768px) {
+  .membership-section { display: flex; }
+  .membership-tier-container { width: 50%; display: inline-flex; }
+  #member-col { width: 50%; text-align: left; }
+}
+

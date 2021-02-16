@@ -1,5 +1,5 @@
 .profile-container {
-  max-width: 1808px;
+  min-height: 1024px;
 }
 
 .profile-wrapper {
@@ -76,30 +76,7 @@
   padding: 4px 10px;
 }
 
-@media only screen and (min-width: 1424px) {
-  .profile-container {
-    margin-left: 0px;
-    margin-right: 0px;
-  }
-}
-
-@media only screen and (min-width: 1024px) {
-  .profile-container {
-    padding-top: 90px;
-    margin-left: 48px;
-    margin-right: 48px;
-    padding-left: 8px;
-    padding-right: 8px;
-  }
-
-  .profile-photo-wrapper {
-    width: 96px;
-    height: 96px;
-    background-size: 96px 96px;
-  }
-}
-
-@media only screen and (max-width: 411px) {
+@media only screen and (min-width: 375px) {
   .profile-container {
     padding-bottom: 48px;
   }
@@ -114,5 +91,45 @@
     font-size: 32px;
     line-height: 1.125;
     font-weight: 500;
+  }
+
+  .profile-wrapper {
+    padding-top: 127.5px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .profile-wrapper {
+    padding-top: 147.5px;
+  }
+
+  .dashboard-header-wrapper { display: block; }
+}
+
+@media only screen and (min-width: 1024px) {
+  .profile-wrapper {
+    top: 0px;
+    padding-top: 0;
+  }
+  .profile-container {
+    padding-top: 275px;
+    margin-left: 48px;
+    margin-right: 48px;
+    min-height: 1040px;
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  .profile-photo-wrapper {
+    width: 96px;
+    height: 96px;
+    background-size: 96px 96px;
+  }
+}
+
+@media only screen and (min-width: 1424px) {
+  .profile-container {
+    margin-left: 0px;
+    margin-right: 0px;
   }
 }

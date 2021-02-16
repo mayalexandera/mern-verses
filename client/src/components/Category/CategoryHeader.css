@@ -1,15 +1,27 @@
 .wall-header-container {
   transition: transform 150ms ease 0s;
-  position: sticky;
+  position: fixed;
   left: 0px;
-  top: 90px;
+  top: 0px;
+  width: 100%;
   z-index: 2;
   margin: 0 auto;
   max-width: 1920px;
   background: rgb(255, 255, 255);
 }
 
-.wall-header__filters-btn, .wall-header__Filter_text { visibility: hidden; }
+.wall-header__title {
+  flex: 1 1 0%;
+  line-height: 1.3;
+  padding-bottom: 2px;
+  font-weight: 500;
+  font-size: 24px;
+}
+
+.wall-header__filters-btn,
+.wall-header__filter_text {
+  visibility: hidden;
+}
 .wall-header__content {
   padding-top: 8px;
   align-items: center;
@@ -64,49 +76,49 @@
   transform: translate3d(11px, 1px, 0px);
 }
 
-
 .mobile-filters-button {
   background: transparent;
-    text-align: center;
-    padding:6px 18px; 
-    border: 1px solid rgb(229, 229, 229);
-    border-radius: 20px;
-    display: flex;
-    font-size: 1.5em;
-    vertical-align: middle;
+  text-align: center;
+  padding: 6px 18px;
+  border: 1px solid rgb(229, 229, 229);
+  border-radius: 20px;
+  display: flex;
+  font-size: 1.5em;
+  vertical-align: middle;
 }
 
 @media only screen and (max-width: 819px) {
   .wall-header-container {
     /* padding: 0 20px; */
-    min-height: 66px;
-    margin-top: 20px; 
-    top: 0;
+    min-height: 67.5px;
+    /* padding-top: 20px;  */
+    top: 67.5px;
   }
 
+  .mobile-filters-button {
+    visibility: visible;
+  }
 
-
-  .mobile-filters-button { visibility: visible; }
-
-  .wall-header-anchor-point { width: 1px; height: 1px;}
+  .wall-header-anchor-point {
+    width: 1px;
+    height: 1px;
+  }
   .wall-header__content {
     display: flex;
-    padding-top: 0; 
+    padding-top: 0;
     align-items: center;
     justify-content: space-between;
   }
   .wall-header {
-     padding: 0 20px;
+    padding: 0 20px;
     font-size: 24px;
   }
 
   .wall-header__title {
     margin-top: 0;
     padding-top: 1px;
+    font-size: 18px;
     padding-bottom: 2px;
-  }
-  .wall-header__nav {
-    flex-direction: row-reverse;
   }
 
   .wall-header__filter_text,
@@ -121,47 +133,62 @@
     display: inline-block;
   }
 
-  .wall-header__filters-btn { visibility: hidden; display: none; }
+  .wall-header__filters-btn {
+    visibility: hidden;
+    display: none;
+  }
 
-  
   .wall-header {
     width: 100%;
     height: 66px;
+    display: flex;
+    align-items: center;
   }
 
-  .wall-header__nav { padding-left: 2em; }
+  .wall-header__nav {
+    padding-left: 2em;
+  }
 
   .icon-filters-wrapper {
     display: none;
   }
 }
 
-
 @media only screen and (min-width: 676px) {
   .wall-header__filters-btn {
-  display: flex;
-  font-size: 1.5em;
-  padding: 0px 25px 0px 0px;
-  background: transparent;
-  vertical-align: middle;
-  visibility: visible; 
-}
+    display: flex;
+    font-size: 1.5em;
+    padding: 0px 25px 0px 0px;
+    background: transparent;
+    vertical-align: middle;
+    visibility: visible;
+  }
 }
 
 @media only screen and (min-width: 820px) {
-.wall-header {
-  min-height: 64px;
-  padding: 12px 48px 15px;
-  display: flex;
-  max-width: 1920px;
-  align-items: center;
+  .wall-header {
+    min-height: 64px;
+    padding: 12px 48px 15px;
+    display: flex;
+    max-width: 1920px;
+    align-items: center;
+  }
+
+  .wall-header__filters-btn {
+    visibility: visible;
+  }
+
+  .mobile-filters-button {
+    display: none;
+    visibility: hidden;
+  }
+
+    .wall-header__filter_text,
+  .sort-by {
+    visibility: visible;
+    display: flex;
+  }
 }
-
-  .wall-header__filters-btn {   visibility: visible; }
-
-.mobile-filters-button { display: none; visibility: hidden; }
-}
-
 
 @media only screen and (min-width: 1024px) {
   .wall-header-container {
@@ -176,15 +203,6 @@
   top: 0px;
 }
 
-
-.wall-header__title {
-  flex: 1 1 0%;
-  line-height: 1.3;
-  padding-bottom: 2px;
-  font-weight: 500;
-  font-size: 24px;
-}
-
 .wall-header__item-count {
   padding-left: 6px;
 }
@@ -197,8 +215,6 @@
   text-align: center;
   -webkit-box-align: baseline;
 }
-
-
 
 .wall-header-spacer {
   height: 15px;
@@ -293,4 +309,3 @@
 }
 
 /* .mobile__wall-header__filter-text { display: none; visibility: hidden; } */
-

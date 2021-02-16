@@ -119,7 +119,7 @@ const CategoryHeader = ({
             </nav>
           </div>
         </header>
-        <div className='wall-header-spacer' />
+        {/* <div className='wall-header-spacer' /> */}
       </div>
     ) : null;
   };

@@ -4,7 +4,7 @@
 
 .dropdown-container {
   /* border: 1px solid red; */
-  position: absolute;
+  position: fixed;
   overflow-x: hidden;
   top: 0px;
   right: 0px;
@@ -67,6 +67,11 @@
 
 .dropdown-account-panel-row a {
   color: #757575;
+  display: block;
+}
+
+.dropdown-account-panel-row a:hover {
+  color: #111;
   display: block;
 }
 
@@ -240,5 +245,3 @@
   text-align: center;
   vertical-align: baseline;
 }
-
-
