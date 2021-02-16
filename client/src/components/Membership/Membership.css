@@ -44,22 +44,38 @@
   font-size: 14px;
 }
 
-
-@media only screen and (max-width: 411px) {  
-  .membership-section { display: block; width: 100%;  }
-  .membership-tier-container { width: 100%; display: block; margin-bottom: 50px;}
-
+@media only screen and (max-width: 411px) {
+  .membership-section {
+    display: block;
+    width: 100%;
+  }
+  .membership-tier-container {
+    width: 100%;
+    display: block;
+    margin-bottom: 50px;
+  }
 }
-@media only screen and (min-width: 376px) {  
-  .membership-tier-container { width: 100%; display: block; margin-bottom: 50px;}
-  .membership-section { display: block;  }
-
+@media only screen and (min-width: 376px) {
+  .membership-tier-container {
+    width: 100%;
+    display: block;
+    margin-bottom: 50px;
+  }
+  .membership-section {
+    display: block;
+  }
 }
-
 
 @media only screen and (min-width: 768px) {
-  .membership-section { display: flex; }
-  .membership-tier-container { width: 50%; display: inline-flex; }
-  #member-col { width: 50%; text-align: left; }
+  .membership-section {
+    display: flex;
+  }
+  .membership-tier-container {
+    width: 50%;
+    display: inline-flex;
+  }
+  #member-col {
+    width: 50%;
+    text-align: left;
+  }
 }
-

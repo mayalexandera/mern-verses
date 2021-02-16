@@ -183,7 +183,7 @@
     visibility: hidden;
   }
 
-    .wall-header__filter_text,
+  .wall-header__filter_text,
   .sort-by {
     visibility: visible;
     display: flex;

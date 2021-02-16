@@ -9,15 +9,14 @@ import AuthBanner from "../AuthBanner/AuthBanner";
 import "./Header.css";
 
 const Header = ({ favoriteList, cart }) => {
-  const [expanded, setExpanded] = useState(false)
+  const [expanded, setExpanded] = useState(false);
   const showDropdown = () => {
-    console.log(expanded)
-    setExpanded(!expanded)
-    console.log(expanded)
-  }
+    console.log(expanded);
+    setExpanded(!expanded);
+    console.log(expanded);
+  };
   return (
-    <div
-    className='main-menu-container'>
+    <div className='main-menu-container'>
       <AuthBanner />
       <header className='main-menu'>
         <div className='nav-wrapper'>
@@ -83,10 +82,7 @@ const Header = ({ favoriteList, cart }) => {
           </div>
           <div className='sm-hamburger-icon-wrapper'>
             {" "}
-            <button
-              onClick={showDropdown}
-              className='sm-hamburger-icon'
-            >
+            <button onClick={showDropdown} className='sm-hamburger-icon'>
               <Hamburger />
             </button>
           </div>

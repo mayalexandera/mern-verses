@@ -122,7 +122,9 @@
 }
 
 @media only screen and (min-width: 376px) {
-  .products-section { margin-top: 0; }
+  .products-section {
+    margin-top: 0;
+  }
 }
 
 @media only screen and (max-width: 411px) {
@@ -137,7 +139,9 @@
     padding-top: 133.5px;
   }
 
-  .products-section { margin-top: 40px; }
+  .products-section {
+    margin-top: 40px;
+  }
 }
 
 @media only screen and (min-width: 1024px) {
@@ -207,4 +211,3 @@
     line-height: 20px;
   }
 }
-

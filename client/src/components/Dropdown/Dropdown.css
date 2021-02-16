@@ -1,7 +1,3 @@
-* {
-  font-family: "Helvetica Neue";
-}
-
 .dropdown-container {
   /* border: 1px solid red; */
   position: fixed;
@@ -235,7 +231,6 @@
 }
 .dropdown-member-count {
   width: 36px;
-  /* display: block; */
   position: absolute;
   left: 0;
   top: 5px;

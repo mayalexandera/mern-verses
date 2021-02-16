@@ -1,7 +1,6 @@
 .footer {
   width: 100%;
   min-height: 200px;
-  /* position: absolute; */
   background-color: #111;
 }
 
@@ -138,6 +137,17 @@
   letter-spacing: 1.2px;
 }
 
+@media only screen and (max-width: 411px) {  
+  .footer-container {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  .accordion-group {
+    padding: 8px 15px; 
+  }
+}
+
 @media only screen and (min-width: 640px) {
   .footer-container {
     padding-top: 40px;
@@ -175,13 +185,3 @@
   }
 }
 
-@media only screen and (max-width: 411px) {  
-  .footer-container {
-    padding-left: 8px;
-    padding-right: 8px;
-  }
-
-  .accordion-group {
-    padding: 8px 15px; 
-  }
-}

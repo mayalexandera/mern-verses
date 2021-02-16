@@ -103,7 +103,9 @@
     padding-top: 185px;
   }
 
-  .dashboard-header-wrapper { display: block; }
+  .dashboard-header-wrapper {
+    display: block;
+  }
 }
 
 @media only screen and (min-width: 1024px) {
