@@ -163,6 +163,12 @@
   vertical-align: middle;
 }
 
+@media only screen and (min-width: 375px) {
+  .cart-summary-container {
+    width: 100%;
+  }
+}
+
 @media only screen and (min-width: 1024px) {
   .cart-summary-container {
     width: 33.3%;
@@ -211,11 +217,5 @@
     padding-bottom: 20px;
     margin: 0px;
     box-shadow: none;
-  }
-}
-
-@media screen and (max-width: 1023px) {
-  .cart-summary-container {
-    visibility: hidden;
   }
 }

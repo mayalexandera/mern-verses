@@ -22,11 +22,6 @@ const FavoriteCard = ({
       <div className='favorite-item-body'>
         <a href={`/products/${productId}`}>
           <div className='favorite-item-thumbnail-wrapper'>
-            <div className='heart-wishlist-button-wrapper'>
-              <button className='heart-wishlist-button'>
-                <span class='material-icons'>favorite</span>
-              </button>
-            </div>
             <div className='image-spacer'></div>
             <img alt={`${name}`} src={featuredImage} className='favorite-item-thumbnail'></img>
           </div>

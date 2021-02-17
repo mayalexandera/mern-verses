@@ -1,42 +1,55 @@
-import React, { useState } from "react";
+import React, { useState, Fragment } from "react";
 import { connect } from "react-redux";
 import ProductList from "../Products/ProductList";
-import CategoryHeader from './CategoryHeader'
-// import { Link } from "react-router-dom";
+import CategoryHeader from "./CategoryHeader";
 
 import "./Category.css";
 import "../Products/Products.css";
 
 const Category = (props) => {
   const [sidebar, setSidebar] = useState(false);
-  console.log('in category container', props)
+  let count, name, products;
+
+  const renderProps = () => {
+    if(props.byCategory ){
+    name = props.byCategory.name || "Clothing";
+    count = props.byCategory.products ? props.byCategory.products.length : 0;
+    products = props.byCategory.products || [];}
+  };
+
+  renderProps();
+
   return (
-    <div className='product-container'>
-      {props.byCategory && props.byCategory ? (
-        <CategoryHeader
-          category={props.byCategory.name}
-          sidebar={sidebar}
-          setSidebar={setSidebar}
-          count={props.byCategory.products.length}
-        />
-      ) : null}
-      <div className='product-spacer' />
-      <div className='products-section'>
-        {props.byCategory && props.byCategory ? (
-          <ProductList
-            sidebar={sidebar}
-            setSidebar={setSidebar}
-            products={props.byCategory.products}
-          />
-        ) : null}
-        ;
+    <Fragment>
+      <CategoryHeader
+        category={name}
+        sidebar={sidebar}
+        setSidebar={setSidebar}
+        count={count}
+      />
+
+      <div className='product-container'>
+        <div className='product-spacer' />
+        <div className='products-section'>
+          {
+            <ProductList
+              message={props.message}
+              sidebar={sidebar}
+              setSidebar={setSidebar}
+              products={products}
+            />
+          }
+        </div>
       </div>
-    </div>
+    </Fragment>
   );
 };
 
 const mapStateToProps = (state) => {
-  return { byCategory: state.products.byCategory };
+  return {
+    byCategory: state.products.byCategory,
+    message: state.products.message,
+  };
 };
 
 export default connect(mapStateToProps, null)(Category);

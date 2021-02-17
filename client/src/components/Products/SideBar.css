@@ -12,7 +12,7 @@
   /* .left-nav-wrapper { display: block; } */
 }
 
-@media only screen and (min-width: 376px) {
+@media only screen and (min-width: 375px) {
   /* .left-nav-wrapper, .filter-transition {display: none; } */
 }
 .left-nav {

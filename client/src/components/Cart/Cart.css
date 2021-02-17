@@ -57,9 +57,12 @@
 h4 {
   line-height: 1.5;
 }
+
+
 /*####################################################*/
 /*////////////////  CARTITEM CARD  ////////////////////*/
 /*####################################################*/
+
 .cart-item-wrapper {
   padding: 24px 8px;
   box-shadow: rgb(229, 229, 229) 0px 0px 0px 0px inset,
@@ -97,7 +100,6 @@ h4 {
   min-height: 123px;
   position: relative;
   display: block;
-  vertical-align: top;
 }
 
 .cart-item-product-details {
@@ -332,23 +334,29 @@ h4 {
   display: inline-block;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (min-width: 375px) {
+  .cart-list { width: 100%; padding: 0; }
   .cart-title {
     display: none;
   }
-}
 
-@media screen and (max-width: 1024px) {
-  .cart-list {
-    width: 100%;
-    padding: 24px 8px;
-    box-shadow: rgb(229, 229, 229) 0px 1px 0px 0px inset;
+  .cart-item-button-list { display: none; }
+  .cart-item-product-thumbnail {
+    width: 96px;
   }
 
-  .cart-container {
-    padding-top: 108px;
+  .cart-item-product-thumbnail img {
+    width: 80px; 
   }
+  .size-element-cell { display: table; }
+
+  .mobile-options-button { display: inline-block; }
 }
+
+@media only screen and (min-width: 768px) {
+  .mobile-options-button { display: none; }
+}
+
 
 @media only screen and (min-width: 1024px) {
   .cart-favorites {

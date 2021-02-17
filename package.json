@@ -5,14 +5,15 @@
   "main": "index.js",
   "engines": {
     "node": "15.0.1",
-    "npm": "7.5.3"
+    "npm": "7.5.4"
   },
   "scripts": {
     "start": "node index.js",
     "server": "nodemon index.js",
     "client": "npm run start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client",
+    "test": "jest"
   },
   "author": "",
   "license": "ISC",
@@ -23,9 +24,7 @@
     "concurrently": "^5.3.0",
     "cookie-session": "^1.4.0",
     "express": "^4.17.1",
-    "express-async-handler": "^1.1.4",
     "lodash": "^4.17.20",
-    "mocha": "^8.2.1",
     "mongoose": "^5.11.3",
     "node": "^15.4.0",
     "nodemon": "^2.0.6",

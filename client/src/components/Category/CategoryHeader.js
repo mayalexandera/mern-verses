@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import { CSSTransition } from "react-transition-group";
 import { sortByFilter } from "../../store/actions";
+import Breadcrumbs from './Breadcrumbs'
 import "./CategoryHeader.css";
 
 const CategoryHeader = ({
@@ -39,14 +40,14 @@ const CategoryHeader = ({
   };
 
   const renderCategoryHeader = () => {
-    return category && category ? (
+    return(
       <div className='wall-header-container'>
         <div className='wall-header-anchor-point'></div>
         <header className='wall-header'>
           <div className='wall-header__content'>
             <h1 className='wall-header__title'>
-              {category}
-              <span className='wall-header__item-count'>{`(${count})`}</span>
+              {category || 'Clothing'}
+              <span className='wall-header__item-count'>{`(${count})` || 0 }</span>
             </h1>
             <nav className='wall-header__nav'>
               <button
@@ -117,8 +118,9 @@ const CategoryHeader = ({
             </nav>
           </div>
         </header>
+          {/* <Breadcrumbs/> */}
       </div>
-    ) : null
+    )
   };
 
   return <React.Fragment>{renderCategoryHeader()}</React.Fragment>;

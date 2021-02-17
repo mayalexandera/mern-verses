@@ -3,13 +3,15 @@ const Product = require("../models/Product");
 const Category = require("../models/Category");
 
 exports.fetchProdByCat = async (req, res) => {
-  // const query = { name: req.params.category };
-  const query = {_id: req.params.categoryId}
-  console.log(req)
-  const products = await Category.find(query).populate("products").exec();
+  try {
+    const query = {_id: req.params.categoryId}
+    const products = await Category.find(query).populate("products").exec();
 
-  console.log(products)
-  res.send(products);
+    res.send(products);
+  } catch (error) {
+    res.send({ errorStatus: 400, message: "0 products found."})
+  }
+
 };
 
 exports.fetchCategories = async (req, res) => {
@@ -18,25 +20,23 @@ exports.fetchCategories = async (req, res) => {
 };
 
 exports.fetchProducts = async (req, res) => {
-  const products = await Product.find({}, (err) => {
-    if (err) {
-      return res
-        .status(400)
-        .json({ error: "Your request could not be processed." });
-    }
-  });
-  res.send(products);
+  try {
+    const products = await Product.find({})
+    res.send(products);
+  } catch (error) {
+    res.send({ errorState: 400, message: "0 products found."})
+  }
 };
 
 exports.fetchProdById = async (req, res) => {
   const query = { _id: req.params.id };
-  const product = await Product.find(query)
+  const product = await Product.findOne(query)
     .populate({
       path: "productSizes",
       match: { quantity: { $gte: 1 } },
     })
     .exec();
-  res.send(product[0]);
+  res.send(product);
 };
 
 exports.fetchProdByFilter = async (req, res) => {

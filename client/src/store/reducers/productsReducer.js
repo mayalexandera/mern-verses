@@ -2,6 +2,7 @@ import {
   FETCH_PRODUCTS,
   FETCH_PRODUCT,
   FETCH_PROD_BY_CAT,
+  FETCH_PROD_BY_CAT_FAILED,
   FETCH_CATEGORIES,
   FETCH_PROD_BY_FILTER,
   UPDATE_FILTERS,
@@ -36,6 +37,11 @@ const productsReducer = (state = initialState, action) => {
         updateObject(state, { byCategory: action.payload, message: null }) ||
         false
       );
+
+    case FETCH_PROD_BY_CAT_FAILED:
+    return (
+      updateObject(state, { byCategory: [], message: action.payload })
+    )
 
     case FETCH_CATEGORIES:
       return updateObject(state, { categories: action.payload, message: null });

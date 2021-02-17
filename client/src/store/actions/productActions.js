@@ -4,6 +4,7 @@ import {
   FETCH_PRODUCT,
   FETCH_PRODUCTS,
   FETCH_PROD_BY_CAT,
+  FETCH_PROD_BY_CAT_FAILED,
   FETCH_CATEGORIES,
   FETCH_PROD_BY_FILTER,
   UPDATE_FILTERS,
@@ -25,7 +26,9 @@ export const fetchProduct = (productId) => async (dispatch) => {
 export const fetchProdByCat = (categoryId) => async (dispatch) => {
   const res = await axios.get(`/api/products/list/${categoryId}`);
 
-  dispatch({ type: FETCH_PROD_BY_CAT, payload: res.data[0] });
+  res.data.errorStatus
+    ? dispatch({ type: FETCH_PROD_BY_CAT_FAILED, payload: res.data.message })
+    : dispatch({ type: FETCH_PROD_BY_CAT, payload: res.data[0] });
 };
 
 export const updateFilters = filter => (getState) => {

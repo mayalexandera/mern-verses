@@ -15,9 +15,9 @@ const CartItem = ({ item, deleteCartItem, updateCartItem }) => {
     <div className='cart-item-wrapper'>
       <div className='cart-item-card-body'>
         <figure className='cart-item-product-thumbnail'>
-         <NavLink className='thumbnail' to={`/products/${item._id}`}>
-              <img alt={item.name} src={item.featuredImage} />
-         </NavLink>
+          <NavLink className='thumbnail' to={`/products/${item._id}`}>
+            <img alt={item.name} src={item.featuredImage} />
+          </NavLink>
         </figure>
         <div className='cart-item-product-details-wrapper'>
           <div className='cart-item-product-details'>
@@ -39,7 +39,7 @@ const CartItem = ({ item, deleteCartItem, updateCartItem }) => {
                     className='size-select'
                     onChange={updateHandler}
                   >
-                    { item.productId.productSizes.map((size) => {
+                    {item.productId.productSizes.map((size) => {
                       return (
                         <option key={size._id} value={size._id}>
                           {size.size}
@@ -78,13 +78,17 @@ const CartItem = ({ item, deleteCartItem, updateCartItem }) => {
           <div className='price'>
             <span>
               <span>
-                <span className='original-price'>${item.price}</span>
+                {/* <span className='original-price'>${item.price}</span> */}
                 <span className='sale-price'>${item.price}</span>
               </span>
             </span>
           </div>
         </div>
         <div className='cart-item-button-container'>
+          {/* add transition group for mobile options*/}
+          <button className='mobile-options-button'>
+            Options
+          </button>
           <ul className='cart-item-button-list'>
             <li>
               <button

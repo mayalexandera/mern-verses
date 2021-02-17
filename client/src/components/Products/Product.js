@@ -186,8 +186,8 @@ const Product = ({
                               </span>
                             </button>
                             <div id='error-message-container'>
-                              {errorMessage}
-                              {favoriteList.message}
+                              <p>{errorMessage}</p>
+                              <p>{favoriteList.message}</p>
                             </div>
                           </div>
                         </div>
