@@ -1,13 +1,23 @@
 import axios from "axios";
-import { ADD_FAVORITE, ADD_FAVORITE_FAILED, FETCH_FAVORITES, DELETE_FAVORITE, ADD_CART_ITEM } from "./types";
+import {
+  ADD_FAVORITE,
+  ADD_FAVORITE_FAILED,
+  FETCH_FAVORITES,
+  DELETE_FAVORITE,
+  ADD_CART_ITEM,
+} from "./types";
 
 export const addFavorite = (product) => async (dispatch, getState) => {
   const user = getState().auth.user;
-  if (user){
+  if (user) {
     const res = await axios.post(`/api/favoritelists/${user._id}`, { product });
     dispatch({ type: ADD_FAVORITE, payload: res.data });
-  } else { dispatch({ type: ADD_FAVORITE_FAILED, payload: 'Create an account to create wishlists.'})}
-
+  } else {
+    dispatch({
+      type: ADD_FAVORITE_FAILED,
+      payload: "Create an account to create wishlists.",
+    });
+  }
 };
 
 export const deleteFavorite = (favorite_id) => async (dispatch, getState) => {

@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from 'react-router-dom'
+import { NavLink } from "react-router-dom";
 
 const CartItem = ({ item, deleteCartItem, updateCartItem }) => {
   const quantities = [1, 2, 3, 4, 5, 6, 7, 8];
@@ -10,7 +10,7 @@ const CartItem = ({ item, deleteCartItem, updateCartItem }) => {
     updateCartItem(e.target.id, e.target.value, item);
   };
 
-  console.log(item)
+  console.log(item);
   return (
     <div className='cart-item-wrapper'>
       <div className='cart-item-card-body'>
@@ -86,9 +86,7 @@ const CartItem = ({ item, deleteCartItem, updateCartItem }) => {
         </div>
         <div className='cart-item-button-container'>
           {/* add transition group for mobile options*/}
-          <button className='mobile-options-button'>
-            Options
-          </button>
+          <button className='mobile-options-button'>Options</button>
           <ul className='cart-item-button-list'>
             <li>
               <button

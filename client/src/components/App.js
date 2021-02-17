@@ -23,33 +23,37 @@ import AccountSettings from "./AccountSettings/AccountSettings";
 import "./App.css";
 import DropdownContainer from "./Dropdown/DropdownContainer";
 
-const App = (props) =>  {
- 
-  console.log(props)
-    return (
-      <Layout>
-        <BrowserRouter>
-          <Header />
-          <Route exact path='/' component={Landing} />
-          <Route exact path='/member/surveys' component={SurveyDashboard} />
-          <Route exact path='/member/surveys/thanks' component={SurveyThanks} />
-          <Route path='/member/surveys/new' component={SurveyNew} />
-          <Route path='/products' exact component={Products} />
-          <Route exact path='/product/list/:category' exact component={Category} />
-          <Route exact path='/products/:id' exact component={Product} />
-          <Route path='/plans' component={Plans} />
-          <Route path='/member/profile' component={Profile} />
-          <Route path='/favorites' component={Favorites} />
-          <Route path='/orders' component={Orders} />
-          <Route path='/cart' component={Cart} />
-          <Route path='/checkout' component={Checkout} />
-          <Route path='/order/success/:orderId' component={Checkout} />
+const App = (props) => {
+  console.log(props);
+  return (
+    <Layout>
+      <BrowserRouter>
+        <Header />
+        <Route exact path='/' component={Landing} />
+        <Route exact path='/member/surveys' component={SurveyDashboard} />
+        <Route exact path='/member/surveys/thanks' component={SurveyThanks} />
+        <Route path='/member/surveys/new' component={SurveyNew} />
+        <Route path='/products' exact component={Products} />
+        <Route
+          exact
+          path='/product/list/:category'
+          exact
+          component={Category}
+        />
+        <Route exact path='/products/:id' exact component={Product} />
+        <Route path='/plans' component={Plans} />
+        <Route path='/member/profile' component={Profile} />
+        <Route path='/favorites' component={Favorites} />
+        <Route path='/orders' component={Orders} />
+        <Route path='/cart' component={Cart} />
+        <Route path='/checkout' component={Checkout} />
+        <Route path='/order/success/:orderId' component={Checkout} />
 
-          <Route path='/settings' component={AccountSettings} />
-          <Footer />
-        </BrowserRouter>
-      </Layout>
-    );
-}
+        <Route path='/settings' component={AccountSettings} />
+        <Footer />
+      </BrowserRouter>
+    </Layout>
+  );
+};
 
 export default connect(null, actions)(App);

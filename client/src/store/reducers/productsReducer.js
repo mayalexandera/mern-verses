@@ -39,9 +39,7 @@ const productsReducer = (state = initialState, action) => {
       );
 
     case FETCH_PROD_BY_CAT_FAILED:
-    return (
-      updateObject(state, { byCategory: [], message: action.payload })
-    )
+      return updateObject(state, { byCategory: [], message: action.payload });
 
     case FETCH_CATEGORIES:
       return updateObject(state, { categories: action.payload, message: null });
@@ -85,15 +83,14 @@ const productsReducer = (state = initialState, action) => {
       let updatedFilters = [action.payload];
 
       if (!state.filters) {
-
         return updateObject(state, { filters: updatedFilters });
       } else {
-        console.log(state.filters)
-        state.filters.forEach((filter) =>{
-        console.log(filter)
-          updatedFilters.push(JSON.parse(JSON.stringify(filter)))
+        console.log(state.filters);
+        state.filters.forEach((filter) => {
+          console.log(filter);
+          updatedFilters.push(JSON.parse(JSON.stringify(filter)));
         });
-        console.log(updatedFilters)
+        console.log(updatedFilters);
         return updateObject(state, { filters: updatedFilters });
       }
     default:

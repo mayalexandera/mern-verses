@@ -25,7 +25,7 @@ const Product = ({
   }, [fetchProduct, fetchFavorites, prodId]);
 
   const handleAddToBag = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     const productSize = product.productSizes.filter(
       (size) => size._id === sizeId
     );

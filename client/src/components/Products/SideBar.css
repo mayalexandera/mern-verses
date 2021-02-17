@@ -1,20 +1,7 @@
-
-/* 
-.sidebar-container {
-  display: none;
-  visibility: hidden;
-} */
-
-.mobile__wall-header__filter-text { line-height: 1.75; }
-
-@media only screen and (min-width: 700px) {
-
-  /* .left-nav-wrapper { display: block; } */
+.mobile__wall-header__filter-text {
+  line-height: 1.75;
 }
 
-@media only screen and (min-width: 375px) {
-  /* .left-nav-wrapper, .filter-transition {display: none; } */
-}
 .left-nav {
   padding: 0px 0px 1em 48px;
   width: 192px;
@@ -190,4 +177,3 @@
 .filter-transition-exit-active {
   transition: all 500ms ease;
 }
-

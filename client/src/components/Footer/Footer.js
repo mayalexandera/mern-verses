@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
 import "./Footer.css";
 
 const links = [
@@ -27,11 +27,17 @@ const aboutLinks = [
   "Sustainability",
 ];
 
-const subFooterMenu = ['Guides', 'Terms of State', 'Terms of Use', 'Verses Privacy Policy', 'CA Supply Chains Act']
+const subFooterMenu = [
+  "Guides",
+  "Terms of State",
+  "Terms of Use",
+  "Verses Privacy Policy",
+  "CA Supply Chains Act",
+];
 
 const socialLinks = ["Twitter", "Facebook", "Youtube", "Instagram"];
 const Footer = (props) => {
-  console.log(props)
+  console.log(props);
   return (
     <footer className='footer'>
       <div className='footer-container'>
@@ -102,4 +108,4 @@ const Footer = (props) => {
   );
 };
 
-export default (Footer);
+export default Footer;

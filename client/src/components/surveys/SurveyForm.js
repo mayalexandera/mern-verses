@@ -2,7 +2,7 @@
 import React from "react";
 import _ from "lodash";
 import SurveyField from "./SurveyField";
-import formFields from './formFields'
+import formFields from "./formFields";
 
 import validateEmails from "../../utils/validateEmails";
 import { NavLink } from "react-router-dom";
@@ -31,7 +31,9 @@ const SurveyForm = (props) => {
       <form onSubmit={props.handleSubmit(props.onSurveySubmit)}>
         {renderFields()}
         <div className='survey-button-row'>
-          <NavLink className='survey-button' to='/member/surveys'>Cancel</NavLink>
+          <NavLink className='survey-button' to='/member/surveys'>
+            Cancel
+          </NavLink>
           <button className='survey-button' type='submit'>
             Next
           </button>
@@ -43,15 +45,14 @@ const SurveyForm = (props) => {
 
 function validate(values) {
   const errors = {};
-  
-  errors.recipients = validateEmails(values.recipients || '' )
+
+  errors.recipients = validateEmails(values.recipients || "");
 
   _.each(formFields, ({ name, noValueError }) => {
     if (!values[name]) {
       errors[name] = noValueError;
     }
   });
-
 
   return errors;
 }

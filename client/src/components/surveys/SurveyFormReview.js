@@ -1,28 +1,30 @@
-import React from 'react';
-import { connect } from 'react-redux'
-import { withRouter } from 'react-router-dom'
+import React from "react";
+import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 
 import Payments from "../Payments/Payments";
 
-import * as actions from '../../store/actions'
-import _ from 'lodash'
-import formFields from './formFields'
+import * as actions from "../../store/actions";
+import _ from "lodash";
+import formFields from "./formFields";
 
-const SurveyFormReview = ({ onCancel, formValues, auth, submitSurvey, plans, history }) => {
-  console.log(plans)
+const SurveyFormReview = ({
+  onCancel,
+  formValues,
+  auth,
+  submitSurvey,
+  plans,
+  history,
+}) => {
+  console.log(plans);
   const reviewFields = _.map(formFields, ({ name, label }, index) => {
     return (
       <div className='survey-review-row' key={index}>
-          <label className='survey-review-title'>
-            {label}
-          </label>
-        <div className='survey-review-value'>
-          {formValues[name]}
-        </div>
-        
+        <label className='survey-review-title'>{label}</label>
+        <div className='survey-review-value'>{formValues[name]}</div>
       </div>
-    )
-  })
+    );
+  });
 
   const verifyCredits = () => {
     return auth.credits > 0 ? (
@@ -38,10 +40,12 @@ const SurveyFormReview = ({ onCancel, formValues, auth, submitSurvey, plans, his
     ) : (
       <div className='add-credits-wrapper'>
         <div>You do not have enough credits</div>
-        <div><Payments/></div>
+        <div>
+          <Payments />
+        </div>
       </div>
     );
-  }
+  };
   return (
     <div className='survey-form-wrapper'>
       <div className='survey-review'>
@@ -51,19 +55,19 @@ const SurveyFormReview = ({ onCancel, formValues, auth, submitSurvey, plans, his
           <button className='survey-button' onClick={onCancel}>
             Back
           </button>
-        <div>{verifyCredits()}</div>
+          <div>{verifyCredits()}</div>
         </div>
       </div>
     </div>
   );
-}
+};
 
 const mapStateToProps = (state) => {
-  return { 
+  return {
     formValues: state.form.surveyForm.values,
     auth: state.auth,
-    plans: state.plans
-  }
-}
+    plans: state.plans,
+  };
+};
 
 export default connect(mapStateToProps, actions)(withRouter(SurveyFormReview));

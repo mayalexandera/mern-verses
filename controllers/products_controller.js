@@ -4,14 +4,13 @@ const Category = require("../models/Category");
 
 exports.fetchProdByCat = async (req, res) => {
   try {
-    const query = {_id: req.params.categoryId}
+    const query = { _id: req.params.categoryId };
     const products = await Category.find(query).populate("products").exec();
 
     res.send(products);
   } catch (error) {
-    res.send({ errorStatus: 400, message: "0 products found."})
+    res.send({ errorStatus: 400, message: "0 products found." });
   }
-
 };
 
 exports.fetchCategories = async (req, res) => {
@@ -21,10 +20,10 @@ exports.fetchCategories = async (req, res) => {
 
 exports.fetchProducts = async (req, res) => {
   try {
-    const products = await Product.find({})
+    const products = await Product.find({});
     res.send(products);
   } catch (error) {
-    res.send({ errorState: 400, message: "0 products found."})
+    res.send({ errorState: 400, message: "0 products found." });
   }
 };
 
@@ -40,7 +39,7 @@ exports.fetchProdById = async (req, res) => {
 };
 
 exports.fetchProdByFilter = async (req, res) => {
-  console.log(req)
+  console.log(req);
   let response;
   const kind = req.params.type;
   const val = req.params.value;
@@ -50,12 +49,10 @@ exports.fetchProdByFilter = async (req, res) => {
 
   if (req.params.type === "price") {
     const nums = req.params.value.split("-");
-    const[ min, max ] = [Number(nums[0]), Number(nums[1])];
+    const [min, max] = [Number(nums[0]), Number(nums[1])];
 
     response = await Product.find({ price: { $gte: min, $lte: max } });
-
   } else if (req.params.type === "brandName") {
-
     const query = { [kind]: val };
     response = await Product.find(query);
   }

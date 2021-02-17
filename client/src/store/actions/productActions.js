@@ -1,5 +1,5 @@
 import axios from "axios";
-import _ from 'lodash'
+import _ from "lodash";
 import {
   FETCH_PRODUCT,
   FETCH_PRODUCTS,
@@ -8,7 +8,7 @@ import {
   FETCH_CATEGORIES,
   FETCH_PROD_BY_FILTER,
   UPDATE_FILTERS,
-  SORT_BY_FILTER
+  SORT_BY_FILTER,
 } from "./types";
 
 export const fetchProducts = () => async (dispatch) => {
@@ -31,10 +31,10 @@ export const fetchProdByCat = (categoryId) => async (dispatch) => {
     : dispatch({ type: FETCH_PROD_BY_CAT, payload: res.data[0] });
 };
 
-export const updateFilters = filter => (getState) => {
-  const filters = getState().filters
-  console.log(filter, filters, 'updateFilters')
-}
+export const updateFilters = (filter) => (getState) => {
+  const filters = getState().filters;
+  console.log(filter, filters, "updateFilters");
+};
 
 export const fetchProdByFilter = (filter) => async (dispatch, getState) => {
   // updateFilters(filter)
@@ -54,14 +54,14 @@ export const fetchCategories = () => async (dispatch) => {
 };
 
 export const sortByFilter = ({ key, value }) => async (dispatch, getState) => {
-  let updated
-  const products = getState().products.products
+  let updated;
+  const products = getState().products.products;
 
-  if(value === 'price') {
-    updated = _.orderBy(products, [`${value}`], [`${key}`])
+  if (value === "price") {
+    updated = _.orderBy(products, [`${value}`], [`${key}`]);
 
-    dispatch({ type: SORT_BY_FILTER, payload: updated })
+    dispatch({ type: SORT_BY_FILTER, payload: updated });
   } else {
-    dispatch(fetchProducts())
+    dispatch(fetchProducts());
   }
-}
+};

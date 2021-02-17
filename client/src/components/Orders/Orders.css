@@ -50,7 +50,6 @@
 }
 
 .order-item-details-container {
-  /* padding-top: 16px; */
   line-height: 1.5;
   display: flex;
 }
@@ -77,10 +76,6 @@
   font-size: 16px;
 }
 
-.order-item-card-wrapper:last-of-type {
-  /* box-shadow: none; */
-}
-
 .orders-list-wrapper {
   padding-right: 20px;
   padding-left: 20px;
@@ -99,7 +94,6 @@
   align-self: center;
   font-size: 16px;
   line-height: 1.5;
-  font-family: "Helvetica Neue";
   font-weight: 400;
   text-align: left;
 }
@@ -128,18 +122,25 @@
     padding-right: 20px;
   }
 
-  .order-item-image-wrapper img { max-width: 118px; }
+  .order-item-image-wrapper img {
+    max-width: 118px;
+  }
 
   .order-item-card-wrapper {
     padding-top: 32px;
     padding-bottom: 32px;
-  }  
-  .order-items-details-list {  padding-bottom: 16px;}
+  }
+  .order-items-details-list {
+    padding-bottom: 16px;
+  }
 
+  .order-item-card-button-container {
+    padding-top: 16px;
+  }
 
-  .order-item-card-button-container { padding-top: 16px}
-
-  .order-item-details-container { flex-direction: column;}
+  .order-item-details-container {
+    flex-direction: column;
+  }
 }
 
 @media only screen and (max-width: 411px) {

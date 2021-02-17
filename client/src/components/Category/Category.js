@@ -11,10 +11,11 @@ const Category = (props) => {
   let count, name, products;
 
   const renderProps = () => {
-    if(props.byCategory ){
-    name = props.byCategory.name || "Clothing";
-    count = props.byCategory.products ? props.byCategory.products.length : 0;
-    products = props.byCategory.products || [];}
+    if (props.byCategory) {
+      name = props.byCategory.name || "Clothing";
+      count = props.byCategory.products ? props.byCategory.products.length : 0;
+      products = props.byCategory.products || [];
+    }
   };
 
   renderProps();

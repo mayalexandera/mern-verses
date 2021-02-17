@@ -137,14 +137,14 @@
   letter-spacing: 1.2px;
 }
 
-@media only screen and (max-width: 411px) {  
+@media only screen and (max-width: 411px) {
   .footer-container {
     padding-left: 8px;
     padding-right: 8px;
   }
 
   .accordion-group {
-    padding: 8px 15px; 
+    padding: 8px 15px;
   }
 }
 
@@ -183,6 +183,4 @@
     width: 25%;
     display: inline-block;
   }
-
 }
-

@@ -168,7 +168,7 @@
     width: 100%;
   }
 
-    .checkout-button-wrapper {
+  .checkout-button-wrapper {
     position: fixed;
     display: block;
     bottom: 0;
@@ -192,19 +192,23 @@
 }
 
 @media only screen and (min-width: 1024px) {
-      .checkout-button-wrapper {
+  .checkout-button-wrapper {
     position: relative;
     display: block;
-    padding-top: 0; 
+    padding-top: 0;
     z-index: 1;
     background: white;
     width: 100%;
     box-shadow: none;
   }
 
-  .checkout-button { margin-bottom: 16px; }
+  .checkout-button {
+    margin-bottom: 16px;
+  }
 
-  .paypal-button { display: block; }
+  .paypal-button {
+    display: block;
+  }
   .cart-summary-container {
     width: 33.3%;
     display: inline-block;
@@ -244,7 +248,7 @@
     padding-left: 12px;
     padding-right: 12px;
   }
-  
+
   .checkout-button-container {
     display: block;
     position: relative;

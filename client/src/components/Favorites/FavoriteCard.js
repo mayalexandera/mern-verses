@@ -3,14 +3,7 @@ import { connect } from "react-redux";
 import { deleteFavorite } from "../../store/actions";
 
 const FavoriteCard = ({
-  product: {
-    _id,
-    productId,
-    name,
-    brandName,
-    price,
-    featuredImage,
-  },
+  product: { _id, productId, name, brandName, price, featuredImage },
   deleteFavorite,
 }) => {
   const clickHandler = (e) => {
@@ -23,7 +16,11 @@ const FavoriteCard = ({
         <a href={`/products/${productId}`}>
           <div className='favorite-item-thumbnail-wrapper'>
             <div className='image-spacer'></div>
-            <img alt={`${name}`} src={featuredImage} className='favorite-item-thumbnail'></img>
+            <img
+              alt={`${name}`}
+              src={featuredImage}
+              className='favorite-item-thumbnail'
+            ></img>
           </div>
         </a>
       </div>
