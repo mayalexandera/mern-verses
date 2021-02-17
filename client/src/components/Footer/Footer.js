@@ -30,7 +30,8 @@ const aboutLinks = [
 const subFooterMenu = ['Guides', 'Terms of State', 'Terms of Use', 'Verses Privacy Policy', 'CA Supply Chains Act']
 
 const socialLinks = ["Twitter", "Facebook", "Youtube", "Instagram"];
-const Footer = () => {
+const Footer = (props) => {
+  console.log(props)
   return (
     <footer className='footer'>
       <div className='footer-container'>
@@ -101,4 +102,4 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+export default (Footer);

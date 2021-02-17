@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter, Route } from "react-router-dom";
+import { BrowserRouter, Route, widh } from "react-router-dom";
 import { connect } from "react-redux";
 import * as actions from "../store/actions";
 
@@ -23,13 +23,13 @@ import AccountSettings from "./AccountSettings/AccountSettings";
 import "./App.css";
 import DropdownContainer from "./Dropdown/DropdownContainer";
 
-const App = () =>  {
+const App = (props) =>  {
  
+  console.log(props)
     return (
       <Layout>
         <BrowserRouter>
           <Header />
-        
           <Route exact path='/' component={Landing} />
           <Route exact path='/member/surveys' component={SurveyDashboard} />
           <Route exact path='/member/surveys/thanks' component={SurveyThanks} />

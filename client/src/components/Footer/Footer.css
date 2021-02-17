@@ -148,7 +148,7 @@
   }
 }
 
-@media only screen and (min-width: 640px) {
+@media only screen and (min-width: 768px) {
   .footer-container {
     padding-top: 40px;
     padding-bottom: 0;
@@ -183,5 +183,6 @@
     width: 25%;
     display: inline-block;
   }
+
 }
 
