@@ -360,6 +360,7 @@ h4 {
 }
 
 @media only screen and (min-width: 768px) {
+
   .cart-list {
     box-shadow: rgb(229, 229, 229) 0px 1px 0px 0px inset;
   }
@@ -382,6 +383,7 @@ h4 {
 }
 
 @media only screen and (min-width: 1024px) {
+    .cart-title { display: block;  padding-left: 8px }
   .cart-favorites {
     padding-top: 20px;
     margin-bottom: 12px;
