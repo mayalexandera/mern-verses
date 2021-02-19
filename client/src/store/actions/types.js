@@ -21,6 +21,7 @@ export const ADD_FAVORITE_FAILED = "add_favorite_failed";
 export const FETCH_FAVORITES_FAILED = "fetch_favorites_failed";
 
 export const ADD_CART_ITEM = "add_cart_item";
+export const ADD_CART_ITEM_FAILED = "add_cart_item_failed";
 export const DELETE_CART_ITEM = "delete_cart_item";
 export const UPDATE_CART_ITEM = "update_cart_item";
 export const FETCH_CART = "fetch_cart";

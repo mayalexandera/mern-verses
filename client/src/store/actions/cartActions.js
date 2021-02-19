@@ -3,16 +3,16 @@ import {
   FETCH_CART,
   ADD_CART_ITEM,
   DELETE_FAVORITE,
+  ADD_CART_ITEM_FAILED,
   DELETE_CART_ITEM,
   UPDATE_CART_ITEM,
   HANDLE_CART_TOTAL,
 } from "./types";
 
 export const fetchCart = () => async (dispatch, getState) => {
-  const user = getState().auth.isLoggedIn;
-  console.log(user);
+  const user = getState().auth.user._id;
   if (user) {
-    const res = await axios.get(`/api/carts`);
+    const res = await axios.get(`/api/cart/${user}`);
 
     await dispatch({ type: FETCH_CART, payload: res.data });
     dispatch(calculateCartTotal());
@@ -23,9 +23,14 @@ export const addCartItem = (product, productSize) => async (
   dispatch,
   getState
 ) => {
-  const res = await axios.post("/api/carts", { product, productSize });
+  const user = getState().auth.user
+  if (user) {
+    const res = await axios.post(`/api/cart/${user._id}/add`, { product, productSize });
+    dispatch({ type: ADD_CART_ITEM, payload: res.data });
+  } else {
+    dispatch({ type: ADD_CART_ITEM_FAILED, payload: "Must be a member to place an order."})
+  }
 
-  dispatch({ type: ADD_CART_ITEM, payload: res.data });
 };
 
 export const addFavoriteToCart = (
@@ -47,9 +52,10 @@ export const addFavoriteToCart = (
 
 export const deleteCartItem = (cartItemId) => async (dispatch, getState) => {
   const user = getState().auth.user._id;
-  const res = await axios.delete(`/api/carts/${user}/${cartItemId}`);
+  const res = await axios.delete(`/api/cart/${user}/${cartItemId}/delete`);
 
   dispatch({ type: DELETE_CART_ITEM, payload: res.data });
+  dispatch(calculateCartTotal());
 };
 
 export const updateCartItem = (field, value, cartItem) => async (
@@ -57,7 +63,7 @@ export const updateCartItem = (field, value, cartItem) => async (
   getState
 ) => {
   const user = getState().auth.user._id;
-  const res = await axios.put(`/api/carts/${user}/${cartItem._id}`, {
+  const res = await axios.put(`/api/carts/${user}/${cartItem._id}/update`, {
     field,
     value,
     cartItem,

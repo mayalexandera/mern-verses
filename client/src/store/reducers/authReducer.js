@@ -9,11 +9,8 @@ const initialState = {
 const authReducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCH_USER:
-      console.log(action.payload)
-      
-       
-      return action.payload
-        ? updateObject(state, { user: { ...action.payload }, isLoggedIn: true })
+      return action.payload.user
+        ? updateObject(state, { user: { ...action.payload.user }, isLoggedIn: true })
         : updateObject(state, { user: null, isLoggedIn: false });
 
     default:

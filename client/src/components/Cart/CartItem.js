@@ -4,13 +4,15 @@ import { NavLink } from "react-router-dom";
 const CartItem = ({ item, deleteCartItem, updateCartItem }) => {
   const quantities = [1, 2, 3, 4, 5, 6, 7, 8];
 
-  const deleteCartItemHandler = () => deleteCartItem(item._id);
+  const deleteCartItemHandler = (e) => {
+    e.preventDefault();
+    deleteCartItem(item._id);
+  };
 
   const updateHandler = (e) => {
     updateCartItem(e.target.id, e.target.value, item);
   };
 
-  console.log(item);
   return (
     <div className='cart-item-wrapper'>
       <div className='cart-item-card-body'>
@@ -34,7 +36,7 @@ const CartItem = ({ item, deleteCartItem, updateCartItem }) => {
                     keyboard_arrow_down
                   </span>
                   <select
-                    value={item.sizeId && item.sizeId._id}
+                    value={item.sizeId._id}
                     id={"sizeId"}
                     className='size-select'
                     onChange={updateHandler}
@@ -100,7 +102,7 @@ const CartItem = ({ item, deleteCartItem, updateCartItem }) => {
               <button
                 name='remove-item-button'
                 className='cart-item-button'
-                onClick={deleteCartItemHandler}
+                onClick={(e) => deleteCartItemHandler(e)}
               >
                 Remove
               </button>

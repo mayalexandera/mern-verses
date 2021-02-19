@@ -25,7 +25,7 @@ function Orders({ orders, fetchOrders }) {
             <div className='order-items-wrapper'>
               <div className='order-items-message'>
                 <div className='order-items-icon-wrapper'>
-                  <img src='https://www.nike.com/assets/experience/membership/profile/dist/2.3.4/images/shopping_wearTests_icon.svg' />
+                  <img alt='shopping cart icon' src='https://www.nike.com/assets/experience/membership/profile/dist/2.3.4/images/shopping_wearTests_icon.svg' />
                 </div>
                 <div className='order-items-message-body'>
                   Click {<span>'View or Manage' </span>}to cancel an order,

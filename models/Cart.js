@@ -44,7 +44,15 @@ CartSchema.methods.createOrUpdateItem = function createOrUpdateItem(
 CartSchema.static(
   "findOneOrCreate",
   async function findOneOrCreate(condition, doc) {
-    const cart = await this.findOne(condition);
+    const cart = await this.findOne(condition).populate({
+          path: "items",
+          populate: { path: "productId", populate: { path: "productSizes" } },
+        })
+        .populate({
+          path: "items",
+          populate: { path: "sizeId", populate: { path: "Size" } },
+        })
+        .exec();
 
     return cart || this.create(doc);
   }

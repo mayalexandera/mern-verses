@@ -25,5 +25,14 @@ const FavoriteListSchema = new Schema({
       default: Date.now,
     },
 });
+
+FavoriteListSchema.static(
+  "findOneOrCreate",
+  async function findOneOrCreate(condition, doc) {
+    const favoriteList = await this.findOne(condition)
+    return favoriteList || this.create(doc)
+  }
+)
+
 const FavoriteList = mongoose.model('FavoriteList', FavoriteListSchema)
 module.exports = FavoriteList

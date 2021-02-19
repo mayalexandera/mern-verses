@@ -5,8 +5,7 @@ const {
 } = require("../controllers/favorites_controller");
 
 module.exports = (app) => {
-  app.post("/api/favoritelists/:id", addFavorite);
-
-  app.get("/api/favoritelists", fetchFavorites);
-  app.delete("/api/favoritelists/:id/:favorite_id", deleteFavorite);
+  app.post("/api/favorites/:id/add", addFavorite);
+  app.get("/api/favorites", fetchFavorites);
+  app.delete("/api/favorites/:id/:favorite_id/delete", deleteFavorite);
 };

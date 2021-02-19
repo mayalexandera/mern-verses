@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { NavLink } from 'react-router-dom'
+import { NavLink } from "react-router-dom";
 import cartSummaryFields from "./cartSummaryFields";
 import "./CartSummary.css";
 
@@ -13,18 +13,10 @@ const CartSummary = ({ cart }) => {
         </div>
       </div>
       <div className='cart-summary-row'>
-        <div className='cart-summary-item col-sm-12'>
-          <div>
-            Do you have a Promo Code?
-            <span class='material-icons'>expand_more</span>
-          </div>
-        </div>
-      </div>
-      <div className='cart-summary-row'>
         <div className='cart-summary-item-sub col-sm-12'>
           <div className='col-sm-9 field-title'>Subtotal</div>
           <div className='col-sm-3 field-value'>
-            <div className='field-value-text'>{cart.totals && `$${cart.totals.subTotal}.00`}</div>
+            <div className='field-value-text'>{`$${cart.totals.subTotal}.00`}</div>
           </div>
         </div>
       </div>

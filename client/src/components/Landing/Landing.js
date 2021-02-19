@@ -1,6 +1,7 @@
 import React, { Fragment } from "react";
 import Content from './Content'
 import "./Landing.css";
+
 const Landing = () => {
   return (
    <Fragment>

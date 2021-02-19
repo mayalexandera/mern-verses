@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { BrowserRouter, Route, widh } from "react-router-dom";
+import React from "react";
+import { BrowserRouter, Route } from "react-router-dom";
 import { connect } from "react-redux";
 import * as actions from "../store/actions";
 
@@ -21,10 +21,8 @@ import Orders from "./Orders/Orders";
 import Plans from "./Plans/Plans";
 import AccountSettings from "./AccountSettings/AccountSettings";
 import "./App.css";
-import DropdownContainer from "./Dropdown/DropdownContainer";
 
-const App = (props) => {
-  console.log(props);
+const App = () => {
   return (
     <Layout>
       <BrowserRouter>
@@ -47,7 +45,7 @@ const App = (props) => {
         <Route path='/orders' component={Orders} />
         <Route path='/cart' component={Cart} />
         <Route path='/checkout' component={Checkout} />
-        <Route path='/order/success/:orderId' component={Checkout} />
+        <Route path='/order/success/:orderId' component={Orders} />
 
         <Route path='/settings' component={AccountSettings} />
         <Footer />

@@ -6,13 +6,12 @@ import DropdownMemberList from "./DropdownMemberList";
 import AccountSubMenuList from "./AccountSubMenuList";
 
 const DropdownContainer = ({ showDropdown }) => {
-  console.log("dropdown");
-
 
   const [selected, setSelected] = useState(false)
   const showAccount = () => {
     setSelected(!selected)
   }
+  
   return (
       <div className='dropdown-container'>
         <div className='dropdown-wrapper'>

@@ -8,7 +8,8 @@ import { CSSTransition } from "react-transition-group";
 import AuthBanner from "../AuthBanner/AuthBanner";
 import "./Header.css";
 
-const Header = ({ favoriteList, cart }) => {
+const Header = ({ cartItems, favoriteItems }) => {
+  
   const [expanded, setExpanded] = useState(false);
   const showDropdown = () => {
     console.log(expanded);
@@ -54,9 +55,9 @@ const Header = ({ favoriteList, cart }) => {
                   </svg>
                   <span className='favorite-count'>
                     {" "}
-                    {favoriteList &&
-                      favoriteList.items &&
-                      favoriteList.items.length}
+                    {
+                      favoriteItems &&
+                      favoriteItems.length}
                   </span>
                 </div>
               </NavLink>
@@ -75,7 +76,7 @@ const Header = ({ favoriteList, cart }) => {
                   </svg>
                 </div>
                 <span className='cart-count'>
-                  {cart && cart.items && cart.items.length}
+                  {cartItems && cartItems.length}
                 </span>
               </NavLink>
             </div>
@@ -101,7 +102,8 @@ const Header = ({ favoriteList, cart }) => {
 };
 
 function mapStateToProps({ cart, favoriteList }) {
-  return { cart, favoriteList };
+  return { cartItems: cart.items,
+  favoriteItems: favoriteList.items  };
 }
 
 export default connect(mapStateToProps, actions)(Header);

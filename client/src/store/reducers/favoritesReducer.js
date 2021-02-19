@@ -3,6 +3,7 @@ import {
   ADD_FAVORITE_FAILED,
   DELETE_FAVORITE,
   FETCH_FAVORITES,
+  FETCH_USER
 } from "../actions/types";
 import { updateObject } from "../../utils/updateObject";
 const initialState = { items: [], error: null, message: null };
@@ -14,7 +15,9 @@ const favoritesReducer = (state = initialState, action) => {
         ? updateObject(state, { message: action.payload.message })
         : action.payload;
     case FETCH_FAVORITES:
-      return action.payload || false;
+      return action.payload
+    case FETCH_USER:
+      return action.payload.favorites 
     case DELETE_FAVORITE:
       return updateObject(state, { items: action.payload.items });
     case ADD_FAVORITE_FAILED:

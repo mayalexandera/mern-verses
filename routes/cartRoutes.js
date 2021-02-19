@@ -2,10 +2,10 @@ const { addToCart, addFavoriteToCart, deleteCartItem, fetchCart, updateCartItem 
 
 module.exports = (app) => {
 
-  app.post("/api/carts", addToCart)
-  app.get("/api/carts", fetchCart)
-  app.delete("/api/carts/:id/:cartItemId", deleteCartItem)
-  app.put("/api/carts/:id/:cartItemId", updateCartItem)
+  app.post("/api/cart/:id/add", addToCart)
+  app.get("/api/cart/:id", fetchCart)
+  app.delete("/api/cart/:id/:cartItemId/delete", deleteCartItem)
+  app.put("/api/cart/:id/:cartItemId/update", updateCartItem)
 
 }
 

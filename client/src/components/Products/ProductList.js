@@ -9,13 +9,12 @@ const ProductList = ({ products, message, sidebar, setSidebar }) => {
       <div className='product-grid-container'>
         <div className='product-grid'>
           <div className='product-grid-items'>
-            {products &&
-              products.map((product, index) => {
+            {
+              products.map((item, index) => {
                 return (
                   <ProductCard
                     key={index}
-                    product={product}
-                    key={product._id}
+                    product={item}
                   />
                 );
               })}

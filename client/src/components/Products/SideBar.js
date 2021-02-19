@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import * as actions from "../../store/actions";
@@ -7,11 +7,10 @@ import productFilters from "./productFilters";
 import SideBarItem from "./SideBarItem";
 import "./SideBar.css";
 
-const SideBar = ({ categories, fetchProdByCat, sidebar, setSidebar }) => {
+const SideBar = ({ categories, fetchProdByCat, sidebar }) => {
   const categoryClick = (cat) => {
     fetchProdByCat(cat);
   };
-  console.log(categories)
 
   return (
     <CSSTransition
@@ -25,7 +24,7 @@ const SideBar = ({ categories, fetchProdByCat, sidebar, setSidebar }) => {
         <div className='left-nav'>
           <div className='categories'>
             {categories &&
-              categories.map(({name, _id}, idx) => (
+              categories.map(({ name, _id }, idx) => (
                 <div key={idx} className='categories__item'>
                   <Link
                     onClick={() => categoryClick(_id)}

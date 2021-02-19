@@ -1,20 +1,7 @@
 import axios from 'axios'
 import { FETCH_USER } from './types'
-import * as actions from '../actions/index'
 
-//setting current_user by finding in collection, or creating a new entry.
 export const fetchUser = () => async (dispatch) => {
-  // const res = await axios.get("/api/current_user");
   const res = await axios.get("/api/current_user");
-console.log(res.data)
- window.localStorage.setItem("user", `${res.data._id}`)
-   dispatch({ type: FETCH_USER, payload: res.data });
-  dispatch(actions.fetchCart())
-  dispatch(actions.fetchFavorites())
+  dispatch({ type: FETCH_USER, payload: res.data });
 };
-
-export const startAuthProcess = () => async(dispatch) => {
-
-}
-
-//add auth handler  

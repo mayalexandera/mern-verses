@@ -32,8 +32,6 @@
   padding-top: 16px;
   padding-bottom: 16px;
   line-height: 1.2;
-  letter-spacing: 1.5px;
-  font-family: "Big Shoulders Display", cursive;
 }
 
 .text-color-grey li {
@@ -46,9 +44,13 @@
   display: inline-block;
 }
 
+.section-header h2 {
+  letter-spacing: 0.7px;
+  font-family: "Big Shoulders Display", cursive;
+}
+
 .section-header a {
   text-align: right;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 12px;
   letter-spacing: 0;
   text-transform: none;

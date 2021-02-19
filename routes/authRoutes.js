@@ -1,8 +1,9 @@
 const passport = require("passport");
 const mongoose = require("mongoose");
-const { runInNewContext } = require("vm");
 const User = mongoose.model("User");
-// object contains all route handlers.
+const Cart = require("../models/Cart");
+const Favorite = require('../models/Favorite')
+
 module.exports = (app) => {
   app.get(
     "/auth/google",
@@ -11,22 +12,11 @@ module.exports = (app) => {
     })
   );
 
-  /* after user comes back from o auth flow,
-  passport middleware does its thing,
-  arrow function redirects to '/surveys'
-  */
   app.get(
     "/auth/google/callback",
-
-    // o auth middleware (google/passport)
     passport.authenticate("google", { failureRedirect: "/" }),
-
-    //this is express arrow function - express provides arguments req & res
     (req, res) => {
-      // console.log(res)
-      // const user = req.user
       res.redirect("/");
-      // res.send()
     }
   );
 
@@ -35,14 +25,13 @@ module.exports = (app) => {
       return res.status(400).send({ error: "No User Found" });
     }
 
-    if (!req.user) {
-      return res.status(400).send({ error: "No User Found" });
-    }
-
     const user = await User.findById(req.user._id).populate({
       path: "membership",
     });
-    res.send(user);
+    const cart = await Cart.findOneOrCreate({ _id: user._id });
+    const favorites = await Favorite.findOneOrCreate({_id: user._id})
+
+    res.send({ user, cart, favorites });
   });
 
   app.get("/api/logout", (req, res) => {

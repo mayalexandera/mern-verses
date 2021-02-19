@@ -1,4 +1,3 @@
-const mongoose = require("mongoose");
 const FavoriteList = require("../models/Favorite");
 
 exports.fetchFavorites = async (req, res) => {
