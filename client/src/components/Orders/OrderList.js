@@ -1,14 +1,16 @@
 import React from "react";
-import CartItemCard from "./OrderItemCard";
+import OrderItemCard from "./OrderItemCard";
 
-const OrderList = ({ order }) => {
+const OrderList = ({ order, orderShow }) => {
   const renderOrderItems = () => {
     return order.items.map((item, index) => {
       return (
-        <CartItemCard
+        <OrderItemCard
+          key={index}
           orderedDate={order.created}
           index={index}
           item={item}
+          orderShow={orderShow}
           orderNumber={order._id}
         />
       );

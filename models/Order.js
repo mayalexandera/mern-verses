@@ -5,6 +5,7 @@ const OrderItemSchema = new Schema({
   productId: { type: Schema.Types.ObjectId, ref: "Product" },
   sizeId: { type: Schema.Types.ObjectId, ref: "Size" },
   orderId: { type: Schema.Types.ObjectId, ref: "Order" },
+  returnDate: Date,
   count: Number,
 });
 

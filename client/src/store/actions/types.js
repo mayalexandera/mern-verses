@@ -29,5 +29,6 @@ export const FETCH_CART = "fetch_cart";
 export const HANDLE_CART_TOTAL = "handle_cart_total";
 
 export const PLACE_ORDER = "place_order";
+export const FETCH_ORDER = 'fetch_order'
 export const FETCH_CURRENT_USER_ORDERS = "fetch_current_user_orders";
 export const FETCH_ORDERS_FAILED = 'fetch_orders_failed'

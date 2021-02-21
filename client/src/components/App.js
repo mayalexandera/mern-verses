@@ -18,6 +18,7 @@ import Product from "./Products/Product";
 import Cart from "./Cart/Cart";
 import Checkout from "./Checkout/Checkout";
 import Orders from "./Orders/Orders";
+import Order from "./Orders/Order";
 import Plans from "./Plans/Plans";
 import AccountSettings from "./AccountSettings/AccountSettings";
 import "./App.css";
@@ -38,20 +39,15 @@ const App = () => {
           exact
           component={Category}
         />
-        <Route
-          exact
-          path='/accessories'
-          exact
-          component={Category}
-        />
+        <Route exact path='/accessories' exact component={Category} />
         <Route exact path='/products/:id' exact component={Product} />
         <Route path='/plans' component={Plans} />
         <Route path='/member/profile' component={Profile} />
         <Route path='/favorites' component={Favorites} />
-        <Route path='/orders' component={Orders} />
+        <Route exact path='/orders' exact component={Orders} />
         <Route path='/cart' component={Cart} />
         <Route path='/checkout' component={Checkout} />
-        <Route path='/order/:orderId' component={Orders} />
+        <Route path='/orders/:orderId' component={Order} />
 
         <Route path='/settings' component={AccountSettings} />
         <Footer />

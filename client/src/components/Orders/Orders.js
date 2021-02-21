@@ -1,18 +1,19 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import * as actions from "../../store/actions";
 import OrderList from "./OrderList";
 import Dashboard from "../Dashboard/Dashboard";
 import "./Orders.css";
 
-function Orders({ orders, fetchCurrentUserOrders }) {
+function Orders({match, orders, fetchCurrentUserOrders }) {
+  const [orderShow, setOrderShow] = useState(false);
   useEffect(() => {
     fetchCurrentUserOrders();
   }, [fetchCurrentUserOrders]);
 
   const renderOrders = () => {
     return orders.orders.map((order) => {
-      return <OrderList order={order} />;
+      return <OrderList key={order._id} orderShow={orderShow} order={order} />;
     });
   };
   return (
@@ -32,7 +33,7 @@ function Orders({ orders, fetchCurrentUserOrders }) {
                   track a shipment, or start a return.
                 </div>
               </div>
-              {orders.orders.length > 0 ? renderOrders() : null}
+              {orders.orders.length > 0 && !match.params.id ? renderOrders() : null}
             </div>
           </div>
         </div>

@@ -28,4 +28,4 @@ export {
 export { fetchPlans } from "./planActions";
 
 export { fetchSizes } from "./sizesActions";
-export { placeOrder, fetchCurrentUserOrders } from "./orderActions";
+export { placeOrder, fetchCurrentUserOrders, fetchOrder } from "./orderActions";

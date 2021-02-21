@@ -1,10 +1,9 @@
 import axios from 'axios'
-import { PLACE_ORDER, FETCH_CURRENT_USER_ORDERS, FETCH_ORDERS_FAILED } from './types' 
+import { PLACE_ORDER, FETCH_ORDER, FETCH_CURRENT_USER_ORDERS, FETCH_ORDERS_FAILED } from './types' 
 
 export const placeOrder = () => async (dispatch, getState) => {
   const cart = getState().cart
   if (cart._id) {
-    debugger
     const response = await axios.post(`/api/orders/${cart._id}/add`, { totals: cart.totals })
     dispatch({ type: PLACE_ORDER, payload: response.data })
 
@@ -14,9 +13,14 @@ export const placeOrder = () => async (dispatch, getState) => {
 export const fetchCurrentUserOrders = () => async (dispatch, getState) => {
   const user = getState().auth.user._id
   const res = await axios.get(`/api/orders/${user}`)
-  debugger
   res.data.status === 404
   ? dispatch({ type: FETCH_ORDERS_FAILED, payload: res.data.message })
   :  dispatch({ type: FETCH_CURRENT_USER_ORDERS, payload: res.data })
  
+}
+
+export const fetchOrder = (orderId) => async (dispatch, getState) => {
+  const user = getState().auth.user._id
+  const res = await axios.get(`/api/orders/${user}/${orderId}`)
+  dispatch({ type: FETCH_ORDER, payload: res.data })
 }

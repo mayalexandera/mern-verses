@@ -80,3 +80,19 @@ exports.placeOrder = async (req, res) => {
     res.status(400).json({ message: error.message })
   }
 }
+
+exports.fetchOrder = async (req, res) => {
+  const orderId = req.params.orderId
+  
+  try {
+    const order = await Order.findById(orderId)
+      .populate({ path: "items", populate: { path: "productId" } })
+      .populate({ path: "items", populate: { path: "sizeId" } })
+      .exec();
+
+      res.send(order)
+
+  } catch (error) {
+    res.status(400).send({ message: error.message })
+  }
+}
