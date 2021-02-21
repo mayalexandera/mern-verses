@@ -11,25 +11,25 @@ import { NavLink } from "react-router-dom";
 
 const SurveyForm = (props) => {
   const renderFields = () => {
-    return _.map(formFields, ({ label, name, className, error }, index) => {
-      return (
-        <Field
-          key={index}
-          error={error}
-          component={SurveyField}
-          type='text'
-          label={label}
-          name={name}
-          className={className}
-        />
-      );
-    });
+    // return _.map(formFields, ({ label, name, className, error }, index) => {
+    //   return (
+    //     <Field
+    //       key={index}
+    //       error={error}
+    //       component={SurveyField}
+    //       type='text'
+    //       label={label}
+    //       name={name}
+    //       className={className}
+    //     />
+    //   );
+    // });
   };
 
   return (
     <div className='survey-form-wrapper'>
       <form onSubmit={props.handleSubmit(props.onSurveySubmit)}>
-        {renderFields()}
+        {/* {renderFields()} */}
         <div className='survey-button-row'>
           <NavLink className='survey-button' to='/member/surveys'>
             Cancel
@@ -46,13 +46,13 @@ const SurveyForm = (props) => {
 function validate(values) {
   const errors = {};
 
-  errors.recipients = validateEmails(values.recipients || "");
+  // errors.recipients = validateEmails(values.recipients || "");
 
-  _.each(formFields, ({ name, noValueError }) => {
-    if (!values[name]) {
-      errors[name] = noValueError;
-    }
-  });
+  // _.each(formFields, ({ name, noValueError }) => {
+  //   if (!values[name]) {
+  //     errors[name] = noValueError;
+  //   }
+  // });
 
   return errors;
 }
