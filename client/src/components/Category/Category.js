@@ -32,6 +32,7 @@ const Category = (props) => {
       <div className='product-container'>
         <div className='product-spacer' />
         <div className='products-section'>
+          {props.message}
           {
             <ProductList
               message={props.message}

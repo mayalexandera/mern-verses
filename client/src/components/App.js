@@ -31,10 +31,16 @@ const App = () => {
         <Route exact path='/member/surveys' component={SurveyDashboard} />
         <Route exact path='/member/surveys/thanks' component={SurveyThanks} />
         <Route path='/member/surveys/new' component={SurveyNew} />
-        <Route path='/products' exact component={Products} />
+        <Route exact path='/products' exact component={Products} />
         <Route
           exact
-          path='/product/list/:category'
+          path='/product/:category/list'
+          exact
+          component={Category}
+        />
+        <Route
+          exact
+          path='/accessories'
           exact
           component={Category}
         />
@@ -45,7 +51,7 @@ const App = () => {
         <Route path='/orders' component={Orders} />
         <Route path='/cart' component={Cart} />
         <Route path='/checkout' component={Checkout} />
-        <Route path='/order/success/:orderId' component={Orders} />
+        <Route path='/order/:orderId' component={Orders} />
 
         <Route path='/settings' component={AccountSettings} />
         <Footer />

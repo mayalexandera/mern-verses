@@ -82,9 +82,9 @@
 }
 .order-items-message {
   display: flex;
+  margin-top: 60px;
   justify-content: center;
   padding-bottom: 40px;
-  box-shadow: inset 0 -1px 0 0 #e5e5e5;
 }
 
 .order-items-message span {
@@ -111,7 +111,7 @@
 
 @media only screen and (min-width: 375px) {
   .orders-list-container {
-    padding-top: 82px;
+    padding-top: 96px;
   }
   .orders-list-wrapper {
     padding: 0;

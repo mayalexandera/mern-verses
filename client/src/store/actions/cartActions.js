@@ -86,11 +86,10 @@ export const calculateCartTotal = () => (dispatch, getState) => {
     newTotal += item.price * item.count;
   });
 
-  totals.subTotal = Number(parseFloat(newTotal.toFixed(2)));
-  totals.estTax = Number(parseFloat(totals.subTotal * 0.08).toFixed(2));
+  totals.subTotal = Number.parseFloat(newTotal.toFixed(2));
+  totals.estTax = Number.parseFloat(totals.subTotal * 0.08).toFixed(2);
   totals.estShipping = 7;
-  totals.total = Number(
-    parseFloat(totals.estShipping + totals.estTax + totals.subTotal).toFixed(2)
-  );
+  totals.total = Number.parseFloat(totals.estShipping + totals.estTax + totals.subTotal).toFixed(2)
+  ;
   dispatch({ type: HANDLE_CART_TOTAL, payload: totals });
 };

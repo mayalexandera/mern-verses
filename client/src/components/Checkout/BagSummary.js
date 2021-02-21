@@ -14,11 +14,11 @@ const BagSummary = ({ totals: { subTotal, estTax, estShipping, total } }) => {
           <div className='summary-col'>
             <div className='summary-row'>
               <div className='col-sm-8'>Subtotal</div>
-              <div className='summary-price col-sm-4'>{`$${subTotal}.00`}</div>
+              <div className='summary-price col-sm-4'>{`$${subTotal}`}</div>
             </div>
             <div className='summary-row'>
               <div className='col-sm-8'>Estimated Shipping</div>
-              <div className='summary-price col-sm-4'>{`$${estShipping}.00`}</div>
+              <div className='summary-price col-sm-4'>{`$${estShipping}`}</div>
             </div>
             <div className='summary-row'>
               <div className='col-sm-8'>Estimated Tax</div>

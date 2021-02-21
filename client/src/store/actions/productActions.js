@@ -3,6 +3,7 @@ import _ from "lodash";
 import {
   FETCH_PRODUCT,
   FETCH_PRODUCTS,
+  FETCH_ACCESSORIES,
   FETCH_PROD_BY_CAT,
   FETCH_PROD_BY_CAT_FAILED,
   FETCH_CATEGORIES,
@@ -19,22 +20,26 @@ export const fetchProducts = () => async (dispatch) => {
 
 export const fetchProduct = (productId) => async (dispatch) => {
   const res = await axios.get(`/api/products/${productId}`);
-
+  
   dispatch({ type: FETCH_PRODUCT, payload: res.data });
 };
 
 export const fetchProdByCat = (categoryId) => async (dispatch) => {
-  const res = await axios.get(`/api/products/list/${categoryId}`);
-
-  res.data.errorStatus
+  const res = await axios.get(`/api/products/${categoryId}/list`);
+  res.data.status === 404 
     ? dispatch({ type: FETCH_PROD_BY_CAT_FAILED, payload: res.data.message })
-    : dispatch({ type: FETCH_PROD_BY_CAT, payload: res.data[0] });
+    : dispatch({ type: FETCH_PROD_BY_CAT, payload: res.data });
 };
 
-export const updateFilters = (filter) => (getState) => {
+export const updateFilters = (filter) => (getState) => {  
   const filters = getState().filters;
   console.log(filter, filters, "updateFilters");
 };
+
+export const fetchAccessories = () => async (dispatch)  => {
+  const res = await axios.get('/api/accessories')
+  dispatch({ type: FETCH_ACCESSORIES, payload: res.data })
+}
 
 export const fetchProdByFilter = (filter) => async (dispatch, getState) => {
   // updateFilters(filter)
@@ -43,7 +48,7 @@ export const fetchProdByFilter = (filter) => async (dispatch, getState) => {
   const res = await axios.get(`/api/products/${filter.type}/${filter.value}`, {
     params: { filters },
   });
-
+  
   dispatch({ type: FETCH_PROD_BY_FILTER, payload: res.data });
 };
 

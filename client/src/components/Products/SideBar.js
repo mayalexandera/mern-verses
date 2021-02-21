@@ -8,8 +8,8 @@ import SideBarItem from "./SideBarItem";
 import "./SideBar.css";
 
 const SideBar = ({ categories, fetchProdByCat, sidebar }) => {
-  const categoryClick = (cat) => {
-    fetchProdByCat(cat);
+  const categoryClick = (categoryId, products) => {
+    fetchProdByCat(categoryId, products);
   };
 
   return (
@@ -23,15 +23,16 @@ const SideBar = ({ categories, fetchProdByCat, sidebar }) => {
       <div className='left-nav-wrapper'>
         <div className='left-nav'>
           <div className='categories'>
+            
             {categories &&
-              categories.map(({ name, _id }, idx) => (
-                <div key={idx} className='categories__item'>
+              categories.map((category, _id) => (
+                <div key={_id} className='categories__item'>
                   <Link
-                    onClick={() => categoryClick(_id)}
-                    to={`/product/list/${name}`}
+                    onClick={() => categoryClick(category._id, category.products )}
+                    to={`/product/${category.name}/list`}
                   >
-                    {name}
-                  </Link>
+                    {category.name}
+                  </Link> 
                 </div>
               ))}
           </div>

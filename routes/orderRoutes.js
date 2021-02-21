@@ -1,9 +1,9 @@
-const { placeOrder, fetchOrders } = require('../controllers/orders_controller')
+const { placeOrder, fetchCurrentUserOrders } = require('../controllers/orders_controller')
 
 module.exports = (app) => {
 
-  app.post('/api/order/add', placeOrder)
+  app.post('/api/orders/:userId/add', placeOrder)
 
-  app.get('/api/orders', fetchOrders )
+  app.get('/api/orders/:userId', fetchCurrentUserOrders)
 
 }

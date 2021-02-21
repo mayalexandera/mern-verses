@@ -20,6 +20,7 @@ export {
   fetchProduct,
   fetchProdByCat,
   fetchCategories,
+  fetchAccessories,
   fetchProdByFilter,
   sortByFilter
 } from "./productActions";
@@ -27,4 +28,4 @@ export {
 export { fetchPlans } from "./planActions";
 
 export { fetchSizes } from "./sizesActions";
-export { placeOrder, fetchOrders } from "./orderActions";
+export { placeOrder, fetchCurrentUserOrders } from "./orderActions";

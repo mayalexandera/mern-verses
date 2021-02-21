@@ -1,60 +1,128 @@
+//Bring in models
 const Product = require("../models/Product");
 const Category = require("../models/Category");
+const Size = require("../models/Size");
 
 exports.fetchProdByCat = async (req, res) => {
+  const categoryId = req.params.categoryId;
+  const query = { _id: categoryId };
   try {
-    const query = { _id: req.params.categoryId };
-    const products = await Category.find(query).populate("products").exec();
+    const category = await Category.findOne(query).populate("products")
 
-    res.send(products);
+    if (category.products.length < 0) {
+      res.send(category);
+    }
+    
+    else {
+      res.send({ status: 404, message: "0 products found." });
+    }
+
   } catch (error) {
-    res.send({ errorStatus: 400, message: "0 products found." });
+    res.status(500).json({ message: error.message });
   }
 };
 
 exports.fetchCategories = async (req, res) => {
-  const categories = await Category.find({});
-  res.send(categories);
+  try {
+    const categories = await Category.find({})
+
+    res.send(categories);
+  } catch (error) {
+    res.status(404).json({ message: error.message });
+  }
 };
 
 exports.fetchProducts = async (req, res) => {
   try {
     const products = await Product.find({});
-    res.send(products);
+
+    if (products.length > 0) {
+      res.send(products);
+    }
+    
+    else {
+     res.send({ status: 404, message: "0 products found." });;
+    }
+    
   } catch (error) {
-    res.send({ errorState: 400, message: "0 products found." });
+
+    res.status(404).json({ message: error.message });
+
   }
+
 };
 
 exports.fetchProdById = async (req, res) => {
-  const query = { _id: req.params.id };
-  const product = await Product.findOne(query)
-    .populate({
-      path: "productSizes",
-      match: { quantity: { $gte: 1 } },
-    })
-    .exec();
-  res.send(product);
+
+  try {
+    const query = { _id: req.params.id };
+    const response = await Product.findOne(query)
+      .populate({
+        path: "productSizes",
+        match: { quantity: { $gte: 1 } },
+      })
+      .exec();
+
+    res.send(response);
+
+  } catch (error) {
+    res.status(404).json({ message: message.error });
+  }
 };
 
 exports.fetchProdByFilter = async (req, res) => {
-  console.log(req);
-  let response;
-  const kind = req.params.type;
+  let query;
+
+  const type = req.params.type;
   const val = req.params.value;
-  if (req.params.type === "expression" || req.params.type === "occasion") {
-    response = await Product.find({ tags: { $in: val } });
+
+  try {
+    if (type === "expression" || type === "occasion") {
+      query = { tags: { $in: val } };
+    }
+
+    if (type === "price") {
+      const prices = val.split("-");
+      const [minPrice, maxPrice] = [Number(prices[0]), Number(prices[1])];
+
+      query = {
+        price: { $gte: minPrice, $lte: maxPrice },
+      };
+    } 
+    
+    else if (type === "brandName") {
+       query = { [kind]: val };
+    }
+
+    const products = await Product.find(query);
+    if (products.length > 0) {
+      res.send(products);
+    } else {
+     res.send({ status: 404, message: "0 products found." });
+    }
+
+  } catch (error) {
+    res.status(500).json({ message: error });
   }
+};
 
-  if (req.params.type === "price") {
-    const nums = req.params.value.split("-");
-    const [min, max] = [Number(nums[0]), Number(nums[1])];
+exports.fetchAccessories = async (req, res) => {
 
-    response = await Product.find({ price: { $gte: min, $lte: max } });
-  } else if (req.params.type === "brandName") {
-    const query = { [kind]: val };
-    response = await Product.find(query);
+  try {
+    const cat = await Category.findOne({ name: "Accessories" });
+    const accessories = await Product.find({ category: cat._id });
+
+    cat.products = accessories;
+
+    await cat.save();
+
+    if (cat.products.length > 0) {
+      res.send(cat);
+    } else {
+     res.send({ status: 404, message: "0 products found." });
+    }
+
+  } catch (error) {
+    res.status(500).json({ message: message.error });
   }
-
-  res.send(response);
 };

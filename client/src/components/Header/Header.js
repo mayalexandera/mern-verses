@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
-import * as actions from "../../store/actions";
+import { fetchAccessories } from "../../store/actions";
 import Hamburger from "./Hamburger";
 import DropdownContainer from "../Dropdown/DropdownContainer";
 import { CSSTransition } from "react-transition-group";
 import AuthBanner from "../AuthBanner/AuthBanner";
 import "./Header.css";
 
-const Header = ({ cartItems, favoriteItems }) => {
+const Header = ({ cartItems, favoriteItems, fetchAccessories }) => {
   
   const [expanded, setExpanded] = useState(false);
   const showDropdown = () => {
@@ -16,6 +16,11 @@ const Header = ({ cartItems, favoriteItems }) => {
     setExpanded(!expanded);
     console.log(expanded);
   };
+
+  const handleClick = () => {
+    console.log("in handleClick")
+    fetchAccessories()
+  }
   return (
     <div className='main-menu-container'>
       <AuthBanner />
@@ -33,7 +38,7 @@ const Header = ({ cartItems, favoriteItems }) => {
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink to='/products'>Accessories</NavLink>
+                  <NavLink onClick={() => handleClick()} to='/accessories'>Accessories</NavLink>
                 </li>
                 <li>
                   <NavLink to='/plans'>Plans</NavLink>
@@ -106,4 +111,4 @@ function mapStateToProps({ cart, favoriteList }) {
   favoriteItems: favoriteList.items  };
 }
 
-export default connect(mapStateToProps, actions)(Header);
+export default connect(mapStateToProps, { fetchAccessories })(Header);

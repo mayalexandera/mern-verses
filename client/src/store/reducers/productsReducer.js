@@ -5,47 +5,66 @@ import {
   FETCH_PROD_BY_CAT_FAILED,
   FETCH_CATEGORIES,
   FETCH_PROD_BY_FILTER,
+  FETCH_ACCESSORIES,
   UPDATE_FILTERS,
   SORT_BY_FILTER,
 } from "../actions/types";
 import { updateObject } from "../../utils/updateObject";
 
 const initialState = {
-  products: null,
+  products: [],
+  accessories: [],
   message: null,
   filters: [],
-  product: null,
-  byCategory: null,
-  category: null,
-  categories: null,
+  product: {},
+  byCategory: [],
+  category: {},
+  categories: [],
 };
 const productsReducer = (state = initialState, action) => {
   switch (action.type) {
+
     case FETCH_PRODUCTS:
-      return (updateObject(state, {
-        products: action.payload, message: null
-      }));
+
+    return updateObject(state, {
+      products: action.payload,
+      message: null,
+    });
 
     case FETCH_PRODUCT:
-      return (
-        updateObject(state, {
-          product: action.payload, message: null
-        }));
+
+    return updateObject(state, {
+      product: action.payload,
+      message: null,
+    });
+
+    case FETCH_ACCESSORIES:
+
+    return updateObject(state, {
+      byCategory: action.payload, message: null
+    });
 
     case FETCH_PROD_BY_CAT:
-      return (updateObject(state, {
-        byCategory: action.payload, message: null
-      }));
+debugger
+    return updateObject(state, {
+      byCategory: action.payload.products,
+      category: action.payload._id,
+      message: null,
+    });
 
     case FETCH_PROD_BY_CAT_FAILED:
-      return updateObject(state, {
-        byCategory: [], message: action.payload
-      });
+ debugger
+    return updateObject(state, {
+      byCategory: [],
+      message: action.payload.message,
+    });
 
     case FETCH_CATEGORIES:
-      return updateObject(state, {
-        categories: action.payload, message: null
-      });
+
+    return updateObject(state, {
+      categories: action.payload,
+      message: null,
+    });
 
     case SORT_BY_FILTER:
       let products = [];
@@ -56,12 +75,11 @@ const productsReducer = (state = initialState, action) => {
 
       return updateObject(state, { products: products });
 
-
     case FETCH_PROD_BY_FILTER:
       let updated = [];
 
       if (action.payload.length === 0) {
-        return updateObject(state, {message: "No products found." });
+        return updateObject(state, { message: "No products found." });
       }
 
       if (state.products.length === 0) {
@@ -88,21 +106,15 @@ const productsReducer = (state = initialState, action) => {
       let updatedFilters = [action.payload];
 
       if (!state.filters) {
-
         return updateObject(state, { filters: updatedFilters });
-
       } else {
-
         state.filters.forEach((filter) => {
-
           updatedFilters.push(JSON.parse(JSON.stringify(filter)));
-
         });
 
         return updateObject(state, { filters: updatedFilters });
-
       }
-      
+
     default:
       return state;
   }

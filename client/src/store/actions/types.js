@@ -4,6 +4,7 @@ export const FETCH_PLANS = "fetch_plans";
 export const FETCH_SURVEYS = "fetch_surveys";
 
 export const FETCH_PRODUCTS = "fetch_products";
+export const FETCH_ACCESSORIES = "fetch_accessories";
 export const FETCH_PRODUCT = "fetch_product";
 export const FETCH_PROD_BY_CAT = "fetch_prod_by_cat";
 export const FETCH_PROD_BY_CAT_FAILED = "fetch_prod_by_cat_failed";
@@ -28,4 +29,5 @@ export const FETCH_CART = "fetch_cart";
 export const HANDLE_CART_TOTAL = "handle_cart_total";
 
 export const PLACE_ORDER = "place_order";
-export const FETCH_ORDERS = "fetch_orders";
+export const FETCH_CURRENT_USER_ORDERS = "fetch_current_user_orders";
+export const FETCH_ORDERS_FAILED = 'fetch_orders_failed'

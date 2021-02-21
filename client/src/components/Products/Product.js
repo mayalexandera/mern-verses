@@ -51,8 +51,9 @@ const Product = ({
     }
   };
 
-  const button = (size_id) => {
-    return size_id === sizeId ? "size-button-clicked" : "size-button";
+  const button = (size_id, quantity) => {
+    const quant = quantity <= 0 ? " disabled" : "active"
+    return size_id === sizeId ? `size-button-clicked ${quant}` : `size-button ${quant}`;
   };
 
   const renderSizeGrid = () => {
@@ -66,7 +67,7 @@ const Product = ({
             value={size._id}
           />
           <label
-            id={button(size._id)}
+            id={button(size._id, size.quantity)}
             htmlFor={size._id}
             className='select-size-label'
             onClick={() => sizeHandler(size)}
@@ -79,7 +80,7 @@ const Product = ({
   };
 
   const renderProduct = () => {
-    return ( product &&
+    return (
       <div>
         <div className='product-details-banner-wrapper'>
           <div>
@@ -240,7 +241,7 @@ const Product = ({
     );
   };
 
-  return <div className='product-show-container'>{renderProduct()}</div>;
+  return <div className='product-show-container'>{product && product.images ? renderProduct(): null}</div>;
 };
 
 const mapStateToProps = ({

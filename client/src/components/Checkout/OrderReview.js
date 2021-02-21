@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { placeOrder, calculateCartTotal } from '../../store/actions'
 
-const OrderReview = ({ placeOrder, calculateCartTotal }) => {
+const OrderReview = ({ orders, placeOrder, calculateCartTotal }) => {
 
   const handleClick = (e) => {
     e.preventDefault()
@@ -36,4 +36,8 @@ const OrderReview = ({ placeOrder, calculateCartTotal }) => {
   );
 }
 
-export default connect(null, { placeOrder, calculateCartTotal })(OrderReview);
+const mapStateToProps =({ orders }) => {
+  return { orders }
+}
+
+export default connect(mapStateToProps, { placeOrder, calculateCartTotal })(OrderReview);

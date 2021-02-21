@@ -5,10 +5,10 @@ import OrderList from "./OrderList";
 import Dashboard from "../Dashboard/Dashboard";
 import "./Orders.css";
 
-function Orders({ orders, fetchOrders }) {
+function Orders({ orders, fetchCurrentUserOrders }) {
   useEffect(() => {
-    fetchOrders();
-  }, [fetchOrders]);
+    fetchCurrentUserOrders();
+  }, [fetchCurrentUserOrders]);
 
   const renderOrders = () => {
     return orders.orders.map((order) => {
