@@ -7,7 +7,7 @@ import formFields from "./formFields";
 import validateEmails from "../../utils/validateEmails";
 import { NavLink } from "react-router-dom";
 // import { Form, Field } from "react-final-form";
-import { reduxForm, Field } from "redux-form";
+// import { reduxForm, Field } from "redux-form";
 
 const SurveyForm = (props) => {
   const renderFields = () => {
@@ -58,8 +58,4 @@ function validate(values) {
 }
 
 // form property defines namespacing for this piece of state.
-export default reduxForm({
-  validate,
-  form: "surveyForm",
-  destroyOnUnmount: false,
-})(SurveyForm);
+export default SurveyForm

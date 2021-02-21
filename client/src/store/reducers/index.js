@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
-import { reducer as reduxForm } from 'redux-form' 
+// import { reducer as reduxForm } from 'redux-form' 
 import authReducer from './authReducer'
 import plansReducer from './plansReducer'
 import surveysReducer from './surveysReducer'
@@ -11,9 +11,9 @@ import orderReducer from './orderReducer'
 
 export default combineReducers({
   auth: authReducer,
-  form: reduxForm,
+  // form: reduxForm,
   plans: plansReducer,
-  surveys: surveysReducer,
+  // surveys: surveysReducer,
   products: productsReducer,
   sizes: sizesReducer,
   favoriteList: favoritesReducer,
