@@ -58,13 +58,13 @@ export const deleteCartItem = (cartItemId) => async (dispatch, getState) => {
   dispatch(calculateCartTotal());
 };
 
-export const updateCartItem = (field, value, cartItem) => async (
+export const updateCartItem = (key, value, cartItem) => async (
   dispatch,
   getState
 ) => {
   const user = getState().auth.user._id;
-  const res = await axios.put(`/api/carts/${user}/${cartItem._id}/update`, {
-    field,
+  const res = await axios.put(`/api/cart/${user}/${cartItem._id}/update`, {
+    key,
     value,
     cartItem,
   });
@@ -86,10 +86,11 @@ export const calculateCartTotal = () => (dispatch, getState) => {
     newTotal += item.price * item.count;
   });
 
+  debugger
   totals.subTotal = Number.parseFloat(newTotal.toFixed(2));
-  totals.estTax = Number.parseFloat(totals.subTotal * 0.08).toFixed(2);
+  totals.estTax = Number.parseFloat(totals.subTotal * 0.08.toFixed(2));
   totals.estShipping = 7;
-  totals.total = Number.parseFloat(totals.estShipping + totals.estTax + totals.subTotal).toFixed(2)
+  totals.total = Number.parseFloat((totals.estShipping + totals.estTax + totals.subTotal).toFixed(2))
   ;
   dispatch({ type: HANDLE_CART_TOTAL, payload: totals });
 };

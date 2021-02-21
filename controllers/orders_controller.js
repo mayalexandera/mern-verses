@@ -9,17 +9,24 @@ exports.placeOrder = async (req, res) => {
 
     const cartId = req.body.cartId;
     const user = req.user._id;
-    const totals = req.params.totals
+    const {estShipping, total, subTotal } = req.body.totals
     
     const cart = await Cart.findById(user);
     
     const order = new Order({
       cartId,
       items: cart.items,
-      totals: totals,
+      totals:{
+        estShipping: estShipping,
+        total: total,
+        subTotal: subTotal
+      },
       user,
+      estShipDate: new Date(Date.now() + 10 * 24 * 60 * 1000 * 60),
     });
     await order.save();
+
+    console.log(order)
     
     const orderDoc = await Order.findById(order._id);
     

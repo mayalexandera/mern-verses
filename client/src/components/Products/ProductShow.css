@@ -209,12 +209,20 @@ input[type="radio"] {
   -webkit-appearance: radio;
 }
 
-#size-button-clicked {
+#size-button-clicked--active {
   border: 1px solid black;
 }
 
-#size-button {
+#size-button--active {
   border: none;
+}
+
+#size-button--disabled,
+#size-button-clicked--disabled {
+  color: rgb(221, 221, 221);
+  background: rgb(247, 247, 247);
+  border: none;
+  cursor: default;
 }
 
 input {

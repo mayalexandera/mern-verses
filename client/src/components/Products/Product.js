@@ -30,9 +30,11 @@ const Product = ({
     const productSize = product.productSizes.filter(
       (size) => size._id === sizeId
     );
-    size !== "" && sizeId
-      ? addCartItem(product, productSize[0])
-      : setErrorMessage("Please select a size.");
+    if(size !== "" && sizeId) {
+      addCartItem(product, productSize[0])
+      setErrorMessage("");
+    }
+    setErrorMessage("Please select a size.");
   };
 
   const handleAddToFavorites = (e) => {
@@ -52,8 +54,8 @@ const Product = ({
   };
 
   const button = (size_id, quantity) => {
-    const quant = quantity <= 0 ? " disabled" : "active"
-    return size_id === sizeId ? `size-button-clicked ${quant}` : `size-button ${quant}`;
+    const quant = quantity <= 0 ? "--disabled" : "--active"
+    return size_id === sizeId ? `size-button-clicked${quant}` : `size-button${quant}`;
   };
 
   const renderSizeGrid = () => {
@@ -67,6 +69,7 @@ const Product = ({
             value={size._id}
           />
           <label
+            disabled={size.quantity <= 0}
             id={button(size._id, size.quantity)}
             htmlFor={size._id}
             className='select-size-label'

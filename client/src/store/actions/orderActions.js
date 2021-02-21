@@ -4,8 +4,8 @@ import { PLACE_ORDER, FETCH_CURRENT_USER_ORDERS, FETCH_ORDERS_FAILED } from './t
 export const placeOrder = () => async (dispatch, getState) => {
   const cart = getState().cart
   if (cart._id) {
-
-    const response = await axios.post(`/api/orders/${cart._id}/add`, { params: { totals: cart.totals }})
+    debugger
+    const response = await axios.post(`/api/orders/${cart._id}/add`, { totals: cart.totals })
     dispatch({ type: PLACE_ORDER, payload: response.data })
 
   }

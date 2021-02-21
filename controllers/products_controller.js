@@ -58,10 +58,8 @@ exports.fetchProdById = async (req, res) => {
     const query = { _id: req.params.id };
     const response = await Product.findOne(query)
       .populate({
-        path: "productSizes",
-        match: { quantity: { $gte: 1 } },
+        path: "productSizes"
       })
-      .exec();
 
     res.send(response);
 
