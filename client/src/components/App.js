@@ -21,7 +21,6 @@ import Orders from "./Orders/Orders";
 import Order from "./Orders/Order";
 import Plans from "./Plans/Plans";
 import AccountSettings from "./AccountSettings/AccountSettings";
-import SettingItem from "./AccountSettings/SettingItem";
 import "./App.css";
 
 const App = () => {
@@ -51,8 +50,6 @@ const App = () => {
         <Route path='/orders/:orderId' component={Order} />
 
         <Route path='/settings' component={AccountSettings} />
-        {/* <Route path='/settings/:setting' component={SettingItem} /> */}
-
         <Footer />
       </BrowserRouter>
     </Layout>
