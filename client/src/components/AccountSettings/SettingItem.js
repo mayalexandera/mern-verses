@@ -5,16 +5,17 @@ import "./SettingItem.css";
 
 const SettingItem = (props) => {
 
+
   const renderAddressForm = () => {
     return accountFields.map((field, index) => {
       return (
         <div key={index} className='email-form-item'>
-          <div className='input-layout-control'>
+          <div className={field.className}>
             <input name={field.name} className='account-form-input'></input>
             <label for={field.name} className='input-layout-control-label'>
               <span>{field.label}</span>
             </label>
-            <fieldset className='account-form-input-fieldset'>
+            <fieldset className={field.fieldset}>
             </fieldset>
           </div>
         </div>
@@ -23,7 +24,7 @@ const SettingItem = (props) => {
   }
   return (
     <div className='mobile-container'>
-      <div className='mobile-container-main'>
+      <div >
         <div className='account-settings-wrapper'>
           <form>
             <div className='form-header-wrapper'>

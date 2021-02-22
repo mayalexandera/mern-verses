@@ -4,7 +4,8 @@ const accountFields = [
     name: "givenName",
     id: "givenName",
     type: "text",
-    className: "survey-field-row",
+    className: "input-layout-control",
+    fieldset: "account-form-input-fieldset",
     noValueError: "You must provide a first name.",
   },
   {
@@ -12,7 +13,8 @@ const accountFields = [
     name: "familyName",
     id: "familyName",
     type: "text",
-    className: "survey-field-row",
+    className: "input-layout-control",
+    fieldset: "account-form-input-fieldset",
     noValueError: "You must provide a last name.",
   },
   {
@@ -20,7 +22,8 @@ const accountFields = [
     name: "address1",
     id: "address1",
     type: "text",
-    className: "survey-field-textarea email-body",
+    className: "input-layout-control",
+    fieldset: "account-form-input-fieldset",
     noValueError: "You must provide an address.",
   },
   {
@@ -28,7 +31,8 @@ const accountFields = [
     name: "address2",
     id: "address2",
     type: "text",
-    className: "survey-field-textarea",
+    className: "input-layout-control",
+    fieldset: "account-form-input-fieldset",
     noValueError: null,
   },
   {
@@ -36,7 +40,9 @@ const accountFields = [
     name: "locality",
     id: "locality",
     type: "text",
-    className: "survey-field-textarea",
+    className: "input-layout-control-sub",
+    fieldset: "account-form-input-fieldset-sub",
+
     noValueError: "You must provide recipient(s).",
   },
   {
@@ -44,7 +50,8 @@ const accountFields = [
     name: "province",
     id: "province",
     type: "text",
-    className: "survey-field-textarea",
+    className: "input-layout-control-sub",
+    fieldset: "account-form-input-fieldset-sub",
     noValueError: "You must provide recipient(s).",
   },
   {
@@ -52,7 +59,8 @@ const accountFields = [
     name: "code",
     id: "code",
     type: "text",
-    className: "survey-field-textarea",
+    className: "input-layout-control-sub",
+    fieldset: "account-form-input-fieldset-sub",
     noValueError: "You must provide recipient(s).",
   },
   {
@@ -60,7 +68,8 @@ const accountFields = [
     name: "country",
     id: "country",
     type: "text",
-    className: "survey-field-textarea",
+    className: "input-layout-control-sub",
+    fieldset: "account-form-input-fieldset-sub",
     noValueError: "You must provide recipient(s).",
   },
 ];

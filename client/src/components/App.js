@@ -52,8 +52,8 @@ const App = () => {
 
         <Route path='/settings' component={AccountSettings} />
         {/* <Route path='/settings/:setting' component={SettingItem} /> */}
-        <Footer />
 
+        <Footer />
       </BrowserRouter>
     </Layout>
   );

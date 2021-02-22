@@ -37,7 +37,6 @@ const subFooterMenu = [
 
 const socialLinks = ["Twitter", "Facebook", "Youtube", "Instagram"];
 const Footer = (props) => {
-  console.log(props);
   return (
     <footer className='footer'>
       <div className='footer-container'>
