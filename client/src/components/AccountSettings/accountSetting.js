@@ -1,6 +1,7 @@
 import React from "react";
+import { NavLink } from 'react-router-dom'
 
-const AccountSetting = ({ item, index }) => {
+const AccountSetting = ({ item , index }) => {
   return (
     <div
       id='settings_col'
@@ -9,7 +10,7 @@ const AccountSetting = ({ item, index }) => {
     >
       <div className='settings-nav-item'>
         <div className='settings-nav-item-button'>
-          <div className='settings-nav-link'>
+          <NavLink to={{pathname:`/settings/${item.id}`, state: item.title }} className='settings-nav-link'>
             <div className='settings-nav-link-icon'>
               <img alt={item.title} src={item.icon}></img>
             </div>
@@ -21,7 +22,7 @@ const AccountSetting = ({ item, index }) => {
             <div className='chevron-right'>
               <span class='material-icons'>chevron_right</span>
             </div>
-          </div>
+          </NavLink>
         </div>
       </div>
     </div>

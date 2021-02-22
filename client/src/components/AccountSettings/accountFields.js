@@ -1,0 +1,68 @@
+const accountFields = [
+  {
+    label: "First Name",
+    name: "givenName",
+    id: "givenName",
+    type: "text",
+    className: "survey-field-row",
+    noValueError: "You must provide a first name.",
+  },
+  {
+    label: "Last Name",
+    name: "familyName",
+    id: "familyName",
+    type: "text",
+    className: "survey-field-row",
+    noValueError: "You must provide a last name.",
+  },
+  {
+    label: "Street Address",
+    name: "address1",
+    id: "address1",
+    type: "text",
+    className: "survey-field-textarea email-body",
+    noValueError: "You must provide an address.",
+  },
+  {
+    label: "Apt, Suite, Building",
+    name: "address2",
+    id: "address2",
+    type: "text",
+    className: "survey-field-textarea",
+    noValueError: null,
+  },
+  {
+    label: "City",
+    name: "locality",
+    id: "locality",
+    type: "text",
+    className: "survey-field-textarea",
+    noValueError: "You must provide recipient(s).",
+  },
+  {
+    label: "State",
+    name: "province",
+    id: "province",
+    type: "text",
+    className: "survey-field-textarea",
+    noValueError: "You must provide recipient(s).",
+  },
+  {
+    label: "Zip",
+    name: "code",
+    id: "code",
+    type: "text",
+    className: "survey-field-textarea",
+    noValueError: "You must provide recipient(s).",
+  },
+  {
+    label: "Country/Region:",
+    name: "country",
+    id: "country",
+    type: "text",
+    className: "survey-field-textarea",
+    noValueError: "You must provide recipient(s).",
+  },
+];
+
+export default accountFields;

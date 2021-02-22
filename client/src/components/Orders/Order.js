@@ -6,7 +6,7 @@ import Dashboard from "../Dashboard/Dashboard";
 import OrderList from "./OrderList";
 
 const Order = (props) => {
-  const [orderShow, setOrderShow] = useState(true)
+  const [orderShow, setOrderShow] = useState(true);
   const orderId = props.match.params.orderId;
 
   useEffect(() => {
@@ -15,15 +15,15 @@ const Order = (props) => {
 
   const renderOrder = () => {
     if (props.order.totals) {
-    const dateType = new Date(props.order.created);
-    let [day, month, date, year] = dateType.toDateString("en-US").split(" ");
-        const returnType = new Date(dateType + 1000000000000);
-        let [
-          returnDay,
-          returnMonth,
-          returnDate,
-          returnYear,
-        ] = returnType.toDateString("en-US").split(" ");
+      const dateType = new Date(props.order.created);
+      const returnType = new Date(dateType + 1000000000000);
+      let [day, month, date, year] = dateType.toDateString("en-US").split(" ");
+      let [
+        returnDay,
+        returnMonth,
+        returnDate,
+        returnYear,
+      ] = returnType.toDateString("en-US").split(" ");
       return (
         <div className='order-detail-wrapper'>
           <div className='order-detail-header'>
@@ -35,6 +35,9 @@ const Order = (props) => {
             </div>
           </div>
           <OrderList orderShow={orderShow} order={props.order} />
+          <div>
+            Shipping
+          </div>
         </div>
       );
     }

@@ -14,6 +14,7 @@ module.exports = OrderItem;
 
 const OrderSchema = new Schema({
   user: { type: Schema.Types.ObjectId, ref: "User" },
+  address:{ type: Schema.Types.ObjectId, ref: "address" },
   items: [OrderItemSchema],
   totals: {
     subTotal: Number,

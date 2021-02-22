@@ -2,8 +2,6 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
-//when designing a schema, you can assign a value type or an object.
-//with an object the first property must be the type.
 const MembershipSchema = new Schema({
   user: { type: Schema.Types.ObjectId, ref: "User" },
   credits: { type: Number, default: 0, min: [ 0, 'Too few credits'] },
@@ -14,8 +12,42 @@ const Membership = mongoose.model("Membership", MembershipSchema);
 
 module.exports = Membership;
 
+const addressSchema = new Schema({
+  user: { type: Schema.Types.ObjectId, ref: "User" },
+  givenName: String,
+  familyName: String,
+  
+  address1: {
+    type: String,
+    required: true,
+  },
+  address2: {
+    type: String,
+    required: false,
+  },
+  locality: {
+    type: String,
+    required: true,
+  },
+  province: {
+    type: String,
+    required: true,
+  },
+  code: {
+    type: Number,
+    required: true,
+  },
+  country: String,
+  email: String,
+});
+
+const address = mongoose.model("address", addressSchema)
+
+module.exports = address;
+
 const UserSchema = new Schema({
   googleId: String,
+  addresses: [addressSchema],
   displayName: String,
   givenName: String,
   familyName: String,
