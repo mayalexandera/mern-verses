@@ -44,26 +44,30 @@ passport.use(
       proxy: true,
     },
     async (accessToken, refreshToken, profile, done) => {
-      // console.log(profile);
-      const existingUser = await User.findOne({
-        googleId: profile.id,
-      });
-
-      if (existingUser) {
-        // console.log(accessToken, refreshToken)
-        return done(null, existingUser, accessToken);
-      } else {
-        const user = await new User({
+      try {
+        const existingUser = await User.findOne({
           googleId: profile.id,
-          displayName: profile.displayName,
-          familyName: profile.name.familyName,
-          givenName: profile.name.givenName,
-          email: profile.emails[0].value,
-          dateJoined: Date.now(),
-          photoUrl: profile.photos[0].value,
-        }).save();
-        done(null, user);
+        });
+
+        if (existingUser) {
+          // console.log(accessToken, refreshToken)
+          return done(null, existingUser, accessToken);
+        } else {
+          const user = await new User({
+            googleId: profile.id,
+            displayName: profile.displayName,
+            familyName: profile.name.familyName,
+            givenName: profile.name.givenName,
+            email: profile.emails[0].value,
+            dateJoined: Date.now(),
+            photoUrl: profile.photos[0].value,
+          }).save();
+          done(null, user);
+        }
+      } catch (error) {
+        res.send({ message: error.message })
       }
+      // console.log(profile);
     }
   )
 );
