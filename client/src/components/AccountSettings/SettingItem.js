@@ -1,7 +1,6 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
 import accountFields from "./accountFields";
-import "./SettingItem.css";
 
 const SettingItem = (props) => {
 
