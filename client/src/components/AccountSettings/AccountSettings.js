@@ -1,10 +1,10 @@
 import React from "react";
 import settings from "./settings";
-import AccountSetting from "./AccountSetting";
+import AccountSetting from "./accountSetting";
 import SettingItem from "./SettingItem";
 import "./AccountSettings.css";
 
-const AccountSettings = (props) => {
+const AccountSettings = () => {
 
   return (
     <div className='settings-container'>
