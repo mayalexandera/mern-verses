@@ -25,6 +25,7 @@ export const fetchProduct = (productId) => async (dispatch) => {
 };
 
 export const fetchProdByCat = (categoryId) => async (dispatch) => {
+  debugger
   const res = await axios.get(`/api/products/${categoryId}/list`);
   res.data.status === 404 
     ? dispatch({ type: FETCH_PROD_BY_CAT_FAILED, payload: res.data.message })

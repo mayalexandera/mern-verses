@@ -13,8 +13,8 @@ const Category = (props) => {
   const renderProps = () => {
     if (props.byCategory) {
       name = props.byCategory.name || "Clothing";
-      count = props.byCategory.products ? props.byCategory.products.length : 0;
-      products = props.byCategory.products || [];
+      count = props.byCategory ? props.byCategory.length : 0;
+      products = props.byCategory || [];
     }
   };
 
@@ -50,6 +50,7 @@ const Category = (props) => {
 const mapStateToProps = (state) => {
   return {
     byCategory: state.products.byCategory,
+    category: state.products.category,
     message: state.products.message,
   };
 };

@@ -6,10 +6,12 @@ const Size = require("../models/Size");
 exports.fetchProdByCat = async (req, res) => {
   const categoryId = req.params.categoryId;
   const query = { _id: categoryId };
+  console.log(req.params)
   try {
     const category = await Category.findOne(query).populate("products")
+    console.log(category)
 
-    if (category.products.length < 0) {
+    if (category.products.length > 0) {
       res.send(category);
     }
     
