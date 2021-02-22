@@ -5,7 +5,6 @@ import "./SettingItem.css";
 
 const SettingItem = (props) => {
 
-
   const renderAddressForm = () => {
     return accountFields.map((field, index) => {
       return (
