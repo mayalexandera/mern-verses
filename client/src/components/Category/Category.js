@@ -8,13 +8,14 @@ import "../Products/Products.css";
 
 const Category = (props) => {
   const [sidebar, setSidebar] = useState(false);
-  let count, name, products;
+  let count, categoryName, products
 
   const renderProps = () => {
-    if (props.byCategory) {
-      name = props.byCategory.name || "Clothing";
-      count = props.byCategory ? props.byCategory.length : 0;
-      products = props.byCategory || [];
+    if (props.categoryProducts) {
+      categoryName = props.categoryName 
+      count = props.categoryProducts ? props.categoryProducts.length : 0;
+      products = props.categoryProducts || [];
+
     }
   };
 
@@ -23,7 +24,7 @@ const Category = (props) => {
   return (
     <Fragment>
       <CategoryHeader
-        category={name}
+        categoryName={categoryName}
         sidebar={sidebar}
         setSidebar={setSidebar}
         count={count}
@@ -32,10 +33,8 @@ const Category = (props) => {
       <div className='product-container'>
         <div className='product-spacer' />
         <div className='products-section'>
-          {props.message}
           {
             <ProductList
-              message={props.message}
               sidebar={sidebar}
               setSidebar={setSidebar}
               products={products}
@@ -49,9 +48,9 @@ const Category = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    byCategory: state.products.byCategory,
-    category: state.products.category,
-    message: state.products.message,
+    categoryProducts: state.products.categoryProducts,
+    categoryId: state.products.categoryId,
+    categoryName: state.products.categoryName,
   };
 };
 

@@ -5,19 +5,14 @@ const Size = require("../models/Size");
 
 exports.fetchProdByCat = async (req, res) => {
   const categoryId = req.params.categoryId;
-  const query = { _id: categoryId };
-  console.log(req.params)
-  try {
-    const category = await Category.findOne(query).populate("products")
-    console.log(category)
 
-    if (category.products.length > 0) {
-      res.send(category);
-    }
-    
-    else {
-      res.send({ status: 404, message: "0 products found." });
-    }
+  try {
+    // const categoryProducts = await Product.find({category: req.params.categoryId})
+    // const category = await Category.findById(categoryId)
+    //   category.products = categoryProducts
+    //   await category.save()
+      const categoryDoc = await Category.findById(categoryId).populate("products")
+      res.send(categoryDoc);
 
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -27,8 +22,8 @@ exports.fetchProdByCat = async (req, res) => {
 exports.fetchCategories = async (req, res) => {
   try {
     const categories = await Category.find({})
-
     res.send(categories);
+
   } catch (error) {
     res.status(404).json({ message: error.message });
   }
@@ -38,7 +33,7 @@ exports.fetchProducts = async (req, res) => {
   try {
     const products = await Product.find({});
 
-    if (products.length > 0) {
+    if (products.length >= 0) {
       res.send(products);
     }
     
@@ -95,14 +90,14 @@ exports.fetchProdByFilter = async (req, res) => {
     }
 
     const products = await Product.find(query);
-    if (products.length > 0) {
+    if (products.length >= 0) {
       res.send(products);
     } else {
      res.send({ status: 404, message: "0 products found." });
     }
 
   } catch (error) {
-    res.status(500).json({ message: error });
+    res.status(500).json({ message: error.message });
   }
 };
 
@@ -116,7 +111,7 @@ exports.fetchAccessories = async (req, res) => {
 
     await cat.save();
 
-    if (cat.products.length > 0) {
+    if (cat.products.length >= 0) {
       res.send(cat);
     } else {
      res.send({ status: 404, message: "0 products found." });

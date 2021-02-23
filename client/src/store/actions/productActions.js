@@ -25,8 +25,8 @@ export const fetchProduct = (productId) => async (dispatch) => {
 };
 
 export const fetchProdByCat = (categoryId) => async (dispatch) => {
-  debugger
   const res = await axios.get(`/api/products/${categoryId}/list`);
+ 
   res.data.status === 404 
     ? dispatch({ type: FETCH_PROD_BY_CAT_FAILED, payload: res.data.message })
     : dispatch({ type: FETCH_PROD_BY_CAT, payload: res.data });
@@ -43,7 +43,6 @@ export const fetchAccessories = () => async (dispatch)  => {
 }
 
 export const fetchProdByFilter = (filter) => async (dispatch, getState) => {
-  // updateFilters(filter)
   dispatch({ type: UPDATE_FILTERS, payload: filter });
   const filters = getState().products.filters;
   const res = await axios.get(`/api/products/${filter.type}/${filter.value}`, {

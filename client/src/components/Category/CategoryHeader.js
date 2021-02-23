@@ -6,7 +6,7 @@ import Breadcrumbs from './Breadcrumbs'
 import "./CategoryHeader.css";
 
 const CategoryHeader = ({
-  category,
+  categoryName,
   sidebar,
   setSidebar,
   count,
@@ -40,13 +40,14 @@ const CategoryHeader = ({
   };
 
   const renderCategoryHeader = () => {
+    
     return(
       <div className='wall-header-container'>
         <div className='wall-header-anchor-point'></div>
         <header className='wall-header'>
           <div className='wall-header__content'>
             <h1 className='wall-header__title'>
-              {category || 'Clothing'}
+              {categoryName || 'Clothing'}
               <span className='wall-header__item-count'>{`(${count})` || 0 }</span>
             </h1>
             <nav className='wall-header__nav'>
@@ -125,5 +126,10 @@ const CategoryHeader = ({
 
   return <React.Fragment>{renderCategoryHeader()}</React.Fragment>;
 };
+
+const mapStateToProps = ({ products }) => {
+  return { byCategory: products.byCategory,
+  }
+}
 
 export default connect(null, { sortByFilter })(CategoryHeader);

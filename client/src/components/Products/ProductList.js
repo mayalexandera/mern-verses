@@ -2,11 +2,12 @@ import React from "react";
 import ProductCard from "./ProductCard";
 import SideBar from "./SideBar";
 
-const ProductList = ({ products, message, sidebar, setSidebar }) => {
+const ProductList = ({ products, message, sidebar, setSidebar }) => { 
   return (
     <div className='product-results-body'>
       <SideBar setSidebar={setSidebar} sidebar={sidebar} />
       <div className='product-grid-container'>
+        {message && message}
         <div className='product-grid'>
           <div className='product-grid-items'>
             {products &&

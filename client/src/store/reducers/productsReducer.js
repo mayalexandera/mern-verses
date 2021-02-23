@@ -14,11 +14,11 @@ import { updateObject } from "../../utils/updateObject";
 const initialState = {
   products: [],
   accessories: [],
-  message: null,
   filters: [],
   product: {},
-  byCategory: [],
-  category: {},
+  categoryProducts: [],
+  categoryName: null,
+  categoryId: null,
   categories: [],
 };
 const productsReducer = (state = initialState, action) => {
@@ -41,21 +41,24 @@ const productsReducer = (state = initialState, action) => {
     case FETCH_ACCESSORIES:
 
     return updateObject(state, {
-      byCategory: action.payload, message: null
+      categoryProducts: action.payload.products,
+      categoryName: action.payload.name,
+      categoryId: action.payload._id,
+      message: null,
     });
 
     case FETCH_PROD_BY_CAT:
-debugger
     return updateObject(state, {
-      byCategory: action.payload.products,
-      category: action.payload._id,
+      categoryProducts: action.payload.products,
+      categoryName: action.payload.name, 
+      categoryId: action.payload._id,
       message: null,
     });
 
     case FETCH_PROD_BY_CAT_FAILED:
  debugger
     return updateObject(state, {
-      byCategory: [],
+      categoryProducts: [],
       message: action.payload.message,
     });
 
