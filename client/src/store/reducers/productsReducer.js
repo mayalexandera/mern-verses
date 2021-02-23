@@ -19,9 +19,11 @@ const initialState = {
   categoryProducts: [],
   categoryName: null,
   categoryId: null,
+  message: null,
   categories: [],
 };
 const productsReducer = (state = initialState, action) => {
+  let newMessage;
   switch (action.type) {
 
     case FETCH_PRODUCTS:
@@ -39,24 +41,25 @@ const productsReducer = (state = initialState, action) => {
     });
 
     case FETCH_ACCESSORIES:
+       newMessage = action.payload.products === 0 ? "0 products found" : null;
 
     return updateObject(state, {
       categoryProducts: action.payload.products,
       categoryName: action.payload.name,
       categoryId: action.payload._id,
-      message: null,
+      message: newMessage,
     });
 
     case FETCH_PROD_BY_CAT:
+       newMessage = action.payload.products === 0 ? "0 products found" : null;
     return updateObject(state, {
       categoryProducts: action.payload.products,
       categoryName: action.payload.name, 
       categoryId: action.payload._id,
-      message: null,
+      message: newMessage,
     });
 
     case FETCH_PROD_BY_CAT_FAILED:
- debugger
     return updateObject(state, {
       categoryProducts: [],
       message: action.payload.message,
@@ -79,14 +82,16 @@ const productsReducer = (state = initialState, action) => {
       return updateObject(state, { products: products });
 
     case FETCH_PROD_BY_FILTER:
+      newMessage = action.payload.length === 0 ? "0 products found" : null;
       let updated = [];
 
       if (action.payload.length === 0) {
-        return updateObject(state, { message: "No products found." });
+        return updateObject(state, { message: newMessage });
       }
 
       if (state.products.length === 0) {
         return updateObject(state, { products: action.payload, message: null });
+        
       } else {
         action.payload.forEach((item) => {
           updated.push(JSON.parse(JSON.stringify(item)));
